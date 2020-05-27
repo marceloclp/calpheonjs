@@ -30,3 +30,18 @@ export enum EntityTypes {
 export enum Locales {
     US = 'us',   
 }
+
+/**
+ * The supported item categories.
+ * 
+ * Each item has a category (equipment, consumable, etc) which unlocks different
+ * properties. Categories that have been accounted to and should be working as
+ * intended can be found here.
+ */
+export enum Categories {
+    EQUIPMENT = 'equipment',
+    CRAFTING_MATERIAL = 'crafting_material',
+    CONSUMABLE = 'consumable',
+    INSTALLABLE_OBJECT = 'installable_object',
+    UNDEFINED = 'undefined',
+}

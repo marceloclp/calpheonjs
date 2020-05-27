@@ -2,6 +2,7 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import { Scraper } from "../../../src/scrapers/scraper";
 import { scrapeMock as scrape } from "../../utils/scrape-mock";
+import { Categories } from "../../../src/enums";
 
 describe('https://bdocodex.com/us/item/2706/', () => {
     let item: Scraper;
@@ -40,6 +41,10 @@ describe('https://bdocodex.com/us/item/2706/', () => {
 
     it('#category', () => {
         expect(item.category).to.equal('Installable Object');
+    });
+
+    it('#category_id', () => {
+        expect(item.category_id).to.equal(Categories.INSTALLABLE_OBJECT);
     });
 
     it('#weight', () => {

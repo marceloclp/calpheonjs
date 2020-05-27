@@ -2,6 +2,7 @@ import { Locales, EntityTypes, Dbs } from "../enums";
 import { Prices } from "./interfaces/prices";
 import { deepFilter } from "../utils/functions/cheerio-utils";
 import { indexFromArr, cleanForOutput, splitAtSubstrs } from "../utils/functions/string-utils";
+import { normalizeCategory } from "../utils/functions/normalize-category";
 
 export class Scraper {
     constructor(
@@ -58,6 +59,10 @@ export class Scraper {
 
     get category(): string {
         return cleanForOutput(this.$('.category_text').text());
+    }
+
+    get category_id(): string {
+        return normalizeCategory(this.category, this.locale as Locales);
     }
 
     get weight(): string {
