@@ -18,11 +18,11 @@ describe('https://bdocodex.com/us/item/11629/', () => {
     it('#url', () => {
         expect(item.url).to.equal('https://bdocodex.com/us/item/11629/');
     });
-    
+
     it('#id', () => {
         expect(item.id).to.equal('11629');
     });
-    
+
     it('#locale', () => {
         expect(item.locale).to.equal('us');
     });
@@ -67,118 +67,140 @@ describe('https://bdocodex.com/us/item/11629/', () => {
         expect(item.prices).to.eql({ buy: 125000000, sell: 335000, repair: 10000 });
     });
 
-    it('#enchantment_stats', () => {
-        expect(item.enchantment_stats).to.eql([{
+    it('#enhancement_stats', () => {
+        expect(item.enhancement_stats).to.eql([{
+            stats: {
+                damage: 10,
+                defense: 0,
+                accuracy: 4,
+                evasion: 0,
+                dmg_reduction: 0,
+            },
             success_rate: 25.00,
-            damage: [10, 10],
-            defense: [0],
-            accuracy: [4],
-            evasion: [0],
-            dmg_reduction: [0],
             durability: 100,
-            cron_value: 62,
-            cron_tvalue: 62,
+            cron_value_next: 62,
+            cron_value_total: 62,
             enchant_item_counter: 1,
             pe_item_counter: 0,
-            fail_dura_dec: 10,
+            durability_loss_on_failure: 10,
             pe_dura_dec: 0,
-            required_enchantment_item: {
+            required_enhancement_item: {
                 id: '11629',
                 icon: 'https://bdocodex.com/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                 name: 'Tungrad Necklace',
             },
-            item_effects: [],
+            enhancement_effects: [],
         }, {
+            stats: {
+                damage: 15,
+                defense: 0,
+                accuracy: 8,
+                evasion: 0,
+                dmg_reduction: 0,
+            },
             success_rate: 10.00,
-            damage: [15, 15],
-            defense: [0],
-            accuracy: [8],
-            evasion: [0],
-            dmg_reduction: [0],
             durability: 100,
-            cron_value: 187,
-            cron_tvalue: 249,
+            cron_value_next: 187,
+            cron_value_total: 249,
             enchant_item_counter: 1,
             pe_item_counter: 0,
-            fail_dura_dec: 10,
+            durability_loss_on_failure: 10,
             pe_dura_dec: 0,
-            required_enchantment_item: {
+            required_enhancement_item: {
                 id: '11629',
                 icon: 'https://bdocodex.com/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                 name: 'Tungrad Necklace',
             },
-            item_effects: [],
+            enhancement_effects: [],
         }, {
+            stats: {
+                damage: 20,
+                defense: 0,
+                accuracy: 12,
+                evasion: 0,
+                dmg_reduction: 0,
+            },
             success_rate: 7.50,
-            damage: [20, 20],
-            defense: [0],
-            accuracy: [12],
-            evasion: [0],
-            dmg_reduction: [0],
             durability: 100,
-            cron_value: 562,
-            cron_tvalue: 811,
+            cron_value_next: 562,
+            cron_value_total: 811,
             enchant_item_counter: 1,
             pe_item_counter: 0,
-            fail_dura_dec: 10,
+            durability_loss_on_failure: 10,
             pe_dura_dec: 0,
-            required_enchantment_item: {
+            required_enhancement_item: {
                 id: '11629',
                 icon: 'https://bdocodex.com/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                 name: 'Tungrad Necklace',
             },
-            item_effects: [],
+            enhancement_effects: [],
         }, {
+            stats: {
+                damage: 25,
+                defense: 0,
+                accuracy: 16,
+                evasion: 0,
+                dmg_reduction: 0,
+            },
             success_rate: 2.50,
-            damage: [25, 25],
-            defense: [0],
-            accuracy: [16],
-            evasion: [0],
-            dmg_reduction: [0],
             durability: 100,
-            cron_value: 1562,
-            cron_tvalue: 2373,
+            cron_value_next: 1562,
+            cron_value_total: 2373,
             enchant_item_counter: 1,
             pe_item_counter: 0,
-            fail_dura_dec: 10,
+            durability_loss_on_failure: 10,
             pe_dura_dec: 0,
-            required_enchantment_item: {
+            required_enhancement_item: {
                 id: '11629',
                 icon: 'https://bdocodex.com/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                 name: 'Tungrad Necklace',
             },
-            item_effects: [],
+            enhancement_effects: [],
         }, {
+            stats: {
+                damage: 30,
+                defense: 0,
+                accuracy: 20,
+                evasion: 0,
+                dmg_reduction: 0,
+            },
             success_rate: 0.50,
-            damage: [30, 30],
-            defense: [0],
-            accuracy: [20],
-            evasion: [0],
-            dmg_reduction: [0],
             durability: 100,
-            cron_value: 7499,
-            cron_tvalue: 9872,
+            cron_value_next: 7499,
+            cron_value_total: 9872,
             enchant_item_counter: 1,
             pe_item_counter: 0,
-            fail_dura_dec: 10,
+            durability_loss_on_failure: 10,
             pe_dura_dec: 0,
-            required_enchantment_item: {
+            required_enhancement_item: {
                 id: '11629',
                 icon: 'https://bdocodex.com/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                 name: 'Tungrad Necklace',
             },
-            item_effects: [],
+            enhancement_effects: [],
         }, {
+            stats: {
+                damage: 35,
+                defense: 0,
+                accuracy: 24,
+                evasion: 0,
+                dmg_reduction: 0,
+            },
             success_rate: 0,
-            damage: [35, 35],
-            defense: [0],
-            accuracy: [24],
-            evasion: [0],
-            dmg_reduction: [0],
             durability: 100,
-            cron_value: 0,
-            cron_tvalue: 9872,
-            item_effects: [],
+            cron_value_next: 0,
+            cron_value_total: 9872,
+            enhancement_effects: [],
         }]);
+    });
+
+    it('#stats', () => {
+        expect(item.stats).to.eql({
+            damage: 10,
+            defense: 0,
+            accuracy: 4,
+            evasion: 0,
+            dmg_reduction: 0,
+        });
     });
 });

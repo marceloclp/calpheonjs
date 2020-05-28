@@ -1,5 +1,5 @@
 import { Locales, EntityTypes, Dbs, Categories } from "../enums";
-import { Prices } from "./interfaces/prices";
+import { IPrices } from "./interfaces/prices.interface";
 import { deepFilter } from "../utils/functions/cheerio-utils";
 import { indexFromArr, cleanForOutput, splitAtSubstrs } from "../utils/functions/string-utils";
 import { normalizeCategory } from "../utils/functions/normalize-category";
@@ -109,7 +109,7 @@ export class Scraper {
         return cleanForOutput(val);
     }
 
-    get prices(): Prices {
+    get prices(): IPrices {
         const matches = {
             buy:    { [Locales.US]: ['Buy'] }[this._locale],
             sell:   { [Locales.US]: ['Sell'] }[this._locale],
@@ -131,6 +131,6 @@ export class Scraper {
                 replaceTuples: [[/\D/g, '']],
                 transformFn: parseInt
             }), ...prices };
-        }, {} as Prices);
+        }, {} as IPrices);
     }
 }

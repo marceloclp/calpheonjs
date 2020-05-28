@@ -4,11 +4,11 @@ import { scrapeMock as scrape } from "../../utils/scrape-mock";
 import { Categories } from "../../../src/enums";
 import { EquipmentScraper } from "../../../src/scrapers/equipment.scraper";
 
-describe('https://bdocodex.com/us/item/16832/', () => {
+describe('https://bdocodex.com/us/item/10991/', () => {
     let item: EquipmentScraper;
 
     before(async () => {
-        item = await scrape('16832') as EquipmentScraper;
+        item = await scrape('10991') as EquipmentScraper;
     });
 
     it('#instanceOf', () => {
@@ -16,11 +16,11 @@ describe('https://bdocodex.com/us/item/16832/', () => {
     });
 
     it('#url', () => {
-        expect(item.url).to.equal('https://bdocodex.com/us/item/16832/');
+        expect(item.url).to.equal('https://bdocodex.com/us/item/10991/');
     });
     
     it('#id', () => {
-        expect(item.id).to.equal('16832');
+        expect(item.id).to.equal('10991');
     });
     
     it('#locale', () => {
@@ -31,16 +31,8 @@ describe('https://bdocodex.com/us/item/16832/', () => {
         expect(item.type).to.equal('item');
     });
 
-    it('#icon', () => {
-        expect(item.icon).to.equal('https://bdocodex.com/items/new_icon/06_pc_equipitem/00_common/00_etc/00016832.png');
-    });
-
     it('#name', () => {
-        expect(item.name).to.equal('Magic Pickaxe');
-    });
-
-    it('#name_alt', () => {
-        expect(item.name_alt).to.equal('마력이 깃든 곡괭이');
+        expect(item.name).to.equal(`Beia's Black Magic Gloves`);
     });
 
     it('#category', () => {
@@ -52,28 +44,25 @@ describe('https://bdocodex.com/us/item/16832/', () => {
     });
 
     it('#weight', () => {
-        expect(item.weight).to.equal('1.00 LT');
-    });
-
-    it('#grade', () => {
-        expect(item.grade).to.equal(3);
+        expect(item.weight).to.equal('17.00 LT');
     });
 
     it('#description', () => {
-        expect(item.description).to.equal('A gathering tool made for extracting ore and minerals from rock. It increases luck when gathering.');
+        expect(item.description).to.equal('A pair of gloves that Beia, the Chief Investigator of Tarif, left as a farewell present. There is writing on its decoration.');
     });
 
     it('#prices', () => {
-        expect(item.prices).to.eql({ buy: 40000, sell: 4000, repair: 0 });
+        expect(item.prices).to.eql({ buy: 1200000, sell: 120000, repair: 3250 });
     });
 
     it('#stats', () => {
         expect(item.stats).to.eql({
             damage: 0,
-            defense: 0,
+            defense: 38,
             accuracy: 0,
-            evasion: 0,
-            dmg_reduction: 0,
+            evasion: 19,
+            h_evasion: 61,
+            dmg_reduction: 19,
         });
     });
 });
