@@ -1,19 +1,15 @@
 export enum StatsEnum {
-    /** Base damage equipment of an equipment. */
+    // The base stat value.
     DAMAGE = 'damage',
-    
-    /** Base defense attribute of an equipment. */
     DEFENSE = 'defense',
-    
-    /** Base accuracy attribute of an equipment. */
     ACCURACY = 'accuracy',
-    
-    /** Base evasion attribute of an equipment. */
     EVASION = 'evasion',
-
-    /** The bonus evasion inside parenthesis. */
-    H_EVASION = 'h_evasion',
-    
-    /** Base damage reduction of an equipment. */
     DMG_REDUCTION = 'dmg_reduction',
+
+    // The stat bonus value (inside the parenthesis).
+    H_DAMAGE = 'h_damage',
+    H_DEFENSE = 'h_defense',
+    H_ACCURACY = 'h_accuracy',
+    H_EVASION = 'h_evasion',
+    H_DMG_REDUCTION = 'h_dmg_reduction',
 }

@@ -628,4 +628,8 @@ describe('https://bdocodex.com/us/item/13210/', () => {
             ],
         }]);
     });
+
+    it('#exclusive_to', () => {
+        expect(item.exclusive_to).to.eql(['Tamer', 'Kunoichi', 'Ninja']);
+    });
 });
