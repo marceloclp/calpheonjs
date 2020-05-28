@@ -6,20 +6,25 @@ import { normalizeCategory } from "../utils/functions/normalize-category";
 
 export class Scraper {
     constructor(
-        private readonly _url: string,
+        protected readonly _url: string,
 
-        private readonly _id: string,
+        protected readonly _id: string,
         
-        private readonly _db: Dbs,
+        protected readonly _db: Dbs,
 
-        private readonly _locale: Locales,
+        protected readonly _locale: Locales,
 
-        private readonly _type: EntityTypes,
+        protected readonly _type: EntityTypes,
 
-        private readonly $: CheerioStatic,
+        protected readonly $: CheerioStatic,
     ) {}
 
-    private getBodyNodes(deep?: boolean): CheerioElement[] {
+    protected parseIconUrl(icon: string): string {
+        return `https://${this._db}` +
+            (icon.charAt(0) === '/' ? '' : '/') + icon;
+    }
+
+    protected getBodyNodes(deep?: boolean): CheerioElement[] {
         const nodes = this.$('table.smallertext > tbody > tr > td')
             .contents()
             .toArray();
@@ -45,8 +50,7 @@ export class Scraper {
     }
 
     get icon(): string {
-        return `https://${this._db}` +
-            (this.$('.item_icon').attr('src') as string);
+        return this.parseIconUrl(this.$('.item_icon').attr('src') as string);
     }
 
     get name(): string {
