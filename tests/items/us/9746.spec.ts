@@ -11,6 +11,10 @@ describe('https://bdocodex.com/us/item/9746/', () => {
         item = await scrape('9746');
     });
 
+    it('#instanceOf', () => {
+        expect(item).to.be.instanceOf(Scraper);
+    });
+
     it('#url', () => {
         expect(item.url).to.equal('https://bdocodex.com/us/item/9746/');
     });

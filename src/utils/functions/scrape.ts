@@ -1,7 +1,7 @@
 import { fetch } from "./fetch";
 import { Scraper } from "../../scrapers/scraper";
-import { ItemScraper } from "../../scrapers/item.scraper";
 import { Dbs, Locales, EntityTypes } from "../../enums";
+import ScrapeFactory from "../../scrapers";
 
 export interface ScrapeOptions {
     readonly baseUrl: Dbs;
@@ -25,22 +25,11 @@ export const scrape = async (id: string, options = defaultOptions): Promise<Scra
 
     const $ = await fetch(url);
 
-    let scraper;
-    switch (options.type) {
-        case EntityTypes.ITEM:
-            scraper = ItemScraper;
-            break;
-        default:
-            scraper = Scraper;
-            break;
-    }
-
-    return new scraper(
-        url,
+    return ScrapeFactory(url,
         id,
         options.baseUrl,
         options.locale,
         options.type,
-        $,
+        $
     );
 }

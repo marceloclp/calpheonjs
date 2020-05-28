@@ -1,4 +1,4 @@
-import { Locales, EntityTypes, Dbs } from "../enums";
+import { Locales, EntityTypes, Dbs, Categories } from "../enums";
 import { Prices } from "./interfaces/prices";
 import { deepFilter } from "../utils/functions/cheerio-utils";
 import { indexFromArr, cleanForOutput, splitAtSubstrs } from "../utils/functions/string-utils";
@@ -61,7 +61,7 @@ export class Scraper {
         return cleanForOutput(this.$('.category_text').text());
     }
 
-    get category_id(): string {
+    get category_id(): Categories {
         return normalizeCategory(this.category, this.locale as Locales);
     }
 

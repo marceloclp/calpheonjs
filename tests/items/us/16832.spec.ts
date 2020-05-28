@@ -3,12 +3,17 @@ import { expect } from "chai";
 import { Scraper } from "../../../src/scrapers/scraper";
 import { scrapeMock as scrape } from "../../utils/scrape-mock";
 import { Categories } from "../../../src/enums";
+import { EquipmentScraper } from "../../../src/scrapers/equipment.scraper";
 
 describe('https://bdocodex.com/us/item/16832/', () => {
     let item: Scraper;
 
     before(async () => {
         item = await scrape('16832');
+    });
+
+    it('#instanceOf', () => {
+        expect(item).to.be.instanceOf(EquipmentScraper);
     });
 
     it('#url', () => {
