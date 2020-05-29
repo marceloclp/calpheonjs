@@ -77,4 +77,8 @@ describe('https://bdocodex.com/us/item/703549/', () => {
     it('#exclusive_to', () => {
         expect(item.exclusive_to).to.eql(['Striker', 'Mystic']);
     });
+
+    it('#caphras_stats', () => {
+        expect(item.caphras_stats).to.eql({ 18: [], 19: [], 20: [] });
+    });
 });

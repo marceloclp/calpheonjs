@@ -32,11 +32,13 @@ export enum Locales {
 }
 
 /**
- * The supported item categories.
+ * The supported item categories (eg. `equipment`, `consumable`).
  * 
- * Each item has a category (equipment, consumable, etc) which unlocks different
- * properties. Categories that have been accounted to and should be working as
- * intended can be found here.
+ * This is used to map an entity to a more specific constructor, which unlocks
+ * category-specific properties. If the item's category isn't categorized, it
+ * will default to `UNDEFINED`.
+ * 
+ * Please open an issue so support can be added.
  */
 export enum Categories {
     EQUIPMENT = 'equipment',

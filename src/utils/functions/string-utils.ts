@@ -12,12 +12,12 @@ export const indexFromArr = (
     str: string,
     substrs: string[],
     startIdx?: number
-): { idx: number, substr?: string } => {
+): { idx: number, substr: string } => {
     for (let substr of substrs) {
         const idx = str.indexOf(substr, startIdx);
         if (idx >= 0) return { idx, substr };
     }
-    return { idx: -1 };
+    return { idx: -1 } as any;
 }
 
 export const cleanForOutput = <T = string>(

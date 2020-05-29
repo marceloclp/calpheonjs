@@ -61,4 +61,36 @@ describe('https://bdocodex.com/us/item/11016/', () => {
             ],
         })
     });
+
+    describe('> caphras_stats', () => {
+        it('#caphras_stats.18.[0]', () => {
+            expect(item.caphras_stats[18]?.[0]).to.eql({
+                count_next: 19,
+                count_total: 0,
+                stats: {},
+            });
+        });
+    
+        it('#caphras_stats.18.[1]', () => {
+            expect(item.caphras_stats[18]?.[1]).to.eql({
+                count_next: 28,
+                count_total: 19,
+                stats: {
+                    damage: 0,
+                    evasion: 0,
+                    accuracy: 0,
+                    defense: 0,
+                    h_evasion: 0,
+                    h_defense: 0,
+                    hp: 10,
+                    mp: 0,
+                },
+            });
+        });
+    
+        it('#caphras_stats.18.length', () => {
+            expect(item.caphras_stats[18]?.length).to.equal(21);
+        });
+    })
+
 });

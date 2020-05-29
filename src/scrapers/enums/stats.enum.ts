@@ -12,4 +12,8 @@ export enum StatsEnum {
     H_ACCURACY = 'h_accuracy',
     H_EVASION = 'h_evasion',
     H_DMG_REDUCTION = 'h_dmg_reduction',
+
+    // Extra stats.
+    HP = 'hp',
+    MP = 'mp',
 }

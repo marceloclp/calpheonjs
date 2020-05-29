@@ -76,4 +76,8 @@ describe('https://bdocodex.com/us/item/16832/', () => {
             dmg_reduction: 0,
         });
     });
+
+    it('#caphras_stats', () => {
+        expect(item.caphras_stats).to.eql({ 18: [], 19: [], 20: [] });
+    });
 });
