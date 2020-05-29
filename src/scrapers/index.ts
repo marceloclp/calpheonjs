@@ -1,12 +1,12 @@
+import { App } from "../typings/app";
 import { Scraper } from "./scraper";
-import { Categories } from "../enums";
 import { EquipmentScraper } from "./equipment.scraper";
 
-const mapCategoryToScraper = (category: Categories): typeof Scraper => {
+const mapCategoryToScraper = (category: App.Categories): typeof Scraper => {
     switch (category) {
-        case Categories.EQUIPMENT:
+        case App.Categories.EQUIPMENT:
             return EquipmentScraper;
-        case Categories.UNDEFINED:
+        case App.Categories.UNDEFINED:
             return Scraper;
         default:
             return Scraper;

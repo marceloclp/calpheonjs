@@ -1,14 +1,10 @@
 import cheerio from "cheerio";
-import { Scraper } from "./scraper";
-import { indexFromArr, cleanForOutput, splitAtSubstrs } from "../utils/functions/string-utils";
-import { Locales } from "../enums";
-import { StatsEnum } from "./enums/stats.enum";
-import { filterObject } from "../utils/functions/object-utils";
-import { IEnhancement } from "./interfaces/enhancement.interface";
-import { IStats, TStat } from "./interfaces/stats.interface";
-import { ICaphrasEnhancement, ICaphrasWrapper } from "./interfaces/caphras-enhancement.interface";
+import * as Utils from "../utils";
+import { App } from "../typings/app";
+import { BDO } from "../typings/bdo";
 import { BDOCodex } from "../typings/bdocodex";
-import { transform } from "../utils/functions/transform";
+import { Scraper } from "./scraper";
+import { EMPTY_STR, BR_TAG } from "../constants";
 
 export class EquipmentScraper extends Scraper {
     private parseEnchantmentArray(): BDOCodex.Enchantment.Array {
@@ -23,31 +19,30 @@ export class EquipmentScraper extends Scraper {
             .first();
         if (!node.is('script'))
             return {} as BDOCodex.Caphras.Data;
-        return transform(node.html(), [
-            (str) => splitAtSubstrs(str, ['=']),
-            (str) => cleanForOutput(str, { trimChars: ';\t' }),
-            JSON.parse,
-        ]) as BDOCodex.Caphras.Data;
+        const raw = node.html() || EMPTY_STR;
+        const str = raw.substring(Utils.indexOf(raw, "=", 0, true).idx);
+        return JSON.parse(Utils.cleanStr(str, ';\t'));
     }
 
-    private parseEffects(raw: string, matches: string[]): string[] {
+    private parseEffects(raw: string, matches: string | string[]): string[] {
         const $ = cheerio.load('<div>' + raw + '</div>');
-        const strs = ($('div').html() ?? '').split('<br>');
+        const strs = ($('div').html() ?? EMPTY_STR).split(BR_TAG);
 
-        let i = strs.findIndex(str => indexFromArr(str, matches).idx !== -1);
-        if (i === -1)
-            return [];
+        let i = strs.findIndex(str => Utils.indexOf(str, matches).substr);
+        if (i === -1) return [];
         
         const effects = [];
         while (i++ < strs.length) {
-            if (strs[i] === '') break;
-            effects.push(cleanForOutput($(strs[i]).text()));
+            if (strs[i] === EMPTY_STR)
+                break;
+            const effect = Utils.cleanStr($(strs[i]).text());
+            if (effect) effects.push(effect);
         }
-        return effects.filter(e => e);
+        return effects;
     }
 
-    private parseStat(value?: string | number): TStat | undefined {
-        if (value === undefined)
+    private parseStat(value?: string | number): BDO.Stat | undefined {
+        if (value === undefined || value === EMPTY_STR)
             return undefined;
         const nums = value.toString().split(' ~ ')
             .map(str => parseInt(str))
@@ -58,30 +53,30 @@ export class EquipmentScraper extends Scraper {
     }
 
     private extractStats<
-        R extends IStats = IStats,
-    >(obj: Record<BDOCodex.StatsEnum & string, any>): R {
+        R extends BDO.Stats = BDO.Stats,
+    >(obj: Record<BDOCodex.StatsEnum, any>): R {
         const toStat = this.parseStat.bind(this);
-        return filterObject<R>({
-            [StatsEnum.HP]:              toStat(obj.hp),
-            [StatsEnum.MP]:              toStat(obj.mp),
-            [StatsEnum.DAMAGE]:          toStat(obj.damage),
-            [StatsEnum.DEFENSE]:         toStat(obj.defense),
-            [StatsEnum.ACCURACY]:        toStat(obj.accuracy),
-            [StatsEnum.EVASION]:         toStat(obj.evasion),
-            [StatsEnum.DMG_REDUCTION]:   toStat(obj.dreduction),
-            [StatsEnum.H_DAMAGE]:        toStat(obj.hdamage),
-            [StatsEnum.H_DEFENSE]:       toStat(obj.hdefense),
-            [StatsEnum.H_ACCURACY]:      toStat(obj.haccuracy),
-            [StatsEnum.H_EVASION]:       toStat(obj.hevasion),
-            [StatsEnum.H_DMG_REDUCTION]: toStat(obj.hdreduction),
+        return Utils.filterObj<R>({
+            [BDO.StatsEnum.HP]:              toStat(obj.hp),
+            [BDO.StatsEnum.MP]:              toStat(obj.mp),
+            [BDO.StatsEnum.DAMAGE]:          toStat(obj.damage),
+            [BDO.StatsEnum.DEFENSE]:         toStat(obj.defense),
+            [BDO.StatsEnum.ACCURACY]:        toStat(obj.accuracy),
+            [BDO.StatsEnum.EVASION]:         toStat(obj.evasion),
+            [BDO.StatsEnum.DMG_REDUCTION]:   toStat(obj.dreduction),
+            [BDO.StatsEnum.H_DAMAGE]:        toStat(obj.hdamage),
+            [BDO.StatsEnum.H_DEFENSE]:       toStat(obj.hdefense),
+            [BDO.StatsEnum.H_ACCURACY]:      toStat(obj.haccuracy),
+            [BDO.StatsEnum.H_EVASION]:       toStat(obj.hevasion),
+            [BDO.StatsEnum.H_DMG_REDUCTION]: toStat(obj.hdreduction),
         } as any);
     }
 
-    get stats(): IStats {
+    get stats(): BDO.Stats {
         return this.enhancement_stats[0].stats;
     }
 
-    get enhancement_stats(): IEnhancement[] {
+    get enhancement_stats(): BDO.Equipment.Enhancement[] {
         const data = this.parseEnchantmentArray();
         const maxLvl = parseInt(data.max_enchant) || 0;
 
@@ -89,10 +84,10 @@ export class EquipmentScraper extends Scraper {
             const curr = data[lvl];
 
             const enhancement_effects = this.parseEffects(curr.edescription, {
-                [Locales.US]: ['Enhancement Effect'],
+                [App.Locales.US]: 'Enhancement Effect',
             }[this._locale]);
 
-            const belowMaxLvl: Partial<IEnhancement> = lvl < maxLvl ? {
+            const belowMaxLvl: Partial<BDO.Equipment.Enhancement> = lvl < maxLvl ? {
                 enchant_item_counter: parseInt(curr.enchant_item_counter),
                 pe_item_counter: parseInt(curr.pe_item_counter),
                 pe_dura_dec: parseInt(curr.pe_dura_dec),
@@ -104,8 +99,8 @@ export class EquipmentScraper extends Scraper {
                 },
             } : {};
 
-            return filterObject<IEnhancement>({
-                stats: this.extractStats(curr as any),
+            return Utils.filterObj<BDO.Equipment.Enhancement>({
+                stats: this.extractStats(curr),
                 success_rate: parseFloat(curr.enchant_chance),
                 durability: parseInt(curr.durability?.split('/')[0]),
                 cron_value_next: parseInt(curr.cron_value),
@@ -116,12 +111,12 @@ export class EquipmentScraper extends Scraper {
         });
     }
 
-    get caphras_stats(): ICaphrasWrapper {
+    get caphras_stats(): BDO.Equipment.Caphras.Wrapper {
         const data = this.parseCaphrasData();
         return [18, 19, 20].reduce((caphras, eLvl) => {
             const values = (data[eLvl as 18 | 19 | 20] || []).map(cLvl => {
-                return filterObject<ICaphrasEnhancement>({
-                    stats: this.extractStats(cLvl.stats as any),
+                return Utils.filterObj<BDO.Equipment.Caphras.Enhancement>({
+                    stats: this.extractStats(cLvl.stats),
                     count_next: parseInt(cLvl.count),
                     count_total: parseInt(cLvl.tcount),
                 });
@@ -133,7 +128,7 @@ export class EquipmentScraper extends Scraper {
     get item_effects(): string[] {
         const data = this.parseEnchantmentArray()[0].edescription;
         return this.parseEffects(data, {
-            [Locales.US]: ['Item Effect'],
+            [App.Locales.US]: 'Item Effect',
         }[this._locale]);
     }
 
@@ -141,38 +136,47 @@ export class EquipmentScraper extends Scraper {
         const data = this.parseEnchantmentArray()[0].edescription;
 
         const matches = {
-            [Locales.US]: ['$-Set Effect'],
+            [App.Locales.US]: ['$-Set Effect'],
         }[this._locale];
+        const match = (num: string) => matches.map(m => m.replace('$', num));
 
-        return [2, 3, 4, 5].reduce((effects, set) => {
-            const { idx, substr } = indexFromArr(data, matches.map(match => {
-                return match.replace('$', set.toString())
-            }));
-            if (idx === -1)
+        return [2, 3, 4, 5].map(e => e.toString()).reduce((effects, set) => {
+            const { substr } = Utils.indexOf(data, match(set));
+            if (!substr)
                 return effects;
-            return { ...effects, [set]: this.parseEffects(data, [substr]) };
+            return { ...effects, [set]: this.parseEffects(data, substr) };
         }, {});
     }
 
     get exclusive_to(): string[] {
         const matches = {
-            [Locales.US]: ['Exclusive'],
+            [App.Locales.US]: 'Exclusive',
         }[this._locale];
 
         let str: string = '';
         this.getBodyNodes(true).find(({ type, data }) => {
             if (type !== 'text' || !data)
                 return false;
-            const { idx, substr } = indexFromArr(data, matches);
-            if (idx === -1)
+            const { idx, substr } = Utils.indexOf(data, matches, 0, true);
+            if (!substr)
                 return false;
-            str = splitAtSubstrs(data, [substr]) as string;
+            str = data.substring(idx);
             return true;
         });
-        if (!str) return [];
+        return str.split(',').map(s => Utils.cleanStr(s, ':'));
+    }
 
-        return str.split(',').map(substr =>
-            cleanForOutput(substr, { trimChars: ':' })
-        );
+    get fairy_exp(): number {
+        const matches = {
+            [App.Locales.US]: 'Used as Fairy growth item',
+        }[this._locale];
+        const node = this.getBodyNodes(true).find(({ type, data }) => {
+            if (type !== 'text' || !data)
+                return false;
+            return !!Utils.indexOf(data, matches).substr;
+        });
+        if (!node?.data)
+            return 0;
+        return parseInt(node.data.replace(/\D/g, ''));
     }
 }

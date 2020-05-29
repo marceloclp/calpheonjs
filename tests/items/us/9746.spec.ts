@@ -2,7 +2,7 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import { Scraper } from "../../../src/scrapers/scraper";
 import { scrapeMock as scrape } from "../../utils/scrape-mock";
-import { Categories } from "../../../src/enums";
+import { App } from "../../../src/typings/app";
 
 describe('https://bdocodex.com/us/item/9746/', () => {
     let item: Scraper;
@@ -48,7 +48,7 @@ describe('https://bdocodex.com/us/item/9746/', () => {
     });
 
     it('#category_id', () => {
-        expect(item.category_id).to.equal(Categories.CRAFTING_MATERIAL);
+        expect(item.category_id).to.equal(App.Categories.CRAFTING_MATERIAL);
     });
 
     it('#weight', () => {

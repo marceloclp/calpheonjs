@@ -1,18 +1,18 @@
+import { App } from "../typings/app";
 import { fetch } from "./fetch";
-import { Scraper } from "../../scrapers/scraper";
-import { Dbs, Locales, EntityTypes } from "../../enums";
-import ScrapeFactory from "../../scrapers";
+import { Scraper } from "../scrapers/scraper";
+import ScrapeFactory from "../scrapers";
 
 export interface ScrapeOptions {
-    readonly baseUrl: Dbs;
-    readonly locale: Locales;
-    readonly type: EntityTypes;
+    readonly baseUrl: App.Dbs;
+    readonly locale: App.Locales;
+    readonly type: App.EntityTypes;
 }
 
 export const defaultOptions: ScrapeOptions = {
-    baseUrl: Dbs.BDO_CODEX,
-    locale: Locales.US,
-    type: EntityTypes.ITEM,
+    baseUrl: App.Dbs.BDO_CODEX,
+    locale: App.Locales.US,
+    type: App.EntityTypes.ITEM,
 };
 
 export const scrape = async (id: string, options = defaultOptions): Promise<Scraper> => {

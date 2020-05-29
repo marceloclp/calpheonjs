@@ -1,8 +1,8 @@
-import { Locales, EntityTypes, Dbs, Categories } from "../enums";
-import { IPrices } from "./interfaces/prices.interface";
-import { deepFilter } from "../utils/functions/cheerio-utils";
-import { indexFromArr, cleanForOutput, splitAtSubstrs } from "../utils/functions/string-utils";
-import { normalizeCategory } from "../utils/functions/normalize-category";
+import * as Utils from "../utils";
+import { App } from "../typings/app";
+import { BDO } from "../typings/bdo";
+import { BDOCodex } from "../typings/bdocodex";
+import { BR_TAG, BR_CHAR } from "../constants";
 
 export class Scraper {
     constructor(
@@ -10,27 +10,46 @@ export class Scraper {
 
         protected readonly _id: string,
         
-        protected readonly _db: Dbs,
+        protected readonly _db: App.Dbs,
 
-        protected readonly _locale: Locales,
+        protected readonly _locale: App.Locales,
 
-        protected readonly _type: EntityTypes,
+        protected readonly _type: App.EntityTypes,
 
         protected readonly $: CheerioStatic,
     ) {}
 
-    protected parseIconUrl(icon: string): string {
+    protected parseIconUrl(url: string): string {
         return `https://${this._db}` +
-            (icon.charAt(0) === '/' ? '' : '/') + icon;
+            (url.charAt(0) === '/' ? '' : '/') + url;
     }
 
     protected getBodyNodes(deep?: boolean): CheerioElement[] {
-        const nodes = this.$('table.smallertext > tbody > tr > td')
+        let nodes = this.$('table.smallertext > tbody > tr > td')
             .contents()
             .toArray();
-        if (deep)
-            return deepFilter(nodes);
+        if (!deep)
+            return nodes;
+        let i = -1;
+        while (++i < nodes.length) {
+            if (!nodes?.[i].children)
+                continue;
+            nodes = [
+                ...nodes.slice(0, i+1),
+                ...nodes[i].children,
+                ...nodes.slice(i+1),
+            ];
+        }
         return nodes;
+    }
+
+    protected parsePageInfo(): BDOCodex.PageInfo {
+        const raw = this.$('script[type="application/ld+json"]')
+            .first()
+            .html();
+        if (!raw)
+            return {} as BDOCodex.PageInfo;
+        return JSON.parse(Utils.cleanStr(raw));
     }
 
     get url(): string {
@@ -54,7 +73,7 @@ export class Scraper {
     }
 
     get name(): string {
-        return cleanForOutput(this.$('.item_title').text());
+        return Utils.cleanStr(this.$('.item_title').text());
     }
 
     get name_alt(): string {
@@ -62,75 +81,70 @@ export class Scraper {
     }
 
     get category(): string {
-        return cleanForOutput(this.$('.category_text').text());
+        return Utils.cleanStr(this.$('.category_text').text());
     }
 
-    get category_id(): Categories {
-        return normalizeCategory(this.category, this.locale as Locales);
+    get category_id(): App.Categories {
+        return Utils.normalizeCategory(this.category, this._locale);
     }
 
     get weight(): string {
-        const match = { [Locales.US]: 'Weight:' }[this._locale];
-        return cleanForOutput(
-            splitAtSubstrs(
-                this.$('.category_text').parent().text(),
-                [match],
-                ['\n'],
-            ) as string
-        );
+        const match = {
+            [App.Locales.US]: 'Weight:'
+        }[this._locale];
+        const str = this.$('.category_text').parent().text();
+        const { idx: startIdx } = Utils.indexOf(str, match, 0, true);
+        const { idx: endIdx } = Utils.indexOf(str, '\n', startIdx);
+        return Utils.cleanStr(str.substring(startIdx, endIdx));
     }
 
     get grade(): number {
-        return cleanForOutput(
-            this.$('.item_title').attr('class') as string,
-            { replaceTuples: [[/\D/g, '']], transformFn: parseInt },
-        );
+        const str = this.$('.item_title').attr('class') as string;
+        return parseInt(str.replace(/\D/g, ''));
     }
 
     get description(): string {
         const match = {
-            [Locales.US]: ['Description:'],
+            [App.Locales.US]: ['Description:'],
         }[this._locale];
 
         const strs = this.getBodyNodes(true)
-            .map(node => {
-                if (node.name === 'br' || node.data === '\n')
-                    return '<br>'
-                return node.data as string;
+            .map(({ name, data }) => {
+                if (name === 'br' || data === BR_CHAR)
+                    return BR_TAG;
+                return (data || "").replace(/\&apos;/g, "'");
             })
             .filter(str => str);
-        let i = strs.findIndex(e => indexFromArr(e, match).idx !== -1) + 1;
-        while (strs[i] === '<br>') i++;
+        let i = strs.findIndex(e => Utils.indexOf(e, match).substr) + 1;
+        while (strs[i] === BR_TAG) i++;
 
         let val = '';
-        while (strs[i] !== '<br>')
+        while (strs[i] !== BR_TAG)
             val += strs[i++];
 
-        return cleanForOutput(val);
+        return Utils.cleanStr(val);
     }
 
-    get prices(): IPrices {
+    get prices(): BDO.Pricings {
         const matches = {
-            buy:    { [Locales.US]: ['Buy'] }[this._locale],
-            sell:   { [Locales.US]: ['Sell'] }[this._locale],
-            repair: { [Locales.US]: ['Repair'] }[this._locale],
+            buy:    { [App.Locales.US]: 'Buy' }[this._locale],
+            sell:   { [App.Locales.US]: 'Sell' }[this._locale],
+            repair: { [App.Locales.US]: 'Repair' }[this._locale],
         };
         const keys = Object.keys(matches) as (keyof typeof matches)[];
 
-        const strs = this.getBodyNodes(true)
+        const strs = this.getBodyNodes()
             .filter(node => node.type === 'text' && node.data)
             .map(node => node.data as string);
         
         return strs.reduce((prices, str) => {
             const key = keys.find(
-                key => indexFromArr(str, matches[key]).idx !== -1
+                key => Utils.indexOf(str, matches[key]).substr
             );
             if (!key)
                 return prices;
-            return { [key]: cleanForOutput(str, {
-                replaceTuples: [[/\D/g, '']],
-                transformFn: parseInt
-            }), ...prices };
-        }, {} as IPrices);
+            const value = parseInt(Utils.cleanStr(str).replace(/\D/g, ''));
+            return { ...prices, [key]: value };
+        }, {} as BDO.Pricings);
     }
 }

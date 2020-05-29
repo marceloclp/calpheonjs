@@ -5,7 +5,7 @@ type GenericDict = Record<string | number | symbol, any>;
  * 
  * @param obj - The object to be filtered.
  */
-export const filterObject = <T extends GenericDict>(
+export const filterObj = <T extends GenericDict>(
     obj: T,
     filterFn?: (obj: T, key: keyof T) => boolean,
 ): T => {

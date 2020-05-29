@@ -1,7 +1,7 @@
 import fs from "fs";
 import cheerio from "cheerio";
 import { join } from "path";
-import { defaultOptions, scrape } from "../../src/utils/functions/scrape";
+import { defaultOptions, scrape } from "../../src/core/scrape";
 import { Scraper } from "../../src/scrapers/scraper";
 import ScrapeFactory from "../../src/scrapers";
 

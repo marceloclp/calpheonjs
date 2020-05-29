@@ -1,8 +1,8 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 import { scrapeMock as scrape } from "../../utils/scrape-mock";
-import { Categories } from "../../../src/enums";
 import { EquipmentScraper } from "../../../src/scrapers/equipment.scraper";
+import { App } from "../../../src/typings/app";
 
 describe('https://bdocodex.com/us/item/13210/', () => {
     let item: EquipmentScraper;
@@ -48,7 +48,7 @@ describe('https://bdocodex.com/us/item/13210/', () => {
     });
 
     it('#category_id', () => {
-        expect(item.category_id).to.equal(Categories.EQUIPMENT);
+        expect(item.category_id).to.equal(App.Categories.EQUIPMENT);
     });
 
     it('#weight', () => {
@@ -631,5 +631,9 @@ describe('https://bdocodex.com/us/item/13210/', () => {
 
     it('#exclusive_to', () => {
         expect(item.exclusive_to).to.eql(['Tamer', 'Kunoichi', 'Ninja']);
+    });
+
+    it('#fairy_exp', () => {
+        expect(item.fairy_exp).to.equal(47500);
     });
 });
