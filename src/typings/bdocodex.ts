@@ -134,6 +134,12 @@ export namespace BDOCodex {
         }
 
         export namespace Results {
+            interface SorteableRow {
+                /** String containing the actual value of the row. */
+                readonly display: string;
+
+                readonly sort_value: string;
+            }
 
             export interface Recipe {
                 readonly aaData: {
@@ -149,12 +155,8 @@ export namespace BDOCodex {
                     /** Processing type. */
                     readonly 3: string;
     
-                    readonly 4: {
-                        /** The required level to complete this recipe. */
-                        readonly display: string;
-    
-                        readonly sort_value: string;
-                    };
+                    /** The required level to complete this recipe. */
+                    readonly 4: SorteableRow;
     
                     /** EXP. */
                     readonly 5: string;
@@ -242,12 +244,8 @@ export namespace BDOCodex {
 
             export interface NPC {
                 readonly aaData: {
-                    readonly 0: {
-                        /** NPC id. */
-                        readonly display: string;
-
-                        readonly sort_value: string;
-                    };
+                    /** NPC id. */
+                    readonly 0: SorteableRow;
 
                     /** HTML for the icon. */
                     readonly 1: string;
@@ -280,12 +278,8 @@ export namespace BDOCodex {
 
             export interface Quest {
                 readonly aaData: {
-                    readonly 0: {
-                        /** Quest id. */
-                        readonly display: string;
-
-                        readonly sort_value: string;
-                    };
+                    /** Quest id. */
+                    readonly 0: SorteableRow;
 
                     /** HTML for the icon. */
                     readonly 1: string;
@@ -296,26 +290,14 @@ export namespace BDOCodex {
                     /** Level required to take the quest. */
                     readonly 3: string;
 
-                    readonly 4: {
-                        /** Region. */
-                        readonly display: string;
+                    /** Region. */
+                    readonly 4: SorteableRow
 
-                        readonly sort_value: number | string;
-                    };
+                    /** EXP. */
+                    readonly 5: SorteableRow;
 
-                    readonly 5: {
-                        /** EXP. */
-                        readonly display: string;
-
-                        readonly sort_value: number | string;
-                    };
-
-                    readonly 6: {
-                        /** Skill EXP. */
-                        readonly display: string;
-
-                        readonly sort_value: number | string;
-                    };
+                    /** Skill EXP. */
+                    readonly 6: SorteableRow;
 
                     /** Contribution EXP. */
                     readonly 7: string;
