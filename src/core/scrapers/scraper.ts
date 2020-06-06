@@ -1,8 +1,8 @@
-import * as Utils from "../utils";
-import { App } from "../typings/app";
-import { BDO } from "../typings/bdo";
-import { BDOCodex } from "../typings/bdocodex";
-import { BR_TAG, BR_CHAR } from "../constants";
+import * as Utils from "../../utils";
+import { App } from "../../typings/app";
+import { BDO } from "../../typings/bdo";
+import { BDOCodex } from "../../typings/bdocodex";
+import { BR_TAG, BR_CHAR } from "../../constants";
 
 export class Scraper {
     constructor(
@@ -20,8 +20,7 @@ export class Scraper {
     ) {}
 
     protected parseIconUrl(url: string): string {
-        return `https://${this._db}` +
-            (url.charAt(0) === '/' ? '' : '/') + url;
+        return Utils.getIconUrl(this._db, url);
     }
 
     protected getBodyNodes(deep?: boolean): CheerioElement[] {

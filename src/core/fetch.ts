@@ -1,7 +1,6 @@
 import https from "https";
-import cheerio from "cheerio";
 
-export const fetch = async (url: string): Promise<CheerioStatic> => {
+export const fetch = async (url: string): Promise<string> => {
     return new Promise((resolve, reject) => {
         const req = https.get(url, (res) => {
             const { statusCode } = res;
@@ -19,8 +18,7 @@ export const fetch = async (url: string): Promise<CheerioStatic> => {
 
             res.on('end', () => {
                 try {
-                    const $ = cheerio.load(rawData);
-                    resolve($);
+                    resolve(rawData);
                 } catch (e) {
                     reject(e);
                 }

@@ -35,6 +35,9 @@ export namespace BDO {
         /** A type may be available if the context is not clear. */
         type?: App.EntityTypes;
 
+        /** A shortened url might be available. */
+        shortUrl?: string;
+
         /** The entity reference id. */
         id: string;
 
@@ -97,5 +100,23 @@ export namespace BDO {
             }
         }
 
+    }
+
+    export interface Recipe {
+        readonly id: string;
+
+        readonly icon: string;
+
+        readonly name: string;
+
+        readonly type: string;
+
+        readonly skill_lvl: [string, number];
+
+        readonly exp: number;
+
+        readonly materials: BDO.EntityReference[];
+
+        readonly products: BDO.EntityReference[];
     }
 }

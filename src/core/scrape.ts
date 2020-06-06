@@ -1,7 +1,8 @@
+import cheerio from "cheerio";
+import ScrapeFactory from "./scrapers";
 import { App } from "../typings/app";
 import { fetch } from "./fetch";
-import { Scraper } from "../scrapers/scraper";
-import ScrapeFactory from "../scrapers";
+import { Scraper } from "./scrapers/scraper";
 
 export interface ScrapeOptions {
     readonly baseUrl: App.Dbs;
@@ -23,7 +24,7 @@ export const scrape = async (id: string, options = defaultOptions): Promise<Scra
         id
     ].join('/') + '/';
 
-    const $ = await fetch(url);
+    const $ = cheerio.load(await fetch(url));
 
     return ScrapeFactory(url,
         id,

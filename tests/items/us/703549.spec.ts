@@ -1,7 +1,7 @@
 import { describe } from "mocha";
 import { expect } from "chai";
 import { scrapeMock as scrape } from "../../utils/scrape-mock";
-import { EquipmentScraper } from "../../../src/scrapers/equipment.scraper";
+import { EquipmentScraper } from "../../../src/core/scrapers/equipment.scraper";
 import { App } from "../../../src/typings/app";
 
 describe('https://bdocodex.com/us/item/703549/', () => {

@@ -1,4 +1,4 @@
-import { App } from "../typings/app";
+import { App } from "../../typings/app";
 import { Scraper } from "./scraper";
 import { EquipmentScraper } from "./equipment.scraper";
 

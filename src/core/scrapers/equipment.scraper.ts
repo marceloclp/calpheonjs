@@ -1,12 +1,12 @@
 import cheerio from "cheerio";
-import * as Utils from "../utils";
-import { App } from "../typings/app";
-import { BDO } from "../typings/bdo";
-import { BDOCodex } from "../typings/bdocodex";
-import { Scraper } from "./scraper";
-import { EMPTY_STR, BR_TAG } from "../constants";
+import * as Utils from "../../utils";
+import { App } from "../../typings/app";
+import { BDO } from "../../typings/bdo";
+import { BDOCodex } from "../../typings/bdocodex";
+import { ItemScraper } from "./item.scraper";
+import { EMPTY_STR, BR_TAG } from "../../constants";
 
-export class EquipmentScraper extends Scraper {
+export class EquipmentScraper extends ItemScraper {
     private parseEnchantmentArray(): BDOCodex.Enchantment.Array {
         return JSON.parse(this.$('#enchantment_array').text());
     }

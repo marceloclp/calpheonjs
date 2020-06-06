@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Scraper } from "../../../src/scrapers/scraper";
+import { Scraper } from "../../../src/core/scrapers/scraper";
 import { scrapeMock as scrape } from "../../utils/scrape-mock";
 import { App } from "../../../src/typings/app";
 

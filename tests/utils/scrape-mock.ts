@@ -1,33 +1,35 @@
 import fs from "fs";
 import cheerio from "cheerio";
 import { join } from "path";
-import { defaultOptions, scrape } from "../../src/core/scrape";
-import { Scraper } from "../../src/scrapers/scraper";
-import ScrapeFactory from "../../src/scrapers";
+import { defaultOptions } from "../../src/core/scrape";
+import { Scraper } from "../../src/core/scrapers/scraper";
+import ScrapeFactory from "../../src/core/scrapers";
+import { fetch } from "../../src/core/fetch";
 
 export const scrapeMock = async (id: string, options = defaultOptions): Promise<Scraper> => {
+    const url = 'https://' + [
+        options.baseUrl,
+        options.locale,
+        options.type,
+        id
+    ].join('/') + '/';
     const path = join(__dirname, '../data/', [
         options.locale,
         options.type,
         id
     ].join('-') + '.txt');
 
+    let raw: string;
     if (!fs.existsSync(path)) {
-        const parser = await scrape(id, options);
-        fs.writeFileSync(path, (parser as any).$.html());
-        return parser;
+        raw = await fetch(url);
+        fs.writeFileSync(path, raw);
+    } else {
+        raw = fs.readFileSync(path, { encoding: 'utf-8' });
     }
-
-    const data = fs.readFileSync(path, { encoding: 'utf-8' });
-    const $ = cheerio.load(data);
+    const $ = cheerio.load(raw);
 
     return ScrapeFactory(
-        'https://' + [
-            options.baseUrl,
-            options.locale,
-            options.type,
-            id
-        ].join('/') + '/',
+        url,
         id,
         options.baseUrl,
         options.locale,
