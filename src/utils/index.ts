@@ -1,3 +1,4 @@
+export { fetch } from "./fetch";
 export { indexOf } from "./index-of";
 export { cleanStr } from "./clean-str";
 export { splitStr } from "./split-str";

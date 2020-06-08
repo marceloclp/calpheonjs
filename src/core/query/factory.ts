@@ -1,12 +1,10 @@
 import * as Utils from "./utils";
-import * as Queries from "./interfaces";
+import * as Queries from "./typings";
 import { Query as QueryClass } from "./query";
-import { QueryTypes } from "./enums";
-import { IQuery } from "./interfaces";
 
-export const Query: IQuery = async <T = any>(
+export const Query: Queries.Query = async <T = any>(
     id: string,
-    type: QueryTypes | Queries.Descriptor,
+    type: Queries.Types | Queries.Descriptor,
     options?: Queries.Options
 ): Promise<Queries.Result<T>> => {
     let q = (typeof type === 'object' && type) || Utils.mapQueryType(type);

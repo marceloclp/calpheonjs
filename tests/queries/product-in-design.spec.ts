@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, Recipe } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('PRODUCT IN DESIGN'), () => {
+describe('PRODUCT IN DESIGN', () => {
     /**
      * https://bdocodex.com/us/item/10103/
      * Axion Shield
      */
-    describe(h.subtitle('Axion Shield'), () => {
-        let result: Result<Recipe>;
+    describe('Axion Shield', () => {
+        let result: Queries.Result<Queries.Entities.Recipe>;
 
         before(async () => {
             result = await QueryMock('10103',
-                QueryTypes.PRODUCT_IN_DESIGN
+                Queries.Types.PRODUCT_IN_DESIGN
             );
         });
 

@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, NPCDrop } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('NPC DROPS'), () => {
+describe('NPC DROPS', () => {
     /**
      * https://bdocodex.com/us/item/6158/
      * Fancy Feather
      */
-    describe(h.subtitle('Fancy Feather'), () => {
-        let result: Result<NPCDrop>;
+    describe('Fancy Feather', () => {
+        let result: Queries.Result<Queries.Entities.NPCDrop>;
 
         before(async () => {
-            result = await QueryMock<NPCDrop>('6158',
-                QueryTypes.NPC_DROPS
+            result = await QueryMock('6158',
+                Queries.Types.NPC_DROPS
             );
         });
 
@@ -46,12 +45,12 @@ describe(h.title('NPC DROPS'), () => {
      * https://bdocodex.com/us/item/15224/
      * Black Magic Crystal - Agility
      */
-    describe(h.subtitle('Black Magic Crystal - Agility'), () => {
-        let result: Result<NPCDrop>;
+    describe('Black Magic Crystal - Agility', () => {
+        let result: Queries.Result<Queries.Entities.NPCDrop>;
 
         before(async () => {
-            result = await QueryMock<NPCDrop>('15224',
-                QueryTypes.NPC_DROPS
+            result = await QueryMock('15224',
+                Queries.Types.NPC_DROPS
             );
         });
 

@@ -1,8 +1,7 @@
 import * as cache from "./cache";
-import * as Utils from "../../src/core/query/utils";
-import * as Queries from "../../src/core/query/interfaces";
+import * as QueryUtils from "../../src/core/query/utils";
+import { Queries } from "../../src/core";
 import { Query as QueryClass } from "../../src/core/query/query";
-import { QueryTypes } from "../../src/core/query/enums";
 
 class QueryClassMock extends QueryClass {
     async fetch(): Promise<string> {
@@ -20,12 +19,12 @@ class QueryClassMock extends QueryClass {
     }
 }
 
-const QueryMock: Queries.IQuery = async <T = any>(
+const QueryMock: Queries.Query = async <T = any>(
     id: string,
-    type: QueryTypes | Queries.Descriptor,
-    options?: Queries.Options
+    type: Queries.Types | Queries.Descriptor,
+    options?: Queries.Options,
 ): Promise<Queries.Result<T>> => {
-    let q = (typeof type === 'object' && type) || Utils.mapQueryType(type);
+    let q = (typeof type === 'object' && type) || QueryUtils.mapQueryType(type);
 
     const query = new QueryClassMock(
         id,
@@ -39,4 +38,4 @@ const QueryMock: Queries.IQuery = async <T = any>(
 }
 
 export default QueryMock;
-export * from "../../src/core/query";
+export { Queries } from "../../src/core";

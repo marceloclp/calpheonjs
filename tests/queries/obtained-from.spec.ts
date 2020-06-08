@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, Item } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('OBTAINED FROM'), () => {
+describe('OBTAINED FROM', () => {
     /**
      * https://bdocodex.com/us/item/10103/
      * Axion Shield
      */
-    describe(h.subtitle('Axion Shield'), () => {
-        let result: Result<Item>;
+    describe('Axion Shield', () => {
+        let result: Queries.Result<Queries.Entities.Item>;
 
         before(async () => {
             result = await QueryMock('10103',
-                QueryTypes.OBTAINED_FROM
+                Queries.Types.OBTAINED_FROM
             );
         });
 

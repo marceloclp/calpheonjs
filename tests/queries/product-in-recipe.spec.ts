@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, Recipe } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('PRODUCT IN RECIPE'), () => {
+describe('PRODUCT IN RECIPE', () => {
     /**
      * https://bdocodex.com/us/item/633/
      * [Party] Elixir of Assassination
      */
-    describe(h.subtitle('[Party] Elixir of Assassination'), () => {
-        let result: Result<Recipe>;
+    describe('[Party] Elixir of Assassination', () => {
+        let result: Queries.Result<Queries.Entities.Recipe>;
 
         before(async () => {
             result = await QueryMock('9205',
-                QueryTypes.PRODUCT_IN_RECIPE
+                Queries.Types.PRODUCT_IN_RECIPE
             );
         });
 
@@ -85,12 +84,12 @@ describe(h.title('PRODUCT IN RECIPE'), () => {
      * https://bdocodex.com/us/item/633/
      * Beer
      */
-    describe(h.subtitle('Beer'), () => {
-        let result: Result<Recipe>;
+    describe('Beer', () => {
+        let result: Queries.Result<Queries.Entities.Recipe>;
 
         before(async () => {
             result = await QueryMock('9213',
-                QueryTypes.PRODUCT_IN_RECIPE
+                Queries.Types.PRODUCT_IN_RECIPE
             );
         });
 

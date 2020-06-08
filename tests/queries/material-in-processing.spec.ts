@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, Recipe } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('PRODUCT IN PROCESSING'), () => {
+describe('PRODUCT IN PROCESSING', () => {
     /**
      * https://bdocodex.com/us/item/10406/
      * Ain Amulet
      */
-    describe(h.subtitle('Ain Amulet'), () => {
-        let result: Result<Recipe>;
+    describe('Ain Amulet', () => {
+        let result: Queries.Result<Queries.Entities.Recipe>;
 
         before(async () => {
             result = await QueryMock('10406',
-                QueryTypes.MATERIAL_IN_PROCESSING
+                Queries.Types.MATERIAL_IN_PROCESSING
             );
         });
 

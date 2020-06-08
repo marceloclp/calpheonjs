@@ -1,20 +1,15 @@
 import cheerio from "cheerio";
 import * as Utils from "../../utils";
-import * as Entities from "./entities";
-import * as Queries from "./interfaces";
-import { fetch } from "../fetch";
-import { Groups, ItemAs } from "./enums";
-import { EntityTypes } from "./typings";
-import { BDOCodex } from "../../typings/bdocodex";
-import { App } from "../../typings/app";
+import * as Queries from "./typings";
+import { App, BDOCodex } from "../../typings";
 
 export class Query {
     constructor(
         protected readonly _id: string,
 
-        protected readonly _group: Groups,
+        protected readonly _group: Queries.Groups,
 
-        protected readonly _itemAs: ItemAs,
+        protected readonly _itemAs: Queries.ItemAs,
 
         protected readonly _locale = App.Locales.US,
 
@@ -23,10 +18,10 @@ export class Query {
 
     get url(): string {
         const idKey = [
-            ItemAs.NPC_DROP,
-            ItemAs.NODE_DROP,
-            ItemAs.CONTAINER,
-            ItemAs.QUEST_REWARD,
+            Queries.ItemAs.NPC_DROP,
+            Queries.ItemAs.NODE_DROP,
+            Queries.ItemAs.CONTAINER,
+            Queries.ItemAs.QUEST_REWARD,
         ].includes(this._itemAs) ? 'id' : 'item_id';
         return 'https://' + this._db + '/query.php?' + Object.entries({
             a: this._group,
@@ -39,7 +34,7 @@ export class Query {
     }
 
     async fetch(): Promise<string> {
-        return (await fetch(this.url)).trim();
+        return (await Utils.fetch(this.url)).trim();
     }
 
     async parse(): Promise<Queries.Result> {
@@ -48,7 +43,8 @@ export class Query {
         return { url: this.url, type, data };
     }
 
-    private getCollection(data: any): [EntityTypes, any[]] {
+    private getCollection(data: any): [Queries.EntityTypes, any[]] {
+        const { Groups, ItemAs } = Queries;
         const { _group: g, _itemAs: a } = this;
         if ([Groups.PROCESSING, Groups.RECIPE, Groups.DESIGN].includes(g))
             return ['recipe', this.parseRecipes(data)];
@@ -78,7 +74,7 @@ export class Query {
         return Utils.cleanStr(cheerio.load(raw).root().text());
     }
 
-    private parseRefs(raw: string): Entities.Ref[] {
+    private parseRefs(raw: string): Queries.Entities.Ref[] {
         return raw
             .split(`<div class="iconset_wrapper_medium inlinediv">`)
             .filter(str => str)
@@ -92,7 +88,7 @@ export class Query {
             }));
     }
 
-    private parseRecipes(data: BDOCodex.Query.Results.Recipe): Entities.Recipe[] {
+    private parseRecipes(data: BDOCodex.Query.Recipe): Queries.Entities.Recipe[] {
         return data.aaData.map(arr => ({
             type: 'recipe',
             id: arr[0],
@@ -110,7 +106,7 @@ export class Query {
         }));
     }
 
-    private parseNPCDrops(data: BDOCodex.Query.Results.NPCDrop): Entities.NPCDrop[] {
+    private parseNPCDrops(data: BDOCodex.Query.NPCDrop): Queries.Entities.NPCDrop[] {
         return data.aaData.map(arr => ({
             type: 'npc_drop',
             id: arr[0],
@@ -122,7 +118,7 @@ export class Query {
         }));
     }
 
-    private parseNodeDrops(data: BDOCodex.Query.Results.NodeDrop): Entities.Node[] {
+    private parseNodeDrops(data: BDOCodex.Query.NodeDrop): Queries.Entities.Node[] {
         return data.aaData.map(arr => ({
             type: 'node',
             id: arr[0],
@@ -136,7 +132,7 @@ export class Query {
         }));
     }
 
-    private parseItems(data: BDOCodex.Query.Results.Item): Entities.Item[] {
+    private parseItems(data: BDOCodex.Query.Item): Queries.Entities.Item[] {
         return data.aaData.map(arr => ({
             type: 'item',
             id: arr[0],
@@ -147,7 +143,7 @@ export class Query {
         }));
     }
 
-    private parseNPCs(data: BDOCodex.Query.Results.NPC): Entities.NPC[] {
+    private parseNPCs(data: BDOCodex.Query.NPC): Queries.Entities.NPC[] {
         return data.aaData.map(arr => ({
             type: 'npc',
             id: arr[0].display,
@@ -164,7 +160,7 @@ export class Query {
         }));
     }
 
-    private parseQuests(data: BDOCodex.Query.Results.Quest): Entities.Quest[] {
+    private parseQuests(data: BDOCodex.Query.Quest): Queries.Entities.Quest[] {
         return data.aaData.map(arr => ({
             type: 'quest',
             id: arr[0].display,

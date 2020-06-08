@@ -1,7 +1,6 @@
-import * as Queries from "../interfaces";
-import { Groups, ItemAs, QueryTypes } from "../enums";
+import * as Queries from "../typings";
 
-const map = (group: Groups, itemAs: ItemAs) => ({ group, itemAs });
+const map = (group: Queries.Groups, itemAs: Queries.ItemAs) => ({ group, itemAs });
 
 /**
  * Mops a query type to the BDOCodex query parameters.
@@ -9,36 +8,36 @@ const map = (group: Groups, itemAs: ItemAs) => ({ group, itemAs });
  * @param type - The query type to be mapped.
  * @returns    - A query descriptor.
  */
-export const mapQueryType = (type: QueryTypes): Queries.Descriptor => {
+export const mapQueryType = (type: Queries.Types): Queries.Descriptor => {
     switch (type) {
-        case QueryTypes.MATERIAL_IN_PROCESSING:
-            return map(Groups.PROCESSING, ItemAs.MATERIAL);
+        case Queries.Types.MATERIAL_IN_PROCESSING:
+            return map(Queries.Groups.PROCESSING, Queries.ItemAs.MATERIAL);
 
-        case QueryTypes.MATERIAL_IN_RECIPE:
-            return map(Groups.RECIPE, ItemAs.MATERIAL);
+        case Queries.Types.MATERIAL_IN_RECIPE:
+            return map(Queries.Groups.RECIPE, Queries.ItemAs.MATERIAL);
 
-        case QueryTypes.MATERIAL_IN_DESIGN:
-            return map(Groups.DESIGN, ItemAs.MATERIAL);
+        case Queries.Types.MATERIAL_IN_DESIGN:
+            return map(Queries.Groups.DESIGN, Queries.ItemAs.MATERIAL);
 
-        case QueryTypes.PRODUCT_IN_PROCESSING:
-            return map(Groups.PROCESSING, ItemAs.PRODUCT);
+        case Queries.Types.PRODUCT_IN_PROCESSING:
+            return map(Queries.Groups.PROCESSING, Queries.ItemAs.PRODUCT);
 
-        case QueryTypes.PRODUCT_IN_RECIPE:
-            return map(Groups.RECIPE, ItemAs.PRODUCT);
+        case Queries.Types.PRODUCT_IN_RECIPE:
+            return map(Queries.Groups.RECIPE, Queries.ItemAs.PRODUCT);
 
-        case QueryTypes.PRODUCT_IN_DESIGN:
-            return map(Groups.DESIGN, ItemAs.PRODUCT);
+        case Queries.Types.PRODUCT_IN_DESIGN:
+            return map(Queries.Groups.DESIGN, Queries.ItemAs.PRODUCT);
 
-        case QueryTypes.NPC_DROPS:
-            return map(Groups.DROP, ItemAs.NPC_DROP);
+        case Queries.Types.NPC_DROPS:
+            return map(Queries.Groups.DROP, Queries.ItemAs.NPC_DROP);
 
-        case QueryTypes.DROPPED_IN_NODE:
-            return map(Groups.NODE, ItemAs.NODE_DROP);
+        case Queries.Types.DROPPED_IN_NODE:
+            return map(Queries.Groups.NODE, Queries.ItemAs.NODE_DROP);
 
-        case QueryTypes.OBTAINED_FROM:
-            return map(Groups.ITEM, ItemAs.CONTAINER);
+        case Queries.Types.OBTAINED_FROM:
+            return map(Queries.Groups.ITEM, Queries.ItemAs.CONTAINER);
 
-        case QueryTypes.SOLD_BY_NPC:
-            return map(Groups.NPC, ItemAs.SELL_SPECIAL_ITEM);
+        case Queries.Types.SOLD_BY_NPC:
+            return map(Queries.Groups.NPC, Queries.ItemAs.SELL_SPECIAL_ITEM);
     }
 }

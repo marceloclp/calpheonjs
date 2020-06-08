@@ -1,39 +1,38 @@
-import fs from "fs";
 import cheerio from "cheerio";
-import { join } from "path";
-import { defaultOptions } from "../../src/core/scrape";
-import { Scraper } from "../../src/core/scrapers/scraper";
-import ScrapeFactory from "../../src/core/scrapers";
-import { fetch } from "../../src/core/fetch";
+import * as cache from "./cache";
+import * as AppUtils from "../../src/utils";
+import * as ScraperUtils from "../../src/core/scraper/utils";
+import { App } from "../../src/typings";
+import { Scrapers } from "../../src/core";
+import { Scraper as ScraperClass } from "../../src/core/scraper/scrapers";
 
-export const scrapeMock = async (id: string, options = defaultOptions): Promise<Scraper> => {
-    const url = 'https://' + [
-        options.baseUrl,
-        options.locale,
-        options.type,
-        id
-    ].join('/') + '/';
-    const path = join(__dirname, '../data/', [
-        options.locale,
-        options.type,
-        id
-    ].join('-') + '.txt');
+const ScrapeMock = async <T = any>(
+    id: string,
+    type: Scrapers.EntityTypes,
+    options?: Scrapers.Options,
+): Promise<T> => {
+    const locale = options?.locale || App.Locales.US;
+    const db = options?.db || App.Dbs.BDO_CODEX;
+    const url = 'https://' + [db, locale, type, id].join('/') + '/';
 
-    let raw: string;
-    if (!fs.existsSync(path)) {
-        raw = await fetch(url);
-        fs.writeFileSync(path, raw);
-    } else {
-        raw = fs.readFileSync(path, { encoding: 'utf-8' });
-    }
-    const $ = cheerio.load(raw);
-
-    return ScrapeFactory(
-        url,
+    const key = [
+        "scrape",
+        locale,
+        type,
         id,
-        options.baseUrl,
-        options.locale,
-        options.type,
-        $,
-    );
+    ].join('-');
+    let $: CheerioStatic;
+    if (cache.has(key)) {
+        $ = cheerio.load(cache.get(key));
+    } else {
+        $ = cheerio.load(cache.set(key, await AppUtils.fetch(url)));
+    }
+
+    const { category_id } = new ScraperClass(url, id, db, locale, type, $);
+    const ScraperCtor = ScraperUtils.mapCategoryToScraper(category_id, type);
+
+    return new ScraperCtor(url, id, db, locale, type, $).build() as any;
 }
+
+export default ScrapeMock;
+export { Scrapers } from "../../src/core";

@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, Node } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('DROPPED IN NODE'), () => {
+describe('DROPPED IN NODE', () => {
     /**
      * https://bdocodex.com/us/item/10656/
      * Krea Axe
      */
-    describe(h.subtitle('Krea Axe'), () => {
-        let result: Result<Node>;
+    describe('Krea Axe', () => {
+        let result: Queries.Result<Queries.Entities.Node>;
 
         before(async () => {
-            result = await QueryMock<Node>('10656',
-                QueryTypes.DROPPED_IN_NODE
+            result = await QueryMock('10656',
+                Queries.Types.DROPPED_IN_NODE
             );
         });
 
@@ -48,12 +47,12 @@ describe(h.title('DROPPED IN NODE'), () => {
      * https://bdocodex.com/us/item/15135/
      * Magic Crystal of Infinity - Siege
      */
-    describe(h.subtitle('Magic Crystal of Infinity - Siege'), () => {
-        let result: Result<Node>;
+    describe('Magic Crystal of Infinity - Siege', () => {
+        let result: Queries.Result<Queries.Entities.Node>;
 
         before(async () => {
             result = await QueryMock('15135',
-                QueryTypes.DROPPED_IN_NODE
+                Queries.Types.DROPPED_IN_NODE
             );
         });
 

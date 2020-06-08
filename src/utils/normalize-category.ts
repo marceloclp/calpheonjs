@@ -1,4 +1,4 @@
-import { App } from "../typings/app";
+import { App } from "../typings";
 
 export const normalizeCategory = (
     category: string,

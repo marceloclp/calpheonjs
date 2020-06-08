@@ -1,19 +1,18 @@
-import * as h from "../utils/headers";
 import { describe } from "mocha";
 import { expect } from "chai";
-import QueryMock, { QueryTypes, Result, NPC } from "../utils/query-mock";
+import QueryMock, { Queries } from "../utils/query-mock";
 
-describe(h.title('SOLD BY NPC'), () => {
+describe('SOLD BY NPC', () => {
     /**
      * https://bdocodex.com/us/item/13210/
      * Kzarka Shortsword
      */
-    describe(h.subtitle('Kzarka Shortsword'), () => {
-        let result: Result<NPC>;
+    describe('Kzarka Shortsword', () => {
+        let result: Queries.Result<Queries.Entities.NPC>;
 
         before(async () => {
             result = await QueryMock('13210',
-                QueryTypes.SOLD_BY_NPC
+                Queries.Types.SOLD_BY_NPC
             );
         });
 
@@ -51,12 +50,12 @@ describe(h.title('SOLD BY NPC'), () => {
      * https://bdocodex.com/us/item/518/
      * HP Potion (Medium)
      */
-    describe(h.subtitle('HP Potion (Medium)'), () => {
-        let result: Result<NPC>;
+    describe('HP Potion (Medium)', () => {
+        let result: Queries.Result<Queries.Entities.NPC>;
 
         before(async () => {
             result = await QueryMock('518',
-                QueryTypes.SOLD_BY_NPC
+                Queries.Types.SOLD_BY_NPC
             );
         });
 
