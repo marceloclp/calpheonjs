@@ -28,4 +28,7 @@ export enum Types {
 
     /** Queries for npcs that sell the item. */
     SOLD_BY_NPC,
+
+    /** Queries for quests where the item is one of the rewards. */
+    QUEST_REWARD,
 }

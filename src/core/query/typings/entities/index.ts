@@ -5,3 +5,4 @@ export { Ref } from "./ref.entity";
 export { Item } from "./item.entity";
 export { NPC } from "./npc.entity";
 export { Quest } from "./quest.entity";
+export { QuestReward } from "./quest-reward.entity";

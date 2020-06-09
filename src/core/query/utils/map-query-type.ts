@@ -39,5 +39,8 @@ export const mapQueryType = (type: Queries.Types): Queries.Descriptor => {
 
         case Queries.Types.SOLD_BY_NPC:
             return map(Queries.Groups.NPC, Queries.ItemAs.SELL_SPECIAL_ITEM);
+
+        case Queries.Types.QUEST_REWARD:
+            return map(Queries.Groups.QUEST, Queries.ItemAs.QUEST_REWARD);
     }
 }

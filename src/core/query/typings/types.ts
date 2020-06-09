@@ -7,4 +7,5 @@ export type EntityTypes = (
     | 'npc'
     | 'quest'
     | 'ref'
+    | 'exp'
 );

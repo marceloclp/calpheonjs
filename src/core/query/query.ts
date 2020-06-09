@@ -1,5 +1,5 @@
 import cheerio from "cheerio";
-import * as Utils from "../../utils";
+import * as AppUtils from "../../utils";
 import * as Queries from "./typings";
 import { App, BDOCodex } from "../../typings";
 
@@ -34,7 +34,7 @@ export class Query {
     }
 
     async fetch(): Promise<string> {
-        return (await Utils.fetch(this.url)).trim();
+        return (await AppUtils.fetch(this.url)).trim();
     }
 
     async parse(): Promise<Queries.Result> {
@@ -62,8 +62,8 @@ export class Query {
     }
 
     private getIconURL(raw: string): string {
-        const short = Utils.splitStr(raw, '[img src="', '"') as string;
-        return Utils.getIconUrl(this._db, short);
+        const short = AppUtils.splitStr(raw, '[img src="', '"') as string;
+        return AppUtils.getIconUrl(this._db, short);
     }
 
     private getShortURL(raw: string): string {
@@ -71,7 +71,7 @@ export class Query {
     }
 
     private getName(raw: string): string {
-        return Utils.cleanStr(cheerio.load(raw).root().text());
+        return AppUtils.cleanStr(cheerio.load(raw).root().text());
     }
 
     private parseRefs(raw: string): Queries.Entities.Ref[] {
@@ -93,7 +93,7 @@ export class Query {
             type: 'recipe',
             id: arr[0],
             icon: this.getIconURL(arr[1]),
-            name: Utils.cleanStr(cheerio.load(arr[2]).root().text()),
+            name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
             process: arr[3],
             exp: parseInt(arr[5].replace(/\D/g, '')) || 0,
             skill_lvl: {
@@ -111,7 +111,7 @@ export class Query {
             type: 'npc_drop',
             id: arr[0],
             icon: this.getIconURL(arr[1]),
-            name: Utils.cleanStr(cheerio.load(arr[2]).root().text()),
+            name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
             amount: parseInt(arr[3]),
             chance: parseFloat(arr[4].replace(/\%/g, '')),
             shortUrl: this.getShortURL(arr[2]),
@@ -123,7 +123,7 @@ export class Query {
             type: 'node',
             id: arr[0],
             icon: this.getIconURL(arr[1]),
-            name: Utils.cleanStr(cheerio.load(arr[2]).root().text()),
+            name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
             zone: arr[3],
             temperature: parseFloat(arr[4].replace(/\%/g, '')),
             humidity: parseFloat(arr[5].replace(/\%/g, '')),
@@ -137,7 +137,7 @@ export class Query {
             type: 'item',
             id: arr[0],
             icon: this.getIconURL(arr[1]),
-            name: Utils.cleanStr(cheerio.load(arr[2]).root().text()),
+            name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
             lvl: arr[3],
             shortUrl: this.getShortURL(arr[2]),
         }));
@@ -171,8 +171,53 @@ export class Query {
             exp: parseInt(arr[5].display.replace(/\D/g, '')),
             exp_skill: parseInt(arr[6].display.replace(/\D/g, '')),
             exp_contribution: parseInt(arr[7]),
-            rewards: {},
+            rewards: this.parseQuestRewards(arr[8]),
             shortUrl: this.getShortURL(arr[2]),
         }));
+    }
+
+    private parseQuestRewards(raw: string) {
+        const matches = {
+            choose: { [App.Locales.US]: 'Choose' }[this._locale],
+            amity: { [App.Locales.US]: 'Amity' }[this._locale],
+        };
+        const items: Queries.Entities.QuestReward[] = [];
+        const choose: Queries.Entities.QuestReward[] = [];
+        const amity: number[] = [];
+        let curr = items;
+
+        const $ = cheerio.load('<div id="root">' + raw + '</div>');
+        $('#root').contents().toArray().forEach(node => {
+            const { data, tagName } = node;
+            if (tagName === 'br' || node.parent.attribs.id !== 'root')
+                return;
+            if (data) {
+                if (AppUtils.indexOf(data, matches.choose).substr)
+                    curr = choose;
+                else if (AppUtils.indexOf(data, matches.amity).substr)
+                    amity.push(parseInt(data.replace(/\D/g, '')));
+            }
+            if (tagName !== 'div') return;
+            const n = $(node);
+            const f = (str: string) => n.find(str);
+            if (n.find('a').length) {
+                curr.push({
+                    type: 'ref',
+                    shortUrl: f('a').attr('href') || '',
+                    id: f('a').attr('data-id')?.split('--')[1] || '',
+                    icon: this.getIconURL(f('.icon_wrapper').text()),
+                    amount: parseInt(f('.quantity_small').text().trim()) || 1,
+                });
+            } else {
+                curr.push({
+                    type: 'unknown',
+                    icon: AppUtils.getIconUrl(this._db, f('img').attr('src') || ''),
+                    name: n.attr('title'),
+                    amount: parseInt(f('.quantity_small').text().trim()) || 1,
+                });
+            }
+        });
+
+        return { items, choose, amity };
     }
 }
