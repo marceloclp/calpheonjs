@@ -1,24 +1,26 @@
 import { Generic } from "./generic.entity";
 
 export interface NPC extends Generic {
+    type: 'npc';
+
     /** The level of the NPC. */
-    readonly lvl: number;
+    lvl: number;
 
     /** How much health points the NPC has. */
-    readonly hp: number;
+    hp: number;
 
     /** How much defense the NPC has. */
-    readonly defense: number;
+    defense: number;
 
     /** How much evasion the NPC has. */
-    readonly evasion: number;
+    evasion: number;
 
     /** How much exp the NPC gives. */
-    readonly exp: number;
+    exp: number;
 
     /** How much skill exp the NPC gives. */
-    readonly exp_skill: number;
+    exp_skill: number;
 
     /** How much karma the NPC has. */
-    readonly karma: number;
+    karma: number;
 }

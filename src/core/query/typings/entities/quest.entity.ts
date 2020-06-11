@@ -2,30 +2,32 @@ import { Generic } from "./generic.entity";
 import { QuestReward } from "./quest-reward.entity";
 
 export interface Quest extends Generic {
+    type: 'quest';
+
     /** The level required to unlock  */
-    readonly lvl: number;
+    lvl: number;
 
     /** The region where the player can get the quest. */
-    readonly region: string;
+    region: string;
 
     /** The exp given by completing the quest. */
-    readonly exp: number;
+    exp: number;
 
     /** The skill exp given by completing the quest. */
-    readonly exp_skill: number;
+    exp_skill: number;
     
     /** The contribution exp given by completing the quest. */
-    readonly exp_contribution: number;
+    exp_contribution: number;
 
     /** The rewards received by completing the quest. */
-    readonly rewards: {
+    rewards: {
         /** Always received on quest completion. */
-        readonly items: QuestReward[];
+        items: QuestReward[];
 
         /** Choose one of the rewards on quest completion. */
-        readonly choose: QuestReward[];
+        choose: QuestReward[];
 
         /** Amount of amity received on quest completion. */
-        readonly amity: number[];
+        amity: number[];
     };
 }

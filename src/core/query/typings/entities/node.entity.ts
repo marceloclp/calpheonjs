@@ -1,12 +1,14 @@
 import { Generic } from "./generic.entity";
 
 export interface Node extends Generic {
+    type: 'node';
+
     /** The zone where the node is located. */
-    readonly zone: string;
+    zone: string;
 
-    readonly temperature: number;
+    temperature: number;
 
-    readonly humidity: number;
+    humidity: number;
 
-    readonly water: number;
+    water: number;
 }
