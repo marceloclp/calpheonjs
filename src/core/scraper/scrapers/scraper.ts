@@ -20,7 +20,7 @@ export class Scraper {
 
         protected readonly fetch: App.FetchFn,
 
-        protected readonly query: Queries.Query,
+        protected readonly _query: Queries.Query,
     ) {}
 
     protected parseIconURL(url: string): string {
@@ -58,12 +58,12 @@ export class Scraper {
 
     get url(): string {
         return this._url;
-        return 'https://' + [
+        /*return 'https://' + [
             this._db,
             this._locale,
             this._type,
             this._id,
-        ].join('/') + '/';
+        ].join('/') + '/';*/
     }
 
     get id(): string {
