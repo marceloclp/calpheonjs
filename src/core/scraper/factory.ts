@@ -3,6 +3,7 @@ import * as AppUtils from "../../utils";
 import * as Scrapers from "./typings";
 import { App } from "../../typings";
 import { Scraper as ScraperClass } from "./scrapers";
+import Query from "../query";
 
 export const Scrape = async <T = any>(
     id: string,
@@ -14,10 +15,29 @@ export const Scrape = async <T = any>(
     const url = 'https://' + [db, locale, type, id].join('/') + '/';
     const $ = cheerio.load(await AppUtils.fetch(url));
     
-    const { category_id } = new ScraperClass(url, id, db, locale, type, $);
-    const ScraperCtor = Utils.mapCategoryToScraper(category_id, type);
+    const { category_id } = new ScraperClass(
+        url,
+        id,
+        db,
+        locale,
+        type,
+        $,
+        AppUtils.fetch,
+        Query,
+    );
 
-    return new ScraperCtor(url, id, db, locale, type, $).build() as any;
+    const Ctor = Utils.mapCategoryToScraper(category_id, type);
+    
+    return new Ctor(
+        url,
+        id,
+        db,
+        locale,
+        type,
+        $,
+        AppUtils.fetch,
+        Query,
+    ).build() as any;
 }
 
 export const Equipment = async (

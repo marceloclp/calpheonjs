@@ -14,6 +14,8 @@ export class Query {
         protected readonly _locale = App.Locales.US,
 
         protected readonly _db = App.Dbs.BDO_CODEX,
+
+        protected readonly fetch: App.FetchFn,
     ) {}
 
     get url(): string {
@@ -33,12 +35,10 @@ export class Query {
         .join('&');
     }
 
-    async fetch(): Promise<string> {
-        return (await AppUtils.fetch(this.url)).trim();
-    }
-
     async parse(): Promise<Queries.Result> {
-        const res = JSON.parse(await this.fetch());
+        const res = JSON.parse(
+            (await this.fetch(this.url)).trim()
+        );
         const [type, data] = this.getCollection(res);
         return { url: this.url, type, data };
     }

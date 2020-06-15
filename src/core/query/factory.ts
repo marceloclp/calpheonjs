@@ -1,6 +1,7 @@
 import * as Utils from "./utils";
 import * as Queries from "./typings";
 import { Query as QueryClass } from "./query";
+import { fetch } from "../../utils";
 
 export const Query: Queries.Query = async <T = any>(
     id: string,
@@ -14,7 +15,8 @@ export const Query: Queries.Query = async <T = any>(
         q.group,
         q.itemAs,
         options?.locale,
-        options?.db
+        options?.db,
+        fetch,
     );
 
     return await query.parse();

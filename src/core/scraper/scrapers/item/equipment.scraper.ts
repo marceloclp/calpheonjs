@@ -178,9 +178,9 @@ export class EquipmentScraper extends ItemScraper {
         return parseInt(node.data.replace(/\D/g, ''));
     }
 
-    build(): Scrapers.Entities.Equipment {
+    async build(): Promise<Scrapers.Entities.Equipment> {
         return {
-            ...super.build(),
+            ...(await super.build()),
             stats: this.stats,
             enhancement_stats: this.enhancement_stats,
             caphras_stats: this.caphras_stats,

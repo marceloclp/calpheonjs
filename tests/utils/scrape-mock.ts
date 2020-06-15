@@ -5,6 +5,7 @@ import * as ScraperUtils from "../../src/core/scraper/utils";
 import { App } from "../../src/typings";
 import { Scrapers } from "../../src/core";
 import { Scraper as ScraperClass } from "../../src/core/scraper/scrapers";
+import QueryMock from "./query-mock";
 
 const ScrapeMock = async <T = any>(
     id: string,
@@ -28,10 +29,29 @@ const ScrapeMock = async <T = any>(
         $ = cheerio.load(cache.set(key, await AppUtils.fetch(url)));
     }
 
-    const { category_id } = new ScraperClass(url, id, db, locale, type, $);
-    const ScraperCtor = ScraperUtils.mapCategoryToScraper(category_id, type);
+    const { category_id } = new ScraperClass(
+        url,
+        id,
+        db,
+        locale,
+        type,
+        $,
+        AppUtils.fetch,
+        QueryMock,
+    );
+    
+    const Ctor = ScraperUtils.mapCategoryToScraper(category_id, type);
 
-    return new ScraperCtor(url, id, db, locale, type, $).build() as any;
+    return new Ctor(
+        url,
+        id,
+        db,
+        locale,
+        type,
+        $,
+        AppUtils.fetch,
+        QueryMock
+    ).build() as any;
 }
 
 export default ScrapeMock;

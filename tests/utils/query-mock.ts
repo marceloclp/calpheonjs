@@ -1,23 +1,7 @@
-import * as cache from "./cache";
 import * as QueryUtils from "../../src/core/query/utils";
 import { Queries } from "../../src/core";
 import { Query as QueryClass } from "../../src/core/query/query";
-
-class QueryClassMock extends QueryClass {
-    async fetch(): Promise<string> {
-        const key = [
-            "query",
-            this._locale,
-            this._group,
-            this._itemAs,
-            this._id,
-        ].join("-");
-        if (cache.has(key))
-            return cache.get(key);
-        const data = await super.fetch();
-        return cache.set(key, data);
-    }
-}
+import { fetchMock } from "./fetch-mock";
 
 const QueryMock: Queries.Query = async <T = any>(
     id: string,
@@ -25,13 +9,22 @@ const QueryMock: Queries.Query = async <T = any>(
     options?: Queries.Options,
 ): Promise<Queries.Result<T>> => {
     let q = (typeof type === 'object' && type) || QueryUtils.mapQueryType(type);
+    
+    const fetch = (url: string) => fetchMock(url, [
+        "query",
+        options?.locale,
+        q.group,
+        q.itemAs,
+        id,
+    ].join("-"));
 
-    const query = new QueryClassMock(
+    const query = new QueryClass(
         id,
         q.group,
         q.itemAs,
         options?.locale,
         options?.db,
+        fetch,
     );
 
     return await query.parse();

@@ -2,6 +2,7 @@ import * as AppUtils from "../../../utils";
 import * as Scrapers from "../typings";
 import { App, BDOCodex } from "../../../typings";
 import { Pricings } from "../typings/interfaces";
+import { Queries } from "../../query";
 
 export class Scraper {
     constructor(
@@ -15,7 +16,11 @@ export class Scraper {
 
         protected readonly _type: Scrapers.EntityTypes,
 
-        protected readonly $: CheerioStatic
+        protected readonly $: CheerioStatic,
+
+        protected readonly fetch: App.FetchFn,
+
+        protected readonly query: Queries.Query,
     ) {}
 
     protected parseIconURL(url: string): string {
@@ -53,6 +58,12 @@ export class Scraper {
 
     get url(): string {
         return this._url;
+        return 'https://' + [
+            this._db,
+            this._locale,
+            this._type,
+            this._id,
+        ].join('/') + '/';
     }
 
     get id(): string {
@@ -144,7 +155,7 @@ export class Scraper {
             }, {} as Pricings);
     }
 
-    build(): Scrapers.Entities.Generic {
+    async build(): Promise<Scrapers.Entities.Generic> {
         return {
             id: this.id,
             icon: this.icon,
