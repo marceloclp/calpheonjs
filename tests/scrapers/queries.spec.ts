@@ -16,12 +16,12 @@ describe('SCRAPER: queries', () => {
             );
         });
 
-        it('#in_quest_rewards.length', () => {
-            expect(result.in_quest_rewards.length).to.equal(67);
+        it('#quest_rewards.length', () => {
+            expect(result.quest_rewards.length).to.equal(67);
         });
 
-        it('#in_quest_rewards[0]', () => {
-            expect(result.in_quest_rewards[0]).to.deep.equal({
+        it('#quest_rewards[0]', () => {
+            expect(result.quest_rewards[0]).to.deep.equal({
                 type: 'quest',
                 id: '4019/1',
                 icon: 'https://bdocodex.com/items/quest/altinova_5.png',

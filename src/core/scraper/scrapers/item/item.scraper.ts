@@ -28,12 +28,21 @@ export class ItemScraper extends Scraper {
     }
 
     async build(): Promise<Scrapers.Entities.Item> {
+        const Types = Queries.Types;
         return {
             ...(await super.build()),
             prices: this.prices,
-            in_quest_rewards: await this.query(Queries.Types.QUEST_REWARD),
-            product_of_recipes: await this.query(Queries.Types.PRODUCT_IN_RECIPE),
-            product_of_processing: await this.query(Queries.Types.PRODUCT_IN_PROCESSING),
+            npc_drops: await this.query(Types.NPC_DROPS),
+            quest_rewards: await this.query(Types.QUEST_REWARD),
+            product_of_recipes: await this.query(Types.PRODUCT_IN_RECIPE),
+            product_of_processing: await this.query(Types.PRODUCT_IN_PROCESSING),
+            product_of_design: await this.query(Types.PRODUCT_IN_DESIGN),
+            material_of_recipes: await this.query(Types.MATERIAL_IN_RECIPE),
+            material_of_processing: await this.query(Types.MATERIAL_IN_PROCESSING),
+            material_of_design: await this.query(Types.MATERIAL_IN_DESIGN),
+            dropped_in_node: await this.query(Types.DROPPED_IN_NODE),
+            obtained_from: await this.query(Types.OBTAINED_FROM),
+            sold_by_npc: await this.query(Types.SOLD_BY_NPC),
         }
     }
 }
