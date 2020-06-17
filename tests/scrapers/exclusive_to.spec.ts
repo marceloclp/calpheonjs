@@ -11,9 +11,9 @@ describe('SCRAPER: exclusive_to', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('10817',
+            result = (await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#exclusive_to', () => {
@@ -29,9 +29,9 @@ describe('SCRAPER: exclusive_to', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('703549',
+            result = (await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#exclusive_to', () => {
@@ -47,9 +47,9 @@ describe('SCRAPER: exclusive_to', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('13210',
+            result = (await ScrapeMock('13210',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#exclusive_to', () => {

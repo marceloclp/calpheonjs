@@ -5,6 +5,8 @@ import { Queries } from "../../../query";
 export interface Item extends Generic {
     prices: Pricings;
 
+    grade: number;
+
     npc_drops: Queries.Entities.NPCDrop[];
     
     quest_rewards: Queries.Entities.Quest[];

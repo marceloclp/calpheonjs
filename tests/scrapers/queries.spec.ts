@@ -11,9 +11,9 @@ describe('SCRAPER: queries', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('519',
+            result = (await ScrapeMock('519',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#quest_rewards.length', () => {

@@ -11,9 +11,9 @@ describe('SCRAPER: fairy_exp', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('10817',
+            result = (await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#fairy_exp', () => {
@@ -29,9 +29,9 @@ describe('SCRAPER: fairy_exp', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('11016',
+            result = (await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#fairy_exp', () => {
@@ -47,9 +47,9 @@ describe('SCRAPER: fairy_exp', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('703549',
+            result = (await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#fairy_exp', () => {

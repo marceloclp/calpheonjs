@@ -11,9 +11,9 @@ describe('SCRAPER: enhancement_stats', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('11629',
+            result = (await ScrapeMock('11629',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#enhancement_stats[0]', () => {
@@ -35,7 +35,7 @@ describe('SCRAPER: enhancement_stats', () => {
                 pe_dura_dec: 0,
                 required_enhancement_item: {
                     id: '11629',
-                    icon: 'https://bdocodex.com/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
+                    icon: '/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                     name: 'Tungrad Necklace',
                 },
                 enhancement_effects: [],
@@ -72,9 +72,9 @@ describe('SCRAPER: enhancement_stats', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('13210',
+            result = (await ScrapeMock('13210',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#enhancement_stats[1]', () => {
@@ -96,7 +96,7 @@ describe('SCRAPER: enhancement_stats', () => {
                 pe_dura_dec: 0,
                 required_enhancement_item: {
                     id: '16001',
-                    icon: 'https://bdocodex.com/new_icon/03_etc/11_enchant_material/00000008.png',
+                    icon: '/new_icon/03_etc/11_enchant_material/00000008.png',
                     name: 'Black Stone (Weapon)',
                 },
                 enhancement_effects: [

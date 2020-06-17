@@ -2,13 +2,13 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import ScrapeMock, { Scrapers } from "../utils/scrape-mock";
 
-describe('SCRAPER: category_id', () => {
+describe('SCRAPER: type', () => {
     /**
      * https://bdocodex.com/us/item/9601/
      * Balenos Meal
      */
     describe('9601', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result;
 
         before(async () => {
             result = await ScrapeMock('9601',
@@ -16,8 +16,8 @@ describe('SCRAPER: category_id', () => {
             );
         });
 
-        it('#category_id', () => {
-            expect(result.category_id).to.equal('consumable');
+        it('#type', () => {
+            expect(result.type).to.equal('consumable');
         });
     });
 
@@ -26,7 +26,7 @@ describe('SCRAPER: category_id', () => {
      * Abyssal Brass Ingot
      */
     describe('9746', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result;
 
         before(async () => {
             result = await ScrapeMock('9746',
@@ -34,8 +34,8 @@ describe('SCRAPER: category_id', () => {
             );
         });
 
-        it('#category_id', () => {
-            expect(result.category_id).to.equal('crafting_material');
+        it('#type', () => {
+            expect(result.type).to.equal('crafting_material');
         });
     });
 
@@ -44,7 +44,7 @@ describe('SCRAPER: category_id', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result;
 
         before(async () => {
             result = await ScrapeMock('10817',
@@ -52,8 +52,8 @@ describe('SCRAPER: category_id', () => {
             );
         });
 
-        it('#category_id', () => {
-            expect(result.category_id).to.equal('equipment');
+        it('#type', () => {
+            expect(result.type).to.equal('equipment');
         });
     });
 
@@ -62,7 +62,7 @@ describe('SCRAPER: category_id', () => {
      * Beia's Black Magic Gloves
      */
     describe('10991', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result;
 
         before(async () => {
             result = await ScrapeMock('10991',
@@ -70,8 +70,8 @@ describe('SCRAPER: category_id', () => {
             );
         });
 
-        it('#category_id', () => {
-            expect(result.category_id).to.equal('equipment');
+        it('#type', () => {
+            expect(result.type).to.equal('equipment');
         });
     });
 
@@ -80,7 +80,7 @@ describe('SCRAPER: category_id', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result;
 
         before(async () => {
             result = await ScrapeMock('11016',
@@ -88,8 +88,8 @@ describe('SCRAPER: category_id', () => {
             );
         });
 
-        it('#category_id', () => {
-            expect(result.category_id).to.equal('equipment');
+        it('#type', () => {
+            expect(result.type).to.equal('equipment');
         });
     });
 });

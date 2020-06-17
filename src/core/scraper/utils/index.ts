@@ -1,1 +1,0 @@
-export { mapCategoryToScraper } from "./map-category-to-scraper"

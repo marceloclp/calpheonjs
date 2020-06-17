@@ -11,9 +11,9 @@ describe('SCRAPER: caphras_stats', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('11016',
+            result = (await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#caphras_stats[18][0]', () => {
@@ -54,9 +54,9 @@ describe('SCRAPER: caphras_stats', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('16832',
+            result = (await ScrapeMock('16832',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#caphras_stats', () => {

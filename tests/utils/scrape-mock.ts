@@ -1,57 +1,32 @@
-import cheerio from "cheerio";
-import * as cache from "./cache";
-import * as AppUtils from "../../src/utils";
-import * as ScraperUtils from "../../src/core/scraper/utils";
 import { App } from "../../src/typings";
-import { Scrapers } from "../../src/core";
-import { Scraper as ScraperClass } from "../../src/core/scraper/scrapers";
+import { Scrapers } from "../../src/core"
+import { Scraper } from "../../src/core/scraper/scraper";
+import { fetchMock } from "./fetch-mock";
 import QueryMock from "./query-mock";
 
 const ScrapeMock = async <T = any>(
     id: string,
     type: Scrapers.EntityTypes,
     options?: Scrapers.Options,
-): Promise<T> => {
+): Promise<Scrapers.Result<T>> => {
     const locale = options?.locale || App.Locales.US;
     const db = options?.db || App.Dbs.BDO_CODEX;
-    const url = 'https://' + [db, locale, type, id].join('/') + '/';
 
-    const key = [
+    const fetch = (url: string) => fetchMock(url, [
         "scrape",
         locale,
         type,
         id,
-    ].join('-');
-    let $: CheerioStatic;
-    if (cache.has(key)) {
-        $ = cheerio.load(cache.get(key));
-    } else {
-        $ = cheerio.load(cache.set(key, await AppUtils.fetch(url)));
-    }
+    ].join("-"));
 
-    const { category_id } = new ScraperClass(
-        url,
+    return await new Scraper(
         id,
         db,
         locale,
         type,
-        $,
-        AppUtils.fetch,
+        fetch,
         QueryMock,
-    );
-    
-    const Ctor = ScraperUtils.mapCategoryToScraper(category_id, type);
-
-    return new Ctor(
-        url,
-        id,
-        db,
-        locale,
-        type,
-        $,
-        AppUtils.fetch,
-        QueryMock
-    ).build() as any;
+    ).parse();
 }
 
 export default ScrapeMock;

@@ -1,10 +1,10 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../../../utils";
 import * as Scrapers from "../../typings";
-import { App, BDOCodex } from "../../../../typings";
-import { ItemScraper } from "./item.scraper";
+import { BDOCodex, App } from "../../../../typings";
+import { Item } from "./item.builder";
 
-export class EquipmentScraper extends ItemScraper {
+export class Equipment extends Item {
     private parseEnchantmentArray(): BDOCodex.Enchantment.Array {
         return JSON.parse(this.$('#enchantment_array').text());
     }
@@ -98,7 +98,7 @@ export class EquipmentScraper extends ItemScraper {
                     durability_loss_on_failure: parseInt(curr.fail_dura_dec),
                     required_enhancement_item: {
                         id: curr.need_enchant_item_id,
-                        icon: this.parseIconURL(curr.need_enchant_item_icon),
+                        icon: '/' + curr.need_enchant_item_icon,
                         name: curr.need_enchant_item_name,
                     },
                 }),

@@ -11,9 +11,9 @@ describe('SCRAPER: category', () => {
         let result: Scrapers.Entities.Item;
 
         before(async () => {
-            result = await ScrapeMock('9601',
+            result = (await ScrapeMock('9601',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#category', () => {
@@ -29,9 +29,9 @@ describe('SCRAPER: category', () => {
         let result: Scrapers.Entities.Item;
 
         before(async () => {
-            result = await ScrapeMock('9746',
+            result = (await ScrapeMock('9746',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#category', () => {
@@ -47,9 +47,9 @@ describe('SCRAPER: category', () => {
         let result: Scrapers.Entities.Item;
 
         before(async () => {
-            result = await ScrapeMock('10817',
+            result = (await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#category', () => {
@@ -65,9 +65,9 @@ describe('SCRAPER: category', () => {
         let result: Scrapers.Entities.Item;
 
         before(async () => {
-            result = await ScrapeMock('10991',
+            result = (await ScrapeMock('10991',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#category', () => {
@@ -83,9 +83,9 @@ describe('SCRAPER: category', () => {
         let result: Scrapers.Entities.Item;
 
         before(async () => {
-            result = await ScrapeMock('11016',
+            result = (await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#category', () => {

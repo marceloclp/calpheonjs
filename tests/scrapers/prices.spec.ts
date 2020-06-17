@@ -11,9 +11,9 @@ describe('SCRAPER: prices', () => {
         let result: Scrapers.Entities.Item;
 
         before(async () => {
-            result = await ScrapeMock('2706',
+            result = (await ScrapeMock('2706',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#prices', () => {
@@ -29,9 +29,9 @@ describe('SCRAPER: prices', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('11016',
+            result = (await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#prices', () => {
@@ -47,9 +47,9 @@ describe('SCRAPER: prices', () => {
         let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = await ScrapeMock('703549',
+            result = (await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            );
+            )).data;
         });
 
         it('#prices', () => {

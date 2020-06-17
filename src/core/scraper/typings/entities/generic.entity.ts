@@ -11,11 +11,11 @@ export interface Generic {
 
     category: string;
 
-    category_id: string;
+    //category_id: string;
 
-    grade: number;
+    //grade: number;
 
     description: string;
 
-    url?: string;
+    //url?: string;
 }
