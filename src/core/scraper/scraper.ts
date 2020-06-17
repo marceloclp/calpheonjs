@@ -34,7 +34,6 @@ export class Scraper {
         const category = AppUtils.cleanStr($('.category_text').text())
             .toLowerCase()
             .replace(/\ /g, '_');
-        console.log(category);
         switch (this._locale) {
             case App.Locales.US:
                 switch (category) {
@@ -48,7 +47,7 @@ export class Scraper {
         }
     }
 
-    private getEntityScraper(category: App.Categories) {
+    private getBuilder(category: App.Categories) {
         const Ctgs = App.Categories;
         switch (this._type) {
             case Scrapers.EntityTypes.ITEM:
@@ -67,7 +66,7 @@ export class Scraper {
     async parse(): Promise<Scrapers.Result> {
         const $ = cheerio.load(await this.fetch());
         const category_id = this.getCategoryId($);
-        const Builder = this.getEntityScraper(category_id);
+        const Builder = this.getBuilder(category_id);
 
         const data = await new Builder(
             this._id,
