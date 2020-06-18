@@ -31,6 +31,10 @@ describe('Consumables', () => {
         it('#cooldown', () => {
             expect(result.cooldown).to.equal(1200);
         });
+
+        it('#description', () => {
+            expect(result.description).to.equal('Elixir with an offensive function.');
+        });
     });
 
     /**
@@ -58,6 +62,10 @@ describe('Consumables', () => {
 
         it('#cooldown', () => {
             expect(result.cooldown).to.equal(10);
+        });
+
+        it('#description', () => {
+            expect(result.description).to.equal('Elixir with an offensive function.');
         });
     });
 
@@ -87,6 +95,10 @@ describe('Consumables', () => {
 
         it('#cooldown', () => {
             expect(result.cooldown).to.equal(1800);
+        });
+
+        it('#description', () => {
+            expect(result.description).to.equal('A pudding made with suspicious ingredients.');
         });
     });
 });
