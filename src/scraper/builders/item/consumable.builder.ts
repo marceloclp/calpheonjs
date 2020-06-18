@@ -1,6 +1,6 @@
-import * as AppUtils from "../../../../utils";
+import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
-import { App } from "../../../../typings";
+import { App } from "../../../typings";
 import { Item } from "./item.builder";
 
 export class Consumable extends Item {

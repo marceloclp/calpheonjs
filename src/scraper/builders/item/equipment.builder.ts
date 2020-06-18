@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
-import * as AppUtils from "../../../../utils";
+import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
-import { BDOCodex, App } from "../../../../typings";
+import { BDOCodex, App } from "../../../typings";
 import { Item } from "./item.builder";
 
 export class Equipment extends Item {

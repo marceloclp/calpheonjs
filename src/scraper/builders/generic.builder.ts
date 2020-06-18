@@ -1,6 +1,6 @@
-import * as AppUtils from "../../../utils";
+import * as AppUtils from "../../utils";
 import * as Scrapers from "../typings";
-import { App, BDOCodex } from "../../../typings";
+import { App, BDOCodex } from "../../typings";
 import { Queries } from "../../query";
 
 export class Generic {

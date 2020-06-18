@@ -1,6 +1,6 @@
-import * as QueryUtils from "../../src/core/query/utils";
-import { Queries } from "../../src/core";
-import { Query as QueryClass } from "../../src/core/query/query";
+import * as QueryUtils from "../../src/query/utils";
+import { Queries } from "../../src";
+import { Query as QueryClass } from "../../src/query/query";
 import { fetchMock } from "./fetch-mock";
 import ScrapeMock from "./scrape-mock";
 
@@ -33,4 +33,4 @@ const QueryMock: Queries.Query = async <T = any>(
 }
 
 export default QueryMock;
-export { Queries } from "../../src/core";
+export { Queries } from "../../src";

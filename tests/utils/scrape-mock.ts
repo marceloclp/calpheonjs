@@ -1,6 +1,6 @@
 import { App } from "../../src/typings";
-import { Scrapers } from "../../src/core"
-import { Scraper } from "../../src/core/scraper/scraper";
+import { Scrapers } from "../../src"
+import { Scraper } from "../../src/scraper/scraper";
 import { fetchMock } from "./fetch-mock";
 import QueryMock from "./query-mock";
 
@@ -30,4 +30,4 @@ const ScrapeMock = async <T = any>(
 }
 
 export default ScrapeMock;
-export { Scrapers } from "../../src/core";
+export { Scrapers } from "../../src";

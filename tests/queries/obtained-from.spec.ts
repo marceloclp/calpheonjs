@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import { Scrapers } from "../../src/core";
+import { Scrapers } from "../utils/scrape-mock";
 import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('OBTAINED FROM', () => {

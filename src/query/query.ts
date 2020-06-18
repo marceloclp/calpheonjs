@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
-import * as AppUtils from "../../utils";
+import * as AppUtils from "../utils";
 import * as Queries from "./typings";
-import { App, BDOCodex } from "../../typings";
+import { App, BDOCodex } from "../typings";
 import Scrape, { Scrapers } from "../scraper";
 
 export class Query {
