@@ -2,6 +2,7 @@ import * as QueryUtils from "../../src/core/query/utils";
 import { Queries } from "../../src/core";
 import { Query as QueryClass } from "../../src/core/query/query";
 import { fetchMock } from "./fetch-mock";
+import ScrapeMock from "./scrape-mock";
 
 const QueryMock: Queries.Query = async <T = any>(
     id: string,
@@ -25,6 +26,7 @@ const QueryMock: Queries.Query = async <T = any>(
         options?.locale,
         options?.db,
         fetch,
+        ScrapeMock,
     );
 
     return await query.parse();

@@ -2,6 +2,7 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import QueryMock, { Queries } from "../utils/query-mock";
 
+
 describe('PRODUCT IN RECIPE', () => {
     /**
      * https://bdocodex.com/us/item/633/
@@ -29,7 +30,7 @@ describe('PRODUCT IN RECIPE', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'recipe',
                 shortUrl: '/us/recipe/115/',
                 id: '115',
@@ -76,7 +77,7 @@ describe('PRODUCT IN RECIPE', () => {
                     icon: 'https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009294.png',
                     amount: 1,
                 }]
-            })
+            });
         });
     });
 
@@ -102,7 +103,7 @@ describe('PRODUCT IN RECIPE', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'recipe',
                 shortUrl: '/us/recipe/122/',
                 id: '122',
@@ -153,7 +154,7 @@ describe('PRODUCT IN RECIPE', () => {
         });
 
         it('#items[1]', () => {
-            expect(result.data[1]).to.deep.equal({
+            expect(result.data[1]).to.containSubset({
                 type: 'recipe',
                 shortUrl: '/us/recipe/204/',
                 id: '204',

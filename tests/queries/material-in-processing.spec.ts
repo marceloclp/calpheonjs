@@ -1,5 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
+import { Scrapers } from "../../src/core";
 import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('PRODUCT IN PROCESSING', () => {
@@ -9,11 +10,16 @@ describe('PRODUCT IN PROCESSING', () => {
      */
     describe('Ain Amulet', () => {
         let result: Queries.Result<Queries.Entities.Recipe>;
+        let scrapeResult: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
             result = await QueryMock('10406',
                 Queries.Types.MATERIAL_IN_PROCESSING
             );
+            scrapeResult = await result
+                .data[0]
+                .materials[0]
+                .scrape?.<Scrapers.Entities.Equipment>() as any;
         });
 
         it('#url', () => {
@@ -29,7 +35,7 @@ describe('PRODUCT IN PROCESSING', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'recipe',
                 shortUrl: '/us/mrecipe/749/',
                 id: '749',
@@ -65,6 +71,18 @@ describe('PRODUCT IN PROCESSING', () => {
                     amount: 1,
                 }]
             })
+        });
+
+        it('#items[0].materials[0].scrape().data', () => {
+            expect(scrapeResult.data).to.containSubset({
+                id: '10406',
+                category: 'Equipment',
+                name: 'Ain Amulet',
+            });
+        });
+
+        it('#items[0].materials[0].scrape().type', () => {
+            expect(scrapeResult.type).to.equal('equipment');
         });
     });
 });

@@ -2,6 +2,7 @@ import * as Utils from "./utils";
 import * as Queries from "./typings";
 import { Query as QueryClass } from "./query";
 import { fetch } from "../../utils";
+import Scrape from "../scraper";
 
 export const Query: Queries.Query = async <T = any>(
     id: string,
@@ -17,6 +18,7 @@ export const Query: Queries.Query = async <T = any>(
         options?.locale,
         options?.db,
         fetch,
+        Scrape,
     );
 
     return await query.parse();

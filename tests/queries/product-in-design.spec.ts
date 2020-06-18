@@ -29,7 +29,7 @@ describe('PRODUCT IN DESIGN', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'recipe',
                 shortUrl: '/us/design/5509/',
                 id: '5509',

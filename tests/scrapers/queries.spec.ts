@@ -21,7 +21,7 @@ describe('SCRAPER: queries', () => {
         });
 
         it('#quest_rewards[0]', () => {
-            expect(result.quest_rewards[0]).to.deep.equal({
+            expect(result.quest_rewards[0]).to.containSubset({
                 type: 'quest',
                 id: '4019/1',
                 icon: 'https://bdocodex.com/items/quest/altinova_5.png',
@@ -83,7 +83,7 @@ describe('SCRAPER: queries', () => {
         });
 
         it('#product_of_processing[0]', () => {
-            expect(result.product_of_processing[0]).to.deep.equal({
+            expect(result.product_of_processing[0]).to.containSubset({
                 type: 'recipe',
                 id: '983',
                 icon: 'https://bdocodex.com/items/new_icon/03_etc/08_potion/00000519.png',

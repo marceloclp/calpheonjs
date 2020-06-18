@@ -29,7 +29,7 @@ describe('SOLD BY NPC', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'npc',
                 id: '40068/1',
                 icon: 'https://bdocodex.com/items/ui_artwork/ic_00051.png',
@@ -72,7 +72,7 @@ describe('SOLD BY NPC', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'npc',
                 id: '40004/1',
                 icon: 'https://bdocodex.com/items/ui_artwork/ic_00004.png',

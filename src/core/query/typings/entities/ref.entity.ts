@@ -1,9 +1,10 @@
 import { EntityTypes } from "../types";
+import { Scrapers } from "../../../scraper";
 
 /**
  * A reference entity contains only the most basic information about an entity.
  */
-export interface Ref<T = any> {
+export interface Ref {
     type: EntityTypes;
 
     id: string;
@@ -12,5 +13,5 @@ export interface Ref<T = any> {
 
     shortUrl: string;
 
-    scrape?: () => Promise<T>;
+    scrape?: <T = any>() => Promise<Scrapers.Result<T>>;
 }

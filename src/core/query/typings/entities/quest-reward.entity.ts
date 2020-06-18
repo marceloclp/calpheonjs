@@ -1,4 +1,6 @@
-export interface QuestReward<T = any> {
+import { Scrapers } from "../../../scraper";
+
+export interface QuestReward {
     /** Sometimes the quest reward is experience or buffs that don't contain ids. */
     type: 'ref' | 'unknown';
 
@@ -14,5 +16,5 @@ export interface QuestReward<T = any> {
 
     amount: number;
 
-    scrape?: () => Promise<T>;
+    scrape?: <T = any>() => Promise<Scrapers.Result<T>>;
 }

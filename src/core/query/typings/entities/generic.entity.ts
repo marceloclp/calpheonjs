@@ -1,6 +1,7 @@
 import { EntityTypes } from "../types";
+import { Scrapers } from "../../../scraper";
 
-export interface Generic<T = any> {
+export interface Generic {
     /** Indicates whcih properties are to be expected from the object. */
     type: EntityTypes;
 
@@ -17,5 +18,5 @@ export interface Generic<T = any> {
     shortUrl: string;
 
     /** An async function that scrapes the entity page. */
-    scrape?: () => Promise<T>;
+    scrape?: <T = any>() => Promise<Scrapers.Result<T>>;
 }

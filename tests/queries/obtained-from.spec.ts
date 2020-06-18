@@ -1,5 +1,6 @@
 import { describe } from "mocha";
 import { expect } from "chai";
+import { Scrapers } from "../../src/core";
 import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('OBTAINED FROM', () => {
@@ -9,11 +10,15 @@ describe('OBTAINED FROM', () => {
      */
     describe('Axion Shield', () => {
         let result: Queries.Result<Queries.Entities.Item>;
-
+        let scrapeResult: Scrapers.Result<Scrapers.Entities.Item>;
+        
         before(async () => {
-            result = await QueryMock('10103',
+            result = await QueryMock<Queries.Entities.Item>('10103',
                 Queries.Types.OBTAINED_FROM
             );
+            scrapeResult = await result
+                .data[0]
+                .scrape?.<Scrapers.Entities.Item>() as any;
         });
 
         it('#url', () => {
@@ -28,8 +33,8 @@ describe('OBTAINED FROM', () => {
             expect(result.data.length).to.equal(1);
         });
 
-        it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+        it('#data[0]', () => {
+            expect(result.data[0]).to.containSubset({
                 type: 'item',
                 shortUrl: '/us/item/44931/',
                 id: '44931',
@@ -38,5 +43,17 @@ describe('OBTAINED FROM', () => {
                 lvl: 1,
             });
         });
+
+        it('#data[0].scrape().data', () => {
+            expect(scrapeResult.data).to.containSubset({
+                id: '44931',
+                category: 'Special Items',
+                name: 'Offensive Sub-weapon Box',
+            });
+        });
+
+        it('#data[0].scrape().type', () => {
+            expect(scrapeResult.type).to.equal('special_item');
+        })
     });
 });

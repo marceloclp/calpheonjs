@@ -45,5 +45,6 @@ export enum Categories {
     CRAFTING_MATERIAL = 'crafting_material',
     CONSUMABLE = 'consumable',
     INSTALLABLE_OBJECT = 'installable_object',
+    SPECIAL_ITEM = 'special_item',
     UNDEFINED = 'undefined',
 }

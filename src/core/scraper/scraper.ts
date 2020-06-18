@@ -41,6 +41,7 @@ export class Scraper {
                     case 'crafting_materials': return Ctgs.CRAFTING_MATERIAL;
                     case 'consumable':         return Ctgs.CONSUMABLE;
                     case 'installable_object': return Ctgs.INSTALLABLE_OBJECT;
+                    case 'special_items':      return Ctgs.SPECIAL_ITEM;
                     default:                   return Ctgs.UNDEFINED;
                 }
             default: return Ctgs.UNDEFINED;

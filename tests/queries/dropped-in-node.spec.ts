@@ -29,7 +29,7 @@ describe('DROPPED IN NODE', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[2]).to.deep.equal({
+            expect(result.data[2]).to.containSubset({
                 type: 'node',
                 id: '1157',
                 icon: 'https://bdocodex.com/images/node_icons/icon_node_9.png',
@@ -69,7 +69,7 @@ describe('DROPPED IN NODE', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'node',
                 id: '1157',
                 icon: 'https://bdocodex.com/images/node_icons/icon_node_9.png',

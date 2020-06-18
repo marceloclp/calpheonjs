@@ -29,7 +29,7 @@ describe('QUEST REWARDS', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'quest',
                 shortUrl: '/us/quest/4019/1/',
                 id: '4019/1',
@@ -79,7 +79,7 @@ describe('QUEST REWARDS', () => {
         });
 
         it('#items[35]', () => {
-            expect(result.data[35]).to.deep.equal({
+            expect(result.data[35]).to.containSubset({
                 type: 'quest',
                 shortUrl: '/us/quest/5613/5/',
                 id: '5613/5',
@@ -128,7 +128,7 @@ describe('QUEST REWARDS', () => {
         });
 
         it('#items[58]', () => {
-            expect(result.data[58]).to.deep.equal({
+            expect(result.data[58]).to.containSubset({
                 type: 'quest',
                 shortUrl: '/us/quest/4520/41/',
                 id: '4520/41',
@@ -172,7 +172,7 @@ describe('QUEST REWARDS', () => {
         });
 
         it('#items[62]', () => {
-            expect(result.data[62]).to.deep.equal({
+            expect(result.data[62]).to.containSubset({
                 type: 'quest',
                 shortUrl: '/us/quest/4050/47/',
                 id: '4050/47',

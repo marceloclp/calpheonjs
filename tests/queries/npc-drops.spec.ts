@@ -29,7 +29,7 @@ describe('NPC DROPS', () => {
         });
 
         it('#items[0]', () => {
-            expect(result.data[0]).to.deep.equal({
+            expect(result.data[0]).to.containSubset({
                 type: 'npc_drop',
                 shortUrl: '/us/npc/20091/',
                 id: '20091',
@@ -67,7 +67,7 @@ describe('NPC DROPS', () => {
         });
 
         it('#items[1]', () => {
-            expect(result.data[1]).to.deep.equal({
+            expect(result.data[1]).to.containSubset({
                 type: 'npc_drop',
                 shortUrl: '/us/npc/21305/',
                 id: '21305',
