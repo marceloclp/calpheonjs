@@ -8,16 +8,16 @@ describe('SCRAPER: exclusive_to', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#exclusive_to', () => {
-            expect(result.exclusive_to).to.deep.equal([]);
+            expect(result.data.exclusive_to).to.deep.equal([]);
         });
     });
 
@@ -26,16 +26,16 @@ describe('SCRAPER: exclusive_to', () => {
      * Arsha's Gauntlet (Accuracy)
      */
     describe('703549', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('703549',
+            result = await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#exclusive_to', () => {
-            expect(result.exclusive_to).to.deep.equal(['Striker', 'Mystic']);
+            expect(result.data.exclusive_to).to.deep.equal(['Striker', 'Mystic']);
         });
     });
 
@@ -44,16 +44,16 @@ describe('SCRAPER: exclusive_to', () => {
      * Kzarka Shortsword
      */
     describe('13210', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('13210',
+            result = await ScrapeMock('13210',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#exclusive_to', () => {
-            expect(result.exclusive_to).to.deep.equal(['Tamer', 'Kunoichi', 'Ninja']);
+            expect(result.data.exclusive_to).to.deep.equal(['Tamer', 'Kunoichi', 'Ninja']);
         });
     });
 });

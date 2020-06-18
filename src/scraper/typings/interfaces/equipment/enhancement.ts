@@ -28,5 +28,6 @@ export interface Enhancement {
     pe_dura_dec?: number;
 
     /** The item required to perform the enhancement. */
-    required_enhancement_item?: Entities.Ref;
+    //required_enhancement_item?: Entities.Ref;
+    required_enhancement_item?: Entities.Refs.Generic;
 }

@@ -18,5 +18,5 @@ export interface Generic {
     shortUrl: string;
 
     /** An async function that scrapes the entity page. */
-    scrape?: <T = any>() => Promise<Scrapers.Result<T>>;
+    scrape?: Scrapers.ScrapeFn;
 }

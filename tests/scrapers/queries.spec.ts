@@ -8,20 +8,20 @@ describe('SCRAPER: queries', () => {
      * HP Potion (Large)
      */
     describe('HP Potion (Large)', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('519',
+            result = await ScrapeMock('519',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#quest_rewards.length', () => {
-            expect(result.quest_rewards.length).to.equal(67);
+            expect(result.data.quest_rewards.length).to.equal(67);
         });
 
         it('#quest_rewards[0]', () => {
-            expect(result.quest_rewards[0]).to.containSubset({
+            expect(result.data.quest_rewards[0]).to.containSubset({
                 type: 'quest',
                 id: '4019/1',
                 icon: 'https://bdocodex.com/items/quest/altinova_5.png',
@@ -71,19 +71,19 @@ describe('SCRAPER: queries', () => {
         });
 
         it('#product_of_recipes.length', () => {
-            expect(result.product_of_recipes.length).to.equal(0);
+            expect(result.data.product_of_recipes.length).to.equal(0);
         });
 
         it('#product_of_recipes', () => {
-            expect(result.product_of_recipes).to.deep.equal([]);
+            expect(result.data.product_of_recipes).to.deep.equal([]);
         });
 
         it('#product_of_processing.length', () => {
-            expect(result.product_of_processing.length).to.equal(1);
+            expect(result.data.product_of_processing.length).to.equal(1);
         });
 
         it('#product_of_processing[0]', () => {
-            expect(result.product_of_processing[0]).to.containSubset({
+            expect(result.data.product_of_processing[0]).to.containSubset({
                 type: 'recipe',
                 id: '983',
                 icon: 'https://bdocodex.com/items/new_icon/03_etc/08_potion/00000519.png',

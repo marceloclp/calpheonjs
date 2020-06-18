@@ -1,5 +1,5 @@
 import { Generic } from "./generic.entity";
-import { QuestReward } from "./quest-reward.entity";
+import { QuestReward } from "./refs";
 
 export interface Quest extends Generic {
     type: 'quest';

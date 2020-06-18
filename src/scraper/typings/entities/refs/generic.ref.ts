@@ -1,17 +1,13 @@
 import { ScrapeFn } from "../../types";
 
-export interface Material {
+export interface Generic {
     id: string;
 
     icon: string;
 
     name: string;
 
-    grade: number;
-
-    amount: number;
-
-    shortUrl: string;
+    shortUrl?: string;
 
     scrape?: ScrapeFn;
 }

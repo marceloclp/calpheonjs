@@ -90,12 +90,12 @@ export class Query {
         return AppUtils.cleanStr(cheerio.load(raw).root().text());
     }
 
-    private parseRefs(raw: string): Queries.Entities.Ref[] {
+    private parseRefs(raw: string): Queries.Entities.Refs.Generic[] {
         return raw
             .split(`<div class="iconset_wrapper_medium inlinediv">`)
             .filter(str => str)
             .map(str => cheerio.load('<div>' + str))
-            .map<Queries.Entities.Ref>($ => ({
+            .map<Queries.Entities.Refs.Generic>($ => ({
                 type: 'ref',
                 id: $('a').attr('data-id')?.replace(/\D/g, '') || '',
                 amount: parseInt($('.quantity_small').text()) || 1,
@@ -230,8 +230,8 @@ export class Query {
             choose: { [App.Locales.US]: 'Choose' }[this._locale],
             amity: { [App.Locales.US]: 'Amity' }[this._locale],
         };
-        const items: Queries.Entities.QuestReward[] = [];
-        const choose: Queries.Entities.QuestReward[] = [];
+        const items: Queries.Entities.Refs.QuestReward[] = [];
+        const choose: Queries.Entities.Refs.QuestReward[] = [];
         const amity: number[] = [];
         let curr = items;
 

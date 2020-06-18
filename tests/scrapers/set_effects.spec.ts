@@ -8,16 +8,16 @@ describe('SCRAPER: set_effects', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#set_effects', () => {
-            expect(result.set_effects).to.deep.equal({
+            expect(result.data.set_effects).to.deep.equal({
                 2: ['Max Stamina +200'],
                 3: ['Extra Damage to All Species +5'],
             });
@@ -29,16 +29,16 @@ describe('SCRAPER: set_effects', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#set_effects', () => {
-            expect(result.set_effects).to.deep.equal({
+            expect(result.data.set_effects).to.deep.equal({
                 3: ['Max Stamina +200'],
                 4: [
                     'Attack Speed +1 Level',
@@ -53,16 +53,16 @@ describe('SCRAPER: set_effects', () => {
      * Arsha's Gauntlet (Accuracy)
      */
     describe('703549', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('703549',
+            result = await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#set_effects', () => {
-            expect(result.set_effects).to.deep.equal({});
+            expect(result.data.set_effects).to.deep.equal({});
         });
     });
 });

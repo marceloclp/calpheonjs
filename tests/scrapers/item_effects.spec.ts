@@ -8,16 +8,16 @@ describe('SCRAPER: item_effects', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#item_effects', () => {
-            expect(result.item_effects).to.deep.equal([
+            expect(result.data.item_effects).to.deep.equal([
                 'Knockdown/Bound Resistance +15%'
             ]);
         });
@@ -28,16 +28,16 @@ describe('SCRAPER: item_effects', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#item_effects', () => {
-            expect(result.item_effects).to.deep.equal([
+            expect(result.data.item_effects).to.deep.equal([
                 'All Evasion Up'
             ]);
         });
@@ -48,16 +48,16 @@ describe('SCRAPER: item_effects', () => {
      * Arsha's Gauntlet (Accuracy)
      */
     describe('703549', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('703549',
+            result = await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#item_effects', () => {
-            expect(result.item_effects).to.deep.equal([
+            expect(result.data.item_effects).to.deep.equal([
                 'Extra Damage to All Species +19',
                 'Attack Speed +3 Level',
                 'All Accuracy +16',

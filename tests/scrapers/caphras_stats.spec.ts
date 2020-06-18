@@ -8,16 +8,17 @@ describe('SCRAPER: caphras_stats', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
+        //let result: Scrapers.Entities.Equipment;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#caphras_stats[18][0]', () => {
-            expect(result.caphras_stats[18]?.[0]).to.deep.equal({
+            expect(result.data.caphras_stats[18]?.[0]).to.deep.equal({
                 count_next: 19,
                 count_total: 0,
                 stats: {},
@@ -25,7 +26,7 @@ describe('SCRAPER: caphras_stats', () => {
         });
 
         it('#caphras_stats[18][1]', () => {
-            expect(result.caphras_stats[18]?.[1]).to.deep.equal({
+            expect(result.data.caphras_stats[18]?.[1]).to.deep.equal({
                 count_next: 28,
                 count_total: 19,
                 stats: {
@@ -42,7 +43,7 @@ describe('SCRAPER: caphras_stats', () => {
         });
 
         it('#caphras.stats[18].length', () => {
-            expect(result.caphras_stats[18]?.length).to.equal(21);
+            expect(result.data.caphras_stats[18]?.length).to.equal(21);
         });
     });
 
@@ -51,16 +52,16 @@ describe('SCRAPER: caphras_stats', () => {
      * Magic Pickaxe
      */
     describe('16832', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('16832',
+            result = await ScrapeMock('16832',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#caphras_stats', () => {
-            expect(result.caphras_stats).to.deep.equal({ 18: [], 19: [], 20: [] });
+            expect(result.data.caphras_stats).to.deep.equal({ 18: [], 19: [], 20: [] });
         });
     });
 });

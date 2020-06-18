@@ -8,16 +8,16 @@ describe('SCRAPER: name', () => {
      * Balenos Meal
      */
     describe('9601', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('9601',
+            result = await ScrapeMock('9601',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name', () => {
-            expect(result.name).to.equal('Balenos Meal');
+            expect(result.data.name).to.equal('Balenos Meal');
         });
     });
 
@@ -26,16 +26,16 @@ describe('SCRAPER: name', () => {
      * Abyssal Brass Ingot
      */
     describe('9746', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('9746',
+            result = await ScrapeMock('9746',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name', () => {
-            expect(result.name).to.equal('Abyssal Brass Ingot');
+            expect(result.data.name).to.equal('Abyssal Brass Ingot');
         });
     });
 
@@ -44,16 +44,16 @@ describe('SCRAPER: name', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name', () => {
-            expect(result.name).to.equal('Zereth Helmet');
+            expect(result.data.name).to.equal('Zereth Helmet');
         });
     });
 
@@ -62,16 +62,16 @@ describe('SCRAPER: name', () => {
      * Beia's Black Magic Gloves
      */
     describe('10991', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('10991',
+            result = await ScrapeMock('10991',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name', () => {
-            expect(result.name).to.equal(`Beia's Black Magic Gloves`);
+            expect(result.data.name).to.equal(`Beia's Black Magic Gloves`);
         });
     });
 
@@ -80,16 +80,16 @@ describe('SCRAPER: name', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name', () => {
-            expect(result.name).to.equal(`Muskan's Shoes`);
+            expect(result.data.name).to.equal(`Muskan's Shoes`);
         });
     });
 });

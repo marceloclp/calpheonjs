@@ -8,16 +8,16 @@ describe('SCRAPER: stats', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#stats', () => {
-            expect(result.stats).to.deep.equal({
+            expect(result.data.stats).to.deep.equal({
                 damage: 0,
                 defense: 5,
                 accuracy: 0,
@@ -34,16 +34,16 @@ describe('SCRAPER: stats', () => {
      * Beia's Black Magic Gloves
      */
     describe('10991', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('10991',
+            result = await ScrapeMock('10991',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#stats', () => {
-            expect(result.stats).to.deep.equal({
+            expect(result.data.stats).to.deep.equal({
                 damage: 0,
                 defense: 38,
                 accuracy: 0,
@@ -59,16 +59,16 @@ describe('SCRAPER: stats', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#stats', () => {
-            expect(result.stats).to.deep.equal({
+            expect(result.data.stats).to.deep.equal({
                 damage: 0,
                 defense: 4,
                 accuracy: 0,

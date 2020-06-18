@@ -8,16 +8,16 @@ describe('SCRAPER: name_alt', () => {
      * Balenos Meal
      */
     describe('9601', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('9601',
+            result = await ScrapeMock('9601',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name_alt', () => {
-            expect(result.name_alt).to.equal('발레노스 정식');
+            expect(result.data.name_alt).to.equal('발레노스 정식');
         });
     });
 
@@ -26,16 +26,16 @@ describe('SCRAPER: name_alt', () => {
      * Abyssal Brass Ingot
      */
     describe('9746', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('9746',
+            result = await ScrapeMock('9746',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name_alt', () => {
-            expect(result.name_alt).to.equal('심연의 황동 주괴');
+            expect(result.data.name_alt).to.equal('심연의 황동 주괴');
         });
     });
 
@@ -44,16 +44,16 @@ describe('SCRAPER: name_alt', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name_alt', () => {
-            expect(result.name_alt).to.equal('제레스 투구');
+            expect(result.data.name_alt).to.equal('제레스 투구');
         });
     });
 
@@ -62,16 +62,16 @@ describe('SCRAPER: name_alt', () => {
      * Beia's Black Magic Gloves
      */
     describe('10991', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('10991',
+            result = await ScrapeMock('10991',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name_alt', () => {
-            expect(result.name_alt).to.equal('베이아의 검은마력 장갑');
+            expect(result.data.name_alt).to.equal('베이아의 검은마력 장갑');
         });
     });
 
@@ -80,16 +80,16 @@ describe('SCRAPER: name_alt', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#name_alt', () => {
-            expect(result.name_alt).to.equal('머스칸의 신발');
+            expect(result.data.name_alt).to.equal('머스칸의 신발');
         });
     });
 });

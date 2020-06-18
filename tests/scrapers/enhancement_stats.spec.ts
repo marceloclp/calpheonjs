@@ -8,16 +8,16 @@ describe('SCRAPER: enhancement_stats', () => {
      * Tungrad Necklace
      */
     describe('11629', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('11629',
+            result = await ScrapeMock('11629',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#enhancement_stats[0]', () => {
-            expect(result.enhancement_stats[0]).to.deep.equal({
+            expect(result.data.enhancement_stats[0]).to.deep.equal({
                 stats: {
                     damage: 10,
                     defense: 0,
@@ -43,7 +43,7 @@ describe('SCRAPER: enhancement_stats', () => {
         });
 
         it('#enhancement_stats[5]', () => {
-            expect(result.enhancement_stats[5]).to.deep.equal({
+            expect(result.data.enhancement_stats[5]).to.deep.equal({
                 stats: {
                     damage: 35,
                     defense: 0,
@@ -60,7 +60,7 @@ describe('SCRAPER: enhancement_stats', () => {
         });
 
         it('#enhancement_stats.length', () => {
-            expect(result.enhancement_stats.length).to.equal(6);
+            expect(result.data.enhancement_stats.length).to.equal(6);
         });
     });
 
@@ -69,16 +69,16 @@ describe('SCRAPER: enhancement_stats', () => {
      * Kzarka Shortsword
      */
     describe('13210', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('13210',
+            result = await ScrapeMock('13210',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#enhancement_stats[1]', () => {
-            expect(result.enhancement_stats[1]).to.deep.equal({
+            expect(result.data.enhancement_stats[1]).to.deep.equal({
                 stats: {
                     damage: [22, 26],
                     defense: 0,
@@ -109,7 +109,7 @@ describe('SCRAPER: enhancement_stats', () => {
         });
 
         it('#enhancement_stats.length', () => {
-            expect(result.enhancement_stats.length).to.deep.equal(21);
+            expect(result.data.enhancement_stats.length).to.deep.equal(21);
         });
     });
 });

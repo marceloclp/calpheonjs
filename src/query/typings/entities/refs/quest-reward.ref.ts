@@ -1,4 +1,4 @@
-import { Scrapers } from "../../../scraper";
+import { Scrapers } from "../../../../scraper";
 
 export interface QuestReward {
     /** Sometimes the quest reward is experience or buffs that don't contain ids. */
@@ -16,5 +16,5 @@ export interface QuestReward {
 
     amount: number;
 
-    scrape?: <T = any>() => Promise<Scrapers.Result<T>>;
+    scrape?: Scrapers.ScrapeFn;
 }

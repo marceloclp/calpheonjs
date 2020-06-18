@@ -8,16 +8,16 @@ describe('SCRAPER: description', () => {
      * Balenos Meal
      */
     describe('9601', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('9601',
+            result = await ScrapeMock('9601',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#description', () => {
-            expect(result.description).to.equal('The flavors of Balenos put into one dish.');
+            expect(result.data.description).to.equal('The flavors of Balenos put into one dish.');
         });
     });
 
@@ -26,16 +26,16 @@ describe('SCRAPER: description', () => {
      * Abyssal Brass Ingot
      */
     describe('9746', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('9746',
+            result = await ScrapeMock('9746',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#description', () => {
-            expect(result.description).to.equal(`A Brass Ingot imbued with mystical powers. An unknown force seems to seep out from deep within. The item is used to create Hughol's Weapon.`);
+            expect(result.data.description).to.equal(`A Brass Ingot imbued with mystical powers. An unknown force seems to seep out from deep within. The item is used to create Hughol's Weapon.`);
         });
     });
 
@@ -44,16 +44,16 @@ describe('SCRAPER: description', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#description', () => {
-            expect(result.description).to.equal('High-quality armor which gives less fatigue to its wearer');
+            expect(result.data.description).to.equal('High-quality armor which gives less fatigue to its wearer');
         });
     });
 
@@ -62,16 +62,16 @@ describe('SCRAPER: description', () => {
      * Beia's Black Magic Gloves
      */
     describe('10991', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('10991',
+            result = await ScrapeMock('10991',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#description', () => {
-            expect(result.description).to.equal('A pair of gloves that Beia, the Chief Investigator of Tarif, left as a farewell present. There is writing on its decoration.');
+            expect(result.data.description).to.equal('A pair of gloves that Beia, the Chief Investigator of Tarif, left as a farewell present. There is writing on its decoration.');
         });
     });
 
@@ -80,16 +80,16 @@ describe('SCRAPER: description', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#description', () => {
-            expect(result.description).to.equal('Shoes of Muskan. It makes your footsteps feel even lighter.');
+            expect(result.data.description).to.equal('Shoes of Muskan. It makes your footsteps feel even lighter.');
         });
     });
 });

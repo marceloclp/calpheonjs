@@ -1,5 +1,5 @@
-import { Ref } from "./ref.entity";
 import { Generic } from "./generic.entity";
+import { Refs } from "../../../scraper/typings/entities";
 
 export interface Recipe extends Generic {
     type: 'recipe';
@@ -20,8 +20,8 @@ export interface Recipe extends Generic {
     };
 
     /** A list of items required to craft the recipe. */
-    materials: (Ref & { amount: number })[];
+    materials: Refs.Material[];
 
     /** A list of possible items acquired from a successful craft. */
-    products: (Ref & { amount: number })[];
+    products: Refs.Material[];
 }

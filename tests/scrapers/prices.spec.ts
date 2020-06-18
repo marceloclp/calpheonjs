@@ -8,16 +8,16 @@ describe('SCRAPER: prices', () => {
      * Calpheon Handcrafted Bed
      */
     describe('2706', () => {
-        let result: Scrapers.Entities.Item;
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = (await ScrapeMock('2706',
+            result = await ScrapeMock('2706',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#prices', () => {
-            expect(result.prices).to.deep.equal({ buy: 58134, sell: 17440 });
+            expect(result.data.prices).to.deep.equal({ buy: 58134, sell: 17440 });
         });
     });
 
@@ -26,16 +26,16 @@ describe('SCRAPER: prices', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#prices', () => {
-            expect(result.prices).to.deep.equal({ buy: 75000000, sell: 24000, repair: 16000 });
+            expect(result.data.prices).to.deep.equal({ buy: 75000000, sell: 24000, repair: 16000 });
         });
     });
 
@@ -44,16 +44,16 @@ describe('SCRAPER: prices', () => {
      * Arsha's Gauntlet (Accuracy)
      */
     describe('703549', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('703549',
+            result = await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#prices', () => {
-            expect(result.prices).to.deep.equal({ buy: 1, repair: 0 });
+            expect(result.data.prices).to.deep.equal({ buy: 1, repair: 0 });
         });
     });
 });

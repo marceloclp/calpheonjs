@@ -8,16 +8,16 @@ describe('SCRAPER: fairy_exp', () => {
      * Zereth Helmet
      */
     describe('10817', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('10817',
+            result = await ScrapeMock('10817',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#fairy_exp', () => {
-            expect(result.fairy_exp).to.equal(294);
+            expect(result.data.fairy_exp).to.equal(294);
         });
     });
 
@@ -26,16 +26,16 @@ describe('SCRAPER: fairy_exp', () => {
      * Muskan's Shoes
      */
     describe('11016', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('11016',
+            result = await ScrapeMock('11016',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#fairy_exp', () => {
-            expect(result.fairy_exp).to.equal(47500);
+            expect(result.data.fairy_exp).to.equal(47500);
         });
     });
 
@@ -44,16 +44,16 @@ describe('SCRAPER: fairy_exp', () => {
      * Arsha's Gauntlet (Accuracy)
      */
     describe('703549', () => {
-        let result: Scrapers.Entities.Equipment;
+        let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = (await ScrapeMock('703549',
+            result = await ScrapeMock('703549',
                 Scrapers.EntityTypes.ITEM
-            )).data;
+            );
         });
 
         it('#fairy_exp', () => {
-            expect(result.fairy_exp).to.equal(0);
+            expect(result.data.fairy_exp).to.equal(0);
         });
     });
 });
