@@ -4,7 +4,7 @@ import { Scraper } from "../../src/scraper/scraper";
 import { fetchMock } from "./fetch-mock";
 import QueryMock from "./query-mock";
 
-const ScrapeMock = async <T = any>(
+const ScrapeMock: Scrapers.Scrape = async <T = any>(
     id: string,
     type: Scrapers.EntityTypes,
     options?: Scrapers.Options,
@@ -26,6 +26,7 @@ const ScrapeMock = async <T = any>(
         type,
         fetch,
         QueryMock,
+        ScrapeMock,
     ).parse();
 }
 

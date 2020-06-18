@@ -16,6 +16,8 @@ export class Generic {
         protected readonly $: CheerioStatic,
 
         protected readonly _query: Queries.Query,
+
+        protected readonly _scrape: Scrapers.Scrape,
     ) {}
 
     protected getBodyNodes(deep?: boolean): CheerioElement[] {
@@ -38,6 +40,19 @@ export class Generic {
         if (!raw)
             return {} as BDOCodex.PageInfo;
         return JSON.parse(AppUtils.cleanStr(raw));
+    }
+
+    protected scrapeFactory(shortUrl: string) {
+        const [,, type, id] = shortUrl.split('/');
+        if (!Object.values(Scrapers.EntityTypes).includes(type as any))
+            return undefined;
+        return async <T = any>() => {
+            const result = await this._scrape<T>(
+                id,
+                type as Scrapers.EntityTypes,
+                { db: this._db, locale: this._locale });
+            return result;
+        };
     }
 
     get icon(): string {

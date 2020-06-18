@@ -4,6 +4,7 @@ import * as Scrapers from "./typings";
 import * as Builders from "./builders";
 import { App } from "../typings";
 import { Queries } from "../query";
+import { Scrape } from "./factory";
 
 export class Scraper {
     constructor(
@@ -18,6 +19,8 @@ export class Scraper {
         private readonly _fetch: App.FetchFn,
 
         private readonly _query: Queries.Query,
+
+        private readonly _scrape: Scrapers.Scrape,
     ) {}
 
     private get url(): string {
@@ -42,6 +45,7 @@ export class Scraper {
                     case 'consumable':         return Ctgs.CONSUMABLE;
                     case 'installable_object': return Ctgs.INSTALLABLE_OBJECT;
                     case 'special_items':      return Ctgs.SPECIAL_ITEM;
+                    case 'recipe':             return Ctgs.RECIPE;
                     default:                   return Ctgs.UNDEFINED;
                 }
             default: return Ctgs.UNDEFINED;
@@ -57,6 +61,8 @@ export class Scraper {
                     case Ctgs.EQUIPMENT:  return Builders.Equipment;
                     default:              return Builders.Item;
                 }
+            case Scrapers.EntityTypes.RECIPE:
+                return Builders.Recipe;
             default: return Builders.Generic;
         }
     }
@@ -77,6 +83,7 @@ export class Scraper {
             this._type,
             $,
             this._query,
+            this._scrape,
         ).build();
 
         return {

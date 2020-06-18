@@ -5,4 +5,5 @@
  */
 export enum EntityTypes {
     ITEM = 'item',
+    RECIPE = 'recipe',
 }

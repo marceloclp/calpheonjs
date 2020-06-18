@@ -46,5 +46,6 @@ export enum Categories {
     CONSUMABLE = 'consumable',
     INSTALLABLE_OBJECT = 'installable_object',
     SPECIAL_ITEM = 'special_item',
+    RECIPE = 'recipe',
     UNDEFINED = 'undefined',
 }

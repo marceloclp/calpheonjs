@@ -1,10 +1,10 @@
 import * as AppUtils from "../utils";
 import * as Scrapers from "./typings";
 import { App } from "../typings";
-import { Scraper} from "./scraper";
+import { Scraper } from "./scraper";
 import Query from "../query";
 
-export const Scrape = async <T = any>(
+export const Scrape: Scrapers.Scrape = async <T = any>(
     id: string,
     type: Scrapers.EntityTypes,
     options?: Scrapers.Options,
@@ -19,5 +19,6 @@ export const Scrape = async <T = any>(
         type,
         AppUtils.fetch,
         Query,
+        Scrape,
     ).parse();
 }

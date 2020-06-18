@@ -59,16 +59,6 @@ export class Query {
         };
     }
 
-    /*private scrapeFactory(id: string, type: Scrapers.EntityTypes) {
-        return async <T = any>() => {
-            const result = await this._scrape<T>(id, type, {
-                db: this._db,
-                locale: this._locale
-            });
-            return result;
-        };
-    }*/
-
     private getCollection(data: any): [Queries.EntityTypes, any[]] {
         const { Groups, ItemAs } = Queries;
         const { _group: g, _itemAs: a } = this;
@@ -131,8 +121,8 @@ export class Query {
                     mastery: arr[4].display.replace(/\d/g, '').trim(),
                     lvl: parseInt(arr[4].display.replace(/\D/g, '')),
                 },
-                materials: this.parseRefs(arr[6]),
-                products: this.parseRefs(arr[7]),
+                materials: this.parseRefs(arr[6]) as any,
+                products: this.parseRefs(arr[7]) as any,
                 shortUrl: this.getShortURL(arr[2]),
             })).map(entity => ({
                 ...entity,
