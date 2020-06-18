@@ -1,4 +1,4 @@
-import { Enhancement } from "./enhancement";
+import { Enhancement } from "./enhancement.interface";
 
 export interface Wrapper {
     18?: Enhancement[];

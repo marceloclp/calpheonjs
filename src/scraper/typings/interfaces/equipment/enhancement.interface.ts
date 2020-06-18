@@ -1,5 +1,5 @@
 import * as Entities from "../../entities";
-import { Stats } from "./stats";
+import { Stats } from "./stats.interface";
 
 export interface Enhancement {
     stats: Stats;

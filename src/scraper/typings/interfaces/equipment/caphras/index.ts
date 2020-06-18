@@ -1,2 +1,2 @@
-export { Enhancement } from "./enhancement";
-export { Wrapper } from "./wrapper";
+export { Enhancement } from "./enhancement.interface";
+export { Wrapper } from "./wrapper.interface";
