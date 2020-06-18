@@ -53,8 +53,9 @@ export class Scraper {
         switch (this._type) {
             case Scrapers.EntityTypes.ITEM:
                 switch (category) {
-                    case Ctgs.EQUIPMENT: return Builders.Equipment;
-                    default:             return Builders.Item;
+                    case Ctgs.CONSUMABLE: return Builders.Consumable;
+                    case Ctgs.EQUIPMENT:  return Builders.Equipment;
+                    default:              return Builders.Item;
                 }
             default: return Builders.Generic;
         }
