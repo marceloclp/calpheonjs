@@ -47,5 +47,6 @@ export enum Categories {
     INSTALLABLE_OBJECT = 'installable_object',
     SPECIAL_ITEM = 'special_item',
     RECIPE = 'recipe',
+    QUEST = 'quest',
     UNDEFINED = 'undefined',
 }

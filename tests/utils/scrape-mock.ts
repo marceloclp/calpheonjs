@@ -16,7 +16,7 @@ const ScrapeMock: Scrapers.Scrape = async <T = any>(
         "scrape",
         locale,
         type,
-        id,
+        id.replace('/', '-'),
     ].join("-"));
 
     return await new Scraper(

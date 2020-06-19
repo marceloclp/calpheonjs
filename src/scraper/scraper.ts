@@ -46,6 +46,7 @@ export class Scraper {
                     case 'installable_object': return Ctgs.INSTALLABLE_OBJECT;
                     case 'special_items':      return Ctgs.SPECIAL_ITEM;
                     case 'recipe':             return Ctgs.RECIPE;
+                    case 'quest':              return Ctgs.QUEST;
                     default:                   return Ctgs.UNDEFINED;
                 }
             default: return Ctgs.UNDEFINED;
@@ -63,6 +64,8 @@ export class Scraper {
                 }
             case Scrapers.EntityTypes.RECIPE:
                 return Builders.Recipe;
+            case Scrapers.EntityTypes.QUEST:
+                return Builders.Quest;
             default: return Builders.Generic;
         }
     }

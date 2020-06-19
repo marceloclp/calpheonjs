@@ -3,4 +3,5 @@ export { Item } from "./item.entity";
 export { Equipment } from "./equipment.entity";
 export { Consumable } from "./consumable.entity";
 export { Recipe } from "./recipe.entity";
+export { Quest } from "./quest.entity";
 export * as Refs from "./refs";
