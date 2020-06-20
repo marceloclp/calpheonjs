@@ -6,7 +6,7 @@ import chai from "chai";
 import chaiSubset from "chai-subset";
 chai.use(chaiSubset);
 
-describe('Consumables', () => {
+describe('Recipes', () => {
     /**
      * https://bdocodex.com/us/recipe/27/
      * Defense Elixir

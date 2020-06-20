@@ -92,6 +92,7 @@ describe('Quests', () => {
 
         it('#npc_end', () => {
             expect(result.data.npc_end).to.containSubset({
+                type: 'npc',
                 id: '57159/1',
                 icon: '/items/ui_artwork/ic_00559.png',
                 name: 'Kamasylve',
@@ -117,6 +118,195 @@ describe('Quests', () => {
                 `\n`,
                 `(You smell a sweetness in the air and see leaves dancing in the wind.)`,
             ]);
+        });
+
+        it('#rewards', () => {
+            expect(result.data.rewards).to.containSubset({
+                standard: [{
+                    type: 'item',
+                    id: '402',
+                    icon: '/items/new_icon/06_pc_equipitem/00_common/00_etc/00000402.png',
+                    name: 'Contribution EXP 50',
+                    amount: 50,
+                }],
+                choose: [],
+            });
+        });
+    });
+
+    /**
+     * https://bdocodex.com/us/quest/694/2/
+     * [Awakening Weapon] Make it Stronger by Enhancement!
+     */
+    describe('694/2', () => {
+        let result: Scrapers.Result<Scrapers.Entities.Quest>;
+
+        before(async () => {
+            result = await ScrapeMock('694/2',
+                Scrapers.EntityTypes.QUEST
+            );
+        });
+
+        it('#npc_start', () => {
+            expect(result.data.npc_start).to.containSubset({
+                type: 'npc',
+                id: '44008',
+                icon: '/items/ui_artwork/ic_00586.png',
+                name: 'Mevo Muranan',
+                shortUrl: '/us/npc/44008/'
+            });
+        });
+
+        it('#npc_end', () => {
+            expect(result.data.npc_end).to.containSubset({
+                type: 'npc',
+                id: '44008/1',
+                icon: '/items/ui_artwork/ic_00586.png',
+                name: 'Mevo Muranan',
+                shortUrl: '/us/npc/44008/1/'
+            });
+        });
+
+        it('#rewards', () => {
+            expect(result.data.rewards).to.containSubset({
+                standard: [{
+                    type: 'item',
+                    id: '16001',
+                    icon: '/items/new_icon/03_etc/11_enchant_material/00000008.png',
+                    name: 'Black Stone (Weapon)',
+                    amount: 10,
+                }, {
+                    type: 'knowledge',
+                    id: '5618',
+                    icon: '/items/ui_artwork/collected_journal.png',
+                    name: 'Enhance Awakening Weapon',
+                }],
+                choose: [],
+            })
+        });
+    });
+
+    /**
+     * https://bdocodex.com/us/quest/2051/19/
+     * [Alchemy] The Truth of Darkness
+     */
+    describe('2051/19', () => {
+        let result: Scrapers.Result<Scrapers.Entities.Quest>;
+
+        before(async () => {
+            result = await ScrapeMock('2051/19',
+                Scrapers.EntityTypes.QUEST
+            );
+        });
+
+        it('#rewards', () => {
+            expect(result.data.rewards).to.containSubset({
+                standard: [{
+                    type: 'item',
+                    id: '42435',
+                    icon: '/items/new_icon/03_etc/03_quest_item/00042435.png',
+                    name: `Kzarka's Latent Aura`,
+                    shortUrl: '/us/item/42435/',
+                    amount: 10,
+                }, {
+                    type: 'item',
+                    id: '15991',
+                    icon: '/items/new_icon/03_etc/00015991.png',
+                    name: `Kzarka's Sealed Weapon Box`,
+                    shortUrl: '/us/item/15991/',
+                    amount: 1,
+                }, {
+                    type: 'item',
+                    id: '42556',
+                    icon: '/items/new_icon/03_etc/03_quest_item/00040136.png',
+                    name: `[Title] Vanquisher of Darkness`,
+                    shortUrl: '/us/item/42556/',
+                    amount: 1,
+                }],
+                choose: [{
+                    type: 'item',
+                    id: '45260',
+                    icon: '/items/new_icon/03_etc/07_productmaterial/00045260.png',
+                    name: `Splendid Alchemy Stone of Protection`,
+                    shortUrl: '/us/item/45260/',
+                    amount: 1,
+                }, {
+                    type: 'item',
+                    id: '45228',
+                    icon: '/items/new_icon/03_etc/07_productmaterial/00045228.png',
+                    name: `Splendid Alchemy Stone of Destruction`,
+                    shortUrl: '/us/item/45228/',
+                    amount: 1,
+                }, {
+                    type: 'item',
+                    id: '45292',
+                    icon: '/items/new_icon/03_etc/07_productmaterial/00045292.png',
+                    name: `Splendid Alchemy Stone of Life`,
+                    shortUrl: '/us/item/45292/',
+                    amount: 1,
+                }],
+            })
+        });
+    });
+
+    /**
+     * https://bdocodex.com/us/quest/6050/1/
+     * [Co-op] Spoils to be shown to Likke Behr
+     */
+    describe('6050/1', () => {
+        let result: Scrapers.Result<Scrapers.Entities.Quest>;
+
+        before(async () => {
+            result = await ScrapeMock('6050/1',
+                Scrapers.EntityTypes.QUEST
+            );
+        });
+
+        it('#rewards', () => {
+            expect(result.data.rewards).to.containSubset({
+                standard: [{
+                    type: 'item',
+                    id: '434',
+                    icon: '/items/new_icon/06_pc_equipitem/00_common/00_etc/00000433.png',
+                    name: 'Contribution EXP 400',
+                    shortUrl: '/us/item/434/',
+                    amount: 400,
+                }, {
+                    type: 'item',
+                    id: '3',
+                    icon: '/items/new_icon/00000003_special.png',
+                    name: 'Gold Bar 10G',
+                    shortUrl: '/us/item/3/',
+                    amount: 3,
+                }, {
+                    type: 'item',
+                    id: '44295',
+                    icon: '/items/new_icon/03_etc/04_dropitem/00044295.png',
+                    name: 'Peridot Leaf',
+                    shortUrl: '/us/item/44295/',
+                    amount: 20,
+                }, {
+                    type: 'item',
+                    id: '35554',
+                    icon: '/items/new_icon/03_etc/12_doapplydirectlyitem/00000000_know_icon.png',
+                    name: 'Courage of Navarn Steppe',
+                    shortUrl: '/us/item/35554/',
+                    amount: 1,
+                }, {
+                    type: 'npc',
+                    id: '45525',
+                    icon: '/items/ui_artwork/ic_00454.png',
+                    name: 'Jensen',
+                    shortUrl: '/us/npc/45525/',
+                    amity_gained: 20,
+                }, {
+                    type: 'exp',
+                    icon: '/images/exp.png',
+                    name: 'EXP',
+                    amount: 100,
+                }],
+                choose: [],
+            })
         });
     });
 });

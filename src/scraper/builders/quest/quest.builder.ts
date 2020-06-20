@@ -39,10 +39,12 @@ export class Quest extends Generic {
             return undefined;
         
         const node = row.childNodes[i];
+        const img = node.childNodes.find(node => node.name === 'img');
         const url  = node.attribs.href;
         return {
+            type: 'npc',
             id: url.split('/').filter(e => e).slice(2).join('/'),
-            icon: node.children[1].attribs.src,
+            icon: img?.attribs.src as string,
             name: this.$(row).find(`a[href="${url}"]`).last().text(),
             shortUrl: url,
         };
@@ -149,6 +151,80 @@ export class Quest extends Generic {
             .filter(e => e) as string[];
     }
 
+    get rewards() {
+        const matches = {
+            standard: { [App.Locales.US]: 'Standard' }[this._locale],
+            choose: { [App.Locales.US]: 'Choose' }[this._locale],
+        };
+
+        const rewards = {
+            standard: [] as Scrapers.Quests.Reward[],
+            choose: [] as Scrapers.Quests.Reward[],
+        };
+        let curr = rewards.standard;
+        
+        const nodes = this.$('.smallertext > tbody > tr > td')
+            .last()
+            .contents()
+            .toArray();
+
+        for (let i = 0; i < nodes.length; i++) {
+            const { data, tagName } = nodes[i];
+            if (data && AppUtils.indexOf(data, matches.standard).substr)
+                curr = rewards.standard;
+            else if (data && AppUtils.indexOf(data, matches.choose).substr)
+                curr = rewards.choose;
+            if (tagName !== 'div')
+                continue;
+            
+            const elem = this.$(nodes[i]);
+            const anchor = elem.find('a').first();
+            const img = elem.find('img').first();
+            const url = anchor.attr('href');
+            const type = url?.split('/')?.[2] || 'exp';
+            
+            if (type === 'item') {
+                curr.push({
+                    type: 'item',
+                    id: AppUtils.getIdFromURL(url as string),
+                    icon: img.attr('src') as string,
+                    name: this.$(nodes[i+2]).text(),
+                    shortUrl: url as string,
+                    amount: parseInt(elem.text().replace(/\D/g, '')) || 1,
+                });
+            } else if (type === 'exp') {
+                const text = AppUtils.cleanStr(nodes[i+1].data);
+                curr.push({
+                    type: 'exp',
+                    icon: img.attr('src') as string,
+                    name: text.split(' (')[0],
+                    amount: parseInt(text.replace(/\D/g, '')) || 1,
+                });
+            } else if (type === 'npc') {
+                curr.push({
+                    type: 'npc',
+                    id: AppUtils.getIdFromURL(url as string),
+                    icon: img.attr('src') as string,
+                    name: this.$(nodes[i+2]).text(),
+                    shortUrl: url as string,
+                    amity_gained: parseInt(
+                        nodes[i-1].data?.replace(/\D/g, '') as string
+                    ) || 0,
+                });
+            } else if (type === 'theme') {
+                curr.push({
+                    type: 'knowledge',
+                    id: AppUtils.getIdFromURL(url as string),
+                    icon: img.attr('src') as string,
+                    name: this.$(nodes[i+2]).text(),
+                    shortUrl: url as string,
+                });
+            }
+        }
+
+        return rewards;
+    }
+
     async build(): Promise<Scrapers.Entities.Quest> {
         return {
             ...(await super.build()),
@@ -160,8 +236,8 @@ export class Quest extends Generic {
             quest_chain: this.quest_chain,
             npc_start: this.npc_start,
             npc_end: this.npc_end,
-            description: this.description,
             text: this.text,
-        } as any;
+            rewards: this.rewards,
+        };
     }
 }

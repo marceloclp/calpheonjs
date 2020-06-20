@@ -1,6 +1,8 @@
 import { ScrapeFn } from "../../types";
 
 export interface Generic {
+    type?: string;
+
     id: string;
 
     icon: string;

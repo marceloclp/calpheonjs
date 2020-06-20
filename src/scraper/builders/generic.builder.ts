@@ -43,8 +43,8 @@ export class Generic {
     }
 
     protected scrapeFactory(shortUrl: string) {
-        const [,, type, ...idArr] = shortUrl.split('/');
-        const id = idArr.join('/');
+        const type = shortUrl.split('/')[2];
+        const id = AppUtils.getIdFromURL(shortUrl);
         if (!Object.values(Scrapers.EntityTypes).includes(type as any))
             return undefined;
         return async <T = any>() => {

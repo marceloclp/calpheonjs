@@ -1,5 +1,5 @@
-export interface NPC {
-    type: 'npc';
+export interface Knowledge {
+    type: 'knowledge';
 
     id: string;
 

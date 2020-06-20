@@ -16,7 +16,7 @@ const QueryMock: Queries.Query = async <T = any>(
         options?.locale,
         q.group,
         q.itemAs,
-        id,
+        id.replace('/', '-'),
     ].join("-"));
 
     const query = new QueryClass(

@@ -1,5 +1,6 @@
 import * as Refs from "./refs";
 import { Generic } from "./generic.entity";
+import { Quests } from "../interfaces";
 
 export interface Quest extends Generic {
     region: string;
@@ -21,4 +22,10 @@ export interface Quest extends Generic {
     description: string;
 
     text: string[];
+
+    rewards: {
+        standard: Quests.Reward[],
+
+        choose: Quests.Reward[],
+    }
 }
