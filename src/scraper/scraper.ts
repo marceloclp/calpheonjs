@@ -4,7 +4,6 @@ import * as Scrapers from "./typings";
 import * as Builders from "./builders";
 import { App } from "../typings";
 import { Queries } from "../query";
-import { Scrape } from "./factory";
 
 export class Scraper {
     constructor(

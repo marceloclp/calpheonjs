@@ -46,16 +46,16 @@ export class Query {
         return { url: this.url, type, data };
     }
 
-    private scrapeFactory(shortUrl: string) {
-        const [,, type, id] = shortUrl.split('/');
-        if (!Object.values(Scrapers.EntityTypes).includes(type as any))
+    protected scrapeFactory(shortUrl: string): Scrapers.ScrapeFn | undefined {
+        const type = shortUrl.split('/')[2] as Scrapers.EntityTypes;
+        const id = AppUtils.getIdFromURL(shortUrl);
+        if (!Object.values(Scrapers.EntityTypes).includes(type))
             return undefined;
         return async <T = any>() => {
-            const result = await this._scrape<T>(
-                id,
-                type as Scrapers.EntityTypes,
-                { db: this._db, locale: this._locale });
-            return result;
+            return await this._scrape<T>(id, type, {
+                db: this._db,
+                locale: this._locale
+            });
         };
     }
 
