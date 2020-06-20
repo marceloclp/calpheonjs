@@ -309,4 +309,43 @@ describe('Quests', () => {
             })
         });
     });
+
+    /**
+     * https://bdocodex.com/us/quest/815/5/
+     * [Berserker Succession] A Strange Reunion
+     */
+    describe('815/5', () => {
+        let result: Scrapers.Result<Scrapers.Entities.Quest>;
+
+        before(async () => {
+            result = await ScrapeMock('815/5',
+                Scrapers.EntityTypes.QUEST
+            );
+        });
+
+        it('#description', () => {
+            expect(result.data.text).to.deep.equal([
+                `I've been observing every step of yours.`,
+                `Based on how you've been fighting,`,
+                `it looks like you still haven't regained your memory.`,
+                `It's a shame to see you waste your potential.`,
+                `You look confused. Do you not recognize me?`,
+                `I am not surprised. It has been some time since we last met.`,
+                `\n`,
+                `It looks like you still haven't regained your memory.`,
+                `It's a shame to see you waste your potential.`,
+                `\n`,
+                `Yes, that's more like you. You're still as bold as you used to be.`,
+                `Don't you want to find out how much stronger you were?`,
+                `But will you be still able to boast of your strength`,
+                `with worn out gloves?`,
+                `I left a special gift for you at the arena.`,
+                `Perhaps then you'll recover your memory.`,
+                `As much as I want to stay, I'll have to leave now.`,
+                `Don't be sad. We'll see each other again soon.`,
+                `I put a lot of thought into preparing that gift for you`,
+                `so don't disappoint me and treat it well.`,
+            ]);
+        });
+    });
 });

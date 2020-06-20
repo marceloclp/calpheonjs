@@ -137,18 +137,22 @@ export class Quest extends Generic {
     }
 
     get text(): string[] {
-        return this.$('#full_quest_text')
+        const nodes = this.$('#full_quest_text')
             .contents()
-            .toArray()
-            .map((node, i, nodes) => {
-                const { name, data } = node;
-                if (name === 'br' && nodes?.[i+1].name === 'br')
-                    return '\n'
-                if (name === 'br')
-                    return null;
-                return data as string;
-            })
-            .filter(e => e) as string[];
+            .toArray();
+        return nodes.reduce((text, node, i) => {
+            if (node.tagName === 'br' && nodes[i-1]?.tagName === 'br')
+                return [...text, '\n'];
+            const str = node.data
+                ? node.data as string
+                : AppUtils.cleanStr(this.$(node).text());
+            if (!str)
+                return text;
+            if (i !== 0 && nodes[i-1]?.tagName !== 'br')
+                text[text.length - 1] += str;
+            else text.push(str);
+            return text;
+        }, [] as string[]);
     }
 
     get rewards() {
