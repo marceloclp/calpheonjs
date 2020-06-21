@@ -9,9 +9,7 @@
   "scripts": {
     "watch": "tsc --watch",
     "start": "node ./dist/index.js",
-    "test": "mocha -r ts-node/register tests/**/*.spec.ts",
-    "test-scrapers": "mocha -r ts-node/register tests/scrapers/*.spec.ts",
-    "test-queries": "mocha -r ts-node/register tests/queries/*.spec.ts"
+    "test": "mocha -r ts-node/register tests/**/*.spec.ts --reporter min"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
