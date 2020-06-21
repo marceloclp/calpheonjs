@@ -1,0 +1,58 @@
+{
+    "id": "703549",
+    "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00011212.png",
+    "name": "Arsha's Gauntlet (Accuracy)",
+    "name_alt": "아르샤의 권갑(적중)",
+    "type": "item",
+    "category": "Equipment",
+    "description": "Arena of Arsha Exclusive Gauntlet.",
+    "prices": {
+        "buy": 1,
+        "repair": 0
+    },
+    "grade": 3,
+    "stats": {
+        "damage": [114, 118],
+        "defense": 0,
+        "accuracy": 192,
+        "evasion": 0,
+        "dmg_reduction": 0
+    },
+    "enhancement_stats": [{
+        "stats": {
+            "damage": [114, 118],
+            "defense": 0,
+            "accuracy": 192,
+            "evasion": 0,
+            "dmg_reduction": 0
+        },
+        "success_rate": 100.0,
+        "durability": 100,
+        "cron_value_next": 0,
+        "cron_value_total": 0,
+        "enhancement_effects": [],
+        "item_effects": [
+            "Extra Damage to All Species +19",
+            "Attack Speed +3 Level",
+            "All Accuracy +16",
+            "Ignore All Resistance +20%"
+        ]
+    }],
+    "caphras_stats": {
+        "18": [],
+        "19": [],
+        "20": []
+    },
+    "item_effects": [
+        "Extra Damage to All Species +19",
+        "Attack Speed +3 Level",
+        "All Accuracy +16",
+        "Ignore All Resistance +20%"
+    ],
+    "set_effects": {},
+    "exclusive_to": [
+        "Striker",
+        "Mystic"
+    ],
+    "fairy_exp": 0
+}

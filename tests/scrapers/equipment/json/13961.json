@@ -1,0 +1,56 @@
+{
+    "id": "13961",
+    "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00012411.png",
+    "name": "[Oasis] TRI: Ramones’s Blade",
+    "name_alt": "[PC방] 고 : 라모네스 도검",
+    "type": "item",
+    "category": "Equipment",
+    "description": "Oasis event exclusive blade.",
+    "prices": {
+        "buy": 1,
+        "repair": 43740
+    },
+    "grade": 3,
+    "stats": {
+        "damage": [106, 110],
+        "defense": 0,
+        "accuracy": 184,
+        "evasion": 0,
+        "dmg_reduction": 0
+    },
+    "enhancement_stats": [{
+        "stats": {
+            "damage": [106, 110],
+            "defense": 0,
+            "accuracy": 184,
+            "evasion": 0,
+            "dmg_reduction": 0
+        },
+        "success_rate": 100.0,
+        "durability": 100,
+        "cron_value_next": 0,
+        "cron_value_total": 0,
+        "enhancement_effects": [],
+        "item_effects": [
+            "Extra Damage to All Species +18",
+            "Extra AP against Monsters +6",
+            "Attack Speed +3 Level"
+        ]
+    }],
+    "caphras_stats": {
+        "18": [],
+        "19": [],
+        "20": []
+    },
+    "item_effects": [
+        "Extra Damage to All Species +18",
+        "Extra AP against Monsters +6",
+        "Attack Speed +3 Level"
+    ],
+    "set_effects": {},
+    "exclusive_to": [
+        "Musa",
+        "Maehwa"
+    ],
+    "fairy_exp": 0
+}

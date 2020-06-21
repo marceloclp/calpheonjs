@@ -17,6 +17,7 @@ describe('SCRAPER: enhancement_stats', () => {
         });
 
         it('#enhancement_stats[0]', () => {
+            console.log('11629', JSON.stringify(result.data.enhancement_stats))
             expect(result.data.enhancement_stats[0]).to.deep.equal({
                 stats: {
                     damage: 10,
