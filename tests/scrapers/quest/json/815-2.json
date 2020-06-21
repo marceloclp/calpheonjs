@@ -1,0 +1,107 @@
+{
+    "id": "815/2",
+    "icon": "/items/quest/succeed_02.png",
+    "name": "[Berserker Succession] About Destiny",
+    "name_alt": "",
+    "type": "quest",
+    "category": "Quest",
+    "description": "Tantu introduced you to Pusa, a famous fortuneteller, and said he already paid her to tell your fortune. Listen to what she has to say about your destiny.",
+    "region": "All",
+    "q_category": "Story",
+    "q_type": "Character quest",
+    "lvl": 1,
+    "exclusive_to": [],
+    "quest_chain": [{
+        "type": "quest",
+        "id": "815/1",
+        "icon": "/items/quest/tantu.png",
+        "name": "[Berserker Succession] The Valor",
+        "shortUrl": "/us/quest/815/1"
+    }, {
+        "type": "quest",
+        "id": "815/2",
+        "icon": "/items/quest/succeed_02.png",
+        "name": "[Berserker Succession] About Destiny",
+        "shortUrl": "/us/quest/815/2"
+    }, {
+        "type": "quest",
+        "id": "815/3",
+        "icon": "/items/quest/succeed_02.png",
+        "name": "[Berserker Succession] Tantu's Glove",
+        "shortUrl": "/us/quest/815/3"
+    }, {
+        "type": "quest",
+        "id": "815/4",
+        "icon": "/items/quest/tantu.png",
+        "name": "[Berserker Succession] Pursuit",
+        "shortUrl": "/us/quest/815/4"
+    }, {
+        "type": "quest",
+        "id": "815/5",
+        "icon": "/items/quest/succeed_03.png",
+        "name": "[Berserker Succession] A Strange Reunion",
+        "shortUrl": "/us/quest/815/5"
+    }, {
+        "type": "quest",
+        "id": "815/6",
+        "icon": "/items/quest/media_col.png",
+        "name": "[Berserker Succession] Dark Shadow",
+        "shortUrl": "/us/quest/815/6"
+    }, {
+        "type": "quest",
+        "id": "815/7",
+        "icon": "/items/quest/black_fairy.png",
+        "name": "[Berserker Succession] Berserker, Fortified Strength",
+        "shortUrl": "/us/quest/815/7"
+    }],
+    "npc_start": {
+        "type": "npc",
+        "id": "58041/25",
+        "icon": "/items/ui_artwork/ic_00559.png",
+        "name": "Tantu",
+        "shortUrl": "/us/npc/58041/25/"
+    },
+    "npc_end": {
+        "type": "npc",
+        "id": "58041/1",
+        "icon": "/items/ui_artwork/ic_00559.png",
+        "name": "Pusa",
+        "shortUrl": "/us/npc/58041/1/"
+    },
+    "text": [
+        "Altinova is such an incredible place.",
+        "It's where it once fell into ruin by the Three Days of Darkness...",
+        "But look at this city now. They recovered it so well!",
+        "I remember that day when we stopped her rampage using the Bautt Slate.",
+        "With so many sacrifices, we managed to keep the darkness at bay...",
+        "Well, by the way,",
+        "Are you familiar with wielding the Iron Buster now?",
+        "Haha. I guess that was totally unnecessary to ask you. I heard a lot about your heroic deeds.",
+        "Perhaps I talked too much.",
+        "I want you to meet Pusa. She's a famous fortuneteller.",
+        "{ChangeScene(Succeed_02)They say everything in life is luck",
+        "but it seems like you're sharing that luck you have with darkness.",
+        "{ChangeScene(Succeed_02)You lost yourself, then retrieved,",
+        "and perhaps you may lose it again...",
+        "{ChangeScene(Succeed_24)Isn't this interesting? Hahaha.",
+        "I already paid the fortuneteller, so all you have to do is listen.",
+        "\n",
+        "{ChangeScene(Succeed_24)Haha, are you nervous?",
+        "Relax, it's just for fun. Don't take it too seriously.",
+        "\n",
+        "Very well then. I will attempt to read the destiny of Tantu.",
+        "Although you were shrouded in darkness...",
+        "You succeeded in driving it out completely!",
+        "But why do you both share the same kind of darkness...?"
+    ],
+    "rewards": {
+        "standard": [{
+            "type": "item",
+            "id": "402",
+            "icon": "/items/new_icon/06_pc_equipitem/00_common/00_etc/00000402.png",
+            "name": "Contribution EXP 50",
+            "amount": 50
+        }],
+        "choose": []
+    }
+}

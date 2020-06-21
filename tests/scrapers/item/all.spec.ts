@@ -9,8 +9,8 @@ describe('Items', () => {
      * Black Stone Powder
      */
     describe('4901', () => {
-        const expected: Scrapers.Entities.Consumable = require('./json/4901.json');
-        let result: Scrapers.Result<Scrapers.Entities.Consumable>;
+        const expected: Scrapers.Entities.Item = require('./json/4901.json');
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
             result = await ScrapeMock('4901', Scrapers.EntityTypes.ITEM);
@@ -58,8 +58,8 @@ describe('Items', () => {
      * Melted Noc Shard
      */
     describe('4085', () => {
-        const expected: Scrapers.Entities.Consumable = require('./json/4085.json');
-        let result: Scrapers.Result<Scrapers.Entities.Consumable>;
+        const expected: Scrapers.Entities.Item = require('./json/4085.json');
+        let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
             result = await ScrapeMock('4085', Scrapers.EntityTypes.ITEM);
