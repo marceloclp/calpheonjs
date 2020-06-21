@@ -7,6 +7,8 @@ export interface Item extends Generic {
 
     grade: number;
 
+    weight: string;
+
     npc_drops: Queries.Entities.NPCDrop[];
     
     quest_rewards: Queries.Entities.Quest[];

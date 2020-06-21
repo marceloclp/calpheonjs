@@ -12,6 +12,7 @@
         "repair": 5800
     },
     "grade": 1,
+    "weight": "8.26 LT",
     "stats": {
         "damage": [10, 14],
         "defense": 0,

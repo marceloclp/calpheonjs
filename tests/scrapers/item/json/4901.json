@@ -10,5 +10,6 @@
         "buy": 8250,
         "sell": 330
     },
-    "grade": 0
+    "grade": 0,
+    "weight": "0.10 LT"
 }

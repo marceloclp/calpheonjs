@@ -51,6 +51,10 @@ describe('Consumables', () => {
         it('#grade', () => {
             expect(result.data.grade).to.equal(expected.grade);
         });
+        
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
+        });
 
         it('#effects', () => {
             expect(result.data.effects).to.deep.equal(expected.effects);
@@ -112,6 +116,10 @@ describe('Consumables', () => {
         it('#grade', () => {
             expect(result.data.grade).to.equal(expected.grade);
         });
+        
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
+        });
 
         it('#effects', () => {
             expect(result.data.effects).to.deep.equal(expected.effects);
@@ -172,6 +180,10 @@ describe('Consumables', () => {
 
         it('#grade', () => {
             expect(result.data.grade).to.equal(expected.grade);
+        });
+        
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
         });
 
         it('#effects', () => {

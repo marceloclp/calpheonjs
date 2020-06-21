@@ -4,6 +4,7 @@ import { App } from "../../../typings";
 import { Queries } from "../../../query";
 import { Pricings } from "../../typings";
 import { Generic } from "../generic.builder";
+import { Matcher } from "../../../shared";
 
 export class Item extends Generic {
     private async query(type: Queries.Types): Promise<any[]> {
@@ -28,6 +29,20 @@ export class Item extends Generic {
     get grade(): number {
         const str = this.$('.item_title').attr('class') as string;
         return parseInt(str.replace(/\D/g, ''));
+    }
+
+    get weight(): string {
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Weight:']
+        });
+        const node = this.$('.category_text')
+            .parent()
+            .contents()
+            .toArray()
+            .find(node => matcher.in(node.data));
+        return (node?.data as string)
+            ?.substr(matcher.indexIn(node?.data, true))
+            ?.trim();
     }
 
     get prices(): Pricings {
@@ -57,6 +72,7 @@ export class Item extends Generic {
             ...(await super.build()),
             prices: this.prices,
             grade: this.grade,
+            weight: this.weight,
             npc_drops: await query(t.NPC_DROPS),
             quest_rewards: await query(t.QUEST_REWARD),
             product_of_recipes: await query(t.PRODUCT_IN_RECIPE),

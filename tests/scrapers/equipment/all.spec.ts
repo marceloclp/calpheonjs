@@ -52,6 +52,10 @@ describe('Equipments', () => {
             expect(result.data.grade).to.equal(expected.grade);
         });
 
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
+        });
+
         it('#stats', () => {
             expect(result.data.stats).to.deep.equal(expected.stats);
         });
@@ -127,6 +131,10 @@ describe('Equipments', () => {
 
         it('#grade', () => {
             expect(result.data.grade).to.equal(expected.grade);
+        });
+
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
         });
 
         it('#stats', () => {
@@ -206,6 +214,10 @@ describe('Equipments', () => {
             expect(result.data.grade).to.equal(expected.grade);
         });
 
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
+        });
+
         it('#stats', () => {
             expect(result.data.stats).to.deep.equal(expected.stats);
         });
@@ -281,6 +293,10 @@ describe('Equipments', () => {
 
         it('#grade', () => {
             expect(result.data.grade).to.equal(expected.grade);
+        });
+
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
         });
 
         it('#stats', () => {

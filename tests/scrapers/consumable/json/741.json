@@ -11,6 +11,7 @@
         "sell": 1950
     },
     "grade": 2,
+    "weight": "0.70 LT",
     "effects": [
         "Additional Damage Against Kamasylvian Monsters +17"
     ],

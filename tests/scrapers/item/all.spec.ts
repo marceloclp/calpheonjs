@@ -100,5 +100,9 @@ describe('Items', () => {
         it('#grade', () => {
             expect(result.data.grade).to.equal(expected.grade);
         });
+
+        it('#weight', () => {
+            expect(result.data.weight).to.equal(expected.weight);
+        });
     });
 });
