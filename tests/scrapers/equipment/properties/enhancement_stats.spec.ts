@@ -1,8 +1,8 @@
 import { describe } from "mocha";
 import { expect } from "chai";
-import ScrapeMock, { Scrapers } from "../utils/scrape-mock";
+import ScrapeMock, { Scrapers } from "../../../utils/scrape-mock";
 
-describe('SCRAPER: enhancement_stats', () => {
+describe('Equipments > enhancement stats', () => {
     /**
      * https://bdocodex.com/us/item/11629/
      * Tungrad Necklace
@@ -17,7 +17,6 @@ describe('SCRAPER: enhancement_stats', () => {
         });
 
         it('#enhancement_stats[0]', () => {
-            console.log('11629', JSON.stringify(result.data.enhancement_stats))
             expect(result.data.enhancement_stats[0]).to.deep.equal({
                 stats: {
                     damage: 10,
@@ -39,6 +38,9 @@ describe('SCRAPER: enhancement_stats', () => {
                     icon: '/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                     name: 'Tungrad Necklace',
                 },
+                item_effects: [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ],
                 enhancement_effects: [],
             });
         });
@@ -56,6 +58,9 @@ describe('SCRAPER: enhancement_stats', () => {
                 durability: 100,
                 cron_value_next: 0,
                 cron_value_total: 9872,
+                item_effects: [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ],
                 enhancement_effects: [],
             });
         });
@@ -100,6 +105,10 @@ describe('SCRAPER: enhancement_stats', () => {
                     icon: '/new_icon/03_etc/11_enchant_material/00000008.png',
                     name: 'Black Stone (Weapon)',
                 },
+                item_effects: [
+                    "Extra Damage to All Species +10",
+                    "Attack Speed +3 Level"
+                ],
                 enhancement_effects: [
                     'Extra AP against monsters up (enhancement level PRI or up)',
                     'Extra Damage to All Species Up',
