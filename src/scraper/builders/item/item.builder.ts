@@ -31,7 +31,7 @@ export class Item extends Generic {
         return parseInt(str.replace(/\D/g, ''));
     }
 
-    get weight(): string {
+    get weight(): number {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Weight:']
         });
@@ -40,9 +40,9 @@ export class Item extends Generic {
             .contents()
             .toArray()
             .find(node => matcher.in(node.data));
-        return (node?.data as string)
+        return parseFloat((node?.data as string)
             ?.substr(matcher.indexIn(node?.data, true))
-            ?.trim();
+            ?.replace(/[ LT]/g, ''));
     }
 
     get prices(): Pricings {

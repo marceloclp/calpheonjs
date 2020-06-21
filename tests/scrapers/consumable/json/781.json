@@ -11,7 +11,7 @@
         "sell": 15540
     },
     "grade": 3,
-    "weight": "0.50 LT",
+    "weight": 0.5,
     "effects": [
         "MAX HP +300",
         "Critical Hit Rate +5",

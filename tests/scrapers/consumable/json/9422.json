@@ -11,7 +11,7 @@
         "sell": 1600
     },
     "grade": 2,
-    "weight": "0.10 LT",
+    "weight": 0.1,
     "effects": [
         "All AP +3",
         "Damage Against Humans +2"

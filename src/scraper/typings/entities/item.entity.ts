@@ -7,7 +7,8 @@ export interface Item extends Generic {
 
     grade: number;
 
-    weight: string;
+    /** Weight as a floating number in LT. */
+    weight: number;
 
     npc_drops: Queries.Entities.NPCDrop[];
     
