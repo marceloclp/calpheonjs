@@ -31,8 +31,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -66,8 +68,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -101,8 +105,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -136,8 +142,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -171,8 +179,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -206,8 +216,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -241,8 +253,10 @@
             },
             "success_rate": 100,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -276,8 +290,10 @@
             },
             "success_rate": 90,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -311,8 +327,10 @@
             },
             "success_rate": 40.82,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -346,8 +364,10 @@
             },
             "success_rate": 28.57,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -381,8 +401,10 @@
             },
             "success_rate": 20,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -416,8 +438,10 @@
             },
             "success_rate": 13.33,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -451,8 +475,10 @@
             },
             "success_rate": 8,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -485,8 +511,10 @@
             },
             "success_rate": 7.5,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -520,8 +548,10 @@
             },
             "success_rate": 6,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -555,8 +585,10 @@
             },
             "success_rate": 11.76,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -590,8 +622,10 @@
             },
             "success_rate": 7.69,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 0,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 0
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -626,8 +660,10 @@
             },
             "success_rate": 6.25,
             "durability": 100,
-            "cron_value_next": 19,
-            "cron_value_total": 19,
+            "cron_values": {
+                "next_lvl": 19,
+                "total": 19
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -662,8 +698,10 @@
             },
             "success_rate": 2,
             "durability": 100,
-            "cron_value_next": 37,
-            "cron_value_total": 56,
+            "cron_values": {
+                "next_lvl": 37,
+                "total": 56
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -698,8 +736,10 @@
             },
             "success_rate": 0.3,
             "durability": 100,
-            "cron_value_next": 69,
-            "cron_value_total": 125,
+            "cron_values": {
+                "next_lvl": 69,
+                "total": 125
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",
@@ -734,8 +774,10 @@
             },
             "success_rate": 0,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 125,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 125
+            },
             "enhancement_effects": [
                 "Extra AP against monsters up (enhancement level PRI or up)",
                 "All AP Up",

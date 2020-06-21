@@ -96,10 +96,12 @@ export class Equipment extends Item {
                 stats: this.extractStats(curr),
                 success_rate: parseFloat(curr.enchant_chance),
                 durability: parseInt(curr.durability?.split('/')[0]),
-                cron_value_next: parseInt(curr.cron_value),
-                cron_value_total: parseInt(curr.cron_tvalue),
                 enhancement_effects: this.parseEffects(effectsRaw, matchers.enhancement_effects),
                 item_effects: this.parseEffects(effectsRaw, matchers.item_effects),
+                cron_values: {
+                    next_lvl: parseInt(curr.cron_value),
+                    total: parseInt(curr.cron_tvalue),
+                },
                 ...(lvl >= maxLvl ? {} : {
                     required_enhancement_item: {
                         type: 'item',

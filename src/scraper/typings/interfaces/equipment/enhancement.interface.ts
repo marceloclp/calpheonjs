@@ -10,11 +10,14 @@ export interface Enhancement {
     /** Max durability at a given enhancement level. */
     durability: number;
 
-    /** The required amount of Cron Stones for next enhancement level. */
-    cron_value_next: number;
+    /** The required amount of Cron stones. */
+    cron_values: {
+        /** For the next level. */
+        next_lvl: number;
 
-    /** The required amount of Cron Stones for max enhancement level. */
-    cron_value_total: number;
+        /** The sum of all the levels before and the current one. */
+        total: number;
+    }
 
     /** The effects caused by the enhancement level. */
     enhancement_effects: string[];

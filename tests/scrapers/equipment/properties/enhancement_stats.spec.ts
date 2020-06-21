@@ -27,8 +27,10 @@ describe('Equipments > enhancement stats', () => {
                 },
                 success_rate: 25.00,
                 durability: 100,
-                cron_value_next: 62,
-                cron_value_total: 62,
+                cron_values: {
+                    next_lvl: 62,
+                    total: 62,
+                },
                 required_enhancement_item: {
                     type: 'item',
                     id: '11629',
@@ -60,8 +62,10 @@ describe('Equipments > enhancement stats', () => {
                 },
                 success_rate: 0,
                 durability: 100,
-                cron_value_next: 0,
-                cron_value_total: 9872,
+                cron_values: {
+                    next_lvl: 0,
+                    total: 9872,
+                },
                 item_effects: [
                     "Self-collectible Black Spirit's Rage +20%"
                 ],
@@ -98,8 +102,10 @@ describe('Equipments > enhancement stats', () => {
                 },
                 success_rate: 100.00,
                 durability: 100,
-                cron_value_next: 0,
-                cron_value_total: 0,
+                cron_values: {
+                    next_lvl: 0,
+                    total: 0,
+                },
                 required_enhancement_item: {
                     type: 'item',
                     id: '16001',

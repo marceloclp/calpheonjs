@@ -31,8 +31,10 @@
             },
             "success_rate": 25,
             "durability": 100,
-            "cron_value_next": 62,
-            "cron_value_total": 62,
+            "cron_values": {
+                "next_lvl": 62,
+                "total": 62
+            },
             "enhancement_effects": [],
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
@@ -61,8 +63,10 @@
             },
             "success_rate": 10,
             "durability": 100,
-            "cron_value_next": 187,
-            "cron_value_total": 249,
+            "cron_values": {
+                "next_lvl": 187,
+                "total": 249
+            },
             "enhancement_effects": [],
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
@@ -91,8 +95,10 @@
             },
             "success_rate": 7.5,
             "durability": 100,
-            "cron_value_next": 562,
-            "cron_value_total": 811,
+            "cron_values": {
+                "next_lvl": 562,
+                "total": 811
+            },
             "enhancement_effects": [],
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
@@ -121,8 +127,10 @@
             },
             "success_rate": 2.5,
             "durability": 100,
-            "cron_value_next": 1562,
-            "cron_value_total": 2373,
+            "cron_values": {
+                "next_lvl": 1562,
+                "total": 2373
+            },
             "enhancement_effects": [],
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
@@ -151,8 +159,10 @@
             },
             "success_rate": 0.5,
             "durability": 100,
-            "cron_value_next": 7499,
-            "cron_value_total": 9872,
+            "cron_values": {
+                "next_lvl": 7499,
+                "total": 9872
+            },
             "enhancement_effects": [],
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
@@ -181,8 +191,10 @@
             },
             "success_rate": 0,
             "durability": 100,
-            "cron_value_next": 0,
-            "cron_value_total": 9872,
+            "cron_values": {
+                "next_lvl": 0,
+                "total": 9872
+            },
             "enhancement_effects": [],
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"

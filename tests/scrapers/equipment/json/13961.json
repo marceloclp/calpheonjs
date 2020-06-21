@@ -29,8 +29,10 @@
         },
         "success_rate": 100.0,
         "durability": 100,
-        "cron_value_next": 0,
-        "cron_value_total": 0,
+        "cron_values": {
+            "next_lvl": 0,
+            "total": 0
+        },
         "enhancement_effects": [],
         "item_effects": [
             "Extra Damage to All Species +18",
