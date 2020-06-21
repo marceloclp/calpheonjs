@@ -1,0 +1,14 @@
+{
+    "id": "4085",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00004085.png",
+    "name": "Melted Noc Shard",
+    "name_alt": "녹아내린 녹 조각",
+    "type": "item",
+    "category": "Crafting Materials",
+    "description": "Material that has been processed and may be used during crafting. It may also be changed to a different form through alchemy or processing.",
+    "prices": {
+        "buy": 12500,
+        "sell": 500
+    },
+    "grade": 0
+}
