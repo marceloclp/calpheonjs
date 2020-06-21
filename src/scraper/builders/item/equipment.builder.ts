@@ -3,6 +3,7 @@ import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
 import { BDOCodex, App } from "../../../typings";
 import { Item } from "./item.builder";
+import { Matcher } from "../../../shared";
 
 export class Equipment extends Item {
     private parseEnchantmentArray(): BDOCodex.Enchantment.Array {
@@ -22,12 +23,13 @@ export class Equipment extends Item {
         return JSON.parse(AppUtils.cleanStr(str, ';\t'));
     }
 
-    private parseEffects(raw: string, matches: string | string[]): string[] {
+    private parseEffects(raw: string, matcher: Matcher): string[] {
         const $ = cheerio.load('<div>' + raw + '</div>');
-        const strs = ($('div').html() ?? '').split('<br>');
+        const strs = $('div').html()?.split('<br>') || [];
 
-        let i = strs.findIndex(str => AppUtils.indexOf(str, matches).substr);
-        if (i === -1) return [];
+        let i = strs.findIndex(str => matcher.in(str));
+        if (!matcher.length)
+            return [];
         
         const effects = [];
         while (i++ < strs.length) {
@@ -79,10 +81,16 @@ export class Equipment extends Item {
 
         return Array(maxLvl + 1).fill(0).map((_, lvl) => {
             const curr = data[lvl];
+            const { edescription: effectsRaw } = curr;
 
-            const enhancement_effects = this.parseEffects(curr.edescription, {
-                [App.Locales.US]: 'Enhancement Effect',
-            }[this._locale]);
+            const matchers = {
+                item_effects: new Matcher(this._locale, {
+                    [App.Locales.US]: ['Item Effect'],
+                }),
+                enhancement_effects: new Matcher(this._locale, {
+                    [App.Locales.US]: ['Enhancement Effect'],
+                }),
+            };
 
             return AppUtils.filterObj<Scrapers.Equipment.Enhancement>({
                 stats: this.extractStats(curr),
@@ -90,7 +98,8 @@ export class Equipment extends Item {
                 durability: parseInt(curr.durability?.split('/')[0]),
                 cron_value_next: parseInt(curr.cron_value),
                 cron_value_total: parseInt(curr.cron_tvalue),
-                enhancement_effects,
+                enhancement_effects: this.parseEffects(effectsRaw, matchers.enhancement_effects),
+                item_effects: this.parseEffects(effectsRaw, matchers.item_effects),
                 ...(lvl >= maxLvl ? {} : {
                     enchant_item_counter: parseInt(curr.enchant_item_counter),
                     pe_item_counter: parseInt(curr.pe_item_counter),
@@ -122,60 +131,47 @@ export class Equipment extends Item {
 
     get item_effects(): string[] {
         const data = this.parseEnchantmentArray()[0].edescription;
-        return this.parseEffects(data, {
-            [App.Locales.US]: 'Item Effect',
-        }[this._locale]);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Item Effect'],
+        });
+        return this.parseEffects(data, matcher);
     }
 
     get set_effects(): Record<number, string[]> {
         const data = this.parseEnchantmentArray()[0].edescription;
-
-        const matches = {
-            [App.Locales.US]: ['$-Set Effect'],
-        }[this._locale];
-        const match = (num: string) => matches.map(m => m.replace('$', num));
-
-        return [2, 3, 4, 5].map(e => e.toString()).reduce((effects, set) => {
-            const { substr } = AppUtils.indexOf(data, match(set));
-            if (!substr)
+        
+        return [2, 3, 4, 5].reduce((effects, set) => {
+            const matcher = new Matcher(this._locale, {
+                [App.Locales.US]: [`${set}-Set Effect`],
+            });
+            if (!matcher.in(data))
                 return effects;
-            return { ...effects, [set]: this.parseEffects(data, substr) };
+            return { ...effects, [set]: this.parseEffects(data, matcher) };
         }, {});
     }
 
     get exclusive_to(): string[] {
-        const matches = {
-            [App.Locales.US]: 'Exclusive',
-        }[this._locale];
-
-        let str: string = '';
-        this.getBodyNodes(true).find(({ type, data }) => {
-            if (type !== 'text' || !data)
-                return false;
-            const { idx, substr } = AppUtils.indexOf(data, matches, 0, true);
-            if (!substr)
-                return false;
-            str = data.substring(idx);
-            return true;
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Exclusive'],
         });
-        return str
+        this.getBodyNodes(true).find(node => matcher.in(node.data));
+        if (!matcher.length)
+            return [];
+        return (matcher.last as string)
+            .substring(matcher.indexIn(matcher.last, true))
             .split(',')
             .map(s => AppUtils.cleanStr(s, ':'))
             .filter(e => e);
     }
 
     get fairy_exp(): number {
-        const matches = {
-            [App.Locales.US]: 'Used as Fairy growth item',
-        }[this._locale];
-        const node = this.getBodyNodes(true).find(({ type, data }) => {
-            if (type !== 'text' || !data)
-                return false;
-            return !!AppUtils.indexOf(data, matches).substr;
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Used as Fairy growth item'],
         });
-        if (!node?.data)
+        this.getBodyNodes(true).find(node => matcher.in(node.data));
+        if (!matcher.length)
             return 0;
-        return parseInt(node.data.replace(/\D/g, ''));
+        return parseInt(matcher.last?.replace(/\D/g, '') || '0');
     }
 
     async build(): Promise<Scrapers.Entities.Equipment> {

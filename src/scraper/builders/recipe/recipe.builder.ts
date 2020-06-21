@@ -1,7 +1,7 @@
 import * as AppUtils from "../../../utils";
-import { Generic } from "../generic.builder";
-import { Scrapers } from "../..";
+import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
+import { Generic } from "../generic.builder";
 
 export class Recipe extends Generic {
     private getMaterials(match: string[]): Scrapers.Entities.Refs.Material[] {

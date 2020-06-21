@@ -19,6 +19,9 @@ export interface Enhancement {
     /** The effects caused by the enhancement level. */
     enhancement_effects: string[];
 
+    /** The effects caused by the item on a given enchantment level. */
+    item_effects: string[];
+
     /** The durability lost if the enhancement fails. */
     durability_loss_on_failure?: number;
 

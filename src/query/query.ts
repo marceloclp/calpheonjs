@@ -3,6 +3,7 @@ import * as AppUtils from "../utils";
 import * as Queries from "./typings";
 import { App, BDOCodex } from "../typings";
 import Scrape, { Scrapers } from "../scraper";
+import { Matcher } from "../shared";
 
 export class Query {
     constructor(
@@ -226,9 +227,13 @@ export class Query {
     }
 
     private parseQuestRewards(raw: string) {
-        const matches = {
-            choose: { [App.Locales.US]: 'Choose' }[this._locale],
-            amity: { [App.Locales.US]: 'Amity' }[this._locale],
+        const matchers = {
+            choose: new Matcher(this._locale, {
+                [App.Locales.US]: ['Choose'],
+            }),
+            amity: new Matcher(this._locale, {
+                [App.Locales.US]: ['Amity'],
+            }),
         };
         const items: Queries.Entities.Refs.QuestReward[] = [];
         const choose: Queries.Entities.Refs.QuestReward[] = [];
@@ -240,13 +245,12 @@ export class Query {
             const { data, tagName } = node;
             if (tagName === 'br' || node.parent.attribs.id !== 'root')
                 return;
-            if (data) {
-                if (AppUtils.indexOf(data, matches.choose).substr)
-                    curr = choose;
-                else if (AppUtils.indexOf(data, matches.amity).substr)
-                    amity.push(parseInt(data.replace(/\D/g, '')));
-            }
-            if (tagName !== 'div') return;
+            if (matchers.choose.in(data))
+                curr = choose;
+            else if (matchers.amity.in(data))
+                amity.push(parseInt((data as string).replace(/\D/g, '')));
+            if (tagName !== 'div')
+                return;
             const n = $(node);
             const f = (str: string) => n.find(str);
             if (n.find('a').length) {

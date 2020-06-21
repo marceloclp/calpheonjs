@@ -2,30 +2,35 @@ import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
 import { Item } from "./item.builder";
+import { Matcher } from "../../../shared";
 
 export class Consumable extends Item {
     private normalizeTimeUnit(raw: string): number {
-        const units = {
-            [App.Locales.US]: { sec: 'sec', min: 'min' },
-        }[this._locale];
-
+        const matchers = {
+            sec: new Matcher(this._locale, {
+                [App.Locales.US]: ['sec'],
+            }),
+            min: new Matcher(this._locale, {
+                [App.Locales.US]: ['min'],
+            }),
+        };
         const value = parseInt(raw.replace(/\D/g, ''));
-        if (AppUtils.indexOf(raw, units.sec).substr)
+        if (matchers.sec.in(raw))
             return value;
-        if (AppUtils.indexOf(raw, units.min).substr)
+        if (matchers.min.in(raw))
             return value * 60;
         return value;
     }
 
     get effects(): string[] {
-        const matches = {
+        const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['- Effect', 'Effect:'],
-        }[this._locale];
+        });
 
         const strs = this.getBodyNodes(true)
-            .filter(({ name }) => name !== 'span')
-            .map(({ data }) => data || '<br>');
-        let i = strs.findIndex(str => AppUtils.indexOf(str, matches).substr);
+            .filter(node => node.name !== 'span')
+            .map(node => node.data || '<br>');
+        let i = strs.findIndex(str => matcher.in(str));
         if (i === -1) return [];
         
         const effects = [];
@@ -40,31 +45,27 @@ export class Consumable extends Item {
     }
 
     get duration(): number {
-        const matches = {
-            [App.Locales.US]: 'Duration',
-        }[this._locale];
-
-        const strs = this.getBodyNodes(true)
-            .map(({ data }) => data || '')
-            .filter(e => e);
-        let i = strs.findIndex(str => AppUtils.indexOf(str, matches).substr);
-        if (i === -1) return 0;
-
-        return this.normalizeTimeUnit(strs[i+1]);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Duration'],
+        });
+        const nodes = this.getBodyNodes(true)
+            .filter(node => node.data);
+        const i = nodes.findIndex(node => matcher.in(node.data));
+        if (!matcher.length)
+            return 0;
+        return this.normalizeTimeUnit(nodes[i+1].data as string)
     }
 
     get cooldown(): number {
-        const matches = {
-            [App.Locales.US]: 'Cooldown',
-        }[this._locale];
-
-        const strs = this.getBodyNodes(true)
-            .map(({ data }) => data || '')
-            .filter(e => e);
-        let i = strs.findIndex(str => AppUtils.indexOf(str, matches).substr);
-        if (i === -1) return 0;
-
-        return this.normalizeTimeUnit(strs[i+1]);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Cooldown'],
+        });
+        const nodes = this.getBodyNodes(true)
+            .filter(node => node.data);
+        const i = nodes.findIndex(node => matcher.in(node.data));
+        if (!matcher.length)
+            return 0;
+        return this.normalizeTimeUnit(nodes[i+1].data as string);
     }
 
     async build(): Promise<Scrapers.Entities.Consumable> {

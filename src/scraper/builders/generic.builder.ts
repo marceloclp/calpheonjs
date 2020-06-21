@@ -2,6 +2,7 @@ import * as AppUtils from "../../utils";
 import * as Scrapers from "../typings";
 import { App, BDOCodex } from "../../typings";
 import { Queries } from "../../query";
+import { Matcher } from "../../shared";
 
 export class Generic {
     constructor(
@@ -77,25 +78,36 @@ export class Generic {
     }
 
     get description(): string {
-        const match = {
+        const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Description:'],
-        }[this._locale];
+        });
 
-        const strs = this.getBodyNodes(true)
-            .map(({ name, data }) => {
-                if (name === 'br' || data === '\n')
-                    return '<br>';
-                return (data || "").replace(/\&apos;/g, "'");
-            })
-            .filter(str => str);
-        let i = strs.findIndex(e => AppUtils.indexOf(e, match).substr) + 1;
-        while (strs[i] === '<br>') i++;
-
-        let val = '';
-        while (strs[i] !== '<br>')
-            val += strs[i++];
-
-        return AppUtils.cleanStr(val);
+        const nodes = this.$('.smallertext > tbody > tr > td')
+            .toArray()
+            .find(node => matcher.in(this.$(node).text()))
+            ?.childNodes || [];
+        if (!matcher.length) return '';
+        
+        const strs = [];
+        let i = nodes.findIndex(node => matcher.in(node.data));
+        while (++i < nodes.length) {
+            if (nodes[i]?.tagName === 'br' && nodes[i+1]?.tagName === 'br')
+                break;
+            if (['div', 'hr'].includes(nodes[i]?.tagName))
+                break;
+            if (nodes[i]?.type === 'text')
+                if (['-'].includes(nodes[i].data?.trim()[0] as string))
+                    break;
+            const str = nodes[i]?.tagName === 'span'
+                ? this.$(nodes[i]).text()
+                : nodes[i].data as string;
+            if (!str)
+                continue;
+            if (strs.length && nodes[i-1]?.tagName !== 'br')
+                strs[strs.length - 1] += str;
+            else strs.push(str);
+        }
+        return strs.join('\n').trim();
     }
 
     async build(): Promise<Scrapers.Entities.Generic> {

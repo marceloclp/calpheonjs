@@ -2,6 +2,8 @@ import { ScrapeFn } from "../../types";
 import { Entities } from "../..";
 
 export interface Quest {
+    type: 'quest';
+    
     id: string;
 
     icon: string;

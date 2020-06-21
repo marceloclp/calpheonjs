@@ -1,40 +1,36 @@
 import * as AppUtils from "../../../utils";
-import { Generic } from "../generic.builder";
+import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
-import { Scrapers } from "../..";
+import { Generic } from "../generic.builder";
+import { Matcher } from "../../../shared";
 
 export class Quest extends Generic {
-    private getTableRow(match: string): CheerioElement | undefined {
+    private getTableRow(matcher: Matcher): CheerioElement | undefined {
         return this.$('.smallertext > tbody > tr > td')
             .toArray()
-            .find((node) => {
-                return AppUtils.indexOf(this.$(node).text(), match).substr
-            });
+            .find(node => matcher.in(this.$(node).text()));
     }
 
-    private getFromCategoryWrapper(match: string): string {
+    private getFromCategoryWrapper(matcher: Matcher): string {
         const node = this.$('.category_text')
             .parent()
             .contents()
             .toArray()
-            .find(({ data }) => data && AppUtils.indexOf(data, match).substr);
-
-        return AppUtils
-            .splitStr(node?.data || '', match, '\n')
+            .find(node => matcher.in(node.data));
+        return node?.data
+            ?.slice(matcher.indexIn(node?.data, true) + 1)
             ?.replace(/[^a-zA-Z0-9 ]/g, '')
-            ?.trim() || '';
+            ?.trim() as string;
     }
 
-    private getQuestNPC(match: string): Scrapers.Entities.Refs.NPC | undefined {
+    private getQuestNPC(matcher: Matcher): Scrapers.Entities.Refs.NPC | undefined {
         // Find the table row that contains the start/end npcs.
-        const row = this.getTableRow(match);
+        const row = this.getTableRow(matcher);
         if (!row) return undefined;
 
         // The anchor node that maps to the NPC icon is two nodes
         // after the matched node.
-        const i = row.childNodes.findIndex(
-            ({ data }) => data && AppUtils.indexOf(data, match).substr
-        ) + 2;
+        const i = row.childNodes.findIndex(node => matcher.in(node.data)) + 2;
         if (!row.childNodes?.[i])
             return undefined;
         
@@ -50,47 +46,52 @@ export class Quest extends Generic {
         };
     }
 
+    get icon(): string {
+        return this.$('img.quest_icon').attr('src') as string;
+    }
+
     get region(): string {
-        const match = {
-            [App.Locales.US]: 'Region',
-        }[this._locale];
-        return this.getFromCategoryWrapper(match);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Region'],
+        });
+        return this.getFromCategoryWrapper(matcher);
     }
 
     get q_category(): string {
-        const match = {
-            [App.Locales.US]: 'Category',
-        }[this._locale];
-        return this.getFromCategoryWrapper(match);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Category'],
+        });
+        return this.getFromCategoryWrapper(matcher);
     }
 
     get q_type(): string {
-        const match = {
-            [App.Locales.US]: 'Type',
-        }[this._locale];
-        return this.getFromCategoryWrapper(match);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Type'],
+        });
+        return this.getFromCategoryWrapper(matcher);
     }
 
     get lvl(): number {
-        const match = {
-            [App.Locales.US]: 'Level',
-        }[this._locale];
-        return parseInt(this.getFromCategoryWrapper(match));
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Level'],
+        });
+        return parseInt(this.getFromCategoryWrapper(matcher));
     }
 
     get exclusive_to(): string[] {
-        const match = {
-            [App.Locales.US]: 'Exclusive',
-        }[this._locale];
-
-        const node = this.$('.category_text')
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Exclusive'],
+        });
+        const str = this.$('.category_text')
             .parent()
             .contents()
             .toArray()
-            .find(({ data }) => data && AppUtils.indexOf(data, match).substr);
-
-        return node?.data
-            ?.substr(0, node?.data?.length - match.length)
+            .find(node => matcher.in(node.data))
+            ?.data || '';
+        if (!matcher.length)
+            return [];
+        return str
+            .substr(0, str.length - (matcher.matchIn(str)?.length || 0))
             .split(',')
             .map(str => AppUtils.cleanStr(str)) || [];
     }
@@ -99,6 +100,7 @@ export class Quest extends Generic {
         return this.$('#full_quest_chain > a')
             .toArray()
             .map(node => ({
+                type: 'quest',
                 id: node.attribs.href.split('quest/')[1],
                 icon: this.$(node).find('img').attr('src') as string,
                 name: AppUtils.cleanStr(this.$(node).text()),
@@ -108,31 +110,28 @@ export class Quest extends Generic {
     }
 
     get npc_start(): Scrapers.Entities.Refs.NPC | undefined {
-        const match = {
-            [App.Locales.US]: 'Start NPC',
-        }[this._locale];
-        return this.getQuestNPC(match);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Start NPC'],
+        });
+        return this.getQuestNPC(matcher);
     }
 
     get npc_end(): Scrapers.Entities.Refs.NPC | undefined {
-        const match = {
-            [App.Locales.US]: 'End NPC',
-        }[this._locale];
-        return this.getQuestNPC(match);
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['End NPC'],
+        });
+        return this.getQuestNPC(matcher);
     }
 
     get description(): string {
-        const match = {
-            [App.Locales.US]: 'Description:',
-        }[this._locale];
-        const nodes = this.getTableRow(match)?.childNodes || [];
-        let i = nodes.findIndex(
-            ({ data }) => data && AppUtils.indexOf(data, match).substr)
-        ;
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Description:'],
+        });
+        const nodes = this.getTableRow(matcher)?.childNodes || [];
         return nodes
-            .slice(i+1)
-            .filter(({ data }) => data)
-            .map(({ data }) => data)
+            .slice(nodes.findIndex(node => matcher.in(node.data)) + 1)
+            .filter(({ data }) => data && data[0] !== '※')
+            .map(node => node.data)
             .join('\n');
     }
 
@@ -156,9 +155,13 @@ export class Quest extends Generic {
     }
 
     get rewards() {
-        const matches = {
-            standard: { [App.Locales.US]: 'Standard' }[this._locale],
-            choose: { [App.Locales.US]: 'Choose' }[this._locale],
+        const matchers = {
+            standard: new Matcher(this._locale, {
+                [App.Locales.US]: ['Standard'],
+            }),
+            choose: new Matcher(this._locale, {
+                [App.Locales.US]: ['Choose'],
+            }),
         };
 
         const rewards = {
@@ -174,9 +177,9 @@ export class Quest extends Generic {
 
         for (let i = 0; i < nodes.length; i++) {
             const { data, tagName } = nodes[i];
-            if (data && AppUtils.indexOf(data, matches.standard).substr)
+            if (matchers.standard.in(data))
                 curr = rewards.standard;
-            else if (data && AppUtils.indexOf(data, matches.choose).substr)
+            else if (matchers.choose.in(data))
                 curr = rewards.choose;
             if (tagName !== 'div')
                 continue;
@@ -225,7 +228,6 @@ export class Quest extends Generic {
                 });
             }
         }
-
         return rewards;
     }
 
