@@ -37,14 +37,18 @@
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "11629",
                 "icon": "/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png",
-                "name": "Tungrad Necklace"
+                "name": "Tungrad Necklace",
+                "shortUrl": "/us/item/11629/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -63,14 +67,18 @@
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "11629",
                 "icon": "/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png",
-                "name": "Tungrad Necklace"
+                "name": "Tungrad Necklace",
+                "shortUrl": "/us/item/11629/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -89,14 +97,18 @@
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "11629",
                 "icon": "/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png",
-                "name": "Tungrad Necklace"
+                "name": "Tungrad Necklace",
+                "shortUrl": "/us/item/11629/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -115,14 +127,18 @@
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "11629",
                 "icon": "/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png",
-                "name": "Tungrad Necklace"
+                "name": "Tungrad Necklace",
+                "shortUrl": "/us/item/11629/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -141,14 +157,18 @@
             "item_effects": [
                 "Self-collectible Black Spirit's Rage +20%"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "11629",
                 "icon": "/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png",
-                "name": "Tungrad Necklace"
+                "name": "Tungrad Necklace",
+                "shortUrl": "/us/item/11629/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {

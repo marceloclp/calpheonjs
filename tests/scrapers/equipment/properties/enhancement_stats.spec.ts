@@ -29,14 +29,18 @@ describe('Equipments > enhancement stats', () => {
                 durability: 100,
                 cron_value_next: 62,
                 cron_value_total: 62,
-                enchant_item_counter: 1,
-                pe_item_counter: 0,
-                durability_loss_on_failure: 10,
-                pe_dura_dec: 0,
                 required_enhancement_item: {
+                    type: 'item',
                     id: '11629',
                     icon: '/new_icon/06_pc_equipitem/00_common/15_necklace/00011629.png',
                     name: 'Tungrad Necklace',
+                    shortUrl: '/us/item/11629/',
+                    amount: 1,
+                    durability_loss_on_failure: 10,
+                },
+                perfect_enhancement: {
+                    amount: 0,
+                    durability_loss_on_failure: 0,
                 },
                 item_effects: [
                     "Self-collectible Black Spirit's Rage +20%"
@@ -96,14 +100,18 @@ describe('Equipments > enhancement stats', () => {
                 durability: 100,
                 cron_value_next: 0,
                 cron_value_total: 0,
-                enchant_item_counter: 1,
-                pe_item_counter: 0,
-                durability_loss_on_failure: 5,
-                pe_dura_dec: 0,
                 required_enhancement_item: {
+                    type: 'item',
                     id: '16001',
                     icon: '/new_icon/03_etc/11_enchant_material/00000008.png',
                     name: 'Black Stone (Weapon)',
+                    shortUrl: '/us/item/16001/',
+                    amount: 1,
+                    durability_loss_on_failure: 5,
+                },
+                perfect_enhancement: {
+                    amount: 0,
+                    durability_loss_on_failure: 0,
                 },
                 item_effects: [
                     "Extra Damage to All Species +10",

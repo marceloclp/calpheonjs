@@ -22,15 +22,20 @@ export interface Enhancement {
     /** The effects caused by the item on a given enchantment level. */
     item_effects: string[];
 
-    /** The durability lost if the enhancement fails. */
-    durability_loss_on_failure?: number;
-
-    // Not sure what those mean.
-    enchant_item_counter?: number;
-    pe_item_counter?: number;
-    pe_dura_dec?: number;
-
     /** The item required to perform the enhancement. */
-    //required_enhancement_item?: Entities.Ref;
-    required_enhancement_item?: Entities.Refs.Generic;
+    required_enhancement_item?: Entities.Refs.Item & {
+        /** The needed amount of the required item. */
+        amount: number;
+
+        /** The durability lost if the enhancement fails. */
+        durability_loss_on_failure: number;
+    };
+
+    perfect_enhancement?: {
+        /** The needed amount of the required item. */
+        amount: number;
+    
+        /** The durability lost if the enhancement fails. */
+        durability_loss_on_failure: number;
+    };
 }

@@ -42,14 +42,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +10"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -73,14 +77,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +11"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -104,14 +112,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +12"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -135,14 +147,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +13"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -166,14 +182,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +14"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -197,14 +217,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +15"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -228,14 +252,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +16"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -259,14 +287,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +17"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 2,
-            "pe_dura_dec": 10,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 2,
+                "durability_loss_on_failure": 10
             }
         },
         {
@@ -290,14 +322,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +18"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 3,
-            "pe_dura_dec": 20,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 3,
+                "durability_loss_on_failure": 20
             }
         },
         {
@@ -321,14 +357,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +19"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 5,
-            "pe_dura_dec": 30,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 5,
+                "durability_loss_on_failure": 30
             }
         },
         {
@@ -352,14 +392,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +20"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 7,
-            "pe_dura_dec": 40,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 7,
+                "durability_loss_on_failure": 40
             }
         },
         {
@@ -383,14 +427,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +21"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 10,
-            "pe_dura_dec": 50,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 10,
+                "durability_loss_on_failure": 50
             }
         },
         {
@@ -414,14 +462,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +22"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 14,
-            "pe_dura_dec": 60,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 14,
+                "durability_loss_on_failure": 60
             }
         }, {
             "stats": {
@@ -444,14 +496,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +23"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 16,
-            "pe_dura_dec": 70,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 16,
+                "durability_loss_on_failure": 70
             }
         },
         {
@@ -475,14 +531,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +24"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 18,
-            "pe_dura_dec": 100,
-            "durability_loss_on_failure": 5,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16001",
                 "icon": "/new_icon/03_etc/11_enchant_material/00000008.png",
-                "name": "Black Stone (Weapon)"
+                "name": "Black Stone (Weapon)",
+                "shortUrl": "/us/item/16001/",
+                "amount": 1,
+                "durability_loss_on_failure": 5
+            },
+            "perfect_enhancement": {
+                "amount": 18,
+                "durability_loss_on_failure": 100
             }
         },
         {
@@ -506,14 +566,18 @@
             "item_effects": [
                 "Additional Damage to Demihumans +25"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 7,
-            "pe_dura_dec": 100,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16004",
                 "icon": "/new_icon/06_pc_equipitem/03_etc/12_doapplydirectlyitem/00000018.png",
-                "name": "Concentrated Magical Black Stone (Weapon)"
+                "name": "Concentrated Magical Black Stone (Weapon)",
+                "shortUrl": "/us/item/16004/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 7,
+                "durability_loss_on_failure": 100
             }
         },
         {
@@ -538,14 +602,18 @@
                 "Additional Damage to Demihumans +27",
                 "Extra AP against Monsters +1"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 12,
-            "pe_dura_dec": 100,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16004",
                 "icon": "/new_icon/06_pc_equipitem/03_etc/12_doapplydirectlyitem/00000018.png",
-                "name": "Concentrated Magical Black Stone (Weapon)"
+                "name": "Concentrated Magical Black Stone (Weapon)",
+                "shortUrl": "/us/item/16004/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 12,
+                "durability_loss_on_failure": 100
             }
         },
         {
@@ -570,14 +638,18 @@
                 "Additional Damage to Demihumans +29",
                 "Extra AP against Monsters +3"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 30,
-            "pe_dura_dec": 100,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16004",
                 "icon": "/new_icon/06_pc_equipitem/03_etc/12_doapplydirectlyitem/00000018.png",
-                "name": "Concentrated Magical Black Stone (Weapon)"
+                "name": "Concentrated Magical Black Stone (Weapon)",
+                "shortUrl": "/us/item/16004/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 30,
+                "durability_loss_on_failure": 100
             }
         },
         {
@@ -602,14 +674,18 @@
                 "Additional Damage to Demihumans +31",
                 "Extra AP against Monsters +6"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16004",
                 "icon": "/new_icon/06_pc_equipitem/03_etc/12_doapplydirectlyitem/00000018.png",
-                "name": "Concentrated Magical Black Stone (Weapon)"
+                "name": "Concentrated Magical Black Stone (Weapon)",
+                "shortUrl": "/us/item/16004/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {
@@ -634,14 +710,18 @@
                 "Additional Damage to Demihumans +33",
                 "Extra AP against Monsters +10"
             ],
-            "enchant_item_counter": 1,
-            "pe_item_counter": 0,
-            "pe_dura_dec": 0,
-            "durability_loss_on_failure": 10,
             "required_enhancement_item": {
+                "type": "item",
                 "id": "16004",
                 "icon": "/new_icon/06_pc_equipitem/03_etc/12_doapplydirectlyitem/00000018.png",
-                "name": "Concentrated Magical Black Stone (Weapon)"
+                "name": "Concentrated Magical Black Stone (Weapon)",
+                "shortUrl": "/us/item/16004/",
+                "amount": 1,
+                "durability_loss_on_failure": 10
+            },
+            "perfect_enhancement": {
+                "amount": 0,
+                "durability_loss_on_failure": 0
             }
         },
         {

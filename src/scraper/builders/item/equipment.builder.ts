@@ -101,14 +101,18 @@ export class Equipment extends Item {
                 enhancement_effects: this.parseEffects(effectsRaw, matchers.enhancement_effects),
                 item_effects: this.parseEffects(effectsRaw, matchers.item_effects),
                 ...(lvl >= maxLvl ? {} : {
-                    enchant_item_counter: parseInt(curr.enchant_item_counter),
-                    pe_item_counter: parseInt(curr.pe_item_counter),
-                    pe_dura_dec: parseInt(curr.pe_dura_dec),
-                    durability_loss_on_failure: parseInt(curr.fail_dura_dec),
                     required_enhancement_item: {
+                        type: 'item',
                         id: curr.need_enchant_item_id,
                         icon: '/' + curr.need_enchant_item_icon,
                         name: curr.need_enchant_item_name,
+                        shortUrl: `/${this._locale}/item/${curr.need_enchant_item_id}/`,
+                        amount: parseInt(curr.enchant_item_counter),
+                        durability_loss_on_failure: parseInt(curr.fail_dura_dec),
+                    },
+                    perfect_enhancement: {
+                        amount: parseInt(curr.pe_item_counter),
+                        durability_loss_on_failure: parseInt(curr.pe_dura_dec),
                     },
                 }),
             });
