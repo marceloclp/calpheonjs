@@ -5,7 +5,7 @@ export interface Generic {
 
     name: string;
 
-    name_alt: string;
+    name_alt?: string;
 
     type: string;
 

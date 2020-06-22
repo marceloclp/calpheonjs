@@ -64,8 +64,8 @@ export class Generic {
         return AppUtils.cleanStr(this.$('.item_title').text());
     }
 
-    get name_alt(): string {
-        return this.$('.item_sub_title').text();
+    get name_alt(): string | undefined {
+        return this.$('.item_sub_title').text() || undefined;
     }
 
     get category(): string {
