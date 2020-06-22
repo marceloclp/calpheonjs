@@ -64,7 +64,7 @@ export class Equipment extends Item {
         return nums as [number, number];
     }
 
-    private extractStats(obj: BDOCodex.StatsObj): Scrapers.Equipment.Stats {
+    private extractStats(obj: BDOCodex.StatsObj): Scrapers.Equipments.Stats {
         const { Stats } = Scrapers;
         const toStat = this.parseStat.bind(this);
         return AppUtils.filterObj({
@@ -83,11 +83,11 @@ export class Equipment extends Item {
         });
     }
 
-    get stats(): Scrapers.Equipment.Stats {
+    get stats(): Scrapers.Equipments.Stats {
         return this.enhancement_stats[0].stats;
     }
 
-    get enhancement_stats(): Scrapers.Equipment.Enhancement[] {
+    get enhancement_stats(): Scrapers.Equipments.Enhancement[] {
         const data = this.parseEnchantmentArray();
         const maxLvl = parseInt(data.max_enchant) || 0;
 
@@ -110,7 +110,7 @@ export class Equipment extends Item {
                 this._locale,
             );
 
-            return AppUtils.filterObj<Scrapers.Equipment.Enhancement>({
+            return AppUtils.filterObj<Scrapers.Equipments.Enhancement>({
                 stats: this.extractStats(curr),
                 success_rate: parseFloat(curr.enchant_chance),
                 durability: parseInt(curr.durability?.split('/')[0]),
@@ -137,11 +137,11 @@ export class Equipment extends Item {
         });
     }
 
-    get caphras_stats(): Scrapers.Equipment.Caphras.Wrapper {
+    get caphras_stats(): Scrapers.Equipments.Caphras.Wrapper {
         const data = this.parseCaphrasData();
         return [18, 19, 20].reduce((caphras, eLvl) => {
             const values = (data[eLvl as 18 | 19 | 20] || []).map(cLvl => {
-                return AppUtils.filterObj<Scrapers.Equipment.Caphras.Enhancement>({
+                return AppUtils.filterObj<Scrapers.Equipments.Caphras.Enhancement>({
                     stats: this.extractStats(cLvl.stats),
                     count_next: parseInt(cLvl.count),
                     count_total: parseInt(cLvl.tcount),
