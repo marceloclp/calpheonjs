@@ -81,27 +81,26 @@ export class Equipment extends Item {
 
         return Array(maxLvl + 1).fill(0).map((_, lvl) => {
             const curr = data[lvl];
-            const { edescription: effectsRaw } = curr;
 
-            const matchers = {
-                item_effects: new Matcher(this._locale, {
-                    [App.Locales.US]: ['Item Effect'],
-                }),
-                enhancement_effects: new Matcher(this._locale, {
+            const { edescription: raw } = curr;
+            const effects = {
+                enhancement: this.parseEffects(raw, new Matcher(this._locale, {
                     [App.Locales.US]: ['Enhancement Effect'],
-                }),
-            };
+                })),
+                item: this.parseEffects(raw, new Matcher(this._locale, {
+                    [App.Locales.US]: ['Item Effect'],
+                })),
+            }
 
             return AppUtils.filterObj<Scrapers.Equipment.Enhancement>({
                 stats: this.extractStats(curr),
                 success_rate: parseFloat(curr.enchant_chance),
                 durability: parseInt(curr.durability?.split('/')[0]),
-                enhancement_effects: this.parseEffects(effectsRaw, matchers.enhancement_effects),
-                item_effects: this.parseEffects(effectsRaw, matchers.item_effects),
                 cron_values: {
                     next_lvl: parseInt(curr.cron_value),
                     total: parseInt(curr.cron_tvalue),
                 },
+                effects,
                 ...(lvl >= maxLvl ? {} : {
                     required_enhancement_item: {
                         type: 'item',

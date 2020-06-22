@@ -19,11 +19,13 @@ export interface Enhancement {
         total: number;
     }
 
-    /** The effects caused by the enhancement level. */
-    enhancement_effects: string[];
+    effects: {
+        /** The effects caused by the enhancement level. */
+        enhancement: string[];
 
-    /** The effects caused by the item on a given enchantment level. */
-    item_effects: string[];
+        /** The effects caused by the item on a given enchantment level. */
+        item: string[];
+    }
 
     /** The item required to perform the enhancement. */
     required_enhancement_item?: Entities.Refs.Item & {

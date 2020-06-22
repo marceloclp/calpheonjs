@@ -35,10 +35,12 @@
                 "next_lvl": 62,
                 "total": 62
             },
-            "enhancement_effects": [],
-            "item_effects": [
-                "Self-collectible Black Spirit's Rage +20%"
-            ],
+            "effects": {
+                "enhancement": [],
+                "item": [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "11629",
@@ -67,10 +69,12 @@
                 "next_lvl": 187,
                 "total": 249
             },
-            "enhancement_effects": [],
-            "item_effects": [
-                "Self-collectible Black Spirit's Rage +20%"
-            ],
+            "effects": {
+                "enhancement": [],
+                "item": [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "11629",
@@ -99,10 +103,12 @@
                 "next_lvl": 562,
                 "total": 811
             },
-            "enhancement_effects": [],
-            "item_effects": [
-                "Self-collectible Black Spirit's Rage +20%"
-            ],
+            "effects": {
+                "enhancement": [],
+                "item": [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "11629",
@@ -131,10 +137,12 @@
                 "next_lvl": 1562,
                 "total": 2373
             },
-            "enhancement_effects": [],
-            "item_effects": [
-                "Self-collectible Black Spirit's Rage +20%"
-            ],
+            "effects": {
+                "enhancement": [],
+                "item": [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "11629",
@@ -163,10 +171,12 @@
                 "next_lvl": 7499,
                 "total": 9872
             },
-            "enhancement_effects": [],
-            "item_effects": [
-                "Self-collectible Black Spirit's Rage +20%"
-            ],
+            "effects": {
+                "enhancement": [],
+                "item": [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "11629",
@@ -195,10 +205,12 @@
                 "next_lvl": 0,
                 "total": 9872
             },
-            "enhancement_effects": [],
-            "item_effects": [
-                "Self-collectible Black Spirit's Rage +20%"
-            ]
+            "effects": {
+                "enhancement": [],
+                "item": [
+                    "Self-collectible Black Spirit's Rage +20%"
+                ]
+            }
         }
     ],
     "caphras_stats": {

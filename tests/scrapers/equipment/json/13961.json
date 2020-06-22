@@ -33,12 +33,14 @@
             "next_lvl": 0,
             "total": 0
         },
-        "enhancement_effects": [],
-        "item_effects": [
-            "Extra Damage to All Species +18",
-            "Extra AP against Monsters +6",
-            "Attack Speed +3 Level"
-        ]
+        "effects": {
+            "enhancement": [],
+            "item": [
+                "Extra Damage to All Species +18",
+                "Extra AP against Monsters +6",
+                "Attack Speed +3 Level"
+            ]
+        }
     }],
     "caphras_stats": {
         "18": [],

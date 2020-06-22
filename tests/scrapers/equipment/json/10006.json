@@ -35,15 +35,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +10"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +10"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -72,15 +74,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +11"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +11"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -109,15 +113,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +12"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +12"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -146,15 +152,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +13"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +13"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -183,15 +191,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +14"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +14"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -220,15 +230,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +15"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +15"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -257,15 +269,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +16"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +16"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -294,15 +308,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +17"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +17"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -331,15 +347,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +18"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +18"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -368,15 +386,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +19"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +19"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -405,15 +425,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +20"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +20"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -442,15 +464,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +21"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +21"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -479,15 +503,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +22"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +22"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -515,15 +541,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +23"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +23"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -552,15 +580,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +24"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +24"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16001",
@@ -589,15 +619,17 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +25"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +25"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16004",
@@ -626,16 +658,18 @@
                 "next_lvl": 0,
                 "total": 0
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +27",
-                "Extra AP against Monsters +1"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +27",
+                    "Extra AP against Monsters +1"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16004",
@@ -664,16 +698,18 @@
                 "next_lvl": 19,
                 "total": 19
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +29",
-                "Extra AP against Monsters +3"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +29",
+                    "Extra AP against Monsters +3"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16004",
@@ -702,16 +738,18 @@
                 "next_lvl": 37,
                 "total": 56
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +31",
-                "Extra AP against Monsters +6"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +31",
+                    "Extra AP against Monsters +6"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16004",
@@ -740,16 +778,18 @@
                 "next_lvl": 69,
                 "total": 125
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +33",
-                "Extra AP against Monsters +10"
-            ],
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +33",
+                    "Extra AP against Monsters +10"
+                ]
+            },
             "required_enhancement_item": {
                 "type": "item",
                 "id": "16004",
@@ -778,16 +818,18 @@
                 "next_lvl": 0,
                 "total": 125
             },
-            "enhancement_effects": [
-                "Extra AP against monsters up (enhancement level PRI or up)",
-                "All AP Up",
-                "All Accuracy Up",
-                "Extra Damage to Demihumans Up"
-            ],
-            "item_effects": [
-                "Additional Damage to Demihumans +35",
-                "Extra AP against Monsters +15"
-            ]
+            "effects": {
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up",
+                    "Extra Damage to Demihumans Up"
+                ],
+                "item": [
+                    "Additional Damage to Demihumans +35",
+                    "Extra AP against Monsters +15"
+                ]
+            }
         }
     ],
     "item_effects": [

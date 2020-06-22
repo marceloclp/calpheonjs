@@ -31,6 +31,12 @@ describe('Equipments > enhancement stats', () => {
                     next_lvl: 62,
                     total: 62,
                 },
+                effects: {
+                    enhancement: [],
+                    item: [
+                        "Self-collectible Black Spirit's Rage +20%"
+                    ],
+                },
                 required_enhancement_item: {
                     type: 'item',
                     id: '11629',
@@ -44,10 +50,6 @@ describe('Equipments > enhancement stats', () => {
                     amount: 0,
                     durability_loss_on_failure: 0,
                 },
-                item_effects: [
-                    "Self-collectible Black Spirit's Rage +20%"
-                ],
-                enhancement_effects: [],
             });
         });
 
@@ -66,10 +68,12 @@ describe('Equipments > enhancement stats', () => {
                     next_lvl: 0,
                     total: 9872,
                 },
-                item_effects: [
-                    "Self-collectible Black Spirit's Rage +20%"
-                ],
-                enhancement_effects: [],
+                effects: {
+                    enhancement: [],
+                    item: [
+                        "Self-collectible Black Spirit's Rage +20%"
+                    ],
+                },
             });
         });
 
@@ -106,6 +110,18 @@ describe('Equipments > enhancement stats', () => {
                     next_lvl: 0,
                     total: 0,
                 },
+                effects: {
+                    enhancement: [
+                        'Extra AP against monsters up (enhancement level PRI or up)',
+                        'Extra Damage to All Species Up',
+                        'All AP Up',
+                        'All Accuracy Up'
+                    ],
+                    item: [
+                        "Extra Damage to All Species +10",
+                        "Attack Speed +3 Level"
+                    ],
+                },
                 required_enhancement_item: {
                     type: 'item',
                     id: '16001',
@@ -119,16 +135,6 @@ describe('Equipments > enhancement stats', () => {
                     amount: 0,
                     durability_loss_on_failure: 0,
                 },
-                item_effects: [
-                    "Extra Damage to All Species +10",
-                    "Attack Speed +3 Level"
-                ],
-                enhancement_effects: [
-                    'Extra AP against monsters up (enhancement level PRI or up)',
-                    'Extra Damage to All Species Up',
-                    'All AP Up',
-                    'All Accuracy Up'
-                ],
             });
         });
 

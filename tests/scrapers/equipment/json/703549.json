@@ -33,13 +33,15 @@
             "next_lvl": 0,
             "total": 0
         },
-        "enhancement_effects": [],
-        "item_effects": [
-            "Extra Damage to All Species +19",
-            "Attack Speed +3 Level",
-            "All Accuracy +16",
-            "Ignore All Resistance +20%"
-        ]
+        "effects": {
+            "enhancement": [],
+            "item": [
+                "Extra Damage to All Species +19",
+                "Attack Speed +3 Level",
+                "All Accuracy +16",
+                "Ignore All Resistance +20%"
+            ]
+        }
     }],
     "caphras_stats": {
         "18": [],
