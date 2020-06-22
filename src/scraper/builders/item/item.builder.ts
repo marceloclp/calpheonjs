@@ -8,16 +8,16 @@ import { Matcher } from "../../../shared";
 
 export class Item extends Generic {
     private async query(type: Queries.Types): Promise<any[]> {
-        const matches = {
+        const ids = {
             [App.Locales.US]: {
                 [Queries.Types.QUEST_REWARD]: 'questreward',
                 [Queries.Types.PRODUCT_IN_RECIPE]: 'productofrecipe',
                 [Queries.Types.PRODUCT_IN_PROCESSING]: 'mproductofrecipe',
             }
         }[this._locale];
-        if (!(type in matches))
+        if (!(type in ids))
             return [];
-        const match = (matches as any)[type];
+        const match = (ids as any)[type];
         if (!this.$(`a[href="#tabs-${match}"]`).length)
             return [];
         return (await this._query(this._id, type, {
