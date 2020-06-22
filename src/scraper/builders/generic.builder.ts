@@ -23,6 +23,19 @@ export class Generic {
 
     protected readonly cache = new ContextCache();
 
+    protected getTableRows(): CheerioElement[] {
+        if (!this.cache.has('table_rows')) {
+            const nodes = this.$('.smallertext > tbody > tr > td').toArray();
+            this.cache.set('table_rows', nodes);
+        }
+        return this.cache.get('table_rows');
+    }
+
+    protected getTableRow(matcher: Matcher): CheerioElement | undefined {
+        return this.getTableRows()
+            .find(node => matcher.in(this.$(node).text()));
+    }
+
     protected getBodyNodes(deep?: boolean): CheerioElement[] {
         if (!this.cache.has('body_nodes')) {
             const nodes = this.$('table.smallertext > tbody > tr > td')

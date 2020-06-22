@@ -5,15 +5,6 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Quest extends Generic {
-    private getTableRow(matcher: Matcher): CheerioElement | undefined {
-        if (!this.cache.has('table_rows')) {
-            const nodes = this.$('.smallertext > tbody > tr > td').toArray();
-            this.cache.set('table_rows', nodes);
-        }
-        return this.cache.get<CheerioElement[]>('table_rows')
-            .find(node => matcher.in(this.$(node).text()));
-    }
-
     private getQuestNPC(matcher: Matcher): Scrapers.Entities.Refs.NPC | undefined {
         // Find the table row that contains the start/end npcs.
         const row = this.getTableRow(matcher);

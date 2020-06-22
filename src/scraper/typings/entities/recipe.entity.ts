@@ -1,5 +1,5 @@
 import { Generic } from "./generic.entity";
-import { Material } from "./refs";
+import { Recipes } from "../interfaces";
 
 export interface Recipe extends Generic {
     /** The process used to craft the recipe (e.g, "Simple Cooking"). */
@@ -18,8 +18,8 @@ export interface Recipe extends Generic {
     };
 
     /** A list of items required to craft the recipe. */
-    materials: Material[];
+    materials: Recipes.Material[];
 
     /** A list of possible items acquired from a successful craft. */
-    products: Material[];
+    products: Recipes.Material[];
 }

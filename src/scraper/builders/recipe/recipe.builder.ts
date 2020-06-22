@@ -4,17 +4,15 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Recipe extends Generic {
-    private getMaterials(matcher: Matcher): Scrapers.Entities.Refs.Material[] {
-        const wrapper = this.$('.smallertext > tbody > tr > td')
-            .toArray()
-            .find(node => matcher.in(this.$(node).text()));
-        if (!wrapper)
-            return [];
-        return this.$(wrapper).find('img').toArray().map(node => {
+    private getMaterials(matcher: Matcher): Scrapers.Recipes.Material[] {
+        const row = this.getTableRow(matcher);
+        if (!row) return [];
+        return this.$(row).find('img').toArray().map(node => {
             const parent = node.parent.parent;
             const shortUrl = parent.attribs.href;
-            const anchor = this.$(wrapper).find(`a[href="${shortUrl}"]`).last();
+            const anchor = this.$(row).find(`a[href="${shortUrl}"]`).last();
             return {
+                type: 'item',
                 id: parent.attribs['data-id'].split('--')[1],
                 icon: node.attribs.src,
                 name: anchor.text(),
@@ -50,14 +48,14 @@ export class Recipe extends Generic {
         return { mastery, lvl: parseInt(lvl) };
     }
 
-    get materials(): Scrapers.Entities.Refs.Material[] {
+    get materials(): Scrapers.Recipes.Material[] {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Crafting Material'],
         });
         return this.getMaterials(matcher);
     }
 
-    get products(): Scrapers.Entities.Refs.Material[] {
+    get products(): Scrapers.Recipes.Material[] {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Crafting Result'],
         });
