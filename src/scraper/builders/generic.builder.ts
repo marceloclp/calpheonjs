@@ -61,12 +61,14 @@ export class Generic {
     }
 
     protected parsePageInfo(): BDOCodex.PageInfo {
-        const raw = this.$('script[type="application/ld+json"]')
-            .first()
-            .html();
-        if (!raw)
-            return {} as BDOCodex.PageInfo;
-        return JSON.parse(AppUtils.cleanStr(raw));
+        if (!this.cache.get('page_info')) {
+            const raw = this.$('script[type="application/ld+json"]')
+                .first()
+                .html();
+            const data = raw ? JSON.parse(AppUtils.cleanStr(raw)) : {};
+            this.cache.set('page_info', data);
+        };
+        return this.cache.get('page_info');
     }
 
     protected scrapeFactory(shortUrl: string): Scrapers.ScrapeFn | undefined {
@@ -99,8 +101,9 @@ export class Generic {
     }
 
     get grade(): number {
-        const str = this.$('.item_title').attr('class') as string;
-        return parseInt(str.replace(/\D/g, ''));
+        return parseInt(this.$('.item_title')
+            .attr('class')
+            ?.replace(/\D/g, '') as string) || 0;
     }
 
     get description(): string {
