@@ -65,6 +65,8 @@ export class Scraper {
                 return Builders.Recipe;
             case Scrapers.EntityTypes.QUEST:
                 return Builders.Quest;
+            case Scrapers.EntityTypes.NPC:
+                return Builders.NPC;
             default: return Builders.Generic;
         }
     }

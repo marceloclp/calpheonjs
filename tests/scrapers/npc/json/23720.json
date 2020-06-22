@@ -1,0 +1,16 @@
+{
+    "id": "23720",
+    "icon": "/items/ui_artwork/ic_00559.png",
+    "name": "Abandoned Iron Mine Executor",
+    "description": "",
+    "mob_type": "normal",
+    "lvl": 55,
+    "hp": 174007,
+    "defense": 557,
+    "evasion": 457,
+    "dmg_reduction": 100,
+    "exp": 2505749,
+    "exp_skill": 808444,
+    "karma": 80,
+    "boss": false
+}

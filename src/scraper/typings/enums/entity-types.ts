@@ -7,4 +7,5 @@ export enum EntityTypes {
     ITEM = 'item',
     RECIPE = 'recipe',
     QUEST = 'quest',
+    NPC = 'npc',
 }

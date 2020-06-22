@@ -9,7 +9,7 @@ export interface Generic {
 
     type: string;
 
-    category: string;
+    category?: string;
 
     description: string;
 }

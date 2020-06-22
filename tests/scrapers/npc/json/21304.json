@@ -1,0 +1,23 @@
+{
+    "id": "21304",
+    "icon": "/items/ui_artwork/ic_04924.png",
+    "name": "Aakman Airbender",
+    "description": "Aakman Airbenders shoot black energy balls that contain illusions. Getting hit by these projectiles will cause your memory to fade.",
+    "mob_type": "normal",
+    "lvl": 60,
+    "hp": 585219,
+    "defense": 807,
+    "evasion": 667,
+    "dmg_reduction": 140,
+    "exp": 19251798,
+    "exp_skill": 182943,
+    "karma": 28,
+    "knowledge": {
+        "type": "knowledge",
+        "id": "4924",
+        "icon": "/items/ui_artwork/ic_04924.png",
+        "name": "Aakman Airbender",
+        "shortUrl": "/us/theme/4924/",
+        "drop_chance": 2.5
+    }
+}
