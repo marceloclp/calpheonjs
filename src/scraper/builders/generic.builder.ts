@@ -2,7 +2,7 @@ import * as AppUtils from "../../utils";
 import * as Scrapers from "../typings";
 import { App, BDOCodex } from "../../typings";
 import { Queries } from "../../query";
-import { Matcher } from "../../shared";
+import { Matcher, ContextCache } from "../../shared";
 
 export class Generic {
     constructor(
@@ -21,6 +21,8 @@ export class Generic {
         protected readonly _scrape: Scrapers.Scrape,
     ) {}
 
+    protected readonly cache = new ContextCache();
+
     protected getBodyNodes(deep?: boolean): CheerioElement[] {
         let nodes = this.$('table.smallertext > tbody > tr > td')
             .contents()
@@ -32,6 +34,18 @@ export class Generic {
             if (nodes?.[i].children)
                 nodes.splice(i+1, 0, ...nodes[i].children);
         return nodes;
+    }
+
+    protected getTextNodeFromCategoryWrapper(matcher: Matcher): CheerioElement | undefined {
+        if (!this.cache.has('category_nodes')) {
+            const nodes = this.$('.category_text')
+                .parent()
+                .contents()
+                .toArray();
+            this.cache.set('category_nodes', nodes);
+        }
+        return this.cache.get<CheerioElement[]>('category_nodes')
+            .find(node => matcher.in(node.data));
     }
 
     protected parsePageInfo(): BDOCodex.PageInfo {

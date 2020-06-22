@@ -1,5 +1,5 @@
-import { App } from "../../typings";
-import { indexOf } from "../../utils";
+import { App } from "../typings";
+import { indexOf } from "../utils";
 
 export class Matcher {
     private readonly _cache: Record<string, { idx: number, substr?: string }> = {};

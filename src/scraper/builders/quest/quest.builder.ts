@@ -11,18 +11,6 @@ export class Quest extends Generic {
             .find(node => matcher.in(this.$(node).text()));
     }
 
-    private getFromCategoryWrapper(matcher: Matcher): string {
-        const node = this.$('.category_text')
-            .parent()
-            .contents()
-            .toArray()
-            .find(node => matcher.in(node.data));
-        return node?.data
-            ?.slice(matcher.indexIn(node?.data, true) + 1)
-            ?.replace(/[^a-zA-Z0-9 ]/g, '')
-            ?.trim() as string;
-    }
-
     private getQuestNPC(matcher: Matcher): Scrapers.Entities.Refs.NPC | undefined {
         // Find the table row that contains the start/end npcs.
         const row = this.getTableRow(matcher);
@@ -54,28 +42,40 @@ export class Quest extends Generic {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Region'],
         });
-        return this.getFromCategoryWrapper(matcher);
+        return this.getTextNodeFromCategoryWrapper(matcher)?.data
+            ?.slice(matcher.indexIn(matcher.last, true) + 1)
+            ?.replace(/[^a-zA-Z0-9 ]/g, '')
+            ?.trim() as string;
     }
 
     get q_category(): string {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Category'],
         });
-        return this.getFromCategoryWrapper(matcher);
+        return this.getTextNodeFromCategoryWrapper(matcher)?.data
+            ?.slice(matcher.indexIn(matcher.last, true) + 1)
+            ?.replace(/[^a-zA-Z0-9 ]/g, '')
+            ?.trim() as string;
     }
 
     get q_type(): string {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Type'],
         });
-        return this.getFromCategoryWrapper(matcher);
+        return this.getTextNodeFromCategoryWrapper(matcher)?.data
+            ?.slice(matcher.indexIn(matcher.last, true) + 1)
+            ?.replace(/[^a-zA-Z0-9 ]/g, '')
+            ?.trim() as string;
     }
 
     get lvl(): number {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Level'],
         });
-        return parseInt(this.getFromCategoryWrapper(matcher));
+        return parseInt(this.getTextNodeFromCategoryWrapper(matcher)?.data
+            ?.slice(matcher.indexIn(matcher.last, true) + 1)
+            ?.replace(/[^a-zA-Z0-9 ]/g, '')
+            ?.trim() as string);
     }
 
     get exclusive_to(): string[] {

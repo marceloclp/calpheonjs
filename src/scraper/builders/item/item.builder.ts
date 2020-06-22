@@ -35,14 +35,9 @@ export class Item extends Generic {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Weight:']
         });
-        const node = this.$('.category_text')
-            .parent()
-            .contents()
-            .toArray()
-            .find(node => matcher.in(node.data));
-        return parseFloat((node?.data as string)
-            ?.substr(matcher.indexIn(node?.data, true))
-            ?.replace(/[ LT]/g, ''));
+        return parseFloat(this.getTextNodeFromCategoryWrapper(matcher)?.data
+            ?.substr(matcher.indexIn(matcher.last, true))
+            ?.replace(/[ LT]/g, '') || '0');
     }
 
     get prices(): Pricings {
