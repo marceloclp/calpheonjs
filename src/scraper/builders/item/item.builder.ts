@@ -41,23 +41,29 @@ export class Item extends Generic {
     }
 
     get prices(): Pricings {
-        const matches = {
-            buy:    { [App.Locales.US]: 'Buy' }[this._locale],
-            sell:   { [App.Locales.US]: 'Sell' }[this._locale],
-            repair: { [App.Locales.US]: 'Repair' }[this._locale],
+        const matchers = {
+            buy: new Matcher(this._locale, {
+                [App.Locales.US]: ['Buy'],
+            }),
+            sell: new Matcher(this._locale, {
+                [App.Locales.US]: ['Sell'],
+            }),
+            repair: new Matcher(this._locale, {
+                [App.Locales.US]: ['Repair'],
+            }),
         };
         const keys = <const>['buy', 'sell', 'repair'];
 
-        return this.getBodyNodes()
-            .filter(node => node.type === 'text' && node.data)
-            .map(node => node.data as string)
-            .reduce((prices, str) => {
-                const key = keys.find(
-                    key => AppUtils.indexOf(str, matches[key]).substr
-                );
-                if (!key) return prices;
-                return { ...prices, [key]: parseInt(str.replace(/\D/g, '')) };
-            }, {} as Pricings);
+        return this.getBodyNodes().reduce((prices, node) => {
+            if (!node.data)
+                return prices;
+            const key = keys.find(
+                key => !matchers[key].length && matchers[key].in(node.data)
+            );
+            if (!key)
+                return prices;
+            return { ...prices, [key]: parseInt(node.data.replace(/\D/g, '')) };
+        }, {} as Pricings);
     }
 
     async build(): Promise<Scrapers.Entities.Item> {
