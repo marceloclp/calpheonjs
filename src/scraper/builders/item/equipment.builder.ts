@@ -92,6 +92,12 @@ export class Equipment extends Item {
                 })),
             }
 
+            const requiredItemURL = AppUtils.getShortURL(
+                curr.need_enchant_item_id,
+                App.EntityTypes.ITEM,
+                this._locale,
+            );
+
             return AppUtils.filterObj<Scrapers.Equipment.Enhancement>({
                 stats: this.extractStats(curr),
                 success_rate: parseFloat(curr.enchant_chance),
@@ -101,21 +107,20 @@ export class Equipment extends Item {
                     total: parseInt(curr.cron_tvalue),
                 },
                 effects,
-                ...(lvl >= maxLvl ? {} : {
-                    required_enhancement_item: {
-                        type: 'item',
-                        id: curr.need_enchant_item_id,
-                        icon: '/' + curr.need_enchant_item_icon,
-                        name: curr.need_enchant_item_name,
-                        shortUrl: `/${this._locale}/item/${curr.need_enchant_item_id}/`,
-                        amount: parseInt(curr.enchant_item_counter),
-                        durability_loss_on_failure: parseInt(curr.fail_dura_dec),
-                    },
-                    perfect_enhancement: {
-                        amount: parseInt(curr.pe_item_counter),
-                        durability_loss_on_failure: parseInt(curr.pe_dura_dec),
-                    },
-                }),
+                required_enhancement_item: (lvl >= maxLvl) ? undefined : {
+                    type: 'item',
+                    id: curr.need_enchant_item_id,
+                    icon: '/' + curr.need_enchant_item_icon,
+                    name: curr.need_enchant_item_name,
+                    shortUrl: requiredItemURL,
+                    amount: parseInt(curr.enchant_item_counter),
+                    durability_loss_on_failure: parseInt(curr.fail_dura_dec),
+                    scrape: this.scrapeFactory(requiredItemURL),
+                },
+                perfect_enhancement: (lvl >= maxLvl) ? undefined : {
+                    amount: parseInt(curr.pe_item_counter),
+                    durability_loss_on_failure: parseInt(curr.pe_dura_dec),
+                },
             });
         });
     }

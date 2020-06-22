@@ -17,7 +17,7 @@ describe('Equipments > enhancement stats', () => {
         });
 
         it('#enhancement_stats[0]', () => {
-            expect(result.data.enhancement_stats[0]).to.deep.equal({
+            expect(result.data.enhancement_stats[0]).to.containSubset({
                 stats: {
                     damage: 10,
                     defense: 0,
@@ -54,7 +54,7 @@ describe('Equipments > enhancement stats', () => {
         });
 
         it('#enhancement_stats[5]', () => {
-            expect(result.data.enhancement_stats[5]).to.deep.equal({
+            expect(result.data.enhancement_stats[5]).to.containSubset({
                 stats: {
                     damage: 35,
                     defense: 0,
@@ -96,7 +96,7 @@ describe('Equipments > enhancement stats', () => {
         });
 
         it('#enhancement_stats[1]', () => {
-            expect(result.data.enhancement_stats[1]).to.deep.equal({
+            expect(result.data.enhancement_stats[1]).to.containSubset({
                 stats: {
                     damage: [22, 26],
                     defense: 0,

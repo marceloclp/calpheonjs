@@ -61,7 +61,7 @@ describe('Equipments', () => {
         });
 
         it('#enhancement_stats', () => {
-            expect(result.data.enhancement_stats).to.deep.equal(expected.enhancement_stats);
+            expect(result.data.enhancement_stats).to.containSubset(expected.enhancement_stats);
         });
 
         it('#caphras_stats', () => {
@@ -142,7 +142,7 @@ describe('Equipments', () => {
         });
 
         it('#enhancement_stats', () => {
-            expect(result.data.enhancement_stats).to.deep.equal(expected.enhancement_stats);
+            expect(result.data.enhancement_stats).to.containSubset(expected.enhancement_stats);
         });
 
         it('#caphras_stats', () => {
@@ -223,7 +223,7 @@ describe('Equipments', () => {
         });
 
         it('#enhancement_stats', () => {
-            expect(result.data.enhancement_stats).to.deep.equal(expected.enhancement_stats);
+            expect(result.data.enhancement_stats).to.containSubset(expected.enhancement_stats);
         });
 
         it('#caphras_stats', () => {
@@ -304,7 +304,7 @@ describe('Equipments', () => {
         });
 
         it('#enhancement_stats', () => {
-            expect(result.data.enhancement_stats).to.deep.equal(expected.enhancement_stats);
+            expect(result.data.enhancement_stats).to.containSubset(expected.enhancement_stats);
         });
 
         /*it('#caphras_stats', () => {
