@@ -76,16 +76,9 @@ export class Quest extends Generic {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Exclusive'],
         });
-        const str = this.$('.category_text')
-            .parent()
-            .contents()
-            .toArray()
-            .find(node => matcher.in(node.data))
-            ?.data || '';
-        if (!matcher.length)
-            return [];
+        const str = this.getTextNodeFromCategoryWrapper(matcher)?.data;
         return str
-            .substr(0, str.length - (matcher.matchIn(str)?.length || 0))
+            ?.substr(0, str.length - (matcher.matchIn(str)?.length || 0))
             .split(',')
             .map(str => AppUtils.cleanStr(str)) || [];
     }
@@ -158,71 +151,66 @@ export class Quest extends Generic {
             }),
         };
 
-        const rewards = {
-            standard: [] as Scrapers.Quests.Reward[],
-            choose: [] as Scrapers.Quests.Reward[],
-        };
-        let curr = rewards.standard;
-        
-        const nodes = this.$('.smallertext > tbody > tr > td')
-            .last()
-            .contents()
-            .toArray();
-
-        for (let i = 0; i < nodes.length; i++) {
-            const { data, tagName } = nodes[i];
-            if (matchers.standard.in(data))
+        let curr: Scrapers.Quests.Reward[];
+        const rows = this.getTableRows();
+        const nodes = rows[rows.length - 1].childNodes;
+        return nodes.reduce((rewards, node, i, arr) => {
+            const { data, tagName } = node;
+            if (!curr || matchers.standard.in(data))
                 curr = rewards.standard;
             else if (matchers.choose.in(data))
                 curr = rewards.choose;
             if (tagName !== 'div')
-                continue;
-            
-            const elem = this.$(nodes[i]);
+                return rewards;
+
+            const elem   = this.$(node);
             const anchor = elem.find('a').first();
-            const img = elem.find('img').first();
-            const url = anchor.attr('href');
-            const type = url?.split('/')?.[2] || 'exp';
-            
+            const img    = elem.find('img').first();
+            const url    = anchor.attr('href') as string;
+            const type   = url?.split('/').filter(e => e)[1] || 'exp';
+
             if (type === 'item') {
                 curr.push({
                     type: 'item',
-                    id: AppUtils.getIdFromURL(url as string),
+                    id: AppUtils.getIdFromURL(url),
                     icon: img.attr('src') as string,
-                    name: this.$(nodes[i+2]).text(),
-                    shortUrl: url as string,
+                    name: this.$(arr[i+2]).text(),
+                    shortUrl: url,
                     amount: parseInt(elem.text().replace(/\D/g, '')) || 1,
                 });
             } else if (type === 'exp') {
-                const text = AppUtils.cleanStr(nodes[i+1].data);
+                const txt = AppUtils.cleanStr(arr[i+1].data);
                 curr.push({
                     type: 'exp',
                     icon: img.attr('src') as string,
-                    name: text.split(' (')[0],
-                    amount: parseInt(text.replace(/\D/g, '')) || 1,
+                    name: txt.split('(')[0].trim(),
+                    amount: parseInt(txt.replace(/\D/g, '')) || 1,
                 });
             } else if (type === 'npc') {
                 curr.push({
                     type: 'npc',
-                    id: AppUtils.getIdFromURL(url as string),
+                    id: AppUtils.getIdFromURL(url),
                     icon: img.attr('src') as string,
-                    name: this.$(nodes[i+2]).text(),
-                    shortUrl: url as string,
+                    name: this.$(arr[i+2]).text(),
+                    shortUrl: url,
                     amity_gained: parseInt(
-                        nodes[i-1].data?.replace(/\D/g, '') as string
+                        arr[i-1].data?.replace(/\D/g, '') as string
                     ) || 0,
                 });
             } else if (type === 'theme') {
                 curr.push({
                     type: 'knowledge',
-                    id: AppUtils.getIdFromURL(url as string),
+                    id: AppUtils.getIdFromURL(url),
                     icon: img.attr('src') as string,
-                    name: this.$(nodes[i+2]).text(),
-                    shortUrl: url as string,
+                    name: this.$(arr[i+2]).text(),
+                    shortUrl: url,
                 });
             }
-        }
-        return rewards;
+            return rewards;
+        }, {
+            standard: [] as Scrapers.Quests.Reward[],
+            choose: [] as Scrapers.Quests.Reward[],
+        });
     }
 
     async build(): Promise<Scrapers.Entities.Quest> {

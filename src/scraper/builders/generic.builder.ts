@@ -24,11 +24,14 @@ export class Generic {
     protected readonly cache = new ContextCache();
 
     protected getTableRows(): CheerioElement[] {
-        if (!this.cache.has('table_rows')) {
-            const nodes = this.$('.smallertext > tbody > tr > td').toArray();
-            this.cache.set('table_rows', nodes);
+        const ctx = this.cache.for<{
+            rows?: CheerioElement[],
+        }>('table_rows')
+        if (!ctx.has('rows')) {
+            const rows = this.$('.smallertext > tbody > tr > td').toArray();
+            ctx.set('rows', rows);
         }
-        return this.cache.get('table_rows');
+        return ctx.get('rows');
     }
 
     protected getTableRow(matcher: Matcher): CheerioElement | undefined {
@@ -37,34 +40,39 @@ export class Generic {
     }
 
     protected getBodyNodes(deep?: boolean): CheerioElement[] {
-        if (!this.cache.has('body_nodes')) {
+        const ctx = this.cache.for<{
+            flat?: CheerioElement[],
+            deep?: CheerioElement[],
+        }>('body_nodes');
+        if (!ctx.has('flat')) {
             const nodes = this.$('table.smallertext > tbody > tr > td')
                 .contents()
                 .toArray();
-            this.cache.set('body_nodes', nodes);
+            ctx.set('flat', nodes);
         }
-        if (deep && !this.cache.has('body_nodes_deep')) {
-            let nodes = this.cache.get<CheerioElement[]>('body_nodes');
+        if (deep && !ctx.has('deep')) {
+            let nodes = ctx.get<CheerioElement[]>('flat');
             let i = -1;
             while (++i < nodes.length)
                 if (nodes[i].children)
                     nodes.splice(i+1, 0, ...nodes[i].children);
-            this.cache.set('body_nodes_deep', nodes);
+            ctx.set('deep', nodes);
         }
-        return deep
-            ? this.cache.get('body_nodes_deep')
-            : this.cache.get('body_nodes');
+        return deep ? ctx.get('deep') : ctx.get('flat');
     }
 
-    protected getTextNodeFromCategoryWrapper(matcher: Matcher): CheerioElement | undefined {
-        if (!this.cache.has('category_nodes')) {
+    protected getTextNodeFromCategoryWrapper(matcher: Matcher) {
+        const ctx = this.cache.for<{
+            nodes?: CheerioElement[],
+        }>('category_nodes');
+        if (!ctx.has('nodes')) {
             const nodes = this.$('.category_text')
                 .parent()
                 .contents()
                 .toArray();
-            this.cache.set('category_nodes', nodes);
+            ctx.set('nodes', nodes);
         }
-        return this.cache.get<CheerioElement[]>('category_nodes')
+        return ctx.get<CheerioElement[]>('nodes')
             .find(node => {
                 const str = node.tagName === 'span'
                     ? this.$(node).text()
@@ -74,14 +82,17 @@ export class Generic {
     }
 
     protected parsePageInfo(): BDOCodex.PageInfo {
-        if (!this.cache.get('page_info')) {
+        const ctx = this.cache.for<{
+            data?: BDOCodex.PageInfo
+        }>('page_info');
+        if (!ctx.has('data')) {
             const raw = this.$('script[type="application/ld+json"]')
                 .first()
                 .html();
-            const data = raw ? JSON.parse(AppUtils.cleanStr(raw)) : {};
-            this.cache.set('page_info', data);
-        };
-        return this.cache.get('page_info');
+            const data = raw ? JSON.parse(raw.trim()) : {};
+            ctx.set('data', data);
+        }
+        return ctx.get('data');
     }
 
     protected scrapeFactory(shortUrl: string): Scrapers.ScrapeFn | undefined {
@@ -123,12 +134,7 @@ export class Generic {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Description:'],
         });
-
-        const nodes = this.$('.smallertext > tbody > tr > td')
-            .toArray()
-            .find(node => matcher.in(this.$(node).text()))
-            ?.childNodes || [];
-        if (!matcher.length) return '';
+        const nodes = this.getTableRow(matcher)?.childNodes || [];
         
         const strs = [];
         let i = nodes.findIndex(node => matcher.in(node.data));

@@ -7,20 +7,32 @@ import { Matcher } from "../../../shared";
 
 export class Equipment extends Item {
     private parseEnchantmentArray(): BDOCodex.Enchantment.Array {
-        return JSON.parse(this.$('#enchantment_array').text());
+        const ctx = this.cache.for<{
+            data: BDOCodex.Enchantment.Array,
+        }>('enchantment_array');
+        if (!ctx.has('data')) {
+            ctx.set('data', JSON.parse(this.$('#enchantment_array').text()));
+        }
+        return ctx.get('data');
     }
 
     private parseCaphrasData(): BDOCodex.Caphras.Data {
-        const node = this.$('.item_title')
-            .first()
-            .parent()
-            .find('script')
-            .first();
-        if (!node.is('script'))
-            return {} as BDOCodex.Caphras.Data;
-        const raw = node.html() || '';
-        const str = raw.substring(AppUtils.indexOf(raw, "=", 0, true).idx);
-        return JSON.parse(AppUtils.cleanStr(str, ';\t'));
+        const ctx = this.cache.for<{
+            data: BDOCodex.Caphras.Data,
+        }>('caphras_data');
+        if (!ctx.has('data')) {
+            const node = this.$('.item_title')
+                .first()
+                .parent()
+                .find('script')
+                .first();
+            if (!node.is('script'))
+                return ctx.set('data', {}) as any;
+            const raw = node.html() || '';
+            const str = raw.substring(AppUtils.indexOf(raw, '=', 0, true).idx);
+            ctx.set('data', JSON.parse(AppUtils.cleanStr(str, ';\t')));
+        }
+        return ctx.get('data');
     }
 
     private parseEffects(raw: string, matcher: Matcher): string[] {
