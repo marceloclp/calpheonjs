@@ -24,16 +24,23 @@ export class Generic {
     protected readonly cache = new ContextCache();
 
     protected getBodyNodes(deep?: boolean): CheerioElement[] {
-        let nodes = this.$('table.smallertext > tbody > tr > td')
-            .contents()
-            .toArray();
-        if (!deep)
-            return nodes;
-        let i = -1;
-        while (++i < nodes.length)
-            if (nodes?.[i].children)
-                nodes.splice(i+1, 0, ...nodes[i].children);
-        return nodes;
+        if (!this.cache.has('body_nodes')) {
+            const nodes = this.$('table.smallertext > tbody > tr > td')
+                .contents()
+                .toArray();
+            this.cache.set('body_nodes', nodes);
+        }
+        if (deep && !this.cache.has('body_nodes_deep')) {
+            let nodes = this.cache.get<CheerioElement[]>('body_nodes');
+            let i = -1;
+            while (++i < nodes.length)
+                if (nodes[i].children)
+                    nodes.splice(i+1, 0, ...nodes[i].children);
+            this.cache.set('body_nodes_deep', nodes);
+        }
+        return deep
+            ? this.cache.get('body_nodes_deep')
+            : this.cache.get('body_nodes');
     }
 
     protected getTextNodeFromCategoryWrapper(matcher: Matcher): CheerioElement | undefined {
