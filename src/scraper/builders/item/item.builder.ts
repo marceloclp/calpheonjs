@@ -1,4 +1,3 @@
-import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
 import { Queries } from "../../../query";
