@@ -45,7 +45,12 @@ export class Generic {
             this.cache.set('category_nodes', nodes);
         }
         return this.cache.get<CheerioElement[]>('category_nodes')
-            .find(node => matcher.in(node.data));
+            .find(node => {
+                const str = node.tagName === 'span'
+                    ? this.$(node).text()
+                    : node.data as string;
+                return matcher.in(str);
+            });
     }
 
     protected parsePageInfo(): BDOCodex.PageInfo {

@@ -1,16 +1,15 @@
-import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
 import { Generic } from "../generic.builder";
+import { Matcher } from "../../../shared";
 
 export class Recipe extends Generic {
-    private getMaterials(match: string[]): Scrapers.Entities.Refs.Material[] {
+    private getMaterials(matcher: Matcher): Scrapers.Entities.Refs.Material[] {
         const wrapper = this.$('.smallertext > tbody > tr > td')
             .toArray()
-            .find(node => AppUtils.indexOf(this.$(node).text(), match).substr);
+            .find(node => matcher.in(this.$(node).text()));
         if (!wrapper)
             return [];
-
         return this.$(wrapper).find('img').toArray().map(node => {
             const parent = node.parent.parent;
             const shortUrl = parent.attribs.href;
@@ -32,58 +31,37 @@ export class Recipe extends Generic {
     }
 
     get exp(): number {
-        const match = {
-            [App.Locales.US]: 'EXP',
-        }[this._locale];
-
-        const node = this.$('.category_text')
-            .parent()
-            .contents()
-            .toArray()
-            .find(({ data }) => data && AppUtils.indexOf(data, match).substr);
-        if (!node || !node.data)
-            return 0;
-        return parseInt(node.data.replace(/\D/g, ''));
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['EXP'],
+        });
+        return parseInt(this.getTextNodeFromCategoryWrapper(matcher)?.data
+            ?.replace(/\D/g, '') as string) || 0;
     }
-
+    
     get skill_lvl() {
-        const match = {
-            [App.Locales.US]: 'Skill level',
-        }[this._locale];
-
-        const nodes = this.$('.category_text')
-            .parent()
-            .children()
-            .toArray();
-
-        for (let i = 0; i < nodes.length; i++) {
-            const raw = this.$(nodes[i]).text();
-            const { substr } = AppUtils.indexOf(raw, match);
-            if (!substr)
-                continue;
-            const [mastery, lvl] = AppUtils.splitStr(raw, substr, '\n')
-                ?.replace(/[^a-zA-Z0-9 ]/g, '')
-                .trim()
-                .split(' ') as string[];
-            return { mastery, lvl: parseInt(lvl) };
-        }
-        return { mastery: '', lvl: 0 };
+        const matcher = new Matcher(this._locale, {
+            [App.Locales.US]: ['Skill level:'],
+        });
+        const node = this.getTextNodeFromCategoryWrapper(matcher);
+        const [mastery, lvl] = this.$(node).text()
+            ?.substr(matcher.indexIn(matcher.last, true))
+            .trim()
+            .split(' ') as string[];
+        return { mastery, lvl: parseInt(lvl) };
     }
 
     get materials(): Scrapers.Entities.Refs.Material[] {
-        const match = {
+        const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Crafting Material'],
-        }[this._locale];
-
-        return this.getMaterials(match);
+        });
+        return this.getMaterials(matcher);
     }
 
     get products(): Scrapers.Entities.Refs.Material[] {
-        const match = {
+        const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Crafting Result'],
-        }[this._locale];
-        
-        return this.getMaterials(match);
+        });
+        return this.getMaterials(matcher);
     }
 
     async build(): Promise<Scrapers.Entities.Recipe> {
