@@ -38,7 +38,7 @@ export class Worker extends Generic {
                 return;
             let i = idx;
             while (++i < arr.length)
-                if (arr[i].tagName === 'span')
+                if (arr[i].tagName === 'span' && arr[i].attribs.class)
                     if (arr[i].attribs.class.indexOf('glyphicon-ok') !== -1)
                         return true;
             return false;
@@ -126,6 +126,6 @@ export class Worker extends Generic {
             levels: this.levels,
             growth: this.growth,
             obtained_from: this.obtained_from as any,
-        }
+        };
     }
 }
