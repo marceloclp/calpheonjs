@@ -1,4 +1,4 @@
-import * as Entities from "../../entities";
+import * as Refs from "../../entities/refs";
 import { Stats } from "./stats.interface";
 
 export interface Enhancement {
@@ -28,7 +28,7 @@ export interface Enhancement {
     }
 
     /** The item required to perform the enhancement. */
-    required_enhancement_item?: Entities.Refs.Item & {
+    required_enhancement_item?: Refs.Item & {
         /** The needed amount of the required item. */
         amount: number;
 

@@ -1,6 +1,6 @@
 import * as Refs from "./refs";
+import * as Quests from "../interfaces/quests";
 import { Generic } from "./generic.entity";
-import { Quests } from "../interfaces";
 
 export interface Quest extends Generic {
     region: string;

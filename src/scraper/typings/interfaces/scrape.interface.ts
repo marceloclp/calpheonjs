@@ -1,4 +1,3 @@
-
 import { EntityTypes } from "../enums";
 import { Result } from "./result.interface";
 import { Options } from "./options.interface";

@@ -1,12 +1,12 @@
-import * as Scrapers from "../interfaces";
+import * as Equipments from "../interfaces/equipments";
 import { Item } from "./item.entity";
 
 export interface Equipment extends Item {
-    stats: Scrapers.Equipments.Stats;
+    stats: Equipments.Stats;
 
-    enhancement_stats: Scrapers.Equipments.Enhancement[];
+    enhancement_stats: Equipments.Enhancement[];
 
-    caphras_stats: Scrapers.Equipments.Caphras.Wrapper;
+    caphras_stats: Equipments.Caphras.Wrapper;
 
     item_effects: string[];
 

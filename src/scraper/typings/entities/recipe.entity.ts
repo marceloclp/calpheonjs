@@ -1,5 +1,5 @@
+import * as Recipes from "../interfaces/recipes";
 import { Generic } from "./generic.entity";
-import { Recipes } from "../interfaces";
 
 export interface Recipe extends Generic {
     /** The process used to craft the recipe (e.g, "Simple Cooking"). */

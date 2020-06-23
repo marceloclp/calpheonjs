@@ -1,8 +1,8 @@
-import { Generic } from "../generic.builder"
 import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
-import { Matcher } from "../../../shared";
 import { App, BDOCodex } from "../../../typings";
+import { Generic } from "../generic.builder"
+import { Matcher } from "../../../shared";
 
 export class Worker extends Generic {
     private getUpgradesArray(): BDOCodex.Workers.Upgrade[] {

@@ -1,3 +1,5 @@
-import * as Entities from "../../entities";
+import * as Refs from "../../entities/refs";
 
-export type Knowledge = (Entities.Refs.Knowledge & { drop_chance: number });
+export type Knowledge = Refs.Knowledge & {
+    drop_chance: number
+};

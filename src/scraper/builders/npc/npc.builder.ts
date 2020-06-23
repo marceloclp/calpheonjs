@@ -1,8 +1,8 @@
 import * as AppUtils from "../../../utils";
-import { Generic } from "../generic.builder";
-import { Scrapers } from "../..";
-import { Matcher } from "../../../shared";
+import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
+import { Generic } from "../generic.builder";
+import { Matcher } from "../../../shared";
 
 export class NPC extends Generic {
     private getTitleCells(): CheerioElement[] {

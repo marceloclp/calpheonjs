@@ -1,6 +1,6 @@
-import * as Entities from "../../entities";
+import * as Refs from "../../entities/refs";
 
-export type Material = Entities.Refs.Item & {
+export type Material = Refs.Item & {
     grade: number;
 
     amount: number;
