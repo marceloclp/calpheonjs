@@ -71,7 +71,10 @@ export class Scraper {
             case Scrapers.EntityTypes.QUEST:
                 return Builders.Quest;
             case Scrapers.EntityTypes.NPC:
-                return Builders.NPC;
+                switch (category) {
+                    case Ctgs.WORKER: return Builders.Worker;
+                    default:          return Builders.NPC;
+                }
             default: return Builders.Generic;
         }
     }

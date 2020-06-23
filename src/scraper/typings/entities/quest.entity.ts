@@ -19,7 +19,7 @@ export interface Quest extends Generic {
 
     npc_end?: Refs.NPC;
 
-    description: string;
+    description?: string;
 
     text: string[];
 

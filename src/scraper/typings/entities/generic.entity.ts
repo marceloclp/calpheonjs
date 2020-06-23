@@ -7,9 +7,10 @@ export interface Generic {
 
     name_alt?: string;
 
+    /** The entity type. */
     type: string;
 
     category?: string;
 
-    description: string;
+    description?: string;
 }

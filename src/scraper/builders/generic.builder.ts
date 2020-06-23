@@ -130,14 +130,16 @@ export class Generic {
             ?.replace(/\D/g, '') as string) || 0;
     }
 
-    get description(): string {
+    get description(): string | undefined {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Description:'],
         });
         const nodes = this.getTableRow(matcher)?.childNodes || [];
         
-        const strs = [];
         let i = nodes.findIndex(node => matcher.in(node.data));
+        if (i === -1) return undefined;
+
+        const strs = [];
         while (++i < nodes.length) {
             if (nodes[i]?.tagName === 'br' && nodes[i+1]?.tagName === 'br')
                 break;
