@@ -1,3 +1,5 @@
+import { Result } from "./interfaces";
+
 export type EntityTypes = (
     | 'unknown'
     | 'recipe'
@@ -9,3 +11,5 @@ export type EntityTypes = (
     | 'ref'
     | 'exp'
 );
+
+export type QueryFn<T = any> = <T>() => Promise<Result<T>>;

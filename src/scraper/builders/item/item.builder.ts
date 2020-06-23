@@ -6,25 +6,6 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Item extends Generic {
-    private async query(type: Queries.Types): Promise<any[]> {
-        const ids = {
-            [App.Locales.US]: {
-                [Queries.Types.QUEST_REWARD]: 'questreward',
-                [Queries.Types.PRODUCT_IN_RECIPE]: 'productofrecipe',
-                [Queries.Types.PRODUCT_IN_PROCESSING]: 'mproductofrecipe',
-            }
-        }[this._locale];
-        if (!(type in ids))
-            return [];
-        const match = (ids as any)[type];
-        if (!this.$(`a[href="#tabs-${match}"]`).length)
-            return [];
-        return (await this._query(this._id, type, {
-            db: this._db,
-            locale: this._locale,
-        })).data;
-    }
-
     get grade(): number {
         const str = this.$('.item_title').attr('class') as string;
         return parseInt(str.replace(/\D/g, ''));
@@ -66,24 +47,24 @@ export class Item extends Generic {
     }
 
     async build(): Promise<Scrapers.Entities.Item> {
-        const t = Queries.Types;
-        const query = this.query.bind(this);
+        const Types = Queries.Types;
+        const qf = this.queryFactory.bind(this);
         return {
             ...(await super.build()),
             prices: this.prices,
-            grade: this.grade,
+            grade:  this.grade,
             weight: this.weight,
-            npc_drops: await query(t.NPC_DROPS),
-            quest_rewards: await query(t.QUEST_REWARD),
-            product_of_recipes: await query(t.PRODUCT_IN_RECIPE),
-            product_of_processing: await query(t.PRODUCT_IN_PROCESSING),
-            product_of_design: await query(t.PRODUCT_IN_DESIGN),
-            material_of_recipes: await query(t.MATERIAL_IN_RECIPE),
-            material_of_processing: await query(t.MATERIAL_IN_PROCESSING),
-            material_of_design: await query(t.MATERIAL_IN_DESIGN),
-            dropped_in_node: await query(t.DROPPED_IN_NODE),
-            obtained_from: await query(t.OBTAINED_FROM),
-            sold_by_npc: await query(t.SOLD_BY_NPC),
+            npc_drops:              qf(Types.NPC_DROPS),
+            quest_rewards:          qf(Types.QUEST_REWARD),
+            product_of_recipes:     qf(Types.PRODUCT_IN_DESIGN),
+            product_of_processing:  qf(Types.PRODUCT_IN_PROCESSING),
+            product_of_design:      qf(Types.PRODUCT_IN_DESIGN),
+            material_of_recipes:    qf(Types.MATERIAL_IN_RECIPE),
+            material_of_processing: qf(Types.MATERIAL_IN_PROCESSING),
+            material_of_design:     qf(Types.MATERIAL_IN_DESIGN),
+            dropped_in_node:        qf(Types.DROPPED_IN_NODE),
+            obtained_from:          qf(Types.OBTAINED_FROM),
+            sold_by_npc:            qf(Types.SOLD_BY_NPC),
         };
     }
 }

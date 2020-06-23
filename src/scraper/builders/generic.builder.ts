@@ -100,12 +100,28 @@ export class Generic {
         const id = AppUtils.getIdFromURL(shortUrl);
         if (!Object.values(Scrapers.EntityTypes).includes(type))
             return undefined as any;
-        return async <T = any>() => {
+        return async <T>() => {
             return await this._scrape<T>(id, type, {
                 db: this._db,
                 locale: this._locale
             });
         };
+    }
+
+    protected queryFactory<T = any>(type: Queries.Types): Queries.QueryFn<T> | undefined {
+        const ids = {
+            [App.Locales.US]: {
+                [Queries.Types.QUEST_REWARD]: 'questreward',
+                [Queries.Types.PRODUCT_IN_RECIPE]: 'productofrecipe',
+                [Queries.Types.PRODUCT_IN_PROCESSING]: 'mproductofrecipe',
+            }
+        }[this._locale];
+        if (!this.$(`a[href="#tabs-${(ids as any)[type]}"]`).length)
+            return undefined;
+        return <T>() => this._query<T>(this._id, type, {
+            db: this._db,
+            locale: this._locale,
+        });
     }
 
     get icon(): string {
