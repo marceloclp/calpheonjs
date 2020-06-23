@@ -48,5 +48,9 @@ export enum Categories {
     SPECIAL_ITEM = 'special_item',
     RECIPE = 'recipe',
     QUEST = 'quest',
+
+    NPC = 'npc',
+    WORKER = 'worker',
+
     UNDEFINED = 'undefined',
 }

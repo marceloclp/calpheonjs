@@ -32,6 +32,7 @@ export class Scraper {
     }
 
     private getCategoryId($: CheerioStatic): App.Categories {
+        const type = this._type;
         const Ctgs = App.Categories;
         const category = AppUtils.cleanStr($('.category_text').text())
             .toLowerCase()
@@ -46,7 +47,11 @@ export class Scraper {
                     case 'special_items':      return Ctgs.SPECIAL_ITEM;
                     case 'recipe':             return Ctgs.RECIPE;
                     case 'quest':              return Ctgs.QUEST;
-                    default:                   return Ctgs.UNDEFINED;
+                    case 'worker':             return Ctgs.WORKER;
+                    default:
+                        if (type === Scrapers.EntityTypes.NPC)
+                            return Ctgs.NPC;
+                        return Ctgs.UNDEFINED;
                 }
             default: return Ctgs.UNDEFINED;
         }
