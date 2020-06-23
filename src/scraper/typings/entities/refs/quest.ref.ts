@@ -12,5 +12,5 @@ export interface Quest {
 
     shortUrl: string;
 
-    scrape?: ScrapeFn<Entities.Quest>;
+    scrape: ScrapeFn<Entities.Quest>;
 }

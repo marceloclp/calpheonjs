@@ -95,11 +95,9 @@ export class Generic {
         return ctx.get('data');
     }
 
-    protected scrapeFactory(shortUrl: string): Scrapers.ScrapeFn | undefined {
+    protected scrapeFactory<T = any>(shortUrl: string): Scrapers.ScrapeFn<T> {
         const type = shortUrl.split('/')[2] as Scrapers.EntityTypes;
         const id = AppUtils.getIdFromURL(shortUrl);
-        if (!Object.values(Scrapers.EntityTypes).includes(type))
-            return undefined;
         return async <T = any>() => {
             return await this._scrape<T>(id, type, {
                 db: this._db,

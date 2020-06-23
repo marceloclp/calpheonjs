@@ -12,5 +12,5 @@ export interface Item {
 
     shortUrl: string;
 
-    scrape?: ScrapeFn<Entities.Item>;
+    scrape: ScrapeFn<Entities.Item>;
 }

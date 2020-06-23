@@ -104,7 +104,7 @@ export class Equipment extends Item {
                 })),
             }
 
-            const requiredItemURL = AppUtils.getShortURL(
+            const url = AppUtils.getShortURL(
                 curr.need_enchant_item_id,
                 App.EntityTypes.ITEM,
                 this._locale,
@@ -124,10 +124,10 @@ export class Equipment extends Item {
                     id: curr.need_enchant_item_id,
                     icon: '/' + curr.need_enchant_item_icon,
                     name: curr.need_enchant_item_name,
-                    shortUrl: requiredItemURL,
+                    shortUrl: url,
                     amount: parseInt(curr.enchant_item_counter),
                     durability_loss_on_failure: parseInt(curr.fail_dura_dec),
-                    scrape: this.scrapeFactory(requiredItemURL),
+                    scrape: this.scrapeFactory<Scrapers.Entities.Item>(url),
                 },
                 perfect_enhancement: (lvl >= maxLvl) ? undefined : {
                     amount: parseInt(curr.pe_item_counter),

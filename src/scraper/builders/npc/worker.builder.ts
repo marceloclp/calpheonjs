@@ -109,12 +109,14 @@ export class Worker extends Generic {
             return undefined;
         const img    = this.$(this.getBodyNodes(true)[idx + 2]).find('img');
         const anchor = this.$(this.getBodyNodes(true)[idx + 10]);
+        const url    = anchor.attr('href') as string;
         return {
             type: "npc",
-            id: AppUtils.getIdFromURL(anchor.attr('href') as string),
+            id: AppUtils.getIdFromURL(url),
             icon: img.attr('src') as string,
             name: anchor.text(),
-            shortUrl: anchor.attr('href') as string,
+            shortUrl: url,
+            scrape: this.scrapeFactory<Scrapers.Entities.NPC>(url),
         }
     }
 

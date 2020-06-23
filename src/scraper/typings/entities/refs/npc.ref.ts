@@ -1,3 +1,6 @@
+import * as Entities from "../../entities";
+import { ScrapeFn } from "../../types";
+
 export interface NPC {
     type: 'npc';
 
@@ -8,4 +11,6 @@ export interface NPC {
     name: string;
 
     shortUrl: string;
+
+    scrape: ScrapeFn<Entities.NPC>;
 }
