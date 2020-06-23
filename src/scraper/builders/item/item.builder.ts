@@ -84,6 +84,6 @@ export class Item extends Generic {
             dropped_in_node: await query(t.DROPPED_IN_NODE),
             obtained_from: await query(t.OBTAINED_FROM),
             sold_by_npc: await query(t.SOLD_BY_NPC),
-        }
+        };
     }
 }

@@ -189,6 +189,6 @@ export class NPC extends Generic {
             exp_skill: this.exp_skill,
             karma: this.karma,
             knowledge: this.knowledge,
-        }
+        };
     }
 }

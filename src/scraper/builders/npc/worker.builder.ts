@@ -84,7 +84,7 @@ export class Worker extends Generic {
             ) + 1])
                 .text()
                 .split('~')
-                .map(str => parseFloat(str.trim()));
+                .map(str => parseFloat(str.trim())) as [number, number];
         };
         return {
             work_speed: find(new Matcher(this._locale, {
@@ -96,7 +96,7 @@ export class Worker extends Generic {
             luck: find(new Matcher(this._locale, {
                 [App.Locales.US]: ['Luck growth per level'],
             })),
-        } as any;
+        };
     }
 
     get obtained_from(): Scrapers.Entities.Refs.NPC | undefined {

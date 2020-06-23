@@ -169,6 +169,6 @@ export class Generic {
             type: this._type,
             category: this.category,
             description: this.description,
-        }
+        };
     }
 }
