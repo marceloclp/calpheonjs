@@ -1,5 +1,5 @@
+import * as Quests from "../interfaces/quests";
 import { Generic } from "./generic.entity";
-import { QuestReward } from "./refs";
 
 export interface Quest extends Generic {
     type: 'quest';
@@ -20,14 +20,5 @@ export interface Quest extends Generic {
     exp_contribution: number;
 
     /** The rewards received by completing the quest. */
-    rewards: {
-        /** Always received on quest completion. */
-        items: QuestReward[];
-
-        /** Choose one of the rewards on quest completion. */
-        choose: QuestReward[];
-
-        /** Amount of amity received on quest completion. */
-        amity: number[];
-    };
+    rewards: Quests.Rewards;
 }

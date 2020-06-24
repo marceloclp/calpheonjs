@@ -1,3 +1,4 @@
 export { Generic } from "./generic.ref";
 export { Material } from "./material.ref";
-export { QuestReward } from "./quest-reward.ref";
+export { Item } from "./item.ref";
+export { EXP } from "./exp.ref";

@@ -2,7 +2,7 @@ import cheerio from "cheerio";
 import * as AppUtils from "../utils";
 import * as Queries from "./typings";
 import { App, BDOCodex } from "../typings";
-import Scrape, { Scrapers } from "../scraper";
+import { Scrapers } from "../scraper";
 import { Matcher } from "../shared";
 
 export class Query {
@@ -19,7 +19,7 @@ export class Query {
 
         protected readonly fetch: App.FetchFn,
 
-        protected readonly _scrape: typeof Scrape,
+        protected readonly _scrape: Scrapers.Scrape,
     ) {}
 
     get url(): string {
@@ -226,7 +226,7 @@ export class Query {
             }));;
     }
 
-    private parseQuestRewards(raw: string) {
+    private parseQuestRewards(raw: string): Queries.Quests.Rewards {
         const matchers = {
             choose: new Matcher(this._locale, {
                 [App.Locales.US]: ['Choose'],
@@ -235,10 +235,10 @@ export class Query {
                 [App.Locales.US]: ['Amity'],
             }),
         };
-        const items: Queries.Entities.Refs.QuestReward[] = [];
-        const choose: Queries.Entities.Refs.QuestReward[] = [];
+        const standard: Queries.Quests.Reward[] = [];
+        const choose: Queries.Quests.Reward[] = [];
         const amity: number[] = [];
-        let curr = items;
+        let curr = standard;
 
         const $ = cheerio.load('<div id="root">' + raw + '</div>');
         $('#root').contents().toArray().forEach(node => {
@@ -256,23 +256,23 @@ export class Query {
             if (n.find('a').length) {
                 const shortUrl = f('a').attr('href') || '';
                 curr.push({
-                    type: 'ref',
-                    shortUrl: shortUrl,
-                    scrape: this.scrapeFactory(shortUrl),
+                    type: 'item',
                     id: f('a').attr('data-id')?.split('--')[1] || '',
                     icon: this.getIconURL(f('.icon_wrapper').text()),
+                    shortUrl: shortUrl,
+                    scrape: this.scrapeFactory(shortUrl) as any,
                     amount: parseInt(f('.quantity_small').text().trim()) || 1,
                 });
             } else {
                 curr.push({
-                    type: 'unknown',
+                    type: 'exp',
                     icon: AppUtils.getIconUrl(this._db, f('img').attr('src') || ''),
-                    name: n.attr('title'),
+                    name: n.attr('title') as string,
                     amount: parseInt(f('.quantity_small').text().trim()) || 1,
                 });
             }
         });
 
-        return { items, choose, amity };
+        return { standard, choose, amity };
     }
 }

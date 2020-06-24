@@ -44,20 +44,20 @@ describe('Items > Queries', () => {
                     exp_skill: 0,
                     exp_contribution: 140,
                     rewards: {
-                        items: [{
-                            type: 'ref',
+                        standard: [{
+                            type: 'item',
                             id: '4901',
                             icon: 'https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00004901.png',
                             shortUrl: '/us/item/4901/',
                             amount: 2,
                         }, {
-                            type: 'ref',
+                            type: 'item',
                             id: '542',
                             icon: 'https://bdocodex.com/items/new_icon/03_etc/12_doapplydirectlyitem/00000000_power.png',
                             shortUrl: '/us/item/542/',
                             amount: 1,
                         }, {
-                            type: 'ref',
+                            type: 'item',
                             id: '2',
                             icon: 'https://bdocodex.com/items/new_icon/00000002_special.png',
                             shortUrl: '/us/item/2/',
