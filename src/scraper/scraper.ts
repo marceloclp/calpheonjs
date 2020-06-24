@@ -32,53 +32,39 @@ export class Scraper {
     }
 
     private getCategoryId($: CheerioStatic): App.Categories {
-        const type = this._type;
-        const Ctgs = App.Categories;
-        const category = AppUtils.cleanStr($('.category_text').text())
-            .toLowerCase()
-            .replace(/\ /g, '_');
-        switch (this._locale) {
-            case App.Locales.US:
-                switch (category) {
-                    case 'equipment':          return Ctgs.EQUIPMENT;
-                    case 'crafting_materials': return Ctgs.CRAFTING_MATERIAL;
-                    case 'consumable':         return Ctgs.CONSUMABLE;
-                    case 'installable_object': return Ctgs.INSTALLABLE_OBJECT;
-                    case 'special_items':      return Ctgs.SPECIAL_ITEM;
-                    case 'recipe':             return Ctgs.RECIPE;
-                    case 'quest':              return Ctgs.QUEST;
-                    case 'worker':             return Ctgs.WORKER;
-                    case 'item_group':         return Ctgs.MATERIAL_GROUP;
-                    default:
-                        if (type === Scrapers.EntityTypes.NPC)
-                            return Ctgs.NPC;
-                        return Ctgs.UNDEFINED;
-                }
-            default: return Ctgs.UNDEFINED;
-        }
+        const category = AppUtils.cleanStr($('.category_text').text());
+        return AppUtils.normalizeCategory(category, this._locale);
     }
 
-    private getBuilder(category: App.Categories) {
-        const Ctgs = App.Categories;
+    private getBuilder(ctg_id: App.Categories) {
+        const Ctgs  = App.Categories;
+        const Types = Scrapers.EntityTypes;
+
         switch (this._type) {
-            case Scrapers.EntityTypes.ITEM:
-                switch (category) {
-                    case Ctgs.CONSUMABLE: return Builders.Consumable;
-                    case Ctgs.EQUIPMENT:  return Builders.Equipment;
-                    default:              return Builders.Item;
+            case Types.ITEM:
+                switch (ctg_id) {
+                    case Ctgs.CONSUMABLE:
+                        return Builders.Consumable;
+                    case Ctgs.EQUIPMENT:
+                        return Builders.Equipment;
+                    default:
+                        return Builders.Item;
                 }
-            case Scrapers.EntityTypes.MATERIAL_GROUP:
+            case Types.NPC:
+                switch (ctg_id) {
+                    case Ctgs.WORKER:
+                        return Builders.Worker;
+                    default:
+                        return Builders.NPC;
+                }
+            case Types.MATERIAL_GROUP:
                 return Builders.MaterialGroup;
-            case Scrapers.EntityTypes.RECIPE:
-                return Builders.Recipe;
-            case Scrapers.EntityTypes.QUEST:
+            case Types.QUEST:
                 return Builders.Quest;
-            case Scrapers.EntityTypes.NPC:
-                switch (category) {
-                    case Ctgs.WORKER: return Builders.Worker;
-                    default:          return Builders.NPC;
-                }
-            default: return Builders.Generic;
+            case Types.RECIPE:
+                return Builders.Recipe;
+            default:
+                return Builders.Generic;
         }
     }
 
@@ -87,9 +73,9 @@ export class Scraper {
     }
 
     async parse(): Promise<Scrapers.Result> {
-        const $ = cheerio.load(await this.fetch());
-        const category_id = this.getCategoryId($);
-        const Builder = this.getBuilder(category_id);
+        const $       = cheerio.load(await this.fetch());
+        const ctg_id  = this.getCategoryId($);
+        const Builder = this.getBuilder(ctg_id);
 
         const data = await new Builder(
             this._id,
@@ -101,10 +87,6 @@ export class Scraper {
             this._scrape,
         ).build();
 
-        return {
-            url: this.url,
-            type: category_id,
-            data,
-        };
+        return { url: this.url, type: ctg_id,  data };
     }
 }
