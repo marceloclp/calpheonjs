@@ -5,6 +5,7 @@
     "type": "quest",
     "category": "Quest",
     "description": "The priest said that he could feel the dark energy and that he would help purify the energy.\nHand over the unstable energy, receive the Purification Scroll and use it at the altar.",
+    "stage": 1,
     "region": "Eastern Balenos",
     "q_category": "Story",
     "q_type": "Family quest",

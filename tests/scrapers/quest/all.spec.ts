@@ -44,6 +44,10 @@ describe('Quests', () => {
             expect(result.data.description).to.equal(expected.description);
         });
 
+        it('#stage', () => {
+            expect(result.data.stage).to.equal(expected.stage);
+        });
+
         it('#region', () => {
             expect(result.data.region).to.equal(expected.region);
         });
@@ -123,6 +127,10 @@ describe('Quests', () => {
 
         it('#description', () => {
             expect(result.data.description).to.equal(expected.description);
+        });
+
+        it('#stage', () => {
+            expect(result.data.stage).to.equal(expected.stage);
         });
 
         it('#region', () => {
@@ -206,6 +214,10 @@ describe('Quests', () => {
             expect(result.data.description).to.equal(expected.description);
         });
 
+        it('#stage', () => {
+            expect(result.data.stage).to.equal(expected.stage);
+        });
+
         it('#region', () => {
             expect(result.data.region).to.equal(expected.region);
         });
@@ -285,6 +297,10 @@ describe('Quests', () => {
 
         it('#description', () => {
             expect(result.data.description).to.equal(expected.description);
+        });
+
+        it('#stage', () => {
+            expect(result.data.stage).to.equal(expected.stage);
         });
 
         it('#region', () => {

@@ -6,6 +6,7 @@
     "type": "quest",
     "category": "Quest",
     "description": "The Black Spirit doesn't want to see your long face, and suggested you to visit the Sacred Tree of the Goddess if you have something on your mind.\nLet's take the Black Spirit's advice and go to Kamasylve.",
+    "stage": 1,
     "region": "All",
     "q_category": "Story",
     "q_type": "Character quest",

@@ -6,6 +6,7 @@
     "type": "quest",
     "category": "Quest",
     "description": "Jensen was forbidden to hunt because he is from Behr. But he says he needs booty to show Chief Likke Behr when he returns to the town of Behr, so he asks you to hunt for him.",
+    "stage": 1,
     "region": "Kamasylvia",
     "q_category": "Story",
     "q_type": "Character quest",

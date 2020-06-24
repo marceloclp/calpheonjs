@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
-import { App } from "../../../typings";
+import { App, Undef } from "../../../typings";
 import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
@@ -31,6 +31,12 @@ export class Quest extends Generic {
 
     get icon(): string {
         return this.$('img.quest_icon').attr('src') as string;
+    }
+
+    get stage(): Undef<number> {
+        if (!this.quest_chain.length)
+            return undefined;
+        return this.quest_chain.findIndex(node => node.id === this._id) + 1;
     }
 
     get region(): string {
@@ -85,16 +91,23 @@ export class Quest extends Generic {
     }
 
     get quest_chain(): Scrapers.Entities.Refs.Quest[] {
-        return this.$('#full_quest_chain > a')
-            .toArray()
-            .map(node => ({
-                type: 'quest',
-                id: node.attribs.href.split('quest/')[1],
-                icon: this.$(node).find('img').attr('src') as string,
-                name: AppUtils.cleanStr(this.$(node).text()),
-                shortUrl: node.attribs.href,
-                scrape: this.ScrapeFactory(node.attribs.href) as any,
-            }));
+        const ctx = this.cache.for<{
+            quests: Scrapers.Entities.Refs.Quest[]
+        }>('quest_chain');
+        if (!ctx.has('quests')) {
+            const quests = this.$('#full_quest_chain > a')
+                .toArray()
+                .map(node => ({
+                    type: 'quest',
+                    id: node.attribs.href.split('quest/')[1],
+                    icon: this.$(node).find('img').attr('src') as string,
+                    name: AppUtils.cleanStr(this.$(node).text()),
+                    shortUrl: node.attribs.href,
+                    scrape: this.ScrapeFactory(node.attribs.href) as any,
+                }));
+            ctx.set('quests', quests);
+        }
+        return ctx.get('quests');
     }
 
     get npc_start(): Scrapers.Entities.Refs.NPC | undefined {
@@ -219,6 +232,7 @@ export class Quest extends Generic {
     async build(): Promise<Scrapers.Entities.Quest> {
         return {
             ...(await super.build()),
+            stage: this.stage,
             region: this.region,
             q_category: this.q_category,
             q_type: this.q_type,

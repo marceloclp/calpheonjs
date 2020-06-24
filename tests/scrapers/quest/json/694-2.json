@@ -6,6 +6,7 @@
     "type": "quest",
     "category": "Quest",
     "description": "Mevo Muranan said you can upgrade your weapon by Enhancement with Black Stone (Weapon).\nLearn more about Enhancement from Mevo Muranan.",
+    "stage": 2,
     "region": "All",
     "q_category": "Town",
     "q_type": "Character quest",

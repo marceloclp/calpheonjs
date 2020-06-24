@@ -3,6 +3,9 @@ import * as Quests from "../interfaces/quests";
 import { Generic } from "./generic.entity";
 
 export interface Quest extends Generic {
+    /** The position of the quest in the quest chain if one exists. */
+    stage?: number;
+
     /** The region the quest belongs to. */
     region: string;
 
