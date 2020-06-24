@@ -1,14 +1,14 @@
 import { EntityTypes } from "../../types";
-import { Scrapers } from "../../../../scraper";
 
 export interface Generic {
     type: EntityTypes;
 
-    id: string;
+    /** The entity id if available. */
+    id?: string;
 
-    icon: string;
+    /** The entity icon if available. */
+    icon?: string;
 
-    shortUrl: string;
-
-    scrape?: Scrapers.ScrapeFn;
+    /** The short url if available. */
+    shortUrl?: string;
 }

@@ -1,4 +1,3 @@
-import * as AppUtils from "../utils";
 import * as Queries from "./typings";
 import * as Builders from "./builders";
 import { App } from "../typings";
