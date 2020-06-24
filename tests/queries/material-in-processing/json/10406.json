@@ -1,0 +1,43 @@
+{
+    "type": "recipe",
+    "url": "https://bdocodex.com/query.php?a=mrecipes&type=material&item_id=10406&l=us",
+    "data": [{
+        "type": "recipe",
+        "shortUrl": "/us/mrecipe/749/",
+        "id": "749",
+        "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00004051.png",
+        "name": "Melted Iron Shard",
+        "process": "Heating",
+        "skill_lvl": {
+            "mastery": "Beginner",
+            "lvl": 0
+        },
+        "exp": 0,
+        "materials": [{
+            "type": "item",
+            "id": "10406",
+            "shortUrl": "/us/item/10406/",
+            "icon": "https://bdocodex.com/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010406.png",
+            "amount": 1
+        }],
+        "products": [{
+            "type": "item",
+            "id": "4051",
+            "shortUrl": "/us/item/4051/",
+            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00004051.png",
+            "amount": 3
+        }, {
+            "type": "item",
+            "id": "5956",
+            "shortUrl": "/us/item/5956/",
+            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00005956.png",
+            "amount": 1
+        }, {
+            "type": "item",
+            "id": "4062",
+            "shortUrl": "/us/item/4062/",
+            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00004062.png",
+            "amount": 1
+        }]
+    }]
+}

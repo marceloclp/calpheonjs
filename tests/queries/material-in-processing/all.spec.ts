@@ -3,17 +3,17 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import QueryMock, { Queries } from "../../utils/query-mock";
 
-describe('Query for Quest Rewards', () => {
+describe('Query for Material in Processing', () => {
     /**
-     * https://bdocodex.com/us/item/519/
-     * HP Potion (Large)
+     * https://bdocodex.com/us/item/10406/
+     * Ain Amulet
      */
-    describe('519', () => {
-        const expected: Queries.Result<Queries.Entities.Quest> = require('./json/519.json');
-        let result: Queries.Result<Queries.Entities.Quest>;
+    describe('10406', () => {
+        const expected: Queries.Result<Queries.Entities.Recipe> = require('./json/10406.json');
+        let result: Queries.Result<Queries.Entities.Recipe>;
 
         before(async () => {
-            result = await QueryMock('519', Queries.Types.QUEST_REWARD);
+            result = await QueryMock('10406', Queries.Types.MATERIAL_IN_PROCESSING);
         });
 
         it('#type', () => {
