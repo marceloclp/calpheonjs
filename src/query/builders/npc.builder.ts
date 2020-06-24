@@ -3,6 +3,8 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class NPC extends Generic {
+    static type = 'npc';
+    
     getStat(raw: string | number): number {
         if (typeof raw === 'number')
             return raw;

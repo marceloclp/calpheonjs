@@ -6,6 +6,8 @@ import { Scrapers } from "../../scraper";
 import { Generic } from "./generic.builder";
 
 export class Recipe extends Generic {
+    static type = 'recipe';
+
     getIconURL(raw: string): string {
         return AppUtils.splitStr(raw, '[img src="', '"') as string;
     }

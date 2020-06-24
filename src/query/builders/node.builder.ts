@@ -3,6 +3,8 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class Node extends Generic {
+    static type = 'node';
+    
     getPercentageValue(raw: string): number {
         return parseFloat(raw.replace(/\%/g, '')) || 0;
     }

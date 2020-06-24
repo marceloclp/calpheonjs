@@ -6,6 +6,8 @@ import { Generic } from "./generic.builder";
 import { Matcher } from "../../shared";
 
 export class Quest extends Generic {
+    static type = 'quest';
+
     getNumericValue(raw?: string | number, value = 0): number {
         if (typeof raw === 'number')
             return raw;

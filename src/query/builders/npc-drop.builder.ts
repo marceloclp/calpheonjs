@@ -3,6 +3,8 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class NPCDrop extends Generic {
+    static type = 'npc_drop';
+
     getAmount(raw: string): number {
         return parseInt(raw) || 1;
     }

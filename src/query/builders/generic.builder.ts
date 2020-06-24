@@ -4,6 +4,8 @@ import { Scrapers } from "../../scraper";
 import { Undef, App } from "../../typings";
 
 export class Generic {
+    static readonly type: string = 'unknown';
+
     constructor(
         protected readonly _locale = App.Locales.US,
 
@@ -40,5 +42,9 @@ export class Generic {
             .root()
             .text();
         return AppUtils.cleanStr(str);
+    }
+
+    build(data: any): any[] {
+        return [];
     }
 }

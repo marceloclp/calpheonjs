@@ -3,6 +3,8 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class Item extends Generic {
+    static type = 'item';
+
     build(data: BDOCodex.Query.Item): Queries.Entities.Item[] {
         return data.aaData.map(arr => {
             const url = this.parseShortURL(arr[2]);
