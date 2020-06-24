@@ -4,7 +4,7 @@ import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('SOLD BY NPC', () => {
     /**
-     * https://bdocodex.com/us/item/13210/
+     * /us/item/13210/
      * Kzarka Shortsword
      */
     describe('Kzarka Shortsword', () => {
@@ -32,7 +32,7 @@ describe('SOLD BY NPC', () => {
             expect(result.data[0]).to.containSubset({
                 type: 'npc',
                 id: '40068/1',
-                icon: 'https://bdocodex.com/items/ui_artwork/ic_00051.png',
+                icon: '/items/ui_artwork/ic_00051.png',
                 name: 'Patrigio',
                 lvl: 99,
                 hp: 10000,
@@ -47,7 +47,7 @@ describe('SOLD BY NPC', () => {
     });
 
     /**
-     * https://bdocodex.com/us/item/518/
+     * /us/item/518/
      * HP Potion (Medium)
      */
     describe('HP Potion (Medium)', () => {
@@ -75,7 +75,7 @@ describe('SOLD BY NPC', () => {
             expect(result.data[0]).to.containSubset({
                 type: 'npc',
                 id: '40004/1',
-                icon: 'https://bdocodex.com/items/ui_artwork/ic_00004.png',
+                icon: '/items/ui_artwork/ic_00004.png',
                 name: 'Clorince',
                 lvl: 99,
                 hp: 10000,

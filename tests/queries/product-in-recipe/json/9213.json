@@ -5,7 +5,7 @@
         "type": "recipe",
         "shortUrl": "/us/recipe/122/",
         "id": "122",
-        "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009213.png",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009213.png",
         "name": "Beer",
         "process": "Cooking",
         "skill_lvl": {
@@ -17,38 +17,38 @@
             "type": "unknown",
             "shortUrl": "/us/materialgroup/1/",
             "id": "1",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00007005.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00007005.png",
             "amount": 5
         }, {
             "type": "item",
             "shortUrl": "/us/item/9059/",
             "id": "9059",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009059.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009059.png",
             "amount": 6
         }, {
             "type": "item",
             "shortUrl": "/us/item/9002/",
             "id": "9002",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009002.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009002.png",
             "amount": 1
         }, {
             "type": "item",
             "shortUrl": "/us/item/9005/",
             "id": "9005",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009005.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009005.png",
             "amount": 2
         }],
         "products": [{
             "type": "item",
             "shortUrl": "/us/item/9213/",
             "id": "9213",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009213.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009213.png",
             "amount": 1
         }, {
             "type": "item",
             "shortUrl": "/us/item/9283/",
             "id": "9283",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009283.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009283.png",
             "amount": 1
         }]
     }]

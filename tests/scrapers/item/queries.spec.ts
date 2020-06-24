@@ -35,7 +35,7 @@ describe('Items > Queries', () => {
                 expect(queryResult.data[6]).to.containSubset({
                     type: 'quest',
                     id: '1100/34',
-                    icon: 'https://bdocodex.com/items/quest/00004901.png',
+                    icon: '/items/quest/00004901.png',
                     name: 'Production #3 - Introduction to Production',
                     shortUrl: '/us/quest/1100/34/',
                     lvl: 0,
@@ -47,19 +47,19 @@ describe('Items > Queries', () => {
                         standard: [{
                             type: 'item',
                             id: '4901',
-                            icon: 'https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00004901.png',
+                            icon: '/items/new_icon/03_etc/07_productmaterial/00004901.png',
                             shortUrl: '/us/item/4901/',
                             amount: 2,
                         }, {
                             type: 'item',
                             id: '542',
-                            icon: 'https://bdocodex.com/items/new_icon/03_etc/12_doapplydirectlyitem/00000000_power.png',
+                            icon: '/items/new_icon/03_etc/12_doapplydirectlyitem/00000000_power.png',
                             shortUrl: '/us/item/542/',
                             amount: 1,
                         }, {
                             type: 'item',
                             id: '2',
-                            icon: 'https://bdocodex.com/items/new_icon/00000002_special.png',
+                            icon: '/items/new_icon/00000002_special.png',
                             shortUrl: '/us/item/2/',
                             amount: 1,
                         }]

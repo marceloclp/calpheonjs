@@ -5,7 +5,7 @@
         "type": "recipe",
         "shortUrl": "/us/recipe/115/",
         "id": "115",
-        "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009205.png",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009205.png",
         "name": "Aloe Cookie",
         "process": "Cooking",
         "skill_lvl": {
@@ -17,38 +17,38 @@
             "type": "item",
             "shortUrl": "/us/item/7347/",
             "id": "7347",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00007347.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00007347.png",
             "amount": 5
         }, {
             "type": "unknown",
             "shortUrl": "/us/materialgroup/2/",
             "id": "2",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00007205.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00007205.png",
             "amount": 7
         }, {
             "type": "unknown",
             "shortUrl": "/us/materialgroup/48/",
             "id": "48",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00007702.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00007702.png",
             "amount": 3
         }, {
             "type": "item",
             "shortUrl": "/us/item/9002/",
             "id": "9002",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009002.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009002.png",
             "amount": 4
         }],
         "products": [{
             "type": "item",
             "shortUrl": "/us/item/9205/",
             "id": "9205",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009205.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009205.png",
             "amount": 1
         }, {
             "type": "item",
             "shortUrl": "/us/item/9294/",
             "id": "9294",
-            "icon": "https://bdocodex.com/items/new_icon/03_etc/07_productmaterial/00009294.png",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009294.png",
             "amount": 1
         }]
     }]

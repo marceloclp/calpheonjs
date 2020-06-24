@@ -79,8 +79,7 @@ export class Query {
     }
 
     private getIconURL(raw: string): string {
-        const short = AppUtils.splitStr(raw, '[img src="', '"') as string;
-        return AppUtils.getIconUrl(this._db, short);
+        return AppUtils.splitStr(raw, '[img src="', '"') as string;
     }
 
     private getShortURL(raw: string): string {

@@ -4,7 +4,7 @@ import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('NPC DROPS', () => {
     /**
-     * https://bdocodex.com/us/item/6158/
+     * /us/item/6158/
      * Fancy Feather
      */
     describe('Fancy Feather', () => {
@@ -33,7 +33,7 @@ describe('NPC DROPS', () => {
                 type: 'npc_drop',
                 shortUrl: '/us/npc/20091/',
                 id: '20091',
-                icon: 'https://bdocodex.com/items/ui_artwork/ic_04075.png',
+                icon: '/items/ui_artwork/ic_04075.png',
                 name: 'Fan Flamingo',
                 amount: 1,
                 chance: 4.15,
@@ -42,7 +42,7 @@ describe('NPC DROPS', () => {
     });
 
     /**
-     * https://bdocodex.com/us/item/15224/
+     * /us/item/15224/
      * Black Magic Crystal - Agility
      */
     describe('Black Magic Crystal - Agility', () => {
@@ -71,7 +71,7 @@ describe('NPC DROPS', () => {
                 type: 'npc_drop',
                 shortUrl: '/us/npc/21305/',
                 id: '21305',
-                icon: 'https://bdocodex.com/items/ui_artwork/ic_04925.png',
+                icon: '/items/ui_artwork/ic_04925.png',
                 name: 'Aakman Punisher',
                 amount: 1,
                 chance: 0.15,

@@ -5,7 +5,7 @@ import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('OBTAINED FROM', () => {
     /**
-     * https://bdocodex.com/us/item/10103/
+     * /us/item/10103/
      * Axion Shield
      */
     describe('Axion Shield', () => {
@@ -38,7 +38,7 @@ describe('OBTAINED FROM', () => {
                 type: 'item',
                 shortUrl: '/us/item/44931/',
                 id: '44931',
-                icon: 'https://bdocodex.com/items/new_icon/03_etc/00044907.png',
+                icon: '/items/new_icon/03_etc/00044907.png',
                 name: 'Offensive Sub-weapon Box',
                 lvl: 1,
             });

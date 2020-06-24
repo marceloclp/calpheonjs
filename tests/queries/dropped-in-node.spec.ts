@@ -4,7 +4,7 @@ import QueryMock, { Queries } from "../utils/query-mock";
 
 describe('DROPPED IN NODE', () => {
     /**
-     * https://bdocodex.com/us/item/10656/
+     * /us/item/10656/
      * Krea Axe
      */
     describe('Krea Axe', () => {
@@ -32,7 +32,7 @@ describe('DROPPED IN NODE', () => {
             expect(result.data[2]).to.containSubset({
                 type: 'node',
                 id: '1157',
-                icon: 'https://bdocodex.com/images/node_icons/icon_node_9.png',
+                icon: '/images/node_icons/icon_node_9.png',
                 name: 'Helms Post',
                 zone: 'Republic of Mediah',
                 temperature: 50,
@@ -44,7 +44,7 @@ describe('DROPPED IN NODE', () => {
     });
 
     /**
-     * https://bdocodex.com/us/item/15135/
+     * /us/item/15135/
      * Magic Crystal of Infinity - Siege
      */
     describe('Magic Crystal of Infinity - Siege', () => {
@@ -72,7 +72,7 @@ describe('DROPPED IN NODE', () => {
             expect(result.data[0]).to.containSubset({
                 type: 'node',
                 id: '1157',
-                icon: 'https://bdocodex.com/images/node_icons/icon_node_9.png',
+                icon: '/images/node_icons/icon_node_9.png',
                 name: 'Helms Post',
                 zone: 'Republic of Mediah',
                 temperature: 50,
