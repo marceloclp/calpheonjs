@@ -2,9 +2,8 @@ import cheerio from "cheerio";
 import * as AppUtils from "../../utils";
 import * as Queries from "../typings";
 import { BDOCodex, Undef } from "../../typings";
-import { Generic } from "./generic.builder";
 import { Scrapers } from "../../scraper";
-import { Scraper } from "../../scraper/scraper";
+import { Generic } from "./generic.builder";
 
 export class Recipe extends Generic {
     getIconURL(raw: string): string {

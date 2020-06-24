@@ -67,7 +67,7 @@ export class Query {
         if ([Groups.PROCESSING, Groups.RECIPE, Groups.DESIGN].includes(g))
             return ['recipe', new Builders.Recipe(this._locale, this._db, this._scrape).build(data)];
         if ([ItemAs.NPC_DROP].includes(a))
-            return ['npc_drop', this.parseNPCDrops(data)];
+            return ['npc_drop', new Builders.NPCDrop(this._locale, this._db, this._scrape).build(data)];
         if ([ItemAs.NODE_DROP].includes(a))
             return ['node', this.parseNodeDrops(data)];
         if ([ItemAs.CONTAINER].includes(a))

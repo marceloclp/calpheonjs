@@ -1,3 +1,4 @@
+import cheerio from "cheerio";
 import * as AppUtils from "../../utils";
 import { Scrapers } from "../../scraper";
 import { Undef, App } from "../../typings";
@@ -23,7 +24,13 @@ export class Generic {
         });
     }
 
+    /** Parses the icon url from an html raw string. */
     protected parseIconURL(raw: string): string {
         return AppUtils.splitStr(raw, '[img src="', '"') as string;
+    }
+
+    /** Parses an entity short url. */
+    protected parseShortURL(raw: string): string {
+        return cheerio.load(raw)('a').attr('href') as string;
     }
 }
