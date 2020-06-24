@@ -97,7 +97,7 @@ export class Query {
             .filter(str => str)
             .map(str => cheerio.load('<div>' + str))
             .map<Queries.Entities.Refs.Generic>($ => ({
-                type: 'ref',
+                type: AppUtils.getTypeFromURL($('a').attr('href') as string) as any,
                 id: $('a').attr('data-id')?.replace(/\D/g, '') || '',
                 amount: parseInt($('.quantity_small').text()) || 1,
                 icon: this.getIconURL($('.icon_wrapper').text()),
