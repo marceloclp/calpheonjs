@@ -116,7 +116,7 @@ export class Worker extends Generic {
             icon: img.attr('src') as string,
             name: anchor.text(),
             shortUrl: url,
-            scrape: this.scrapeFactory<Scrapers.Entities.NPC>(url),
+            scrape: this.ScrapeFactory(url) as any,
         }
     }
 

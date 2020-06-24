@@ -25,7 +25,7 @@ export class Quest extends Generic {
             icon: img?.attribs.src as string,
             name: this.$(row).find(`a[href="${url}"]`).last().text(),
             shortUrl: url,
-            scrape: this.scrapeFactory<Scrapers.Entities.NPC>(url),
+            scrape: this.ScrapeFactory(url) as any,
         };
     }
 
@@ -93,7 +93,7 @@ export class Quest extends Generic {
                 icon: this.$(node).find('img').attr('src') as string,
                 name: AppUtils.cleanStr(this.$(node).text()),
                 shortUrl: node.attribs.href,
-                scrape: this.scrapeFactory(node.attribs.href),
+                scrape: this.ScrapeFactory(node.attribs.href) as any,
             }));
     }
 
@@ -178,7 +178,7 @@ export class Quest extends Generic {
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
                     amount: parseInt(elem.text().replace(/\D/g, '')) || 1,
-                    scrape: this.scrapeFactory<Scrapers.Entities.Item>(url),
+                    scrape: this.ScrapeFactory(url) as any,
                 });
             } else if (type === 'exp') {
                 const txt = AppUtils.cleanStr(arr[i+1].data);
@@ -195,7 +195,7 @@ export class Quest extends Generic {
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
-                    scrape: this.scrapeFactory<Scrapers.Entities.Quest>(url),
+                    scrape: this.ScrapeFactory(url) as any,
                     amity_gained: parseInt(
                         arr[i-1].data?.replace(/\D/g, '') as string
                     ) || 0,

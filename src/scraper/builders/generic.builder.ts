@@ -1,6 +1,6 @@
 import * as AppUtils from "../../utils";
 import * as Scrapers from "../typings";
-import { App, BDOCodex } from "../../typings";
+import { App, BDOCodex, Undef } from "../../typings";
 import { Queries } from "../../query";
 import { Matcher, ContextCache } from "../../shared";
 
@@ -95,17 +95,16 @@ export class Generic {
         return ctx.get('data');
     }
 
-    protected scrapeFactory<T = any>(shortUrl: string): Scrapers.ScrapeFn<T> {
-        const type = shortUrl.split('/')[2] as Scrapers.EntityTypes;
-        const id = AppUtils.getIdFromURL(shortUrl);
+    protected ScrapeFactory(shortUrl: string): Undef<Scrapers.ScrapeFn> {
+        const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
+
         if (!Object.values(Scrapers.EntityTypes).includes(type))
             return undefined as any;
-        return async <T>() => {
-            return await this._scrape<T>(id, type, {
-                db: this._db,
-                locale: this._locale
-            });
-        };
+
+        return async <T>() => this._scrape<T>(id, type, {
+            db: this._db,
+            locale: this._locale
+        });
     }
 
     protected queryFactory<T = any>(type: Queries.Types): Queries.QueryFn<T> | undefined {

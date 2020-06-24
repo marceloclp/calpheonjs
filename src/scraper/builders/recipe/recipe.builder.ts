@@ -19,7 +19,7 @@ export class Recipe extends Generic {
                 grade: parseInt(anchor.attr('class')?.replace(/\D/g, '') || '0'),
                 amount: parseInt(this.$(parent).text()) || 1,
                 shortUrl,
-                scrape: this.scrapeFactory(shortUrl),
+                scrape: this.ScrapeFactory(shortUrl) as any,
             };
         });
     }

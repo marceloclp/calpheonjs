@@ -127,7 +127,7 @@ export class Equipment extends Item {
                     shortUrl: url,
                     amount: parseInt(curr.enchant_item_counter),
                     durability_loss_on_failure: parseInt(curr.fail_dura_dec),
-                    scrape: this.scrapeFactory<Scrapers.Entities.Item>(url),
+                    scrape: this.ScrapeFactory(url) as any,
                 },
                 perfect_enhancement: (lvl >= maxLvl) ? undefined : {
                     amount: parseInt(curr.pe_item_counter),
