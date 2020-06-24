@@ -69,7 +69,7 @@ export class Query {
         if ([ItemAs.NPC_DROP].includes(a))
             return ['npc_drop', new Builders.NPCDrop(this._locale, this._db, this._scrape).build(data)];
         if ([ItemAs.NODE_DROP].includes(a))
-            return ['node', this.parseNodeDrops(data)];
+            return ['node', new Builders.Node(this._locale, this._db, this._scrape).build(data)];
         if ([ItemAs.CONTAINER].includes(a))
             return ['item', this.parseItems(data)];
         if ([Groups.NPC].includes(g))
@@ -102,23 +102,6 @@ export class Query {
                 amount: parseInt($('.quantity_small').text()) || 1,
                 icon: this.getIconURL($('.icon_wrapper').text()),
                 shortUrl: $('a').attr('href') as string,
-            }))
-            .map(entity => ({
-                ...entity,
-                scrape: this.scrapeFactory(entity.shortUrl),
-            }));
-    }
-
-    private parseNPCDrops(data: BDOCodex.Query.NPCDrop): Queries.Entities.NPCDrop[] {
-        return data.aaData
-            .map<Queries.Entities.NPCDrop>(arr => ({
-                type: 'npc_drop',
-                id: arr[0],
-                icon: this.getIconURL(arr[1]),
-                name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
-                amount: parseInt(arr[3]),
-                chance: parseFloat(arr[4].replace(/\%/g, '')),
-                shortUrl: this.getShortURL(arr[2]),
             }))
             .map(entity => ({
                 ...entity,

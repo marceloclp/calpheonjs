@@ -83,7 +83,7 @@ export class Recipe extends Generic {
                 materials: this.getMaterials(arr[6]),
                 products: this.getMaterials(arr[7]),
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url) as any,
+                scrape: this.ScrapeFactory(url),
             }
         });
     }
