@@ -6,7 +6,7 @@ export interface Recipe extends Generic {
     type: 'recipe';
 
     /** The process used to craft the recipe (e.g, "Simple Cooking"). */
-    process: string;
+    process?: string;
 
     /** The exp received on successful craft. */
     exp: number;

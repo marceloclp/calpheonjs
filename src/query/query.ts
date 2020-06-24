@@ -116,7 +116,7 @@ export class Query {
                 id: arr[0],
                 icon: this.getIconURL(arr[1]),
                 name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
-                process: arr[3],
+                process: arr[3] || undefined,
                 exp: parseInt(arr[5].replace(/\D/g, '')) || 0,
                 skill_lvl: {
                     mastery: arr[4].display.replace(/\d/g, '').trim(),
