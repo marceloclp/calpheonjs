@@ -48,6 +48,7 @@ export class Scraper {
                     case 'recipe':             return Ctgs.RECIPE;
                     case 'quest':              return Ctgs.QUEST;
                     case 'worker':             return Ctgs.WORKER;
+                    case 'item_group':         return Ctgs.MATERIAL_GROUP;
                     default:
                         if (type === Scrapers.EntityTypes.NPC)
                             return Ctgs.NPC;
@@ -66,6 +67,8 @@ export class Scraper {
                     case Ctgs.EQUIPMENT:  return Builders.Equipment;
                     default:              return Builders.Item;
                 }
+            case Scrapers.EntityTypes.MATERIAL_GROUP:
+                return Builders.MaterialGroup;
             case Scrapers.EntityTypes.RECIPE:
                 return Builders.Recipe;
             case Scrapers.EntityTypes.QUEST:

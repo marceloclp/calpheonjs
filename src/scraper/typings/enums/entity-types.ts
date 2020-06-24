@@ -8,4 +8,5 @@ export enum EntityTypes {
     RECIPE = 'recipe',
     QUEST = 'quest',
     NPC = 'npc',
+    MATERIAL_GROUP = 'materialgroup',
 }

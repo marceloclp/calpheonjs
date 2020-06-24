@@ -51,6 +51,7 @@ export enum Categories {
 
     NPC = 'npc',
     WORKER = 'worker',
+    MATERIAL_GROUP = 'material_group',
 
     UNDEFINED = 'undefined',
 }
