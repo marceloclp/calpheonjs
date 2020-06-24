@@ -3,8 +3,10 @@ import { Pricings  } from "../interfaces";
 import { Queries } from "../../../query";
 
 export interface Item extends Generic {
+    /** The prices for the item if available. */
     prices: Pricings;
 
+    /** The grade of the item as 0-based. */
     grade: number;
 
     /** Weight as a floating number in LT. */
