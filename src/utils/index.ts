@@ -6,4 +6,5 @@ export { filterObj } from "./filter-obj";
 export { getIconUrl } from "./get-icon-url";
 export { insertUtils } from "./insert-utils";
 export { getIdFromURL } from "./get-id-from-url";
+export { getTypeFromURL} from "./get-type-from-url";
 export { getShortURL } from "./get-short-url";
