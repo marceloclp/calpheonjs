@@ -73,7 +73,7 @@ export class Query {
         if ([ItemAs.CONTAINER].includes(a))
             return ['item', new Builders.Item(this._locale, this._db, this._scrape).build(data)];
         if ([Groups.NPC].includes(g))
-            return ['npc', this.parseNPCs(data)];
+            return ['npc', new Builders.NPC(this._locale, this._db, this._scrape).build(data)];
         if ([Groups.QUEST].includes(g))
             return ['quest', this.parseQuests(data)];
         return ['unknown', []];
@@ -90,40 +90,6 @@ export class Query {
     private getName(raw: string): string {
         return AppUtils.cleanStr(cheerio.load(raw).root().text());
     }
-
-    private parseRefs(raw: string): Queries.Entities.Refs.Generic[] {
-        return raw
-            .split(`<div class="iconset_wrapper_medium inlinediv">`)
-            .filter(str => str)
-            .map(str => cheerio.load('<div>' + str))
-            .map<Queries.Entities.Refs.Generic>($ => ({
-                type: AppUtils.getTypeFromURL($('a').attr('href') as string) as any,
-                id: $('a').attr('data-id')?.replace(/\D/g, '') || '',
-                amount: parseInt($('.quantity_small').text()) || 1,
-                icon: this.getIconURL($('.icon_wrapper').text()),
-                shortUrl: $('a').attr('href') as string,
-            }))
-            .map(entity => ({
-                ...entity,
-                scrape: this.scrapeFactory(entity.shortUrl),
-            }));
-    }
-
-    /*private parseItems(data: BDOCodex.Query.Item): Queries.Entities.Item[] {
-        return data.aaData
-            .map<Queries.Entities.Item>(arr => ({
-                type: 'item',
-                id: arr[0],
-                icon: this.getIconURL(arr[1]),
-                name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
-                lvl: arr[3],
-                shortUrl: this.getShortURL(arr[2]),
-            }))
-            .map(entity => ({
-                ...entity,
-                scrape: this.scrapeFactory(entity.shortUrl),
-            }));
-    }*/
 
     private parseNPCs(data: BDOCodex.Query.NPC): Queries.Entities.NPC[] {
         return data.aaData

@@ -33,4 +33,12 @@ export class Generic {
     protected parseShortURL(raw: string): string {
         return cheerio.load(raw)('a').attr('href') as string;
     }
+
+    /** Parses an entity name from an html raw string. */
+    protected parseName(raw: string): string {
+        const str = cheerio.load(raw)
+            .root()
+            .text();
+        return AppUtils.cleanStr(str);
+    }
 }

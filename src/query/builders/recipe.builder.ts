@@ -10,13 +10,6 @@ export class Recipe extends Generic {
         return AppUtils.splitStr(raw, '[img src="', '"') as string;
     }
 
-    getName(raw: string): string {
-        const str = cheerio.load(raw)
-            .root()
-            .text();
-        return AppUtils.cleanStr(str);
-    }
-
     getProcess(raw: string): Undef<string> {
         return raw || undefined;
     }
@@ -76,7 +69,7 @@ export class Recipe extends Generic {
                 type: 'recipe',
                 id: arr[0],
                 icon: this.getIconURL(arr[1]),
-                name: this.getName(arr[2]),
+                name: this.parseName(arr[2]),
                 process: this.getProcess(arr[3]),
                 exp: this.getEXP(arr[5]),
                 skill_lvl: this.getSkillLvl(arr[4].display),
