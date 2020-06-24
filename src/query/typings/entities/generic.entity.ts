@@ -1,5 +1,4 @@
 import { EntityTypes } from "../types";
-import { Scrapers } from "../../../scraper";
 
 export interface Generic {
     /** Indicates whcih properties are to be expected from the object. */
@@ -16,7 +15,4 @@ export interface Generic {
 
     /** A shortened version of the entity url without the database base url. */
     shortUrl: string;
-
-    /** An async function that scrapes the entity page. */
-    scrape?: Scrapers.ScrapeFn;
 }

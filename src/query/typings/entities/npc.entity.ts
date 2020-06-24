@@ -1,3 +1,4 @@
+import { Scrapers } from "../../../scraper";
 import { Generic } from "./generic.entity";
 
 export interface NPC extends Generic {
@@ -23,4 +24,6 @@ export interface NPC extends Generic {
 
     /** How much karma the NPC has. */
     karma: number;
+
+    scrape: Scrapers.ScrapeFn<Scrapers.Entities.NPC>;
 }

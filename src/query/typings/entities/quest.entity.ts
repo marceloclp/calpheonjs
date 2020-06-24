@@ -1,4 +1,5 @@
 import * as Quests from "../interfaces/quests";
+import { Scrapers } from "../../../scraper";
 import { Generic } from "./generic.entity";
 
 export interface Quest extends Generic {
@@ -21,4 +22,6 @@ export interface Quest extends Generic {
 
     /** The rewards received by completing the quest. */
     rewards: Quests.Rewards;
+
+    scrape: Scrapers.ScrapeFn<Scrapers.Entities.Quest>;
 }

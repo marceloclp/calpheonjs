@@ -20,5 +20,5 @@ export interface Recipe extends Generic {
     /** A list of possible items acquired from a successful craft. */
     products: Recipes.Material[];
 
-    scrape?: Scrapers.ScrapeFn<Scrapers.Entities.Recipe>;
+    scrape: Scrapers.ScrapeFn<Scrapers.Entities.Recipe>;
 }

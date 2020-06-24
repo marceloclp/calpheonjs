@@ -71,7 +71,7 @@ export class Query {
         if ([ItemAs.NODE_DROP].includes(a))
             return ['node', new Builders.Node(this._locale, this._db, this._scrape).build(data)];
         if ([ItemAs.CONTAINER].includes(a))
-            return ['item', this.parseItems(data)];
+            return ['item', new Builders.Item(this._locale, this._db, this._scrape).build(data)];
         if ([Groups.NPC].includes(g))
             return ['npc', this.parseNPCs(data)];
         if ([Groups.QUEST].includes(g))
@@ -109,26 +109,7 @@ export class Query {
             }));
     }
 
-    private parseNodeDrops(data: BDOCodex.Query.NodeDrop): Queries.Entities.Node[] {
-        return data.aaData
-            .map<Queries.Entities.Node>(arr => ({
-                type: 'node',
-                id: arr[0],
-                icon: this.getIconURL(arr[1]),
-                name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
-                zone: arr[3],
-                temperature: parseFloat(arr[4].replace(/\%/g, '')),
-                humidity: parseFloat(arr[5].replace(/\%/g, '')),
-                water: parseFloat(arr[6].replace(/\%/g, '')),
-                shortUrl: this.getShortURL(arr[2]),
-            }))
-            .map(entity => ({
-                ...entity,
-                scrape: this.scrapeFactory(entity.shortUrl),
-            }));
-    }
-
-    private parseItems(data: BDOCodex.Query.Item): Queries.Entities.Item[] {
+    /*private parseItems(data: BDOCodex.Query.Item): Queries.Entities.Item[] {
         return data.aaData
             .map<Queries.Entities.Item>(arr => ({
                 type: 'item',
@@ -142,11 +123,11 @@ export class Query {
                 ...entity,
                 scrape: this.scrapeFactory(entity.shortUrl),
             }));
-    }
+    }*/
 
     private parseNPCs(data: BDOCodex.Query.NPC): Queries.Entities.NPC[] {
         return data.aaData
-            .map<Queries.Entities.NPC>(arr => ({
+            .map(arr => ({
                 type: 'npc',
                 id: arr[0].display,
                 icon: this.getIconURL(arr[1]),
@@ -163,12 +144,12 @@ export class Query {
             .map(entity => ({
                 ...entity,
                 scrape: this.scrapeFactory(entity.shortUrl),
-            }));
+            })) as any;
     }
 
     private parseQuests(data: BDOCodex.Query.Quest): Queries.Entities.Quest[] {
         return data.aaData
-            .map<Queries.Entities.Quest>(arr => ({
+            .map(arr => ({
                 type: 'quest',
                 id: arr[0].display,
                 icon: this.getIconURL(arr[1]),
@@ -184,7 +165,7 @@ export class Query {
             .map(entity => ({
                 ...entity,
                 scrape: this.scrapeFactory(entity.shortUrl),
-            }));;
+            })) as any;
     }
 
     private parseQuestRewards(raw: string): Queries.Quests.Rewards {

@@ -32,7 +32,6 @@ export class NPCDrop extends Generic {
                 amount: this.getAmount(arr[3]),
                 chance: this.getChance(arr[4]),
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url),
             }
         });
     }
