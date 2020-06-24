@@ -75,7 +75,7 @@ export class Query {
         if ([Groups.NPC].includes(g))
             return ['npc', new Builders.NPC(this._locale, this._db, this._scrape).build(data)];
         if ([Groups.QUEST].includes(g))
-            return ['quest', this.parseQuests(data)];
+            return ['quest', new Builders.Quest(this._locale, this._db, this._scrape).build(data)];
         return ['unknown', []];
     }
 
@@ -89,28 +89,6 @@ export class Query {
 
     private getName(raw: string): string {
         return AppUtils.cleanStr(cheerio.load(raw).root().text());
-    }
-
-    private parseNPCs(data: BDOCodex.Query.NPC): Queries.Entities.NPC[] {
-        return data.aaData
-            .map(arr => ({
-                type: 'npc',
-                id: arr[0].display,
-                icon: this.getIconURL(arr[1]),
-                name: this.getName(arr[2]),
-                lvl: parseInt(arr[3]) || 1,
-                hp: parseInt(arr[4].replace(/\D/g, '')) || 0,
-                defense: parseInt(arr[5]) || 0,
-                evasion: parseInt(arr[6]) || 0,
-                exp: parseInt(arr[7]) || 0,
-                exp_skill: parseInt(arr[8]) || 0,
-                karma: parseInt(arr[9]) || 0,
-                shortUrl: this.getShortURL(arr[2]),
-            }))
-            .map(entity => ({
-                ...entity,
-                scrape: this.scrapeFactory(entity.shortUrl),
-            })) as any;
     }
 
     private parseQuests(data: BDOCodex.Query.Quest): Queries.Entities.Quest[] {
