@@ -12,13 +12,7 @@ export interface Recipe extends Generic {
     exp: number;
 
     /** The required skill level to craft the recipe. */
-    skill_lvl: {
-        /** The mastery name (e.g, Beginner). */
-        mastery: string;
-
-        /** The mastery level. */
-        lvl: number;
-    };
+    skill_lvl: Recipes.SkillLvl;
 
     /** A list of items required to craft the recipe. */
     materials: Recipes.Material[];

@@ -20,13 +20,13 @@
             "icon": "/items/new_icon/03_etc/07_productmaterial/00007347.png",
             "amount": 5
         }, {
-            "type": "unknown",
+            "type": "material_group",
             "shortUrl": "/us/materialgroup/2/",
             "id": "2",
             "icon": "/items/new_icon/03_etc/07_productmaterial/00007205.png",
             "amount": 7
         }, {
-            "type": "unknown",
+            "type": "material_group",
             "shortUrl": "/us/materialgroup/48/",
             "id": "48",
             "icon": "/items/new_icon/03_etc/07_productmaterial/00007702.png",

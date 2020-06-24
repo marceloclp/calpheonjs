@@ -14,7 +14,7 @@
         },
         "exp": 400,
         "materials": [{
-            "type": "unknown",
+            "type": "material_group",
             "shortUrl": "/us/materialgroup/1/",
             "id": "1",
             "icon": "/items/new_icon/03_etc/07_productmaterial/00007005.png",

@@ -8,3 +8,4 @@ export { insertUtils } from "./insert-utils";
 export { getIdFromURL } from "./get-id-from-url";
 export { getTypeFromURL} from "./get-type-from-url";
 export { getShortURL } from "./get-short-url";
+export { decomposeShortURL } from "./decompose-short-url";

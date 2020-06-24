@@ -1,6 +1,7 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../utils";
 import * as Queries from "./typings";
+import * as Builders from "./builders";
 import { App, BDOCodex } from "../typings";
 import { Scrapers } from "../scraper";
 import { Matcher } from "../shared";
@@ -64,7 +65,7 @@ export class Query {
         const { Groups, ItemAs } = Queries;
         const { _group: g, _itemAs: a } = this;
         if ([Groups.PROCESSING, Groups.RECIPE, Groups.DESIGN].includes(g))
-            return ['recipe', this.parseRecipes(data)];
+            return ['recipe', new Builders.Recipe(this._locale, this._db, this._scrape).build(data)];
         if ([ItemAs.NPC_DROP].includes(a))
             return ['npc_drop', this.parseNPCDrops(data)];
         if ([ItemAs.NODE_DROP].includes(a))
@@ -105,28 +106,6 @@ export class Query {
             .map(entity => ({
                 ...entity,
                 scrape: this.scrapeFactory(entity.shortUrl),
-            }));
-    }
-
-    private parseRecipes(data: BDOCodex.Query.Recipe): Queries.Entities.Recipe[] {
-        return data.aaData
-            .map<Queries.Entities.Recipe>(arr => ({
-                type: 'recipe',
-                id: arr[0],
-                icon: this.getIconURL(arr[1]),
-                name: AppUtils.cleanStr(cheerio.load(arr[2]).root().text()),
-                process: arr[3] || undefined,
-                exp: parseInt(arr[5].replace(/\D/g, '')) || 0,
-                skill_lvl: {
-                    mastery: arr[4].display.replace(/\d/g, '').trim(),
-                    lvl: parseInt(arr[4].display.replace(/\D/g, '')),
-                },
-                materials: this.parseRefs(arr[6]) as any,
-                products: this.parseRefs(arr[7]) as any,
-                shortUrl: this.getShortURL(arr[2]),
-            })).map(entity => ({
-                ...entity,
-                scrape: this.scrapeFactory(entity.shortUrl)
             }));
     }
 
