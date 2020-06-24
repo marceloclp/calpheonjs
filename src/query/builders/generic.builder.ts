@@ -1,10 +1,13 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../utils";
+import * as Queries from "../typings";
 import { Scrapers } from "../../scraper";
 import { Undef, App } from "../../typings";
 
 export class Generic {
-    static readonly type: string = 'unknown';
+    static get type(): Queries.EntityTypes {
+        return "unknown";
+    }
 
     constructor(
         protected readonly _locale = App.Locales.US,

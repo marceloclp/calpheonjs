@@ -6,7 +6,9 @@ import { Scrapers } from "../../scraper";
 import { Generic } from "./generic.builder";
 
 export class Recipe extends Generic {
-    static type = 'recipe';
+    static get type() {
+        return <const> "recipe";
+    }
 
     getIconURL(raw: string): string {
         return AppUtils.splitStr(raw, '[img src="', '"') as string;
@@ -68,7 +70,7 @@ export class Recipe extends Generic {
             const url = this.getShortURL(arr[2]);
 
             return {
-                type: 'recipe',
+                type: Recipe.type,
                 id: arr[0],
                 icon: this.getIconURL(arr[1]),
                 name: this.parseName(arr[2]),

@@ -3,7 +3,9 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class Node extends Generic {
-    static type = 'node';
+    static get type() {
+        return <const> "node";
+    }
     
     getPercentageValue(raw: string): number {
         return parseFloat(raw.replace(/\%/g, '')) || 0;
@@ -14,7 +16,7 @@ export class Node extends Generic {
             const url = this.parseShortURL(arr[2]);
 
             return {
-                type: 'node',
+                type: Node.type,
                 id: arr[0],
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),

@@ -8,7 +8,6 @@ export type EntityTypes = (
     | 'item'
     | 'npc'
     | 'quest'
-    | 'ref'
     | 'exp'
 );
 

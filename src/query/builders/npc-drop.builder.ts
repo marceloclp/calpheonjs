@@ -3,7 +3,9 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class NPCDrop extends Generic {
-    static type = 'npc_drop';
+    static get type() {
+        return <const> "npc_drop";
+    }
 
     getAmount(raw: string): number {
         return parseInt(raw) || 1;
@@ -18,7 +20,7 @@ export class NPCDrop extends Generic {
             const url = this.parseShortURL(arr[2]);
 
             return {
-                type: 'npc_drop',
+                type: NPCDrop.type,
                 id: arr[0],
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),

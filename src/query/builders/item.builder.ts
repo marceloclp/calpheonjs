@@ -3,14 +3,16 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class Item extends Generic {
-    static type = 'item';
+    static get type() {
+        return <const> "item";
+    }
 
     build(data: BDOCodex.Query.Item): Queries.Entities.Item[] {
         return data.aaData.map(arr => {
             const url = this.parseShortURL(arr[2]);
 
             return {
-                type: 'item',
+                type: Item.type,
                 id: arr[0],
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),

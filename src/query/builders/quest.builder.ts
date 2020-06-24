@@ -6,7 +6,9 @@ import { Generic } from "./generic.builder";
 import { Matcher } from "../../shared";
 
 export class Quest extends Generic {
-    static type = 'quest';
+    static get type() {
+        return <const> "quest";
+    }
 
     getNumericValue(raw?: string | number, value = 0): number {
         if (typeof raw === 'number')
@@ -75,7 +77,7 @@ export class Quest extends Generic {
             const url = this.parseShortURL(arr[2]);
 
             return {
-                type: 'quest',
+                type: Quest.type,
                 id: arr[0].display,
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),

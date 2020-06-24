@@ -3,7 +3,9 @@ import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
 
 export class NPC extends Generic {
-    static type = 'npc';
+    static get type() {
+        return <const> "npc";
+    }
     
     getStat(raw: string | number): number {
         if (typeof raw === 'number')
@@ -22,7 +24,7 @@ export class NPC extends Generic {
             const url = this.parseShortURL(arr[2]);
 
             return {
-                type: 'npc',
+                type: NPC.type,
                 id: arr[0].display,
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
