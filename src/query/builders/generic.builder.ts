@@ -47,6 +47,26 @@ export class Generic {
         return AppUtils.cleanStr(str);
     }
 
+    protected parseIntValue(raw?: string | number, val = 0): number {
+        if (typeof raw === 'number')
+            return raw;
+        if (typeof raw === 'string')
+            return parseInt(raw.replace(/\D/g, '')) || val;
+        return val;
+    }
+
+    protected parseFloatValue(raw?: string | number, val = 0): number {
+        if (typeof raw === 'number')
+            return raw;
+        if (typeof raw === 'string')
+            return parseFloat(raw.replace(/\D/g, '')) || val;
+        return val;
+    }
+
+    protected parsePercentageValue(raw: string, val = 0): number {
+        return parseFloat(raw.replace(/\%/g, '')) || val;
+    }
+
     build(data: any): any[] {
         return [];
     }

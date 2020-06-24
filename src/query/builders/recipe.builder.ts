@@ -10,27 +10,15 @@ export class Recipe extends Generic {
         return <const> "recipe";
     }
 
-    getIconURL(raw: string): string {
-        return AppUtils.splitStr(raw, '[img src="', '"') as string;
-    }
-
     getProcess(raw: string): Undef<string> {
         return raw || undefined;
-    }
-
-    getEXP(raw: string): number {
-        return parseInt(raw.replace(/\D/g, '')) || 0;
     }
 
     getSkillLvl(raw: string): Queries.Recipes.SkillLvl {
         return {
             mastery: raw.replace(/\d/g, '').trim(),
-            lvl: parseInt(raw.replace(/\D/g, '')),
+            lvl: this.parseIntValue(raw),
         }
-    }
-
-    getShortURL(raw: string): string {
-        return cheerio.load(raw)('a').attr('href') as string;
     }
 
     getMaterials(raw: string): Queries.Recipes.Material[] {
@@ -67,15 +55,15 @@ export class Recipe extends Generic {
 
     build(data: BDOCodex.Query.Recipe): Queries.Entities.Recipe[] {
         return data.aaData.map(arr => {
-            const url = this.getShortURL(arr[2]);
+            const url = this.parseShortURL(arr[2]);
 
             return {
                 type: Recipe.type,
                 id: arr[0],
-                icon: this.getIconURL(arr[1]),
+                icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
                 process: this.getProcess(arr[3]),
-                exp: this.getEXP(arr[5]),
+                exp: this.parseIntValue(arr[5]),
                 skill_lvl: this.getSkillLvl(arr[4].display),
                 materials: this.getMaterials(arr[6]),
                 products: this.getMaterials(arr[7]),

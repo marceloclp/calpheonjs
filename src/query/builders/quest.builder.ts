@@ -10,14 +10,6 @@ export class Quest extends Generic {
         return <const> "quest";
     }
 
-    getNumericValue(raw?: string | number, value = 0): number {
-        if (typeof raw === 'number')
-            return raw;
-        if (typeof raw === 'string')
-            return parseInt(raw.replace(/\D/g, '')) || value;
-        return value;
-    }
-
     getRewards(raw: string): Queries.Quests.Rewards {
         const matchers = {
             choose: new Matcher(this._locale, {
@@ -39,14 +31,14 @@ export class Quest extends Generic {
             if (matchers.choose.in(data))
                 curr = rewards.choose;
             else if (matchers.amity.in(data))
-                rewards.amity.push(this.getNumericValue(data));
+                rewards.amity.push(this.parseIntValue(data));
 
             if (tagName !== 'div')
                 return rewards;
 
             const elem   = $(node);
             const anchor = elem.find('a');
-            const amount = this.getNumericValue(
+            const amount = this.parseIntValue(
                 elem.find('.quantity_small').text(), 1
             );
             
@@ -81,11 +73,11 @@ export class Quest extends Generic {
                 id: arr[0].display,
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
-                lvl: this.getNumericValue(arr[3]),
+                lvl: this.parseIntValue(arr[3]),
                 region: arr[4].display,
-                exp: this.getNumericValue(arr[5].display),
-                exp_skill: this.getNumericValue(arr[6].display),
-                exp_contribution: this.getNumericValue(arr[7]),
+                exp: this.parseIntValue(arr[5].display),
+                exp_skill: this.parseIntValue(arr[6].display),
+                exp_contribution: this.parseIntValue(arr[7]),
                 rewards: this.getRewards(arr[8]),
                 shortUrl: url,
                 scrape: this.ScrapeFactory(url) as any,

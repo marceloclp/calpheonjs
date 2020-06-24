@@ -6,18 +6,6 @@ export class NPC extends Generic {
     static get type() {
         return <const> "npc";
     }
-    
-    getStat(raw: string | number): number {
-        if (typeof raw === 'number')
-            return raw;
-        if (typeof raw === 'string')
-            return parseInt(raw.replace(/\D/g, '')) || 0;
-        return 0;
-    }
-
-    getLvl(raw: string): number {
-        return parseInt(raw) || 1;
-    }
 
     build(data: BDOCodex.Query.NPC): Queries.Entities.NPC[] {
         return data.aaData.map(arr => {
@@ -28,13 +16,13 @@ export class NPC extends Generic {
                 id: arr[0].display,
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
-                lvl: this.getLvl(arr[3]),
-                hp: this.getStat(arr[4]),
-                defense: this.getStat(arr[5]),
-                evasion: this.getStat(arr[6]),
-                exp: this.getStat(arr[7]),
-                exp_skill: this.getStat(arr[8]),
-                karma: this.getStat(arr[9]),
+                lvl: this.parseIntValue(arr[3], 1),
+                hp: this.parseIntValue(arr[4]),
+                defense: this.parseIntValue(arr[5]),
+                evasion: this.parseIntValue(arr[6]),
+                exp: this.parseIntValue(arr[7]),
+                exp_skill: this.parseIntValue(arr[8]),
+                karma: this.parseIntValue(arr[9]),
                 shortUrl: url,
                 scrape: this.ScrapeFactory(url) as any,
             };
