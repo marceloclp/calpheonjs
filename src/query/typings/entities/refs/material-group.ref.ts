@@ -1,3 +1,5 @@
+import { Scrapers } from "../../../../scraper";
+
 export interface MaterialGroup {
     type: 'material_group';
 
@@ -9,4 +11,6 @@ export interface MaterialGroup {
 
     /** The material group short url. */
     shortUrl: string;
+
+    scrape: Scrapers.ScrapeFn<Scrapers.Entities.MaterialGroup>;
 }

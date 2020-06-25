@@ -48,6 +48,7 @@ export class Recipe extends Generic {
                         amount: parseInt(txt.text()) || 1,
                         icon: this.parseIconURL(img.text()),
                         shortUrl: url,
+                        scrape: this.ScrapeFactory(url) as any,
                     };
             }
         });
