@@ -143,9 +143,7 @@ export class Quest extends Generic {
         return nodes.reduce((text, node, i) => {
             if (node.tagName === 'br' && nodes[i-1]?.tagName === 'br')
                 return [...text, '\n'];
-            const str = node.data
-                ? node.data as string
-                : AppUtils.cleanStr(this.$(node).text());
+            const str = this.$(node).text();
             if (!str)
                 return text;
             if (i !== 0 && nodes[i-1]?.tagName !== 'br')

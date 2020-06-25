@@ -48,8 +48,8 @@ export class Recipe extends Generic {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['EXP'],
         });
-        return parseInt(this.getTextNodeFromCategoryWrapper(matcher)?.data
-            ?.replace(/\D/g, '') as string) || 0;
+        const node = this.getTextNodeFromCategoryWrapper(matcher);
+        return AppUtils.parseIntValue(node?.data);
     }
     
     get skill_lvl() {

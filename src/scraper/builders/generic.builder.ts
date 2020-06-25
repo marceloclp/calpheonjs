@@ -73,12 +73,7 @@ export class Generic {
             ctx.set('nodes', nodes);
         }
         return ctx.get<CheerioElement[]>('nodes')
-            .find(node => {
-                const str = node.tagName === 'span'
-                    ? this.$(node).text()
-                    : node.data as string;
-                return matcher.in(str);
-            });
+            .find(node => matcher.in(this.$(node).text()));
     }
 
     protected parsePageInfo(): BDOCodex.PageInfo {
@@ -103,7 +98,7 @@ export class Generic {
         });
     }
 
-    protected queryFactory<T = any>(type: Queries.Types): Undef<Queries.QueryFn<T>> {
+    protected QueryFactory(type: Queries.Types): Undef<Queries.QueryFn> {
         const ids = {
             [App.Locales.US]: {
                 [Queries.Types.QUEST_REWARD]: 'questreward',
@@ -113,7 +108,7 @@ export class Generic {
         }[this._locale];
         if (!this.$(`a[href="#tabs-${(ids as any)[type]}"]`).length)
             return undefined;
-        return <T>() => this._query<T>(this._id, type, {
+        return () => this._query(this._id, type, {
             db: this._db,
             locale: this._locale,
         });
@@ -159,9 +154,7 @@ export class Generic {
             if (nodes[i]?.type === 'text')
                 if (['-'].includes(nodes[i].data?.trim()[0] as string))
                     break;
-            const str = nodes[i]?.tagName === 'span'
-                ? this.$(nodes[i]).text()
-                : nodes[i].data as string;
+            const str = this.$(nodes[i]).text();
             if (!str)
                 continue;
             if (strs.length && nodes[i-1]?.tagName !== 'br')

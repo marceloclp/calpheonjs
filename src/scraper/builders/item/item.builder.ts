@@ -48,7 +48,7 @@ export class Item extends Generic {
 
     async build(): Promise<Scrapers.Entities.Item> {
         const Types = Queries.Types;
-        const qf = this.queryFactory.bind(this);
+        const qf = this.QueryFactory.bind(this);
         return {
             ...(await super.build()),
             prices: this.prices,

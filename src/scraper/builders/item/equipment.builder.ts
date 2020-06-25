@@ -29,7 +29,7 @@ export class Equipment extends Item {
             if (!node.is('script'))
                 return ctx.set('data', {}) as any;
             const raw = node.html() || '';
-            const str = raw.substring(AppUtils.indexOf(raw, '=', 0, true).idx);
+            const str = raw.substring(raw.indexOf('=') + 1);
             ctx.set('data', JSON.parse(AppUtils.cleanStr(str, ';\t')));
         }
         return ctx.get('data');

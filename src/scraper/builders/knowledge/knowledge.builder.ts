@@ -55,12 +55,8 @@ export class Knowledge extends Generic {
                 break;
             else if (strs.length && node.tagName === 'br')
                 strs.push('\n');
-            else if (node.type === 'text' || node.tagName === 'span') {
-                const str = node.type === 'text'
-                    ? node.data
-                    : this.$(node).text();
-                strs.push(str);
-            }
+            else if (node.type === 'text' || node.tagName === 'span')
+                strs.push(this.$(nodes[i]).text());
         }
         return strs.join('');
     }

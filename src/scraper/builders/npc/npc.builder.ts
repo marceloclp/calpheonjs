@@ -66,9 +66,7 @@ export class NPC extends Generic {
             if (nodes[i]?.type === 'text')
                 if (['-'].includes(nodes[i]?.data?.trim()[0] as string))
                     break;
-            const str = nodes[i]?.type === 'text'
-                ? nodes[i].data as string
-                : this.$(nodes[i]).text();
+            const str = this.$(nodes[i]).text();
             if (!str)
                 continue;
             if (strs.length && nodes[i-1]?.tagName !== 'br')
