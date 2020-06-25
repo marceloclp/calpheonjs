@@ -1,6 +1,6 @@
 import * as AppUtils from "../../shared/utils";
 import * as Scrapers from "../typings";
-import { App, BDOCodex, Undef } from "../../typings";
+import { App, BDOCodex, Undef } from "../../shared";
 import { Queries } from "../../query";
 import { Matcher, ContextCache } from "../../shared";
 

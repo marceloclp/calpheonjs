@@ -1,4 +1,4 @@
-import * as Refs from "../../entities/refs";
+import * as Refs from "../../refs";
 import { Stats } from "./stats.interface";
 
 export interface Enhancement {

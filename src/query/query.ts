@@ -1,6 +1,6 @@
 import * as Queries from "./typings";
 import * as Builders from "./builders";
-import { App } from "../typings";
+import { App } from "../shared";
 import { Scrapers } from "../scraper";
 
 export class Query {

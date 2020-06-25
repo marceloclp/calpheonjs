@@ -1,6 +1,6 @@
 import * as AppUtils from "../../shared/utils";
 import * as Queries from "../typings";
-import { BDOCodex } from "../../typings";
+import { BDOCodex } from "../../shared";
 import { Generic } from "./generic.builder";
 
 export class Node extends Generic {

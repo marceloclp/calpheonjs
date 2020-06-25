@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../shared/utils";
 import * as Queries from "../typings";
-import { BDOCodex, Undef } from "../../typings";
+import { BDOCodex, Undef } from "../../shared";
 import { Scrapers } from "../../scraper";
 import { Generic } from "./generic.builder";
 

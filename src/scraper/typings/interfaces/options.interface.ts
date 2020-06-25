@@ -1,4 +1,4 @@
-import { App } from "../../../typings";
+import { App } from "../../../shared";
 
 export interface Options {
     readonly locale?: App.Locales;

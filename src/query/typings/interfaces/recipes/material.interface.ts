@@ -1,4 +1,4 @@
-import * as Refs from "../../entities/refs";
+import * as Refs from "../../refs";
 
 export type Material = 
     | (Refs.Item & { amount: number })

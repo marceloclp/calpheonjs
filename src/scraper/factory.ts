@@ -1,6 +1,6 @@
 import * as AppUtils from "../shared/utils";
 import * as Scrapers from "./typings";
-import { App } from "../typings";
+import { App } from "../shared";
 import { Scraper } from "./scraper";
 import Query from "../query";
 

@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { App } from "../../../typings";
+import { App } from "../../../shared";
 import { Item } from "./item.builder";
 import { Matcher } from "../../../shared";
 

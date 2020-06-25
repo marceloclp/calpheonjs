@@ -1,4 +1,4 @@
-import { App } from "../../../typings";
+import { App } from "../../../shared";
 
 /**
  * Allows customization of the query environment.

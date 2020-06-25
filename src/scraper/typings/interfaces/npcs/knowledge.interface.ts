@@ -1,4 +1,4 @@
-import * as Refs from "../../entities/refs";
+import * as Refs from "../../refs";
 
 export type Knowledge = Refs.Knowledge & {
     drop_chance: number

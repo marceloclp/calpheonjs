@@ -2,7 +2,7 @@ import cheerio from "cheerio";
 import * as AppUtils from "../shared/utils";
 import * as Scrapers from "./typings";
 import * as Builders from "./builders";
-import { App } from "../typings";
+import { App } from "../shared";
 import { Queries } from "../query";
 
 export class Scraper {
