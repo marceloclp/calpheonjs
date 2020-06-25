@@ -1,4 +1,4 @@
-import * as AppUtils from "../../utils";
+import * as AppUtils from "../../shared/utils";
 import * as Queries from "../typings";
 import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";

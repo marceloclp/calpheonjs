@@ -1,5 +1,5 @@
 import cheerio from "cheerio";
-import * as AppUtils from "../../../utils";
+import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
 import { BDOCodex, App } from "../../../typings";
 import { Item } from "./item.builder";
@@ -104,7 +104,7 @@ export class Equipment extends Item {
                 })),
             }
 
-            const url = AppUtils.getShortURL(
+            const url = AppUtils.composeShortURL(
                 curr.need_enchant_item_id,
                 App.EntityTypes.ITEM,
                 this._locale,

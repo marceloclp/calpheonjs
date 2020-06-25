@@ -1,4 +1,4 @@
-import * as AppUtils from "../../utils";
+import * as AppUtils from "../../shared/utils";
 import * as Scrapers from "../typings";
 import { App, BDOCodex, Maybe } from "../../typings";
 import { Queries } from "../../query";

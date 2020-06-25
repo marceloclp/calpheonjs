@@ -1,5 +1,5 @@
 import cheerio from "cheerio";
-import * as AppUtils from "../../utils";
+import * as AppUtils from "../../shared/utils";
 import * as Queries from "../typings";
 import { Scrapers } from "../../scraper";
 import { Maybe, App } from "../../typings";
