@@ -17,7 +17,7 @@ export class Recipe extends Generic {
     getSkillLvl(raw: string): Queries.Recipes.SkillLvl {
         return {
             mastery: raw.replace(/\d/g, '').trim(),
-            lvl: this.parseIntValue(raw),
+            lvl: AppUtils.parseIntValue(raw),
         }
     }
 
@@ -64,7 +64,7 @@ export class Recipe extends Generic {
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
                 process: this.getProcess(arr[3]),
-                exp: this.parseIntValue(arr[5]),
+                exp: AppUtils.parseIntValue(arr[5]),
                 skill_lvl: this.getSkillLvl(arr[4].display),
                 materials: this.getMaterials(arr[6]),
                 products: this.getMaterials(arr[7]),

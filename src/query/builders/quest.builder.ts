@@ -31,14 +31,14 @@ export class Quest extends Generic {
             if (matchers.choose.in(data))
                 curr = rewards.choose;
             else if (matchers.amity.in(data))
-                rewards.amity.push(this.parseIntValue(data));
+                rewards.amity.push(AppUtils.parseIntValue(data));
 
             if (tagName !== 'div')
                 return rewards;
 
             const elem   = $(node);
             const anchor = elem.find('a');
-            const amount = this.parseIntValue(
+            const amount = AppUtils.parseIntValue(
                 elem.find('.quantity_small').text(), 1
             );
             
@@ -73,11 +73,11 @@ export class Quest extends Generic {
                 id: arr[0].display,
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
-                lvl: this.parseIntValue(arr[3]),
+                lvl: AppUtils.parseIntValue(arr[3]),
                 region: arr[4].display,
-                exp: this.parseIntValue(arr[5].display),
-                exp_skill: this.parseIntValue(arr[6].display),
-                exp_contribution: this.parseIntValue(arr[7]),
+                exp: AppUtils.parseIntValue(arr[5].display),
+                exp_skill: AppUtils.parseIntValue(arr[6].display),
+                exp_contribution: AppUtils.parseIntValue(arr[7]),
                 rewards: this.getRewards(arr[8]),
                 shortUrl: url,
                 scrape: this.ScrapeFactory(url) as any,

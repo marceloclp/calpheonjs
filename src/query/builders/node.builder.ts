@@ -1,3 +1,4 @@
+import * as AppUtils from "../../utils";
 import * as Queries from "../typings";
 import { BDOCodex } from "../../typings";
 import { Generic } from "./generic.builder";
@@ -17,9 +18,9 @@ export class Node extends Generic {
                 icon: this.parseIconURL(arr[1]),
                 name: this.parseName(arr[2]),
                 zone: arr[3],
-                temperature: this.parsePercentageValue(arr[4]),
-                humidity: this.parsePercentageValue(arr[5]),
-                water: this.parsePercentageValue(arr[6]),
+                temperature: AppUtils.parsePercentageValue(arr[4]),
+                humidity: AppUtils.parsePercentageValue(arr[5]),
+                water: AppUtils.parsePercentageValue(arr[6]),
                 shortUrl: url,
             };
         });

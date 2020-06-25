@@ -3,7 +3,7 @@ import { describe } from "mocha";
 import { expect } from "chai";
 import ScrapeMock, { Scrapers } from "../../utils/scrape-mock";
 
-describe('Workers', () => {
+describe('Recipes', () => {
     /**
      * https://bdocodex.com/us/recipe/122/
      * Beer

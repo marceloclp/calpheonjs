@@ -31,7 +31,10 @@ export class Generic {
 
     /** Parses the icon url from an html raw string. */
     protected parseIconURL(raw: string): string {
-        return AppUtils.splitStr(raw, '[img src="', '"') as string;
+        const str = raw
+            .replace('[', '<')
+            .replace(']', '>');
+        return cheerio.load(str)('img').first().attr('src') as string;
     }
 
     /** Parses an entity short url. */
@@ -45,26 +48,6 @@ export class Generic {
             .root()
             .text();
         return AppUtils.cleanStr(str);
-    }
-
-    protected parseIntValue(raw?: string | number, val = 0): number {
-        if (typeof raw === 'number')
-            return raw;
-        if (typeof raw === 'string')
-            return parseInt(raw.replace(/\D/g, '')) || val;
-        return val;
-    }
-
-    protected parseFloatValue(raw?: string | number, val = 0): number {
-        if (typeof raw === 'number')
-            return raw;
-        if (typeof raw === 'string')
-            return parseFloat(raw.replace(/\D/g, '')) || val;
-        return val;
-    }
-
-    protected parsePercentageValue(raw: string, val = 0): number {
-        return parseFloat(raw.replace(/\%/g, '')) || val;
     }
 
     build(data: any): any[] {
