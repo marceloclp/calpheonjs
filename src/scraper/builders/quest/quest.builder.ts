@@ -220,6 +220,7 @@ export class Quest extends Generic {
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
+                    scrape: this.ScrapeFactory(url) as any,
                 });
             }
             return rewards;

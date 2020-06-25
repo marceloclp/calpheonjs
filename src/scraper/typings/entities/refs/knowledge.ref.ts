@@ -1,3 +1,6 @@
+import * as Entities from "../";
+import { ScrapeFn } from "../../types";
+
 export interface Knowledge {
     type: 'knowledge';
 
@@ -8,4 +11,6 @@ export interface Knowledge {
     name: string;
 
     shortUrl: string;
+
+    scrape: ScrapeFn<Entities.Knowledge>;
 }
