@@ -1,6 +1,6 @@
-import * as AppUtils from "../../shared/utils";
-import * as Scrapers from "../typings";
-import { Generic } from "./generic.builder";
+import * as AppUtils from "../../../shared/utils";
+import * as Scrapers from "../../typings";
+import { Generic } from "../generic.builder";
 
 export class MaterialGroup extends Generic {
     get items(): Scrapers.Refs.Item[] {
