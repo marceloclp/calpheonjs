@@ -1,3 +1,4 @@
+import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
 import { App } from "../../../typings";
 import { Generic } from "../generic.builder";
@@ -9,18 +10,33 @@ export class Recipe extends Generic {
         if (!row) return [];
         return this.$(row).find('img').toArray().map(node => {
             const parent = node.parent.parent;
-            const shortUrl = parent.attribs.href;
-            const anchor = this.$(row).find(`a[href="${shortUrl}"]`).last();
-            return {
-                type: 'item',
-                id: parent.attribs['data-id'].split('--')[1],
-                icon: node.attribs.src,
-                name: anchor.text(),
-                grade: parseInt(anchor.attr('class')?.replace(/\D/g, '') || '0'),
-                amount: parseInt(this.$(parent).text()) || 1,
-                shortUrl,
-                scrape: this.ScrapeFactory(shortUrl) as any,
-            };
+            const url    = parent.attribs.href;
+            const anchor = this.$(row).find(`a[href="${url}"]`).last();
+            const amount = AppUtils.parseIntValue(this.$(parent).text(), 1);
+            const { type, id } = AppUtils.decomposeShortURL(url);
+            
+            if (type === Scrapers.EntityTypes.ITEM) {
+                return {
+                    type: 'item',
+                    id,
+                    icon: node.attribs.src,
+                    name: anchor.text(),
+                    grade: AppUtils.parseIntValue(anchor.attr('class')),
+                    amount,
+                    shortUrl: url,
+                    scrape: this.ScrapeFactory(url) as any,
+                };
+            } else {
+                return {
+                    type: 'material_group',
+                    id,
+                    icon: node.attribs.src,
+                    name: anchor.text(),
+                    amount,
+                    shortUrl: url,
+                    scrape: this.ScrapeFactory(url) as any,
+                }
+            }
         });
     }
 

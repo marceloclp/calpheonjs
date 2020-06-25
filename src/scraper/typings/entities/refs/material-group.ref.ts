@@ -1,8 +1,8 @@
 import * as Entities from "../";
 import { ScrapeFn } from "../../types";
 
-export interface NPC {
-    type: 'npc';
+export interface MaterialGroup {
+    type: 'material_group';
 
     id: string;
 
@@ -12,5 +12,5 @@ export interface NPC {
 
     shortUrl: string;
 
-    scrape: ScrapeFn<Entities.NPC>;
+    scrape: ScrapeFn<Entities.MaterialGroup>;
 }

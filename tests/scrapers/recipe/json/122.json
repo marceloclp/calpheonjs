@@ -16,7 +16,6 @@
         "icon": "/items/new_icon/03_etc/07_productmaterial/00007005.png",
         "name": "Cereals",
         "shortUrl": "/us/materialgroup/1/",
-        "grade": 0,
         "amount": 5
     }, {
         "type": "item",
