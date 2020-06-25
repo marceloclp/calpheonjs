@@ -1,5 +1,5 @@
 import * as Queries from "../typings";
-import { BDOCodex } from "../../shared";
+import { BDOCodex } from "../../shared/typings";
 import { Generic } from "./generic.builder";
 
 export class Item extends Generic {

@@ -1,6 +1,6 @@
 import * as AppUtils from "../../shared/utils";
 import * as Scrapers from "../typings";
-import { App, BDOCodex, Undef } from "../../shared";
+import { App, BDOCodex, Undef } from "../../shared/typings";
 import { Queries } from "../../query";
 import { Matcher, ContextCache } from "../../shared";
 
@@ -34,7 +34,7 @@ export class Generic {
         return ctx.get('rows');
     }
 
-    protected getTableRow(matcher: Matcher): CheerioElement | undefined {
+    protected getTableRow(matcher: Matcher): Undef<CheerioElement> {
         return this.getTableRows()
             .find(node => matcher.in(this.$(node).text()));
     }
@@ -107,7 +107,7 @@ export class Generic {
         });
     }
 
-    protected queryFactory<T = any>(type: Queries.Types): Queries.QueryFn<T> | undefined {
+    protected queryFactory<T = any>(type: Queries.Types): Undef<Queries.QueryFn<T>> {
         const ids = {
             [App.Locales.US]: {
                 [Queries.Types.QUEST_REWARD]: 'questreward',
@@ -131,7 +131,7 @@ export class Generic {
         return AppUtils.cleanStr(this.$('.item_title').text());
     }
 
-    get name_alt(): string | undefined {
+    get name_alt(): Undef<string> {
         return this.$('.item_sub_title').text() || undefined;
     }
 
@@ -145,7 +145,7 @@ export class Generic {
             ?.replace(/\D/g, '') as string) || 0;
     }
 
-    get description(): string | undefined {
+    get description(): Undef<string> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Description:'],
         });

@@ -1,4 +1,4 @@
-import { App } from "../../shared";
+import { App } from "../../shared/typings";
 import { indexOf } from "../utils";
 
 export class Matcher {

@@ -1,4 +1,4 @@
-import { App } from "../../shared";
+import { App } from "../../shared/typings";
 import { Scrapers } from "../../scraper";
 
 export const decomposeShortURL = (shortUrl: string) => {

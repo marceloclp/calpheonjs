@@ -1,4 +1,4 @@
-import { App } from "../../../shared";
+import { App } from "../../../shared/typings";
 
 export interface Result<T = any> {
     /** The parsed url that was used to perform the fetch. */

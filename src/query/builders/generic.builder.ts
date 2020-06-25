@@ -1,8 +1,8 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../shared/utils";
 import * as Queries from "../typings";
+import { Undef, App } from "../../shared/typings";
 import { Scrapers } from "../../scraper";
-import { Undef, App } from "../../shared";
 
 export class Generic {
     static get type(): Queries.EntityTypes {

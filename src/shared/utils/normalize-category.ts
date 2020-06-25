@@ -1,4 +1,4 @@
-import { App } from "../../shared";
+import { App } from "../../shared/typings";
 
 const Ctgs = App.Categories;
 

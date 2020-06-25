@@ -1,5 +1,5 @@
 import * as Scrapers from "../../typings";
-import { App } from "../../../shared";
+import { App } from "../../../shared/typings";
 import { Queries } from "../../../query";
 import { Pricings } from "../../typings";
 import { Generic } from "../generic.builder";

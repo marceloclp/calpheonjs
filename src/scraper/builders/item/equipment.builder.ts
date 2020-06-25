@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { BDOCodex, App } from "../../../shared";
+import { BDOCodex, App, Undef } from "../../../shared/typings";
 import { Item } from "./item.builder";
 import { Matcher } from "../../../shared";
 
@@ -53,7 +53,7 @@ export class Equipment extends Item {
         return effects;
     }
 
-    private parseStat(value?: string | number): Scrapers.Stat | undefined {
+    private parseStat(value?: string | number): Undef<Scrapers.Stat> {
         if (value === undefined || value === '')
             return undefined;
         const nums = value.toString().split(' ~ ')

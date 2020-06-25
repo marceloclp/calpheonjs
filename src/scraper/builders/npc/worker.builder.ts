@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { App, BDOCodex, Undef } from "../../../shared";
+import { App, BDOCodex, Undef } from "../../../shared/typings";
 import { Generic } from "../generic.builder"
 import { Matcher } from "../../../shared";
 

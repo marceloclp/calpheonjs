@@ -1,4 +1,4 @@
-import { App } from "../../src/shared";
+import { App } from "../../src/shared/typings";
 import { Scrapers } from "../../src"
 import { Scraper } from "../../src/scraper/scraper";
 import { fetchMock } from "./fetch-mock";

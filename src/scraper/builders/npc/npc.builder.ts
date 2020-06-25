@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { App } from "../../../shared";
+import { App, Undef } from "../../../shared/typings";
 import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
@@ -153,7 +153,7 @@ export class NPC extends Generic {
         return this.getNumericPropertyFromTitleCell(matcher) || 0;
     }
 
-    get knowledge(): Scrapers.NPCs.Knowledge | undefined {
+    get knowledge(): Undef<Scrapers.NPCs.Knowledge> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Knowledge:'],
         });
