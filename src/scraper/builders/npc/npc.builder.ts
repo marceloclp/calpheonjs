@@ -167,7 +167,7 @@ export class NPC extends Generic {
         const url = anchors[0].attribs.href as string;
         return {
             type: 'knowledge',
-            id: AppUtils.getIdFromURL(url),
+            id: AppUtils.decomposeShortURL(url).id,
             icon: this.$(anchors[0]).find('img').first().attr('src') as string,
             name: this.$(anchors[1]).text(),
             shortUrl: url,

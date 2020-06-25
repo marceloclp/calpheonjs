@@ -112,7 +112,7 @@ export class Worker extends Generic {
         const url    = anchor.attr('href') as string;
         return {
             type: "npc",
-            id: AppUtils.getIdFromURL(url),
+            id: AppUtils.decomposeShortURL(url).id,
             icon: img.attr('src') as string,
             name: anchor.text(),
             shortUrl: url,

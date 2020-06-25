@@ -186,7 +186,7 @@ export class Quest extends Generic {
             if (type === 'item') {
                 curr.push({
                     type: 'item',
-                    id: AppUtils.getIdFromURL(url),
+                    id: AppUtils.decomposeShortURL(url).id,
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
@@ -204,7 +204,7 @@ export class Quest extends Generic {
             } else if (type === 'npc') {
                 curr.push({
                     type: 'npc',
-                    id: AppUtils.getIdFromURL(url),
+                    id: AppUtils.decomposeShortURL(url).id,
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
@@ -216,7 +216,7 @@ export class Quest extends Generic {
             } else if (type === 'theme') {
                 curr.push({
                     type: 'knowledge',
-                    id: AppUtils.getIdFromURL(url),
+                    id: AppUtils.decomposeShortURL(url).id,
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
