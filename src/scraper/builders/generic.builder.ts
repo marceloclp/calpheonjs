@@ -95,13 +95,9 @@ export class Generic {
         return ctx.get('data');
     }
 
-    protected ScrapeFactory(shortUrl: string): Undef<Scrapers.ScrapeFn> {
+    protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
-
-        if (!Object.values(Scrapers.EntityTypes).includes(type))
-            return undefined as any;
-
-        return async <T>() => this._scrape<T>(id, type, {
+        return async () => this._scrape(id, type, {
             db: this._db,
             locale: this._locale
         });

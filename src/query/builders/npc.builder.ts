@@ -25,7 +25,7 @@ export class NPC extends Generic {
                 exp_skill: AppUtils.parseIntValue(arr[8]),
                 karma: AppUtils.parseIntValue(arr[9]),
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url) as any,
+                scrape: this.ScrapeFactory(url),
             };
         });
     }

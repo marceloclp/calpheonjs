@@ -48,7 +48,7 @@ export class Quest extends Generic {
                     type: 'item',
                     id: AppUtils.decomposeShortURL(url).id,
                     icon: this.parseIconURL(elem.find('.icon_wrapper').text()),
-                    scrape: this.ScrapeFactory(url) as any,
+                    scrape: this.ScrapeFactory(url),
                     shortUrl: url,
                     amount,
                 });
@@ -80,7 +80,7 @@ export class Quest extends Generic {
                 exp_contribution: AppUtils.parseIntValue(arr[7]),
                 rewards: this.getRewards(arr[8]),
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url) as any,
+                scrape: this.ScrapeFactory(url),
             };
         });
     }

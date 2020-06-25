@@ -36,7 +36,7 @@ export class Knowledge extends Generic {
             icon,
             name,
             shortUrl: url,
-            scrape: this.ScrapeFactory(url) as any,
+            scrape: this.ScrapeFactory(url),
         }
     }
 

@@ -24,7 +24,7 @@ export class Recipe extends Generic {
                     grade: AppUtils.parseIntValue(anchor.attr('class')),
                     amount,
                     shortUrl: url,
-                    scrape: this.ScrapeFactory(url) as any,
+                    scrape: this.ScrapeFactory(url),
                 };
             } else {
                 return {
@@ -34,7 +34,7 @@ export class Recipe extends Generic {
                     name: anchor.text(),
                     amount,
                     shortUrl: url,
-                    scrape: this.ScrapeFactory(url) as any,
+                    scrape: this.ScrapeFactory(url),
                 }
             }
         });

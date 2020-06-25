@@ -25,7 +25,7 @@ export class Quest extends Generic {
             icon: img?.attribs.src as string,
             name: this.$(row).find(`a[href="${url}"]`).last().text(),
             shortUrl: url,
-            scrape: this.ScrapeFactory(url) as any,
+            scrape: this.ScrapeFactory(url),
         };
     }
 
@@ -103,7 +103,7 @@ export class Quest extends Generic {
                     icon: this.$(node).find('img').attr('src') as string,
                     name: AppUtils.cleanStr(this.$(node).text()),
                     shortUrl: node.attribs.href,
-                    scrape: this.ScrapeFactory(node.attribs.href) as any,
+                    scrape: this.ScrapeFactory(node.attribs.href),
                 }));
             ctx.set('quests', quests);
         }
@@ -191,7 +191,7 @@ export class Quest extends Generic {
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
                     amount: parseInt(elem.text().replace(/\D/g, '')) || 1,
-                    scrape: this.ScrapeFactory(url) as any,
+                    scrape: this.ScrapeFactory(url),
                 });
             } else if (type === 'exp') {
                 const txt = AppUtils.cleanStr(arr[i+1].data);
@@ -208,7 +208,7 @@ export class Quest extends Generic {
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
-                    scrape: this.ScrapeFactory(url) as any,
+                    scrape: this.ScrapeFactory(url),
                     amity_gained: parseInt(
                         arr[i-1].data?.replace(/\D/g, '') as string
                     ) || 0,
@@ -220,7 +220,7 @@ export class Quest extends Generic {
                     icon: img.attr('src') as string,
                     name: this.$(arr[i+2]).text(),
                     shortUrl: url,
-                    scrape: this.ScrapeFactory(url) as any,
+                    scrape: this.ScrapeFactory(url),
                 });
             }
             return rewards;

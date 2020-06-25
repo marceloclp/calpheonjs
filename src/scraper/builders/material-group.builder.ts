@@ -22,7 +22,7 @@ export class MaterialGroup extends Generic {
                 icon,
                 name: this.$(arr[i+1]).text(),
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url) as any,
+                scrape: this.ScrapeFactory(url),
             }];
         }, [] as Scrapers.Refs.Item[]);
     }

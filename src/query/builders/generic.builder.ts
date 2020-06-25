@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../shared/utils";
 import * as Queries from "../typings";
-import { Undef, App } from "../../shared/typings";
+import { App } from "../../shared/typings";
 import { Scrapers } from "../../scraper";
 
 export class Generic {
@@ -17,15 +17,11 @@ export class Generic {
         protected readonly _scrape: Scrapers.Scrape,
     ) {}
 
-    protected ScrapeFactory(shortUrl: string): Undef<Scrapers.ScrapeFn> {
-        const { type, id } = AppUtils.decomposeShortURL(shortUrl);
-        
-        if (!Object.values(Scrapers.EntityTypes).includes(type))
-            return undefined;
-        
-        return async <T = any>() => this._scrape<T>(id, type, {
+    protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
+        const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
+        return async () => this._scrape(id, type, {
             db: this._db,
-            locale: this._locale,
+            locale: this._locale
         });
     }
 

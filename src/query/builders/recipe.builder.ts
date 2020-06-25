@@ -39,7 +39,7 @@ export class Recipe extends Generic {
                         amount: parseInt(txt.text()) || 1,
                         icon: this.parseIconURL(img.text()),
                         shortUrl: url,
-                        scrape: this.ScrapeFactory(url) as any,
+                        scrape: this.ScrapeFactory(url),
                     };
                 default:
                     return {
@@ -48,7 +48,7 @@ export class Recipe extends Generic {
                         amount: parseInt(txt.text()) || 1,
                         icon: this.parseIconURL(img.text()),
                         shortUrl: url,
-                        scrape: this.ScrapeFactory(url) as any,
+                        scrape: this.ScrapeFactory(url),
                     };
             }
         });
@@ -69,7 +69,7 @@ export class Recipe extends Generic {
                 materials: this.getMaterials(arr[6]),
                 products: this.getMaterials(arr[7]),
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url) as any,
+                scrape: this.ScrapeFactory(url),
             }
         });
     }

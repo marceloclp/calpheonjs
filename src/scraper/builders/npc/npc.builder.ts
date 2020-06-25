@@ -172,7 +172,7 @@ export class NPC extends Generic {
             name: this.$(anchors[1]).text(),
             shortUrl: url,
             drop_chance: this.getKnowledgeDropChance(),
-            scrape: this.ScrapeFactory(url) as any,
+            scrape: this.ScrapeFactory(url),
         }
     }
 

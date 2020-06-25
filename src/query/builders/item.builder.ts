@@ -18,7 +18,7 @@ export class Item extends Generic {
                 name: this.parseName(arr[2]),
                 lvl: arr[3],
                 shortUrl: url,
-                scrape: this.ScrapeFactory(url) as any,
+                scrape: this.ScrapeFactory(url),
             };
         })
     }
