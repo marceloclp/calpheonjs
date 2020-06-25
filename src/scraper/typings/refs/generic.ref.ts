@@ -1,4 +1,4 @@
-import { ScrapeFn } from "../../types";
+import { ScrapeFn } from "../types";
 
 export interface Generic {
     type?: string;

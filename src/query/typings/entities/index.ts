@@ -5,4 +5,3 @@ export { NPCDrop } from "./npc-drop.entity";
 export { NPC } from "./npc.entity";
 export { Quest } from "./quest.entity";
 export { Recipe } from "./recipe.entity";
-export * as Refs from "./refs";

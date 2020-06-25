@@ -1,11 +1,11 @@
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { App, Maybe } from "../../../typings";
+import { App, Undef } from "../../../typings";
 import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Quest extends Generic {
-    private getQuestNPC(matcher: Matcher): Scrapers.Entities.Refs.NPC | undefined {
+    private getQuestNPC(matcher: Matcher): Undef<Scrapers.Refs.NPC> {
         // Find the table row that contains the start/end npcs.
         const row = this.getTableRow(matcher);
         if (!row) return undefined;
@@ -33,7 +33,7 @@ export class Quest extends Generic {
         return this.$('img.quest_icon').attr('src') as string;
     }
 
-    get stage(): Maybe<number> {
+    get stage(): Undef<number> {
         if (!this.quest_chain.length)
             return undefined;
         return this.quest_chain.findIndex(node => node.id === this._id) + 1;
@@ -90,9 +90,9 @@ export class Quest extends Generic {
             .map(str => AppUtils.cleanStr(str)) || [];
     }
 
-    get quest_chain(): Scrapers.Entities.Refs.Quest[] {
+    get quest_chain(): Scrapers.Refs.Quest[] {
         const ctx = this.cache.for<{
-            quests: Scrapers.Entities.Refs.Quest[]
+            quests: Scrapers.Refs.Quest[]
         }>('quest_chain');
         if (!ctx.has('quests')) {
             const quests = this.$('#full_quest_chain > a')
@@ -110,14 +110,14 @@ export class Quest extends Generic {
         return ctx.get('quests');
     }
 
-    get npc_start(): Scrapers.Entities.Refs.NPC | undefined {
+    get npc_start(): Undef<Scrapers.Refs.NPC> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Start NPC'],
         });
         return this.getQuestNPC(matcher);
     }
 
-    get npc_end(): Scrapers.Entities.Refs.NPC | undefined {
+    get npc_end(): Undef<Scrapers.Refs.NPC> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['End NPC'],
         });

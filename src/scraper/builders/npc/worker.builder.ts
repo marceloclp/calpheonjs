@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { App, BDOCodex } from "../../../typings";
+import { App, BDOCodex, Undef } from "../../../typings";
 import { Generic } from "../generic.builder"
 import { Matcher } from "../../../shared";
 
@@ -99,7 +99,7 @@ export class Worker extends Generic {
         };
     }
 
-    get obtained_from(): Scrapers.Entities.Refs.NPC | undefined {
+    get obtained_from(): Undef<Scrapers.Refs.NPC> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Obtained from:'],
         });

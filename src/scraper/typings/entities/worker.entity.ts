@@ -1,4 +1,4 @@
-import * as Refs from "./refs";
+import * as Refs from "../refs";
 import * as Workers from "../interfaces/npcs/workers";
 import { Generic } from "./generic.entity";
 

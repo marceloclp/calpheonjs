@@ -1,5 +1,5 @@
+import * as Refs from "../refs";
 import { Generic } from "./generic.entity";
-import * as Refs from "./refs";
 
 export interface Knowledge extends Generic {
     group?: string;

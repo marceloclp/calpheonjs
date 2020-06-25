@@ -1,4 +1,4 @@
-import { Scrapers } from "../../../../scraper";
+import { Scrapers } from "../../../scraper";
 
 export interface MaterialGroup {
     type: 'material_group';

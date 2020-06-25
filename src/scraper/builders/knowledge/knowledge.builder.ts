@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
-import { App, Maybe } from "../../../typings";
+import { App, Undef } from "../../../typings";
 import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
@@ -9,7 +9,7 @@ export class Knowledge extends Generic {
         return this.$('img.quest_icon').attr('src') as string;
     }
 
-    get group(): Maybe<string> {
+    get group(): Undef<string> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Category:'],
         });
@@ -24,7 +24,7 @@ export class Knowledge extends Generic {
             .trim();
     }
 
-    get obtained_from(): Maybe<Scrapers.Entities.Refs.NPC> {
+    get obtained_from(): Undef<Scrapers.Refs.NPC> {
         const elem = this.$('.iconset_wrapper_medium.inlinediv').first();
         const url  = elem.find('a').attr('href') as string;
         const icon = elem.find('img').attr('src') as string;
@@ -40,7 +40,7 @@ export class Knowledge extends Generic {
         }
     }
 
-    get description(): Maybe<string> {
+    get description(): Undef<string> {
         const matcher = new Matcher(this._locale, {
             [App.Locales.US]: ['Description:'],
         });

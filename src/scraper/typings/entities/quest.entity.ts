@@ -1,4 +1,4 @@
-import * as Refs from "./refs";
+import * as Refs from "../refs";
 import * as Quests from "../interfaces/quests";
 import { Generic } from "./generic.entity";
 

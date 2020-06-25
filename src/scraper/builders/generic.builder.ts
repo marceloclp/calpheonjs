@@ -1,6 +1,6 @@
 import * as AppUtils from "../../shared/utils";
 import * as Scrapers from "../typings";
-import { App, BDOCodex, Maybe } from "../../typings";
+import { App, BDOCodex, Undef } from "../../typings";
 import { Queries } from "../../query";
 import { Matcher, ContextCache } from "../../shared";
 
@@ -95,7 +95,7 @@ export class Generic {
         return ctx.get('data');
     }
 
-    protected ScrapeFactory(shortUrl: string): Maybe<Scrapers.ScrapeFn> {
+    protected ScrapeFactory(shortUrl: string): Undef<Scrapers.ScrapeFn> {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
 
         if (!Object.values(Scrapers.EntityTypes).includes(type))

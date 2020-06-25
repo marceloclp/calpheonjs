@@ -1,5 +1,5 @@
-import { ScrapeFn } from "../../types";
-import { Entities } from "../..";
+import * as Entities from "../entities";
+import { ScrapeFn } from "../types";
 
 export interface Quest {
     type: 'quest';

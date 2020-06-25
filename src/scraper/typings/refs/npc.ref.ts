@@ -1,5 +1,5 @@
-import * as Entities from "../";
-import { ScrapeFn } from "../../types";
+import * as Entities from "../entities";
+import { ScrapeFn } from "../types";
 
 export interface NPC {
     type: 'npc';

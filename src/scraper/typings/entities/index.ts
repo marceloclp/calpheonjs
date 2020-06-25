@@ -8,4 +8,3 @@ export { Quest } from "./quest.entity";
 export { NPC } from "./npc.entity";
 export { Worker } from "./worker.entity";
 export { Knowledge } from "./knowledge.entity";
-export * as Refs from "./refs";

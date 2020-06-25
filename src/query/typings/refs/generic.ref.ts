@@ -1,4 +1,4 @@
-import { EntityTypes } from "../../types";
+import { EntityTypes } from "../types";
 
 export interface Generic {
     type: EntityTypes;

@@ -3,7 +3,7 @@ import * as Scrapers from "../typings";
 import { Generic } from "./generic.builder";
 
 export class MaterialGroup extends Generic {
-    get items(): Scrapers.Entities.Refs.Item[] {
+    get items(): Scrapers.Refs.Item[] {
         const nodes = this.$('hr.hr_long')
             .parent()
             .children()
@@ -24,7 +24,7 @@ export class MaterialGroup extends Generic {
                 shortUrl: url,
                 scrape: this.ScrapeFactory(url) as any,
             }];
-        }, [] as Scrapers.Entities.Refs.Item[]);
+        }, [] as Scrapers.Refs.Item[]);
     }
 
     async build(): Promise<Scrapers.Entities.MaterialGroup> {
