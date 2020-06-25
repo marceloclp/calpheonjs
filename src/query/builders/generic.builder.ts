@@ -2,7 +2,7 @@ import cheerio from "cheerio";
 import * as AppUtils from "../../utils";
 import * as Queries from "../typings";
 import { Scrapers } from "../../scraper";
-import { Undef, App } from "../../typings";
+import { Maybe, App } from "../../typings";
 
 export class Generic {
     static get type(): Queries.EntityTypes {
@@ -17,7 +17,7 @@ export class Generic {
         protected readonly _scrape: Scrapers.Scrape,
     ) {}
 
-    protected ScrapeFactory(shortUrl: string): Undef<Scrapers.ScrapeFn> {
+    protected ScrapeFactory(shortUrl: string): Maybe<Scrapers.ScrapeFn> {
         const { type, id } = AppUtils.decomposeShortURL(shortUrl);
         
         if (!Object.values(Scrapers.EntityTypes).includes(type))

@@ -9,4 +9,5 @@ export enum EntityTypes {
     QUEST = 'quest',
     NPC = 'npc',
     MATERIAL_GROUP = 'materialgroup',
+    KNOWLEDGE = 'theme',
 }

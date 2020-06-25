@@ -1,6 +1,6 @@
 import * as AppUtils from "../../../utils";
 import * as Scrapers from "../../typings";
-import { App, Undef } from "../../../typings";
+import { App, Maybe } from "../../../typings";
 import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
@@ -33,7 +33,7 @@ export class Quest extends Generic {
         return this.$('img.quest_icon').attr('src') as string;
     }
 
-    get stage(): Undef<number> {
+    get stage(): Maybe<number> {
         if (!this.quest_chain.length)
             return undefined;
         return this.quest_chain.findIndex(node => node.id === this._id) + 1;

@@ -4,3 +4,4 @@ export * from "./item";
 export * from "./recipe";
 export * from "./quest";
 export * from "./npc";
+export * from "./knowledge";

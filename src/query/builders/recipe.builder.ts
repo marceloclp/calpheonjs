@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
 import * as AppUtils from "../../utils";
 import * as Queries from "../typings";
-import { BDOCodex, Undef } from "../../typings";
+import { BDOCodex, Maybe } from "../../typings";
 import { Scrapers } from "../../scraper";
 import { Generic } from "./generic.builder";
 
@@ -10,7 +10,7 @@ export class Recipe extends Generic {
         return <const> "recipe";
     }
 
-    getProcess(raw: string): Undef<string> {
+    getProcess(raw: string): Maybe<string> {
         return raw || undefined;
     }
 

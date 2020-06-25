@@ -63,6 +63,8 @@ export class Scraper {
                 return Builders.Quest;
             case Types.RECIPE:
                 return Builders.Recipe;
+            case Types.KNOWLEDGE:
+                return Builders.Knowledge;
             default:
                 return Builders.Generic;
         }
