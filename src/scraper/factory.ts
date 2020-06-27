@@ -10,11 +10,9 @@ export const Scrape: Scrapers.Scrape = async <T = any>(
     options?: Scrapers.Options,
 ): Promise<Scrapers.Result<T>> => {
     const locale = options?.locale || App.Locales.US;
-    const db = options?.db || App.Dbs.BDO_CODEX;
 
     return await new Scraper(
         id,
-        db,
         locale,
         type,
         AppUtils.fetch,

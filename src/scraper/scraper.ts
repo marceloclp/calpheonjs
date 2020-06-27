@@ -8,8 +8,6 @@ export class Scraper {
     constructor(
         private readonly _id: string,
 
-        private readonly _db: App.Dbs,
-
         private readonly _locale: App.Locales,
 
         private readonly _type: Scrapers.Types,
@@ -22,8 +20,8 @@ export class Scraper {
     ) {}
 
     private get url(): string {
-        return 'https://' + [
-            this._db,
+        return [
+            App.BASE_URL,
             this._locale,
             this._type,
             this._id,
@@ -63,7 +61,6 @@ export class Scraper {
 
         const data = await new builder(
             this._id,
-            this._db,
             this._locale,
             this._type,
             $,

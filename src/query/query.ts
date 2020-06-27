@@ -13,8 +13,6 @@ export class Query {
 
         protected readonly _locale = App.Locales.US,
 
-        protected readonly _db = App.Dbs.BDO_CODEX,
-
         protected readonly fetch: App.FetchFn,
 
         protected readonly _scrape: Scrapers.Scrape,
@@ -27,7 +25,7 @@ export class Query {
             Queries.ItemAs.CONTAINER,
             Queries.ItemAs.QUEST_REWARD,
         ].includes(this._itemAs) ? 'id' : 'item_id';
-        return 'https://' + this._db + '/query.php?' + Object.entries({
+        return App.BASE_URL + '/query.php?' + Object.entries({
             a: this._group,
             type: this._itemAs,
             [idKey]: this._id,
@@ -45,7 +43,7 @@ export class Query {
         return {
             url: this.url,
             type: Builder.type as Queries.EntityTypes,
-            data: new Builder(this._locale, this._db, this._scrape).build(res)
+            data: new Builder(this._locale, this._scrape).build(res),
         };
     }
 

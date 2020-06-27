@@ -25,8 +25,6 @@ export class Generic {
     constructor(
         protected readonly _id: string,
 
-        protected readonly _db: App.Dbs,
-
         protected readonly _locale: App.Locales,
 
         protected readonly _type: Scrapers.Types,
@@ -110,25 +108,22 @@ export class Generic {
     protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
         return async () => this._scrape(id, type as Scrapers.Types, {
-            db: this._db,
             locale: this._locale
         });
     }
 
     protected QueryFactory(type: Queries.Types): Undef<Queries.QueryFn> {
+        const QTypes = Queries.Types;
         const ids = {
             [App.Locales.US]: {
-                [Queries.Types.QUEST_REWARD]: 'questreward',
-                [Queries.Types.PRODUCT_IN_RECIPE]: 'productofrecipe',
-                [Queries.Types.PRODUCT_IN_PROCESSING]: 'mproductofrecipe',
+                [QTypes.QUEST_REWARD]:          'questreward',
+                [QTypes.PRODUCT_IN_RECIPE]:     'productofrecipe',
+                [QTypes.PRODUCT_IN_PROCESSING]: 'mproductofrecipe',
             }
         }[this._locale];
         if (!this.$(`a[href="#tabs-${(ids as any)[type]}"]`).length)
             return undefined;
-        return () => this._query(this._id, type, {
-            db: this._db,
-            locale: this._locale,
-        });
+        return () => this._query(this._id, type, { locale: this._locale });
     }
 
     get icon(): string {

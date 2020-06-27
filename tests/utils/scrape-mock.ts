@@ -10,7 +10,6 @@ const ScrapeMock: Scrapers.Scrape = async <T = any>(
     options?: Scrapers.Options,
 ): Promise<Scrapers.Result<T>> => {
     const locale = options?.locale || App.Locales.US;
-    const db = options?.db || App.Dbs.BDO_CODEX;
 
     const fetch = (url: string) => fetchMock(url, [
         "scrape",
@@ -21,7 +20,6 @@ const ScrapeMock: Scrapers.Scrape = async <T = any>(
 
     return await new Scraper(
         id,
-        db,
         locale,
         type,
         fetch,

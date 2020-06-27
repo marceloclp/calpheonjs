@@ -12,15 +12,12 @@ export class Generic {
     constructor(
         protected readonly _locale = App.Locales.US,
 
-        protected readonly _db = App.Dbs.BDO_CODEX,
-
         protected readonly _scrape: Scrapers.Scrape,
     ) {}
 
     protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
         return async () => this._scrape(id, type as Scrapers.Types, {
-            db: this._db,
             locale: this._locale
         });
     }

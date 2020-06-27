@@ -1,10 +1,8 @@
 import { App } from "../../../shared/typings";
 
 /**
- * Allows customization of the query environment.
+ * Query settings.
  */
 export interface Options {
     readonly locale?: App.Locales;
-
-    readonly db?: App.Dbs;
 }

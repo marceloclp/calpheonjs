@@ -24,7 +24,6 @@ const QueryMock: Queries.Query = async <T = any>(
         q.group,
         q.itemAs,
         options?.locale,
-        options?.db,
         fetch,
         ScrapeMock,
     );
