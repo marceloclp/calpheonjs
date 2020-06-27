@@ -12,7 +12,7 @@ describe('SCRAPER: exclusive_to', () => {
 
         before(async () => {
             result = await ScrapeMock('10817',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -30,7 +30,7 @@ describe('SCRAPER: exclusive_to', () => {
 
         before(async () => {
             result = await ScrapeMock('703549',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -48,7 +48,7 @@ describe('SCRAPER: exclusive_to', () => {
 
         before(async () => {
             result = await ScrapeMock('13210',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

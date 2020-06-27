@@ -13,7 +13,7 @@ describe('Equipments', () => {
         let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = await ScrapeMock('13961', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('13961', Scrapers.Types.ITEM);
         });
 
         it('#id', () => {
@@ -94,7 +94,7 @@ describe('Equipments', () => {
         let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = await ScrapeMock('703549', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('703549', Scrapers.Types.ITEM);
         });
 
         it('#id', () => {
@@ -175,7 +175,7 @@ describe('Equipments', () => {
         let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = await ScrapeMock('11629', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('11629', Scrapers.Types.ITEM);
         });
 
         it('#id', () => {
@@ -256,7 +256,7 @@ describe('Equipments', () => {
         let result: Scrapers.Result<Scrapers.Entities.Equipment>;
 
         before(async () => {
-            result = await ScrapeMock('10006', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('10006', Scrapers.Types.ITEM);
         });
 
         it('#id', () => {

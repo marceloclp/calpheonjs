@@ -13,7 +13,7 @@ describe('Recipes', () => {
         let result: Scrapers.Result<Scrapers.Entities.Recipe>;
 
         before(async () => {
-            result = await ScrapeMock('122', Scrapers.EntityTypes.RECIPE);
+            result = await ScrapeMock('122', Scrapers.Types.RECIPE);
         });
 
         it('#id', () => {

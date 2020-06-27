@@ -13,7 +13,7 @@ describe('Material Groups', () => {
         let result: Scrapers.Result<Scrapers.Entities.MaterialGroup>;
 
         before(async () => {
-            result = await ScrapeMock('1', Scrapers.EntityTypes.MATERIAL_GROUP);
+            result = await ScrapeMock('1', Scrapers.Types.MATERIAL_GROUP);
         });
 
         it('#id', () => {

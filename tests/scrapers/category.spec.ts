@@ -12,7 +12,7 @@ describe('SCRAPER: category', () => {
 
         before(async () => {
             result = await ScrapeMock('9601',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -30,7 +30,7 @@ describe('SCRAPER: category', () => {
 
         before(async () => {
             result = await ScrapeMock('9746',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -48,7 +48,7 @@ describe('SCRAPER: category', () => {
 
         before(async () => {
             result = await ScrapeMock('10817',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -66,7 +66,7 @@ describe('SCRAPER: category', () => {
 
         before(async () => {
             result = await ScrapeMock('10991',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -84,7 +84,7 @@ describe('SCRAPER: category', () => {
 
         before(async () => {
             result = await ScrapeMock('11016',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

@@ -32,7 +32,7 @@ export class Recipe extends Generic {
             const type   = AppUtils.decomposeShortURL(url).type;
 
             switch (type) {
-                case Scrapers.EntityTypes.ITEM:
+                case Scrapers.Types.ITEM:
                     return {
                         type: 'item',
                         id: AppUtils.decomposeShortURL(url).id,

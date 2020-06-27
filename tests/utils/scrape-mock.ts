@@ -6,7 +6,7 @@ import QueryMock from "./query-mock";
 
 const ScrapeMock: Scrapers.Scrape = async <T = any>(
     id: string,
-    type: Scrapers.EntityTypes,
+    type: Scrapers.Types,
     options?: Scrapers.Options,
 ): Promise<Scrapers.Result<T>> => {
     const locale = options?.locale || App.Locales.US;

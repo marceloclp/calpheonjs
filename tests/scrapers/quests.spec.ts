@@ -13,7 +13,7 @@ describe('Quests', () => {
 
         before(async () => {
             result = await ScrapeMock('347/1',
-                Scrapers.EntityTypes.QUEST
+                Scrapers.Types.QUEST
             );
         });
 
@@ -143,7 +143,7 @@ describe('Quests', () => {
 
         before(async () => {
             result = await ScrapeMock('694/2',
-                Scrapers.EntityTypes.QUEST
+                Scrapers.Types.QUEST
             );
         });
 
@@ -195,7 +195,7 @@ describe('Quests', () => {
 
         before(async () => {
             result = await ScrapeMock('2051/19',
-                Scrapers.EntityTypes.QUEST
+                Scrapers.Types.QUEST
             );
         });
 
@@ -258,7 +258,7 @@ describe('Quests', () => {
 
         before(async () => {
             result = await ScrapeMock('6050/1',
-                Scrapers.EntityTypes.QUEST
+                Scrapers.Types.QUEST
             );
         });
 
@@ -319,7 +319,7 @@ describe('Quests', () => {
 
         before(async () => {
             result = await ScrapeMock('815/5',
-                Scrapers.EntityTypes.QUEST
+                Scrapers.Types.QUEST
             );
         });
 

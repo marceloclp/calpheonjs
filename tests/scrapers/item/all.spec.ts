@@ -13,7 +13,7 @@ describe('Items', () => {
         let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = await ScrapeMock('4901', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('4901', Scrapers.Types.ITEM);
         });
 
         it('#id', () => {
@@ -62,7 +62,7 @@ describe('Items', () => {
         let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = await ScrapeMock('4085', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('4085', Scrapers.Types.ITEM);
         });
 
         it('#id', () => {

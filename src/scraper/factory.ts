@@ -6,7 +6,7 @@ import Query from "../query";
 
 export const Scrape: Scrapers.Scrape = async <T = any>(
     id: string,
-    type: Scrapers.EntityTypes,
+    type: Scrapers.Types,
     options?: Scrapers.Options,
 ): Promise<Scrapers.Result<T>> => {
     const locale = options?.locale || App.Locales.US;

@@ -13,7 +13,7 @@ describe('Items > Queries', () => {
         let result: Scrapers.Result<Scrapers.Entities.Item>;
 
         before(async () => {
-            result = await ScrapeMock('4901', Scrapers.EntityTypes.ITEM);
+            result = await ScrapeMock('4901', Scrapers.Types.ITEM);
         });
 
         describe('#quest_rewards', () => {

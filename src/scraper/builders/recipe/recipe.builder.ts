@@ -23,7 +23,7 @@ export class Recipe extends Generic {
             const amount = AppUtils.parseIntValue(this.$(parent).text(), 1);
             const { type, id } = AppUtils.decomposeShortURL(url);
             
-            if (type === Scrapers.EntityTypes.ITEM) {
+            if (type === Scrapers.Types.ITEM) {
                 return {
                     type: 'item',
                     id,

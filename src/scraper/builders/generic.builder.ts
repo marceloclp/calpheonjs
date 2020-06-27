@@ -29,7 +29,7 @@ export class Generic {
 
         protected readonly _locale: App.Locales,
 
-        protected readonly _type: Scrapers.EntityTypes,
+        protected readonly _type: Scrapers.Types,
 
         protected readonly $: CheerioStatic,
 
@@ -109,7 +109,7 @@ export class Generic {
 
     protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
-        return async () => this._scrape(id, type as Scrapers.EntityTypes, {
+        return async () => this._scrape(id, type as Scrapers.Types, {
             db: this._db,
             locale: this._locale
         });

@@ -13,7 +13,7 @@ describe('SCRAPER: caphras_stats', () => {
 
         before(async () => {
             result = await ScrapeMock('11016',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -56,7 +56,7 @@ describe('SCRAPER: caphras_stats', () => {
 
         before(async () => {
             result = await ScrapeMock('16832',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

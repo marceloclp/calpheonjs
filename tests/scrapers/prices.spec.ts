@@ -12,7 +12,7 @@ describe('SCRAPER: prices', () => {
 
         before(async () => {
             result = await ScrapeMock('2706',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -30,7 +30,7 @@ describe('SCRAPER: prices', () => {
 
         before(async () => {
             result = await ScrapeMock('11016',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -48,7 +48,7 @@ describe('SCRAPER: prices', () => {
 
         before(async () => {
             result = await ScrapeMock('703549',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

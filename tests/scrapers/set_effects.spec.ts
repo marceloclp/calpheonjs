@@ -12,7 +12,7 @@ describe('SCRAPER: set_effects', () => {
 
         before(async () => {
             result = await ScrapeMock('10817',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -33,7 +33,7 @@ describe('SCRAPER: set_effects', () => {
 
         before(async () => {
             result = await ScrapeMock('11016',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -57,7 +57,7 @@ describe('SCRAPER: set_effects', () => {
 
         before(async () => {
             result = await ScrapeMock('703549',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

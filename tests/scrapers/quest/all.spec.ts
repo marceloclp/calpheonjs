@@ -13,7 +13,7 @@ describe('Quests', () => {
         let result: Scrapers.Result<Scrapers.Entities.Quest>;
 
         before(async () => {
-            result = await ScrapeMock('347/1', Scrapers.EntityTypes.QUEST);
+            result = await ScrapeMock('347/1', Scrapers.Types.QUEST);
         });
 
         it('#id', () => {
@@ -98,7 +98,7 @@ describe('Quests', () => {
         let result: Scrapers.Result<Scrapers.Entities.Quest>;
 
         before(async () => {
-            result = await ScrapeMock('694/2', Scrapers.EntityTypes.QUEST);
+            result = await ScrapeMock('694/2', Scrapers.Types.QUEST);
         });
 
         it('#id', () => {
@@ -183,7 +183,7 @@ describe('Quests', () => {
         let result: Scrapers.Result<Scrapers.Entities.Quest>;
 
         before(async () => {
-            result = await ScrapeMock('815/2', Scrapers.EntityTypes.QUEST);
+            result = await ScrapeMock('815/2', Scrapers.Types.QUEST);
         });
 
         it('#id', () => {
@@ -268,7 +268,7 @@ describe('Quests', () => {
         let result: Scrapers.Result<Scrapers.Entities.Quest>;
 
         before(async () => {
-            result = await ScrapeMock('2051/19', Scrapers.EntityTypes.QUEST);
+            result = await ScrapeMock('2051/19', Scrapers.Types.QUEST);
         });
 
         it('#id', () => {
@@ -353,7 +353,7 @@ describe('Quests', () => {
         let result: Scrapers.Result<Scrapers.Entities.Quest>;
 
         before(async () => {
-            result = await ScrapeMock('6050/1', Scrapers.EntityTypes.QUEST);
+            result = await ScrapeMock('6050/1', Scrapers.Types.QUEST);
         });
 
         it('#id', () => {

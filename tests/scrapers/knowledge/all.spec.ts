@@ -13,7 +13,7 @@ describe('Knowledges', () => {
         let result: Scrapers.Result<Scrapers.Entities.Knowledge>;
 
         before(async () => {
-            result = await ScrapeMock('58', Scrapers.EntityTypes.KNOWLEDGE);
+            result = await ScrapeMock('58', Scrapers.Types.KNOWLEDGE);
         });
 
         it('#id', () => {
@@ -62,7 +62,7 @@ describe('Knowledges', () => {
         let result: Scrapers.Result<Scrapers.Entities.Knowledge>;
 
         before(async () => {
-            result = await ScrapeMock('103', Scrapers.EntityTypes.KNOWLEDGE);
+            result = await ScrapeMock('103', Scrapers.Types.KNOWLEDGE);
         });
 
         it('#id', () => {

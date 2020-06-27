@@ -12,7 +12,7 @@ describe('Consumables', () => {
 
         before(async () => {
             result = await ScrapeMock('781',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -46,7 +46,7 @@ describe('Consumables', () => {
 
         before(async () => {
             result = await ScrapeMock('741',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -78,7 +78,7 @@ describe('Consumables', () => {
 
         before(async () => {
             result = await ScrapeMock('9422',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

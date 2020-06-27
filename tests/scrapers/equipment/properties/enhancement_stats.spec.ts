@@ -12,7 +12,7 @@ describe('Equipments > enhancement stats', () => {
 
         before(async () => {
             result = await ScrapeMock('11629',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 
@@ -91,7 +91,7 @@ describe('Equipments > enhancement stats', () => {
 
         before(async () => {
             result = await ScrapeMock('13210',
-                Scrapers.EntityTypes.ITEM
+                Scrapers.Types.ITEM
             );
         });
 

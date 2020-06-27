@@ -13,7 +13,7 @@ describe('NPCs', () => {
         let result: Scrapers.Result<Scrapers.Entities.NPC>;
 
         before(async () => {
-            result = await ScrapeMock('21304', Scrapers.EntityTypes.NPC);
+            result = await ScrapeMock('21304', Scrapers.Types.NPC);
         });
 
         it('#id', () => {
@@ -90,7 +90,7 @@ describe('NPCs', () => {
         let result: Scrapers.Result<Scrapers.Entities.NPC>;
 
         before(async () => {
-            result = await ScrapeMock('23720', Scrapers.EntityTypes.NPC);
+            result = await ScrapeMock('23720', Scrapers.Types.NPC);
         });
 
         it('#id', () => {
@@ -167,7 +167,7 @@ describe('NPCs', () => {
         let result: Scrapers.Result<Scrapers.Entities.NPC>;
 
         before(async () => {
-            result = await ScrapeMock('23746', Scrapers.EntityTypes.NPC);
+            result = await ScrapeMock('23746', Scrapers.Types.NPC);
         });
 
         it('#id', () => {

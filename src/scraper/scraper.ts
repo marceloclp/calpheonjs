@@ -12,7 +12,7 @@ export class Scraper {
 
         private readonly _locale: App.Locales,
 
-        private readonly _type: Scrapers.EntityTypes,
+        private readonly _type: Scrapers.Types,
 
         private readonly _fetch: App.FetchFn,
 
