@@ -1,0 +1,15 @@
+{
+    "type": "node",
+    "url": "https://bdocodex.com/query.php?a=nodes&type=nodedrop&id=15135&l=us",
+    "data": [{
+        "type": "node",
+        "shortUrl": "/us/node/1157/",
+        "id": "1157",
+        "icon": "/images/node_icons/icon_node_9.png",
+        "name": "Helms Post",
+        "zone": "Republic of Mediah",
+        "temperature": 50,
+        "humidity": 20,
+        "water": 28
+    }]
+}
