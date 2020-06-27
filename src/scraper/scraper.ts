@@ -47,7 +47,11 @@ export class Scraper {
                 'worker':             Scrapers.Ctgs.WORKER,
                 'item_group':         Scrapers.Ctgs.MATERIAL_GROUP,
             }
-        }[this._locale] as any)[ctg_id] || Scrapers.Ctgs.UNDEFINED;
+        }[this._locale] as any)[ctg_id] || Scrapers.Ctgs.UNKNOWN;
+    }
+
+    private exists($: CheerioStatic): boolean {
+        return $('table.smallertext').length !== 0;
     }
 
     async fetch(): Promise<string> {
@@ -55,9 +59,14 @@ export class Scraper {
     }
 
     async parse(): Promise<Scrapers.Result> {
-        const $       = cheerio.load(await this.fetch());
+        const $ = cheerio.load(await this.fetch());
+
+        if (!this.exists($)) {
+            return { url: this.url, type: null, data: null };
+        }
+
         const ctg_id  = this.getCategoryId($);
-        const builder = Builder.get(this._type as any, ctg_id);
+        const builder = Builder.get(this._type, ctg_id);
 
         const data = await new builder(
             this._id,

@@ -1,5 +1,5 @@
 export enum Ctgs {
-    UNDEFINED          = "undefined",
+    UNKNOWN            = "unknown",
     EQUIPMENT          = "equipment",
     CRAFTING_MATERIAL  = "crafting_material",
     CONSUMABLE         = "consumable",
