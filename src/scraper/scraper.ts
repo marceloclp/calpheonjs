@@ -1,9 +1,8 @@
 import cheerio from "cheerio";
-import * as AppUtils from "../shared/utils";
 import * as Scrapers from "./typings";
-import * as Builders from "./builders";
 import { App } from "../shared/typings";
 import { Queries } from "../query";
+import { Generic as Builder } from "./builders";
 
 export class Scraper {
     constructor(
@@ -31,43 +30,26 @@ export class Scraper {
         ].join('/') + '/';
     }
 
-    private getCategoryId($: CheerioStatic): App.Categories {
-        const category = AppUtils.cleanStr($('.category_text').text());
-        return AppUtils.normalizeCategory(category, this._locale);
-    }
-
-    private getBuilder(ctg_id: App.Categories) {
-        const Ctgs  = App.Categories;
-        const Types = Scrapers.EntityTypes;
-
-        switch (this._type) {
-            case Types.ITEM:
-                switch (ctg_id) {
-                    case Ctgs.CONSUMABLE:
-                        return Builders.Consumable;
-                    case Ctgs.EQUIPMENT:
-                        return Builders.Equipment;
-                    default:
-                        return Builders.Item;
-                }
-            case Types.NPC:
-                switch (ctg_id) {
-                    case Ctgs.WORKER:
-                        return Builders.Worker;
-                    default:
-                        return Builders.NPC;
-                }
-            case Types.MATERIAL_GROUP:
-                return Builders.MaterialGroup;
-            case Types.QUEST:
-                return Builders.Quest;
-            case Types.RECIPE:
-                return Builders.Recipe;
-            case Types.KNOWLEDGE:
-                return Builders.Knowledge;
-            default:
-                return Builders.Generic;
-        }
+    private getCategoryId($: CheerioStatic): Scrapers.Ctgs {
+        const ctg_id = $('.category_text').text()
+            .replace(/[^a-zA-Z ]/g, '')
+            .toLowerCase()
+            .trim()
+            .split(' ')
+            .join('_');
+        return ({
+            [App.Locales.US]: {
+                'equipment':          Scrapers.Ctgs.EQUIPMENT,
+                'crafting_materials': Scrapers.Ctgs.CRAFTING_MATERIAL,
+                'consumable':         Scrapers.Ctgs.CONSUMABLE,
+                'installable_object': Scrapers.Ctgs.INSTALLABLE_OBJECT,
+                'special_items':      Scrapers.Ctgs.SPECIAL_ITEM,
+                'recipe':             Scrapers.Ctgs.RECIPE,
+                'quest':              Scrapers.Ctgs.QUEST,
+                'worker':             Scrapers.Ctgs.WORKER,
+                'item_group':         Scrapers.Ctgs.MATERIAL_GROUP,
+            }
+        }[this._locale] as any)[ctg_id] || Scrapers.Ctgs.UNDEFINED;
     }
 
     async fetch(): Promise<string> {
@@ -77,9 +59,9 @@ export class Scraper {
     async parse(): Promise<Scrapers.Result> {
         const $       = cheerio.load(await this.fetch());
         const ctg_id  = this.getCategoryId($);
-        const Builder = this.getBuilder(ctg_id);
+        const builder = Builder.get(this._type as any, ctg_id);
 
-        const data = await new Builder(
+        const data = await new builder(
             this._id,
             this._db,
             this._locale,
@@ -89,6 +71,6 @@ export class Scraper {
             this._scrape,
         ).build();
 
-        return { url: this.url, type: ctg_id,  data };
+        return { url: this.url, type: builder.type, data };
     }
 }

@@ -51,9 +51,5 @@ describe('OBTAINED FROM', () => {
                 name: 'Offensive Sub-weapon Box',
             });
         });
-
-        it('#data[0].scrape().type', () => {
-            expect(scrapeResult.type).to.equal('special_item');
-        })
     });
 });

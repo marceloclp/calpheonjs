@@ -5,6 +5,14 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Recipe extends Generic {
+    static get(): typeof Generic {
+        return Recipe;
+    }
+
+    static get type(): string {
+        return <const> "recipe";
+    }
+
     private getMaterials(matcher: Matcher): Scrapers.Recipes.Material[] {
         const row = this.getTableRow(matcher);
         if (!row) return [];

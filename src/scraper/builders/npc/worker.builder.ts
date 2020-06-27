@@ -5,6 +5,14 @@ import { Generic } from "../generic.builder"
 import { Matcher } from "../../../shared";
 
 export class Worker extends Generic {
+    static get(): typeof Generic {
+        return Worker;
+    }
+
+    static get type(): string {
+        return <const> "worker";
+    }
+
     private getUpgradesArray(): BDOCodex.Workers.Upgrade[] {
         const ctx = this.cache.for<{
             data: BDOCodex.Workers.Upgrade[],

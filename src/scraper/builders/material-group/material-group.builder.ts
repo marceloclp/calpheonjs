@@ -3,6 +3,14 @@ import * as Scrapers from "../../typings";
 import { Generic } from "../generic.builder";
 
 export class MaterialGroup extends Generic {
+    static get(): typeof Generic {
+        return MaterialGroup;
+    }
+
+    static get type(): string {
+        return <const> "material_group";
+    }
+
     get items(): Scrapers.Refs.Item[] {
         const nodes = this.$('hr.hr_long')
             .parent()

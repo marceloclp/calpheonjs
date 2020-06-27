@@ -5,6 +5,14 @@ import { Item } from "./item.builder";
 import { Matcher } from "../../../shared";
 
 export class Consumable extends Item {
+    static get(): typeof Item {
+        return Consumable;
+    }
+
+    static get type(): string {
+        return <const> "consumable";
+    }
+
     private normalizeTimeUnit(raw: string): number {
         const matchers = {
             sec: new Matcher(this._locale, {

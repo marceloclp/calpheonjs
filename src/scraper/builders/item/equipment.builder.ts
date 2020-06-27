@@ -6,6 +6,14 @@ import { Item } from "./item.builder";
 import { Matcher } from "../../../shared";
 
 export class Equipment extends Item {
+    static get(): typeof Item {
+        return Equipment;
+    }
+
+    static get type(): string {
+        return <const> "equipment";
+    }
+
     private parseEnchantmentArray(): BDOCodex.Enchantment.Array {
         const ctx = this.cache.for<{
             data: BDOCodex.Enchantment.Array,
@@ -106,7 +114,7 @@ export class Equipment extends Item {
 
             const url = AppUtils.composeShortURL(
                 curr.need_enchant_item_id,
-                App.EntityTypes.ITEM,
+                'item',
                 this._locale,
             );
 

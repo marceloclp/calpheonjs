@@ -1,18 +1,17 @@
 import { App } from "../../shared/typings";
-import { Scrapers } from "../../scraper";
 
 export const decomposeShortURL = (shortUrl: string) => {
     const args = shortUrl.split('/').filter(e => e);
     return {
         locale: args[0] as App.Locales,
-        type: args[1] as Scrapers.EntityTypes,
+        type: args[1],
         id: args.slice(2).join('/'),
     }
 }
 
 export const composeShortURL = (
     id: string,
-    type: App.EntityTypes,
+    type: string,
     locale: App.Locales.US,
 ): string => {
     if (!id || !type || !locale)

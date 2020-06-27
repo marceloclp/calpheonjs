@@ -5,6 +5,14 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Knowledge extends Generic {
+    static get(): typeof Generic {
+        return Knowledge;
+    }
+
+    static get type(): string {
+        return <const> "knowledge";
+    }
+
     get icon(): string {
         return this.$('img.quest_icon').attr('src') as string;
     }

@@ -5,6 +5,14 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Quest extends Generic {
+    static get(): typeof Generic {
+        return Quest;
+    }
+
+    static get type(): string {
+        return <const> "quest";
+    }
+
     private getQuestNPC(matcher: Matcher): Undef<Scrapers.Refs.NPC> {
         // Find the table row that contains the start/end npcs.
         const row = this.getTableRow(matcher);

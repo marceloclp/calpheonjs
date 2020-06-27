@@ -1,3 +1,4 @@
+import * as Builders from "../";
 import * as AppUtils from "../../../shared/utils";
 import * as Scrapers from "../../typings";
 import { App, Undef } from "../../../shared/typings";
@@ -5,6 +6,16 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class NPC extends Generic {
+    static get(type: Scrapers.Types, ctg_id: Scrapers.Ctgs): typeof Generic {
+        return ({
+            [Scrapers.Ctgs.WORKER]: Builders.Worker,
+        } as any)[ctg_id]?.get(type, ctg_id) || NPC;
+    }
+
+    static get type(): string {
+        return <const> "npc";
+    }
+
     private getTitleCells(): CheerioElement[] {
         const ctx = this.cache.for<{
             nodes: CheerioElement[],

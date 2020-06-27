@@ -19,7 +19,7 @@ export class Generic {
 
     protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
-        return async () => this._scrape(id, type, {
+        return async () => this._scrape(id, type as Scrapers.EntityTypes, {
             db: this._db,
             locale: this._locale
         });

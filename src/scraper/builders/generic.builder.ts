@@ -1,3 +1,4 @@
+import * as Builders from "./";
 import * as AppUtils from "../../shared/utils";
 import * as Scrapers from "../typings";
 import { App, BDOCodex, Undef } from "../../shared/typings";
@@ -5,6 +6,22 @@ import { Queries } from "../../query";
 import { Matcher, ContextCache } from "../../shared";
 
 export class Generic {
+    static get(type: Scrapers.Types, ctg_id: Scrapers.Ctgs): typeof Generic {
+        const { Types } = Scrapers;
+        return {
+            [Types.ITEM]:           Builders.Item,
+            [Types.KNOWLEDGE]:      Builders.Knowledge,
+            [Types.MATERIAL_GROUP]: Builders.MaterialGroup,
+            [Types.NPC]:            Builders.NPC,
+            [Types.QUEST]:          Builders.Quest,
+            [Types.RECIPE]:         Builders.Recipe,
+        }[type]?.get(type, ctg_id) || Generic;
+    }
+
+    static get type(): string {
+        return <const> "unknown";
+    }
+
     constructor(
         protected readonly _id: string,
 
@@ -92,7 +109,7 @@ export class Generic {
 
     protected ScrapeFactory(shortUrl: string): Scrapers.ScrapeFn {
         const { type, id } =  AppUtils.decomposeShortURL(shortUrl);
-        return async () => this._scrape(id, type, {
+        return async () => this._scrape(id, type as Scrapers.EntityTypes, {
             db: this._db,
             locale: this._locale
         });

@@ -1,3 +1,4 @@
+import * as Builders from "../";
 import * as Scrapers from "../../typings";
 import { App } from "../../../shared/typings";
 import { Queries } from "../../../query";
@@ -6,6 +7,17 @@ import { Generic } from "../generic.builder";
 import { Matcher } from "../../../shared";
 
 export class Item extends Generic {
+    static get(type: Scrapers.Types, ctg_id: Scrapers.Ctgs): typeof Generic {
+        return ({
+            [Scrapers.Ctgs.CONSUMABLE]: Builders.Consumable,
+            [Scrapers.Ctgs.EQUIPMENT]:  Builders.Equipment,
+        } as any)[ctg_id]?.get(type, ctg_id) || Item;
+    }
+
+    static get type(): string {
+        return <const> "item";
+    }
+
     get grade(): number {
         const str = this.$('.item_title').attr('class') as string;
         return parseInt(str.replace(/\D/g, ''));
@@ -47,24 +59,24 @@ export class Item extends Generic {
     }
 
     async build(): Promise<Scrapers.Entities.Item> {
-        const Types = Queries.Types;
+        const QTypes = Queries.Types;
         const qf = this.QueryFactory.bind(this);
         return {
             ...(await super.build()),
             prices: this.prices,
             grade:  this.grade,
             weight: this.weight,
-            npc_drops:              qf(Types.NPC_DROPS),
-            quest_rewards:          qf(Types.QUEST_REWARD),
-            product_of_recipes:     qf(Types.PRODUCT_IN_DESIGN),
-            product_of_processing:  qf(Types.PRODUCT_IN_PROCESSING),
-            product_of_design:      qf(Types.PRODUCT_IN_DESIGN),
-            material_of_recipes:    qf(Types.MATERIAL_IN_RECIPE),
-            material_of_processing: qf(Types.MATERIAL_IN_PROCESSING),
-            material_of_design:     qf(Types.MATERIAL_IN_DESIGN),
-            dropped_in_node:        qf(Types.DROPPED_IN_NODE),
-            obtained_from:          qf(Types.OBTAINED_FROM),
-            sold_by_npc:            qf(Types.SOLD_BY_NPC),
+            npc_drops:              qf(QTypes.NPC_DROPS),
+            quest_rewards:          qf(QTypes.QUEST_REWARD),
+            product_of_recipes:     qf(QTypes.PRODUCT_IN_DESIGN),
+            product_of_processing:  qf(QTypes.PRODUCT_IN_PROCESSING),
+            product_of_design:      qf(QTypes.PRODUCT_IN_DESIGN),
+            material_of_recipes:    qf(QTypes.MATERIAL_IN_RECIPE),
+            material_of_processing: qf(QTypes.MATERIAL_IN_PROCESSING),
+            material_of_design:     qf(QTypes.MATERIAL_IN_DESIGN),
+            dropped_in_node:        qf(QTypes.DROPPED_IN_NODE),
+            obtained_from:          qf(QTypes.OBTAINED_FROM),
+            sold_by_npc:            qf(QTypes.SOLD_BY_NPC),
         };
     }
 }
