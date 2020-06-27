@@ -1,7 +1,7 @@
 /**
- * The supported languages.
+ * The supported locales.
  * 
- * Maps a language to its locale, url subpath (eg. `/us/item/`).
+ * Maps a locales to its url subpath (eg. `/us/item/`).
  */
 export enum Locales {
     US = 'us',

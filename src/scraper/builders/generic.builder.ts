@@ -116,9 +116,17 @@ export class Generic {
         const QTypes = Queries.Types;
         const ids = {
             [App.Locales.US]: {
-                [QTypes.QUEST_REWARD]:          'questreward',
-                [QTypes.PRODUCT_IN_RECIPE]:     'productofrecipe',
-                [QTypes.PRODUCT_IN_PROCESSING]: 'mproductofrecipe',
+                [QTypes.PRODUCT_IN_PROCESSING]:  'mproductofrecipe',
+                [QTypes.PRODUCT_IN_RECIPE]:      'productofrecipe',
+                [QTypes.PRODUCT_IN_DESIGN]:      'productofdesign',
+                [QTypes.MATERIAL_IN_PROCESSING]: 'mrecipematerial',
+                [QTypes.MATERIAL_IN_RECIPE]:     'recipematerial',
+                [QTypes.MATERIAL_IN_DESIGN]:     'designmaterial',
+                [QTypes.NPC_DROPS]:              'droppedbynpc',
+                [QTypes.DROPPED_IN_NODE]:        'nodedrop',
+                [QTypes.OBTAINED_FROM]:          'itempacksource',
+                [QTypes.SOLD_BY_NPC]:            'specialsoldbynpc',
+                [QTypes.QUEST_REWARD]:           'questreward',
             }
         }[this._locale];
         if (!this.$(`a[href="#tabs-${(ids as any)[type]}"]`).length)
