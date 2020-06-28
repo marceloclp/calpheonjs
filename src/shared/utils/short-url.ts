@@ -1,5 +1,10 @@
 import { App } from "../../shared/typings";
 
+/**
+ * Decomposes a BDOCodex short url into locale, type and id.
+ * 
+ * @param shortUrl - The url to be decomposed.
+ */
 export const decomposeShortURL = (shortUrl: string) => {
     const args = shortUrl.split('/').filter(e => e);
     return {
@@ -9,6 +14,13 @@ export const decomposeShortURL = (shortUrl: string) => {
     }
 }
 
+/**
+ * Composes a BDO short url.
+ * 
+ * @param id     - The entity id.
+ * @param type   - The entity type.
+ * @param locale - An accepted locale.
+ */
 export const composeShortURL = (
     id: string,
     type: string,

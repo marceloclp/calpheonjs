@@ -1,11 +1,10 @@
-type GenericDict = Record<string | number | symbol, any>;
-
 /**
- * Removes `undefined` properties from an object.
+ * Removes properties whose value is considered undefined.
  * 
- * @param obj - The object to be filtered.
+ * @param obj      - The object to be filtered.
+ * @param filterFn - The function that defines what is undefined.
  */
-export const filterObj = <T extends GenericDict>(
+export const filterObj = <T extends Record<string | number, any>>(
     obj: T,
     filterFn?: (obj: T, key: keyof T) => boolean,
 ): T => {

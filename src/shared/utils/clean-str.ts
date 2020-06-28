@@ -1,3 +1,11 @@
+/**
+ * Removes decoration and custom characters trailing a string.
+ * 
+ * These are the decoration characters that will always be removed: ` -–\n`.
+ * 
+ * @param str   - The string to be cleaned.
+ * @param chars - Additional trailing characters to be removed.
+ */
 export const cleanStr = (str?: string, chars?: string): string => {
     if (!str)
         return '';
