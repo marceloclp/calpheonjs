@@ -1,8 +1,8 @@
+import * as AppUtils from "../shared/utils";
 import * as Utils from "./utils";
 import * as Queries from "./typings";
 import { Query as QueryClass } from "./query";
-import { fetch } from "../shared/utils";
-import Scrape from "../scraper";
+import { Scrape } from "../scraper";
 
 export const Query: Queries.Query = async <T = any>(
     id: string,
@@ -16,7 +16,7 @@ export const Query: Queries.Query = async <T = any>(
         q.group,
         q.itemAs,
         options?.locale,
-        fetch,
+        AppUtils.fetch,
         Scrape,
     );
 
