@@ -1,0 +1,21 @@
+{
+    "id": "9213",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00009213.png",
+    "name": "Beer",
+    "name_alt": "맥주",
+    "type": "item",
+    "category": "Consumable",
+    "description": "A mild alcoholic drink brewed from cereal grains",
+    "prices": {
+        "buy": 2150,
+        "sell": 86
+    },
+    "grade": 1,
+    "weight": 0.1,
+    "effects": [
+        "Worker Stamina Recovery +2",
+        "(Use through the Worker Menu on the World Map)."
+    ],
+    "duration": 0,
+    "cooldown": 0
+}
