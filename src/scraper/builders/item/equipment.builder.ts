@@ -51,7 +51,7 @@ export class Equipment extends Item {
         if (!matcher.length)
             return [];
         
-        const effects = [];
+        const effects: string[] = [];
         while (i++ < strs.length) {
             if (strs[i] === '')
                 break;

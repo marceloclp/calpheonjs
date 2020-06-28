@@ -68,7 +68,7 @@ export class NPC extends Generic {
         ) + 1;
         if (startIdx_2 !== -1) startIdx += startIdx_2;
 
-        const strs = [];
+        const strs: string[] = [];
         for (let i = startIdx; i < nodes.length; i++) {
             if (nodes[i]?.tagName === 'br' && nodes[i+1]?.tagName === 'br')
                 break;

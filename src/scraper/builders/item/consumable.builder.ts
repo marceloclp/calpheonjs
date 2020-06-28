@@ -41,7 +41,7 @@ export class Consumable extends Item {
         let i = strs.findIndex(str => matcher.in(str));
         if (i === -1) return [];
         
-        const effects = [];
+        const effects: string[] = [];
         while (i++ < strs.length) {
             if (strs[i] === '<br>' && strs?.[i+1] === '<br>')
                 break;

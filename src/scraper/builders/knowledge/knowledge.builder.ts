@@ -53,10 +53,10 @@ export class Knowledge extends Generic {
             [App.Locales.US]: ['Description:'],
         });
 
-        const strs     = [];
         const nodes    = this.getTableRow(matcher)?.childNodes || [];
         const startIdx = nodes.findIndex(node => matcher.in(node.data)) + 1;
-
+        
+        const strs: string[] = [];
         for (let i = startIdx; i < nodes.length; i++) {
             const node = nodes[i];
             if (node.tagName === 'hr')

@@ -1,3 +1,4 @@
+import "cheerio";
 export * from "./query";
 export * from "./scraper";
 export * from "./shared/typings/app/enums";

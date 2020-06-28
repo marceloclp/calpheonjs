@@ -165,7 +165,7 @@ export class Generic {
         let i = nodes.findIndex(node => matcher.in(node.data));
         if (i === -1) return undefined;
 
-        const strs = [];
+        const strs: string[] = [];
         while (++i < nodes.length) {
             if (nodes[i]?.tagName === 'br' && nodes[i+1]?.tagName === 'br')
                 break;
