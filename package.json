@@ -1,6 +1,6 @@
 {
   "name": "calpheonjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Interface to retrieve data about the Black Desert Online game.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
