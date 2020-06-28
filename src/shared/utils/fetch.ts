@@ -1,6 +1,6 @@
 import https from "https";
 
-export const fetch = async (url: string): Promise<string> => {
+export const fetch = async (url: string): Promise<string | null> => {
     return new Promise((resolve, reject) => {
         const req = https.get(url, (res) => {
             const { statusCode } = res;
@@ -10,15 +10,20 @@ export const fetch = async (url: string): Promise<string> => {
             }
 
             res.setEncoding('utf-8');
-            let rawData = '';
-            
+
+            let payload = '';
             res.on('data', (chunk) => {
-                rawData += chunk;
+                // Ignore huge payloads.
+                if (payload.length > 3500000) {
+                    res.destroy();
+                    resolve(null);
+                }
+                payload += chunk;
             });
 
             res.on('end', () => {
                 try {
-                    resolve(rawData);
+                    resolve(payload);
                 } catch (e) {
                     reject(e);
                 }

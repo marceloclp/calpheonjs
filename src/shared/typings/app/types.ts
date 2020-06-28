@@ -1,1 +1,1 @@
-export type FetchFn = (url: string) => Promise<string> | string;
+export type FetchFn = (url: string) => Promise<string | null> | string;

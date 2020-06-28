@@ -36,14 +36,16 @@ export class Query {
     }
 
     async parse(): Promise<Queries.Result> {
-        const res = JSON.parse(
-            (await this.fetch(this.url)).trim()
-        );
-        const Builder = this.getBuilder();
+        const res = await this.fetch(this.url);
+        if (!res) {
+            return { url: this.url, type: null, data: [] };
+        }
+        const obj = JSON.parse(res.trim());
+        const builder = this.getBuilder();
         return {
             url: this.url,
-            type: Builder.type as Queries.EntityTypes,
-            data: new Builder(this._locale, this._scrape).build(res),
+            type: builder.type as Queries.EntityTypes,
+            data: new builder(this._locale, this._scrape).build(obj),
         };
     }
 

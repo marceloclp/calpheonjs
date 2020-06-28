@@ -54,12 +54,13 @@ export class Scraper {
         return $('table.smallertext').length !== 0;
     }
 
-    async fetch(): Promise<string> {
+    async fetch(): Promise<string | null> {
         return this._fetch(this.url);
     }
 
     async parse(): Promise<Scrapers.Result> {
-        const $ = cheerio.load(await this.fetch());
+        const res = await this.fetch();
+        const $ = cheerio.load(res as string);
 
         if (!this.exists($)) {
             return { url: this.url, type: null, data: null };

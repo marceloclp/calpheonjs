@@ -5,7 +5,7 @@ import { EntityTypes } from "../types";
  */
 export interface Result<T = any> {
     /** The type of the entities inside the `data` property. */
-    readonly type: EntityTypes;
+    readonly type: EntityTypes | null;
 
     /** The parsed url that was used to perform this query. */
     readonly url: string;
