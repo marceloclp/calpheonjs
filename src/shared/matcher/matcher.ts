@@ -1,5 +1,4 @@
 import { App } from "../../shared/typings";
-import { indexOf } from "../utils";
 
 export class Matcher {
     private readonly _cache: Record<string, { idx: number, substr?: string }> = {};
@@ -25,13 +24,38 @@ export class Matcher {
     in(str?: string): boolean {
         if (!str)
             return false;
-        if (!this._cache[str])
-            this._cache[str] = indexOf(str, this._matches);
-        if (this._cache[str].idx === -1)
-            return false;
-        this._lastMatchedStr = str;
-        this._length++;
-        return this._cache[str].idx !== -1;
+        if (this._cache[str])
+            return this._cache[str].idx !== -1;
+        
+        const idxs = this._matches.reduce(
+            (obj, match) => ({ ...obj, [match]: 0 }),
+            {} as Record<string, number>,
+        );
+
+        for (let i = 0; i < str.length; i++) {
+            const char = str[i];
+
+            for (const match of this._matches) {
+                if (char === match[idxs[match]])
+                    idxs[match] += 1;
+                else idxs[match] = 0;
+
+                if (idxs[match] !== match.length)
+                    continue;
+
+                this._lastMatchedStr = str;
+                this._length += 1;
+                this._cache[str] = {
+                    idx: i - match.length + 1,
+                    substr: match,
+                };
+
+                return true;
+            }
+        }
+
+        this._cache[str] = { idx: - 1};
+        return false;
     }
 
     /**
