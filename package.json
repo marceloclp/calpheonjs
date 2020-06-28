@@ -6,7 +6,6 @@
   "types": "dist/index.d.ts",
   "author": "Marcelo Perrella <marceloclperrella@gmail.com>",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "watch": "tsc --watch",
     "build": "tsc",
