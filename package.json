@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/marceloclp/calpheonjs"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "watch": "tsc --watch",
     "build": "tsc",
