@@ -6,6 +6,10 @@
   "types": "dist/index.d.ts",
   "author": "Marcelo Perrella <marceloclperrella@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marceloclp/calpheonjs"
+  },
   "scripts": {
     "watch": "tsc --watch",
     "build": "tsc",
