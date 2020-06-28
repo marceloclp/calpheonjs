@@ -1,6 +1,6 @@
 # Calpheon.js
 
-**Calpheon.js** is an interface to retrieve data about the game by scraping [BDO Codex](https://bdocodex.com/us/). It's built using Typescript so you know exactly what is going to be returned.
+**Calpheon.js** is an interface to retrieve data about the **Black Desert Online (BDO)** game by scraping [BDOCodex](https://bdocodex.com/us/). It's built using Typescript so you know exactly what is being returned.
 
 ## Roadmap
 
