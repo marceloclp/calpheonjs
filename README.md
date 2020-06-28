@@ -70,3 +70,5 @@ If you wish to help with this project, please follow the steps below. Any help i
 2) Work on the features you want.
 3) Make sure that all tests are passing by running `npm run test` or `yarn test`.
 4) Create a PR when you are done.
+
+Please follow this [guide](https://github.com/conventional-changelog/commitlint/#what-is-commitlint) when naming your commits.
