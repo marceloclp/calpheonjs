@@ -64,7 +64,7 @@ This is the output.
 
 ## Contributing
 
-If you wish to help with this project, please follow the steps below. Any help is appreciated, but please stick to the same patterns that have been used accross the codebase.
+If you wish to help with this project, please follow the steps below. Any help is appreciated, but please stick to the same patterns that have been used across the codebase.
 
 1) Fork this repository.
 2) Work on the features you want.
