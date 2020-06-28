@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="590" height="120 src="./docs/images/calpheonjs.png">
+    <img src="./docs/images/calpheonjs.png">
 </p>
 
 **Calpheon.js** is an interface to retrieve data about the **Black Desert Online (BDO)** game by scraping [BDOCodex](https://bdocodex.com/us/). It's built using Typescript so you know exactly what is being returned.
