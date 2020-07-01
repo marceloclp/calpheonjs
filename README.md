@@ -46,7 +46,7 @@ This is the output.
     "name": "Beer",
     "name_alt": "맥주",
     "type": "item",
-    "category": "Consumable",
+    "category": "Special Items",
     "description": "A mild alcoholic drink brewed from cereal grains",
     "prices": {
         "buy": 2150,
@@ -57,9 +57,7 @@ This is the output.
     "effects": [
         "Worker Stamina Recovery +2",
         "(Use through the Worker Menu on the World Map)."
-    ],
-    "duration": 0,
-    "cooldown": 0
+    ]
 }
 ```
 
