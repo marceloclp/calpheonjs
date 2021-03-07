@@ -1,0 +1,16 @@
+{
+    "id": "6013",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00006013.png",
+    "name": "Bear Hide",
+    "nameAlternative": "곰 가죽",
+    "type": "item",
+    "description": "Material that has been gathered and may be used during crafting. It may also be changed to a different form through alchemy or processing.",
+    "category": "craftingMaterial",
+    "grade": 0,
+    "prices": {
+        "buy": 2250,
+        "sell": 90,
+        "repair": 0
+    },
+    "weight": 0.1
+}

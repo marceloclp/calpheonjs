@@ -1,0 +1,16 @@
+{
+    "id": "15649",
+    "icon": "/items/new_icon/03_etc/11_enchant_material/00015649_1.png",
+    "name": "Ancient Magic Crystal - Addis",
+    "nameAlternative": "고대 마력의 수정 - 아디스",
+    "type": "item",
+    "description": "A Black Stone Crystal that can be fused into Main Weapon sockets.",
+    "category": "socketItem",
+    "grade": 4,
+    "prices": {
+        "buy": 300000,
+        "sell": 35800,
+        "repair": 0
+    },
+    "weight": 0.1
+}

@@ -3,3 +3,4 @@ node_modules/
 tests/data/
 yarn-error.log
 report.**.**.**.json
+mock/html

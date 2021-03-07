@@ -1,0 +1,1 @@
+export { LocaleMatcher, MatcherDict } from './matcher'

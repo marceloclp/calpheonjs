@@ -1,0 +1,21 @@
+{
+    "id": "643",
+    "icon": "/items/new_icon/03_etc/08_potion/00000643.png",
+    "name": "[Party] Elixir of Resistance",
+    "nameAlternative": "[파티] 저항의 비약",
+    "type": "item",
+    "description": "Elixir with a defensive function.",
+    "category": "consumable",
+    "grade": 1,
+    "prices": {
+        "buy": 1881,
+        "sell": 627,
+        "repair": 0
+    },
+    "weight": 0.75,
+    "effects": [
+        "Debuff Resistance Against Monsters +10%"
+    ],
+    "duration": 600,
+    "cooldown": 10
+}

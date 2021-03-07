@@ -1,0 +1,30 @@
+{
+    "id": "694302",
+    "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00014702.png",
+    "name": "Fiery Dandelion Great Sword",
+    "nameAlternative": "타오르는 단델리온 대검",
+    "type": "item",
+    "description": "Gear imbued with the fiery magical powers of Garmoth.",
+    "category": "equipment",
+    "grade": 4,
+    "prices": {
+        "buy": 150000000,
+        "sell": 100000,
+        "repair": 0
+    },
+    "weight": 13.5,
+    "stats": {
+        "hp": "0",
+        "mp": "0",
+        "damage": "18 ~ 27",
+        "defense": "0",
+        "accuracy": "0",
+        "evasion": "0",
+        "damageReduction": "0",
+        "h_damage": "0",
+        "h_defense": "0",
+        "h_accuracy": "0",
+        "h_evasion": "0",
+        "h_damageReduction": "0"
+    }
+}
