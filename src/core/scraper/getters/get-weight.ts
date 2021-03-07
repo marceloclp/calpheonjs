@@ -1,9 +1,9 @@
 import { App } from '@typings/namespaces'
-import { LocaleMatcher, MatcherDict } from '@helpers/factory/locale-matcher'
+import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const WeightDict: MatcherDict = {
+const WeightDict = {
     [App.Locales.US]: ['Weight:']
 }
 

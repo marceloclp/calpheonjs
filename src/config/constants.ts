@@ -4,7 +4,7 @@ export const BaseUrl = 'https://bdocodex.com'
 
 export const DecorationChars = [
     Chars.Dash,
-    Chars.DoubleComma,
+    Chars.DoubleDots,
     Chars.Hyphen,
     Chars.LineBreak,
     Chars.Space,
@@ -16,7 +16,7 @@ export const DecorationChars = [
  * (e.g., Item Effect: Critical Hit & Casting Speed +1)
  */
 export const DividerChars = [
-    Chars.DoubleComma
+    Chars.DoubleDots
 ].join('')
 
 /**

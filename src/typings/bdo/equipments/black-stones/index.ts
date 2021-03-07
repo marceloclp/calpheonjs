@@ -7,6 +7,8 @@ export interface Effects {
     enhancement: string[]
     /** Additional effects at a certain enhancement level. */
     additional: string[]
+    /** A list of effects caused by equiping a number of set pieces. */
+    set: Record<number, string[]>
 }
 
 export interface Enhancement {
@@ -35,7 +37,7 @@ export interface Enhancement {
     perfectEnhancement?: {
         /** The amount needed to perform a 100% success rate enhancement. */
         amount: number
-        /** The durability lost if the enhancement fails (?) */
+        /** The durability lost. */
         durabilityLossOnFailure: number
     }
 }

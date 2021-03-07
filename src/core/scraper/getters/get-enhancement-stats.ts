@@ -1,18 +1,22 @@
 import cheerio from 'cheerio'
 import { App, BDO, BDOCodex } from '@typings/namespaces'
-import { LocaleMatcher, MatcherDict } from '@helpers/factory/locale-matcher'
+import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { mapStats } from '../utils/map-stats'
 import { Getter } from './getters.types'
 
-const EnhancementDict: MatcherDict = {
+const EnhancementDict = {
     [App.Locales.US]: ['Enhancement Effect'],
 }
-const ItemDict: MatcherDict = {
+const ItemDict = {
     [App.Locales.US]: ['Item Effect'],
 }
-const AdditionalDict: MatcherDict = {
+const AdditionalDict = {
     [App.Locales.US]: ['Additional Effect'],
+}
+const SetDict = {
+    [App.Locales.US]: ['Set Effect']
 }
 
 const parseEffects = (html: string, locale: App.Locales.US): BDO.Equipments.BlackStones.Effects => {
@@ -21,12 +25,14 @@ const parseEffects = (html: string, locale: App.Locales.US): BDO.Equipments.Blac
         item: LocaleMatcher(ItemDict, locale),
         enhancement: LocaleMatcher(EnhancementDict, locale),
         additional: LocaleMatcher(AdditionalDict, locale),
+        set: LocaleMatcher(SetDict, locale),
     }
     const effects: BDO.Equipments.BlackStones.Effects = {
-        item: [], enhancement: [], additional: [],
+        item: [], enhancement: [], additional: [], set: {},
     }
     const keys = Object.keys(effects) as (keyof typeof matchers)[]
 
+    let numberOfPieces: number
     let currKey: keyof typeof matchers
     $('div').contents().each((_, element) => {
         const text = $(element).text()
@@ -35,10 +41,18 @@ const parseEffects = (html: string, locale: App.Locales.US): BDO.Equipments.Blac
             if (!matchers[key].lastMatch)
                 return !!matchers[key].findIn(text)
         })
-        if (typeof newKey !== 'undefined')
+        if (typeof newKey !== 'undefined') {
+            if (newKey === 'set') {
+                numberOfPieces = parseNumber(text, 2)
+                effects.set[numberOfPieces] = []
+            }
             return currKey = newKey
+        }
         const effect = cleanStr(text)
-        if (effect.length) effects[currKey].push(effect)
+        if (!effect.length) return
+        if (currKey === 'set') {
+            effects.set[numberOfPieces].push(effect)
+        } else effects[currKey].push(effect)
     })
     return effects
 }
@@ -51,24 +65,8 @@ export const getEnhancementStats: Getter<BDO.Equipments.BlackStones.Set> = ({ $,
     return Array(maxLevel + 1).fill(0).map((_, index) => {
         const isLastLevel = index === maxLevel - 1
         const level = data[index]
-
-        const stats: BDO.Player.Stats<string> = {
-            hp: level.hp || '0',
-            mp: level.mp || '0',
-            damage: level.damage || '0',
-            defense: level.defense || '0',
-            accuracy: level.accuracy || '0',
-            evasion: level.evasion || '0',
-            damageReduction: level.dreduction || '0',
-            h_damage: level.hdamage || '0',
-            h_defense: level.hdefense || '0',
-            h_accuracy: level.haccuracy || '0',
-            h_evasion: level.hevasion || '0',
-            h_damageReduction: level.hdreduction || '0',
-        }
-
         return {
-            stats,
+            stats: mapStats(level),
             successRate: parseNumber(level.enchant_chance, 0),
             durability: parseNumber(level.durability.split('.')[0], 100),
             cronStonesAmount: {

@@ -6,8 +6,10 @@ export type FixedArray<N extends number, T> =
     N extends 0 ? never[] : { 0: T, length: N } & ReadonlyArray<T>
 
 export enum Chars {
+    Comma = ',',
     Dash = '–',
-    DoubleComma = ':',
+    Dot = '.',
+    DoubleDots = ':',
     Hyphen = '-',
     LineBreak = '\n',
     Space = ' ',

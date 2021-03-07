@@ -1,0 +1,10 @@
+{
+    "id": "4902",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00004902.png",
+    "name": "Alluvial Gold",
+    "nameAlternative": "사금",
+    "type": "item",
+    "description": "A rare ingredient filtered from River Water that can be Heated to create Gold.",
+    "category": "craftingMaterial",
+    "grade": 0
+}

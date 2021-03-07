@@ -9,8 +9,8 @@
     "grade": 4,
     "prices": {
         "buy": 150000000,
-        "sell": 100000,
-        "repair": 0
+        "sell": 0,
+        "repair": 100000
     },
     "weight": 13.5,
     "stats": {

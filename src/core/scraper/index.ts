@@ -5,14 +5,14 @@ import { isValidPage } from './utils/is-valid-page'
 import { buildScrapeUrl } from './utils/build-scrape-url'
 
 const SupportedEntities = {
-    Item: BDOCodex.Entities.Enum.Item,
-    Knowledge: BDOCodex.Entities.Enum.Knowledge,
-    MaterialGroup: BDOCodex.Entities.Enum.MaterialGroup,
-    NPC: BDOCodex.Entities.Enum.NPC,
-    Quest: BDOCodex.Entities.Enum.Quest,
-    Design: BDOCodex.Entities.Enum.Design,
-    Recipe: BDOCodex.Entities.Enum.Recipe,
-    Processing: BDOCodex.Entities.Enum.Processing,
+    Item: BDOCodex.Entities.Types.Item,
+    Knowledge: BDOCodex.Entities.Types.Knowledge,
+    MaterialGroup: BDOCodex.Entities.Types.MaterialGroup,
+    NPC: BDOCodex.Entities.Types.NPC,
+    Quest: BDOCodex.Entities.Types.Quest,
+    Design: BDOCodex.Entities.Types.Design,
+    Recipe: BDOCodex.Entities.Types.Recipe,
+    Processing: BDOCodex.Entities.Types.Processing,
 }
 type ScrapableEntity = keyof typeof SupportedEntities
 

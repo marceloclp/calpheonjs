@@ -4,8 +4,8 @@ import { Generic } from '../entities/generic'
 interface Ref<T extends App.Entities.Types, R extends Generic<T>> {
     type: T
     id: string
-    icon: string
     name: string
+    icon: string
     // shortUrl: string
     // fetch: () => Promise<R>
 }

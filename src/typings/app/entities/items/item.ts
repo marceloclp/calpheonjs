@@ -3,7 +3,7 @@ import { Generic } from '../generic'
 
 export interface Item<C extends App.Entities.Items.Category = 'unknown'>
     extends Generic<App.Entities.Types.Item> {
-    category: C
+    category: C | App.Entities.Items.Category
     /** An item has a grade. */
     grade: BDO.Grade
     /** An item may be sellable or buyable. */

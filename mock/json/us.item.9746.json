@@ -1,0 +1,10 @@
+{
+    "id": "9746",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00009746.png",
+    "name": "Abyssal Brass Ingot",
+    "nameAlternative": "심연의 황동 주괴",
+    "type": "item",
+    "description": "A Brass Ingot imbued with mystical powers. An unknown force seems to seep out from deep within. The item is used to create Hughol's Weapon.",
+    "category": "craftingMaterial",
+    "grade": 3
+}

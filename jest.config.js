@@ -6,6 +6,7 @@ module.exports = {
     '^@core/(.*)$': '<rootDir>/src/core/$1',
     '^@helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^@typings/(.*)$': '<rootDir>/src/typings/$1',
+    '^@tests/(.*)$': '<rootDir>/src/tests/$1',
   },
   resolver: undefined,
   globalSetup: './scripts/jest-global-setup.js',

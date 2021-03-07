@@ -1,9 +1,9 @@
 import { App } from '@typings/namespaces'
-import { LocaleMatcher, MatcherDict } from '@helpers/factory/locale-matcher'
+import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseTime } from '@helpers/utils/parse-time'
 import { Getter } from './getters.types'
 
-const CooldownDict: MatcherDict = {
+const CooldownDict = {
     [App.Locales.US]: ['Cooldown'],
 }
 

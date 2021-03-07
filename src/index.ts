@@ -10,13 +10,14 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getEnhancementStats({
+    const res = Getters.getFairyExp({
         id: item.id,
         category: item.category as App.Entities.Categories,
         locale: App.Locales.US,
         type: item.type as App.Entities.Types,
         $: cheerio.load(html),
     })
-    console.log('res', res[0].effects)
+    console.log('res', res)
 }
-test('us.item.694302')
+test('us.item.14534')
+// test('us.item.694302')

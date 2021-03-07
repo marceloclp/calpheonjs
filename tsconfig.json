@@ -12,11 +12,12 @@
       "@config/*": ["config/*"],
       "@typings/*": ["typings/*"],
       "@helpers/*": ["helpers/*"],
+      "@tests/*": ["tests/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["./tests", "./dist"]
+  "exclude": ["src/tests", "./dist"]
 }

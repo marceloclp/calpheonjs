@@ -1,0 +1,11 @@
+{
+    "id": "14534",
+    "icon": "/items/new_icon/06_pc_equipitem/00_common/08_subweapon/00014525.png",
+    "name": "Rosar Kunai of Temptation",
+    "nameAlternative": "유혹의 로사르 수리검",
+    "type": "item",
+    "description": "Gear possessing the energy of temptation.",
+    "category": "equipment",
+    "grade": 2,
+    "fairyExp": 283
+}

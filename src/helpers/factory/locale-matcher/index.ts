@@ -1,1 +1,1 @@
-export { LocaleMatcher, MatcherDict } from './matcher'
+export { LocaleMatcher } from './matcher'

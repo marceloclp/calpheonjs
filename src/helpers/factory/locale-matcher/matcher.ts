@@ -1,7 +1,5 @@
 import { App } from '@typings/namespaces'
 
-export type MatcherDict = Record<App.Locales, string[]>
-
 interface Match {
     readonly found: string
     readonly index: number

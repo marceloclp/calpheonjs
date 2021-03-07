@@ -20,6 +20,7 @@
     "start": "node ./dist/index.js",
     "test": "jest",
     "test:getters": "npm t src/core/scraper/getters",
+    "test:builders": "npm t src/core/scraper/builders",
     "prepublish": "tsc"
   },
   "devDependencies": {

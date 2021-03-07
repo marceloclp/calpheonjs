@@ -1,64 +1,70 @@
-import fs from 'fs'
-import path from 'path'
-import cheerio from 'cheerio'
 import { App } from '@typings/namespaces'
+import { getTestCaseData, getTestCases } from '@tests/utils'
 import { GetterArgs } from './getters.types'
 import * as Getters from './index'
 
 describe('Getters', () => {
-    const mockFilesDir = path.join(__dirname, '../../../../mock/json')
-    const tests = fs
-        .readdirSync(mockFilesDir, { encoding: 'utf-8' })
-        .map(name => [name.split('.').slice(0, -1).join('.')])
+    const cases = getTestCases()
 
-    describe.each(tests)('%s', key => {
-        const [locale, type, id] = key.split('.')
-        const json = require(`../../../../mock/json/${key}.json`)
-        const html = fs.readFileSync(
-            path.resolve(__dirname, '../../../../mock/html', `${key}.html`),
-            { encoding: 'utf-8' }
-        )
+    describe.each(cases)('%s', (_, data) => {
+        const [expected, $] = getTestCaseData(data)
 
-        const options: GetterArgs = {
-            $: cheerio.load(html),
-            id,
-            category: json.category,
-            locale: locale as App.Locales,
-            type: type as App.Entities.Types,
+        const args: GetterArgs = {
+            ...data,
+            category: expected.category as App.Entities.Categories,
+            $,
         }
 
-        json.category && it('getCategory()', () => {
-            expect(Getters.getCategory(options)).toBe(json.category)
+        expected.category && it('getCategory()', () => {
+            expect(Getters.getCategory(args)).toBe(expected.category)
         })
-        json.cooldown && it('getCooldown()', () => {
-            expect(Getters.getCooldown(options)).toBe(json.cooldown)
+        expected.cooldown && it('getCooldown()', () => {
+            expect(Getters.getCooldown(args)).toBe(expected.cooldown)
         })
-        json.description && it('getDescription', () => {
-            expect(Getters.getDescription(options)).toBe(json.description)
+        expected.description && it('getDescription', () => {
+            expect(Getters.getDescription(args)).toBe(expected.description)
         })
-        json.duration && it('getDuration()', () => {
-            expect(Getters.getDuration(options)).toBe(json.duration)
+        expected.duration && it('getDuration()', () => {
+            expect(Getters.getDuration(args)).toBe(expected.duration)
         })
-        json.effects && it('getEffects()', () => {
-            expect(Getters.getEffects(options)).toMatchObject(json.effects)
+        expected.effects && it('getEffects()', () => {
+            expect(Getters.getEffects(args)).toMatchObject(expected.effects)
         })
-        json.grade && it('getGrade()', () => {
-            expect(Getters.getGrade(options)).toBe(json.grade)
+        expected.exclusiveTo && it('getExclusiveTo()', () => {
+            expect(Getters.getExclusiveTo(args)).toMatchObject(expected.exclusiveTo)
         })
-        json.icon && it('getIconURL()', () => {
-            expect(Getters.getIconURL(options)).toBe(json.icon)
+        expected.exp && it('getExp()', () => {
+            expect(Getters.getExp(args)).toBe(expected.exp)
         })
-        json.nameAlternative && it('getNameAlt()', () => {
-            expect(Getters.getNameAlt(options)).toBe(json.nameAlternative)
+        expected.grade && it('getGrade()', () => {
+            expect(Getters.getGrade(args)).toBe(expected.grade)
         })
-        json.name && it('getName()', () => {
-            expect(Getters.getName(options)).toBe(json.name)
+        expected.icon && it('getIconURL()', () => {
+            expect(Getters.getIconURL(args)).toBe(expected.icon)
         })
-        json.prices && it('getPrices()', () => {
-            expect(Getters.getPrices(options)).toMatchObject(json.prices)
+        expected.mastery && it('getMastery()', () => {
+            expect(Getters.getMastery(args)).toMatchObject(expected.mastery)
         })
-        json.weight && it('getWeight()', () => {
-            expect(Getters.getWeight(options)).toBe(json.weight)
+        expected.nameAlternative && it('getNameAlt()', () => {
+            expect(Getters.getNameAlt(args)).toBe(expected.nameAlternative)
+        })
+        expected.materials && it('getMaterials()', () => {
+            expect(Getters.getMaterials(args)).toMatchObject(expected.materials)
+        })
+        expected.name && it('getName()', () => {
+            expect(Getters.getName(args)).toBe(expected.name)
+        })
+        expected.prices && it('getPrices()', () => {
+            expect(Getters.getPrices(args)).toMatchObject(expected.prices)
+        })
+        expected.process && it('getProcess()', () => {
+            expect(Getters.getProcess(args)).toBe(expected.process)
+        })
+        expected.products && it('getProducts()', () => {
+            expect(Getters.getProducts(args)).toMatchObject(expected.products)
+        })
+        expected.weight && it('getWeight()', () => {
+            expect(Getters.getWeight(args)).toBe(expected.weight)
         })
     })
 })

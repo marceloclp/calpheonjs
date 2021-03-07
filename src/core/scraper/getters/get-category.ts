@@ -1,4 +1,5 @@
 import { App } from '@typings/namespaces'
+import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getters.types'
 
 const CategoryLookup: Record<string, App.Entities.Categories> = {
@@ -13,17 +14,14 @@ const CategoryLookup: Record<string, App.Entities.Categories> = {
     'worker': 'worker',
 }
 
-export const getCategory: Getter<string> = ({ $, id, type, locale }) => {
-    const categoryText = $('.category_text').text()
+export const getCategory: Getter<App.Entities.Categories> = ({ $, id, type, locale }) => {
+    const text = $('.category_text').text()
         .replace(/[^a-zA-Z ]/g, '')
-        .toLowerCase()
-        .trim()
-        .split(' ')
-        .join('_')
+    const categoryText = toSnakeCase(text)
     if (!(categoryText in CategoryLookup)) {
         throw new Error(
-            `Unknown category ${categoryText} found for /${locale}/${type}/${id}. `
-            + 'Please report this by opening an issue on the GitHub page.'
+            `Unknown category ${categoryText} found for /${locale}/${type}/${id}. ` +
+            'Please report this error by opening an issue on the GitHub page.'
         )
     }
     return CategoryLookup[categoryText]

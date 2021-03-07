@@ -1,12 +1,4 @@
-export enum Mastery {
-    Beginner = 'beginner',
-    Apprentice = 'apprentice',
-    Skilled = 'skilled',
-    Professional = 'professional',
-    Artisan = 'artisan',
-    Master = 'master',
-    Guru = 'guru',
-}
+export * as Masteries from './masteries'
 
 export enum Processing {
     Shaking = 'shaking',

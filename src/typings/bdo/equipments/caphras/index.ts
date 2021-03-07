@@ -2,7 +2,14 @@ import { BDO } from '@typings/namespaces'
 import { FixedArray } from '@typings/utilities'
 
 export interface Enhancement {
-    stats: Partial<BDO.Player.Stats>
+    stats: BDO.Player.Stats<string>
+    /** The amount of Caphras stones required to perform the enhancement at each level. */
+    amount: {
+        /** The amount required to enhance to the next level. */
+        toNextLevel: number
+        /** The total amount required to enhance up to the next level. */
+        toThisLevel: number
+    }
 }
 
 /**
@@ -17,13 +24,6 @@ export interface Enhancement {
  * bonuses at `atPlus18[0]`.
  */
 export interface Set {
-    /** The amount of Caphras stones required to perform the enhancement at each level. */
-    amount: FixedArray<20, {
-        /** The amount required to enhance to the next level. */
-        nextLevel: number
-        /** The total amount required to enhance up to the next level. */
-        total: number
-    }>
     atPlus18?: FixedArray<20, Enhancement>
     atPlus19?: FixedArray<20, Enhancement>
     atPlus20?: FixedArray<20, Enhancement>

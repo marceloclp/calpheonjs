@@ -1,0 +1,30 @@
+{
+    "id": "10002",
+    "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010002.png",
+    "name": "Militia Longsword",
+    "nameAlternative": "민병대 장검",
+    "type": "item",
+    "description": "A longsword mass produced for the Militia.",
+    "category": "equipment",
+    "grade": 0,
+    "prices": {
+        "buy": 13400,
+        "sell": 4020,
+        "repair": 268
+    },
+    "weight": 5.5,
+    "stats": {
+        "hp": "0",
+        "mp": "0",
+        "damage": "43 ~ 47",
+        "defense": "0",
+        "accuracy": "60",
+        "evasion": "0",
+        "damageReduction": "0",
+        "h_damage": "0",
+        "h_defense": "0",
+        "h_accuracy": "0",
+        "h_evasion": "0",
+        "h_damageReduction": "0"
+    }
+}

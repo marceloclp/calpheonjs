@@ -1,10 +1,10 @@
 import { App } from '@typings/namespaces'
 import { DividerChars, GroupBreakChars } from '@config/constants'
-import { LocaleMatcher, MatcherDict } from '@helpers/factory/locale-matcher'
+import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { Getter } from './getters.types'
 
-const EffectsDict: MatcherDict = {
+const EffectsDict = {
     [App.Locales.US]: ['- Effect', 'Effect'],
 }
 

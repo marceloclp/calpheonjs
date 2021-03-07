@@ -1,22 +1,22 @@
 import { App, BDO } from '@typings/namespaces'
-import { LocaleMatcher, MatcherDict } from '@helpers/factory/locale-matcher'
+import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const BuyDict: MatcherDict = {
+const BuyDict = {
     [App.Locales.US]: ['Buy']
 }
-const SellDict: MatcherDict = {
+const SellDict = {
     [App.Locales.US]: ['Sell']
 }
-const RepairDict: MatcherDict = {
+const RepairDict = {
     [App.Locales.US]: ['Repair']
 }
 const GlobalDict = [BuyDict, SellDict, RepairDict].reduce((obj, dict) => {
     return Object.entries(dict).reduce((obj2, [locale, values]) => {
         return { ...obj2, [locale]: [...obj2[locale] || [], ...values] }
     }, obj)
-}, {} as MatcherDict)
+}, {} as Record<App.Locales, string[]>)
 
 export const getPrices: Getter<BDO.Prices> = ({ $, locale }) => {
     const matchers = {

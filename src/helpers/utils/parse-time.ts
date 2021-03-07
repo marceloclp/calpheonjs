@@ -1,21 +1,21 @@
 import { App } from '@typings/namespaces'
-import { LocaleMatcher, MatcherDict } from '@helpers/factory/locale-matcher'
+import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from './parse-number'
 
-const SecondsDict: MatcherDict = {
+const SecondsDict = {
     [App.Locales.US]: ['sec'],
 }
-const MinutesDict: MatcherDict = {
+const MinutesDict = {
     [App.Locales.US]: ['min'],
 }
-const HoursDict: MatcherDict = {
+const HoursDict = {
     [App.Locales.US]: ['h'],
 }
 const ConversionTable = [
     [SecondsDict, (n: number) => n],
     [MinutesDict, (n: number) => n * 60],
     [HoursDict, (n: number) => n * 60 * 60],
-] as [MatcherDict, (n: number) => number][]
+] as [Record<App.Locales, string[]>, (n: number) => number][]
 
 export const parseTime = (
     value: string | number | undefined,

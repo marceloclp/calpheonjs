@@ -1,0 +1,47 @@
+{
+    "id": "122",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00009213.png",
+    "name": "Beer",
+    "type": "recipe",
+    "process": "cooking",
+    "exp": 400,
+    "mastery": ["beginner", 1],
+    "materials": [{
+        "type": "materialGroup",
+        "id": "1",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00007005.png",
+        "name": "Cereals",
+        "amount": 5
+    }, {
+        "type": "item",
+        "id": "9059",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009059.png",
+        "name": "Mineral Water",
+        "amount": 6
+    }, {
+        "type": "item",
+        "id": "9002",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009002.png",
+        "name": "Sugar",
+        "amount": 1
+    }, {
+        "type": "item",
+        "id": "9005",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009005.png",
+        "name": "Leavening Agent",
+        "amount": 2
+    }],
+    "products": [{
+        "type": "item",
+        "id": "9213",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009213.png",
+        "name": "Beer",
+        "amount": 1
+    }, {
+        "type": "item",
+        "id": "9283",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009283.png",
+        "name": "Cold Draft Beer",
+        "amount": 1
+    }]
+}

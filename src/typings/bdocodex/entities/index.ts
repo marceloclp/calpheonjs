@@ -4,7 +4,7 @@
  * 
  * Not all entities are yet supported by CalpheonJS.
  */
-export enum Enum {
+export enum Types {
     Item = 'item',
     ItemSet = 'itemset',
     Quest = 'quest',

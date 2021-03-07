@@ -9,7 +9,7 @@ const downloadHtmlMock = async fileName => {
     try {
         await fs.readFile(filePath, { encoding: 'utf-8', flag: 'r' })
     } catch (err) {
-        const url = 'https://bdocodex.com/' + fileName.replace(/\./g, '/') + '/'
+        const url = 'https://bdocodex.com/' + fileName.replace(/[.|-]/g, '/') + '/'
         const response = await fetch(url)
         const body = await response.text()
         await fs.writeFile(filePath, body)

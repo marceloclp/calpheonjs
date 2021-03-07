@@ -1,0 +1,10 @@
+{
+    "id": "711901",
+    "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010014.png",
+    "name": "Cliff's Longsword",
+    "nameAlternative": "클리프의 장검",
+    "type": "item",
+    "description": "A longsword from Cliff awarded only to those who have distinguished themselves in the battlefield. Whoever receives the weapon will earn respect from others.",
+    "category": "equipment",
+    "grade": 3
+}
