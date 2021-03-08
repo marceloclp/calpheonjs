@@ -1,4 +1,5 @@
 export { buildItem } from './build-item'
 export { buildKnowledge } from './build-knowledge'
+export { buildMaterialGroup } from './build-material-group'
 export { buildProcessing } from './build-processing'
 export { buildRecipe } from './build-recipe'

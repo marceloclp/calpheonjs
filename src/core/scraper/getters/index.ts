@@ -1,3 +1,4 @@
+export { getBelongingItems } from './get-belonging-items'
 export { getCaphrasStats } from './get-caphras-stats'
 export { getCategory } from './get-category'
 export { getCooldown } from './get-cooldown'

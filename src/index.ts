@@ -10,7 +10,7 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getGroup({
+    const res = Getters.getBelongingItems({
         id: item.id,
         category: item.category,
         locale: App.Locales.US,
@@ -19,5 +19,5 @@ const test = (id: string) => {
     })
     console.log('res', res)
 }
-test('us.theme.1622')
+test('us.materialgroup.1')
 // test('us.item.694302')

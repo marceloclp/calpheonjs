@@ -1,0 +1,32 @@
+{
+    "id": "1",
+    "type": "materialGroup",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00007001.png",
+    "name": "Cereals",
+    "items": [{
+        "type": "item",
+        "id": "7001",
+        "name": "Wheat",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00007001.png"
+    }, {
+        "type": "item",
+        "id": "7002",
+        "name": "Barley",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00007002.png"
+    }, {
+        "type": "item",
+        "id": "7003",
+        "name": "Potato",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00007003.png"
+    }, {
+        "type": "item",
+        "id": "7004",
+        "name": "Sweet Potato",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00007004.png"
+    }, {
+        "type": "item",
+        "id": "7005",
+        "name": "Corn",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00007005.png"
+    }]
+}

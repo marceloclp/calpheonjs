@@ -1,7 +1,7 @@
 import { BDO } from '@typings/namespaces'
+import { Chars } from '@typings/utilities'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getters.types'
-import { Chars } from '@typings/utilities'
 
 const ProcessLookup: Record<string, BDO.LifeSkills.Processing> = {
     'shaking': BDO.LifeSkills.Processing.Shaking,
