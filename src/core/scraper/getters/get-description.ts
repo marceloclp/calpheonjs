@@ -12,7 +12,10 @@ const DescriptionDict = {
 export const getDescription: Getter<
     string | undefined
 > = ({ $, type, locale }) => {
-    if (type === App.Entities.Types.Knowledge) {
+    if (
+        type === App.Entities.Types.Knowledge ||
+        type === App.Entities.Types.NPC
+    ) {
         const matcher = LocaleMatcher(DescriptionDict, locale)
         const element = $('.outer.item_info td').toArray().find(elem => {
             const text = $(elem).text()

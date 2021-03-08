@@ -15,4 +15,6 @@ export enum Chars {
     Space = ' ',
     Star = '※',
     Slash = '/',
+    SignLess = '<',
+    SignGreater = '>',
 }

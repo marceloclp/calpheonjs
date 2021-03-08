@@ -1,0 +1,13 @@
+{
+    "id": "11617/0",
+    "type": "npc",
+    "icon": "/items/ui_artwork/collected_journal.png",
+    "name": "101 Essential Stories about the Valkyrie",
+    "description": "Valkyries hate this book because it contains too much information.",
+    "lvl": 1,
+    "stats": {
+        "hp": "5000",
+        "defense": "1",
+        "evasion": "1"
+    }
+}

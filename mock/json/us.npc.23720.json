@@ -1,0 +1,17 @@
+{
+    "id": "23720",
+    "type": "npc",
+    "icon": "/items/ui_artwork/collected_study.png",
+    "name": "Abandoned Iron Mine Executor",
+    "description": "Zya is the Old Moon Manager of Grána City.\n\nIt is obvious that there is a story behind the small scar on Zya's face. This can be deduced from the fact that Zya always rubs her scar whenever it rains while talking to herself. However, no one has managed to get that story out of her. She doesn't seem to want to talk about it.",
+    "lvl": 55,
+    "stats": {
+        "hp": "174007",
+        "defense": "557",
+        "evasion": "457",
+        "damageReduction": "100"
+    },
+    "exp": 2505749,
+    "expSkill": 808444,
+    "karma": 80
+}

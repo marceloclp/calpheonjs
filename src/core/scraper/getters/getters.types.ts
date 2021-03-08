@@ -1,10 +1,10 @@
-import { App } from '@typings/index'
+import { App } from '@typings/namespaces'
 
 export interface GetterArgs {
     readonly $: cheerio.Root
     readonly id: string
     readonly type: App.Entities.Types
-    readonly category?: App.Entities.Categories
+    readonly category?: string
     readonly locale: App.Locales
 }
 

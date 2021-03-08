@@ -9,10 +9,14 @@ export enum Categories {
 
 export interface NPC extends Generic<App.Entities.Types.NPC> {
     category: Categories
+    /** An NPC has a grade, similar to items. */
+    grade: number
+    /** An NPC may have a group (the text inside <>). */
+    group?: string
     /** An NPC may have a level. */
     lvl?: number
     /** An NPC may have player stats. */
-    stats?: Partial<BDO.Players.Stats>
+    stats?: Partial<App.Shared.Stats>
     /** An NPC may reward the player with experience points when killed. */
     exp?: number
     /** An NPC may reward the player with skill experience points when killed. */
@@ -23,6 +27,8 @@ export interface NPC extends Generic<App.Entities.Types.NPC> {
     bossType?: 'boss' | 'awakenedBoss'
     /** An NPC may give a knowledge when interacted with (through killing, chatting, etc). */
     knowledge?: App.Refs.Knowledge
+    // TODO: https://bdocodex.com/us/npc/27051/
+    summonedByItem?: App.Refs.Item
 }
 
 export interface Worker extends NPC {

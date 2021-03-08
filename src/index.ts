@@ -10,7 +10,7 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getBelongingItems({
+    const res = Getters.getNPCKarma({
         id: item.id,
         category: item.category,
         locale: App.Locales.US,
@@ -19,5 +19,7 @@ const test = (id: string) => {
     })
     console.log('res', res)
 }
-test('us.materialgroup.1')
+// test('us.npc.49535-1')
+// test('us.npc.11617-0')
+test('us.npc.23720')
 // test('us.item.694302')

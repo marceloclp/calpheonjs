@@ -5,7 +5,7 @@ interface Match {
     readonly index: number
     readonly str: string
 }
-class Matcher {
+export class Matcher {
     private readonly cache: Record<string, Match | null> = {}
     private _lastMatch?: Match
 
