@@ -3,7 +3,9 @@ import { GetterArgs } from '../getters/getters.types'
 import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
-export const buildItem: Builder<App.Entities.Items.Item> = ({ $, id, type, locale }) => {
+export const buildItem: Builder<
+    App.Entities.Items.Item
+> = ({ $, id, type, locale }) => {
     const category = Getters.getCategory({ $, id, type, locale })
     const getterArgs: GetterArgs = { $, id, type, locale, category }
 

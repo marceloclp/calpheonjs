@@ -10,6 +10,7 @@ describe('Builders', () => {
 
         const received = {
             [App.Entities.Types.Item]: Builders.buildItem,
+            [App.Entities.Types.Recipe]: Builders.buildRecipe,
         }[data.type]?.({ ...data, $ })
 
         it('should have all expected keys', () => {
