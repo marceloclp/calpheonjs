@@ -1,6 +1,5 @@
-import { App } from '@typings/namespaces'
 export * as Items from './items'
-export * as NPCs from './npc'
+export * as NPCs from './npcs'
 export { Knowledge } from './knowledge'
 export { MaterialGroup } from './material-group'
 export { Recipe } from './recipe'
@@ -17,8 +16,3 @@ export enum Types {
     Processing = 'processing',
     Design = 'design',
 }
-
-/** All entities categories. */
-export type Categories =
-    | App.Entities.Items.Category
-    | App.Entities.NPCs.Category

@@ -1,4 +1,3 @@
-import { App } from '@typings/namespaces'
 import { getTestCaseData, getTestCases } from '@tests/utils'
 import { GetterArgs } from './getters.types'
 import * as Getters from './index'
@@ -11,9 +10,9 @@ describe('Getters', () => {
 
         const args: GetterArgs = {
             ...data,
-            category: expected.category as App.Entities.Categories,
+            category: expected.category,
             $,
-        }
+        } 
 
         expected.category && it('getCategory()', () => {
             expect(Getters.getCategory(args)).toBe(expected.category)

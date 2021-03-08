@@ -1,24 +1,24 @@
+import { App, BDO } from '@typings/namespaces'
 import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
-import { App, BDO } from '@typings/namespaces'
 import { Getter } from './getters.types'
 
-const MasteryLookup: Record<string, BDO.LifeSkills.Masteries.Levels> = {
-    'beginner': BDO.LifeSkills.Masteries.Levels.Beginner,
-    'apprentice': BDO.LifeSkills.Masteries.Levels.Apprentice,
-    'skilled': BDO.LifeSkills.Masteries.Levels.Skilled,
-    'professional': BDO.LifeSkills.Masteries.Levels.Professional,
-    'artisan': BDO.LifeSkills.Masteries.Levels.Artisan,
-    'master': BDO.LifeSkills.Masteries.Levels.Master,
-    'guru': BDO.LifeSkills.Masteries.Levels.Guru,
+const MasteryLookup: Record<string, BDO.LifeSkills.Masteries> = {
+    'beginner': BDO.LifeSkills.Masteries.Beginner,
+    'apprentice': BDO.LifeSkills.Masteries.Apprentice,
+    'skilled': BDO.LifeSkills.Masteries.Skilled,
+    'professional': BDO.LifeSkills.Masteries.Professional,
+    'artisan': BDO.LifeSkills.Masteries.Artisan,
+    'master': BDO.LifeSkills.Masteries.Master,
+    'guru': BDO.LifeSkills.Masteries.Guru,
 }
 
 const MasteryDict = {
     [App.Locales.US]: ['Skill level:'],
 }
 
-export const getMastery: Getter<BDO.LifeSkills.Masteries.Mastery> = ({ $, id, type, locale }) => {
+export const getMastery: Getter<App.Shared.Mastery> = ({ $, id, type, locale }) => {
     const matcher = LocaleMatcher(MasteryDict, locale)
 
     const elements = $('.category_text')

@@ -9,7 +9,7 @@ export const buildItem: Builder<App.Entities.Items.Item> = ({ $, id, type, local
 
     const item: App.Entities.Items.Item = {
         id,
-        category: category as App.Entities.Items.Category,
+        category: category as App.Entities.Items.Categories,
         type: App.Entities.Types.Item,
         icon: Getters.getIconURL(getterArgs),
         name: Getters.getName(getterArgs),
@@ -20,15 +20,15 @@ export const buildItem: Builder<App.Entities.Items.Item> = ({ $, id, type, local
         weight: Getters.getWeight(getterArgs),
     }
 
-    switch (category) {
-        case 'consumable':
+    switch (category as App.Entities.Items.Categories) {
+        case App.Entities.Items.Categories.Consumable:
             return {
                 ...item,
                 effects: Getters.getEffects(getterArgs),
                 duration: Getters.getDuration(getterArgs),
                 cooldown: Getters.getCooldown(getterArgs),
             } as App.Entities.Items.Consumable
-        case 'equipment':
+        case App.Entities.Items.Categories.Equipment:
             const enhancementStats = Getters.getEnhancementStats(getterArgs)
             return {
                 ...item,

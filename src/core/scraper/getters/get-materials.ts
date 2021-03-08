@@ -8,7 +8,7 @@ const MaterialsDict = {
     [App.Locales.US]: ['Crafting Material'],
 }
 
-export const getMaterials: Getter<App.Misc.Material[]> = ({ $, locale }) => {
+export const getMaterials: Getter<App.Shared.Material[]> = ({ $, locale }) => {
     const matcher = LocaleMatcher(MaterialsDict, locale)
 
     const row = $('.outer.item_info td').toArray().find(element => {
@@ -22,7 +22,7 @@ export const getMaterials: Getter<App.Misc.Material[]> = ({ $, locale }) => {
         const shortUrl = parent.attr('href')
         const { type, id } = decomposeShortURL(shortUrl as string)
 
-        const material: App.Misc.Material = {
+        const material: App.Shared.Material = {
             type: type === BDOCodex.Entities.Types.Item
                 ? App.Entities.Types.Item
                 : App.Entities.Types.MaterialGroup,

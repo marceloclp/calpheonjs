@@ -19,7 +19,10 @@ const SetDict = {
     [App.Locales.US]: ['Set Effect']
 }
 
-const parseEffects = (html: string, locale: App.Locales.US): BDO.Equipments.BlackStones.Effects => {
+const parseEffects = (
+    html: string,
+    locale: App.Locales.US
+): App.Shared.Equipments.Effects => {
     const $ = cheerio.load('<div>' + html + '</div>')
     const matchers = {
         item: LocaleMatcher(ItemDict, locale),
@@ -27,7 +30,7 @@ const parseEffects = (html: string, locale: App.Locales.US): BDO.Equipments.Blac
         additional: LocaleMatcher(AdditionalDict, locale),
         set: LocaleMatcher(SetDict, locale),
     }
-    const effects: BDO.Equipments.BlackStones.Effects = {
+    const effects: App.Shared.Equipments.Effects = {
         item: [], enhancement: [], additional: [], set: {},
     }
     const keys = Object.keys(effects) as (keyof typeof matchers)[]
@@ -57,7 +60,9 @@ const parseEffects = (html: string, locale: App.Locales.US): BDO.Equipments.Blac
     return effects
 }
 
-export const getEnhancementStats: Getter<BDO.Equipments.BlackStones.Set> = ({ $, category, locale }) => {
+export const getEnhancementStats: Getter<
+    App.Shared.Equipments.Enhancements.Set
+> = ({ $, category, locale }) => {
     if (category !== 'equipment') return []
     const data: BDOCodex.Enhancement.Data = JSON.parse($('#enchantment_array').text())
     const maxLevel = parseNumber(data.max_enchant, 0)

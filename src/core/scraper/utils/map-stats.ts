@@ -1,11 +1,11 @@
-import { BDO, BDOCodex } from '@typings/namespaces'
+import { App, BDOCodex } from '@typings/namespaces'
 
 /**
  * Maps BDOCodex stats to App stats.
  */
 export const mapStats = (
     stats: Partial<Record<BDOCodex.StatsEnum, string>>
-): BDO.Player.Stats<string> => {
+): App.Shared.Stats => {
     return {
         hp: stats.hp || '0',
         mp: stats.mp || '0',
@@ -14,10 +14,10 @@ export const mapStats = (
         accuracy: stats.accuracy || '0',
         evasion: stats.evasion || '0',
         damageReduction: stats.dreduction || '0',
-        h_damage: stats.hdamage || '0',
-        h_defense: stats.hdefense || '0',
-        h_accuracy: stats.haccuracy || '0',
-        h_evasion: stats.hevasion || '0',
-        h_damageReduction: stats.hdreduction || '0',
+        bonusDamage: stats.hdamage || '0',
+        bonusDefense: stats.hdefense || '0',
+        bonusAccuracy: stats.haccuracy || '0',
+        bonusEvasion: stats.hevasion || '0',
+        bonusDamageReduction: stats.hdreduction || '0',
     }
 }

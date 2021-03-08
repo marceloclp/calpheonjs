@@ -12,7 +12,7 @@ const test = (id: string) => {
     )
     const res = Getters.getFairyExp({
         id: item.id,
-        category: item.category as App.Entities.Categories,
+        category: item.category,
         locale: App.Locales.US,
         type: item.type as App.Entities.Types,
         $: cheerio.load(html),

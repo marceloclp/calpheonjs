@@ -1,4 +1,4 @@
-import { App, BDO } from '@typings/namespaces'
+import { App } from '@typings/namespaces'
 import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
@@ -18,7 +18,7 @@ const GlobalDict = [BuyDict, SellDict, RepairDict].reduce((obj, dict) => {
     }, obj)
 }, {} as Record<App.Locales, string[]>)
 
-export const getPrices: Getter<BDO.Prices> = ({ $, locale }) => {
+export const getPrices: Getter<App.Shared.Prices> = ({ $, locale }) => {
     const matchers = {
         buy: LocaleMatcher(BuyDict, locale),
         sell: LocaleMatcher(SellDict, locale),
@@ -26,7 +26,7 @@ export const getPrices: Getter<BDO.Prices> = ({ $, locale }) => {
     }
     const globalMatcher = LocaleMatcher(GlobalDict, locale)
     const keys = Object.keys(matchers) as (keyof typeof matchers)[]
-    const prices: BDO.Prices = { buy: 0, sell: 0, repair: 0 }
+    const prices: App.Shared.Prices = { buy: 0, sell: 0, repair: 0 }
 
     const element = $('.outer.item_info td').toArray().find(element => {
         const textContent = $(element).text()

@@ -3,11 +3,9 @@ import { DecorationChars } from '@config/constants'
 /**
  * Removes decoration and custom trailing characters from a string.
  * 
- * @param {string} str
- *      - The string to be cleaned.
- * @param {string} custom
- *      - Additional trailing characters to be removed.
- * @returns {string}
+ * @param str - The string to be cleaned.
+ * @param custom - Additional trailing characters to be removed.
+ * @returns the string without the trailing characters.
  */
 export const cleanStr = (str?: string, custom: string = ''): string => {
     if (!str || typeof str !== 'string')

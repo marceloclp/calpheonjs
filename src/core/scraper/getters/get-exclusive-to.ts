@@ -4,31 +4,31 @@ import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getters.types'
 
-const ClassesLookup: Record<string, BDO.Player.Classes> = {
-    'archer': BDO.Player.Classes.Archer,
-    'berserker': BDO.Player.Classes.Berserker,
-    'dark_knight': BDO.Player.Classes.DarkKnight,
-    'kunoichi': BDO.Player.Classes.Kunoichi,
-    'lahn': BDO.Player.Classes.Lahn,
-    'maehwa': BDO.Player.Classes.Maehwa,
-    'musa': BDO.Player.Classes.Musa,
-    'mystic': BDO.Player.Classes.Mystic,
-    'ninja': BDO.Player.Classes.Ninja,
-    'ranger': BDO.Player.Classes.Ranger,
-    'sorceress': BDO.Player.Classes.Sorceress,
-    'striker': BDO.Player.Classes.Striker,
-    'tamer': BDO.Player.Classes.Tamer,
-    'valkyrie': BDO.Player.Classes.Valkyrie,
-    'warrior': BDO.Player.Classes.Warrior,
-    'witch': BDO.Player.Classes.Witch,
-    'wizard': BDO.Player.Classes.Wizard,
+const ClassesLookup: Record<string, BDO.Players.Classes> = {
+    'archer': BDO.Players.Classes.Archer,
+    'berserker': BDO.Players.Classes.Berserker,
+    'dark_knight': BDO.Players.Classes.DarkKnight,
+    'kunoichi': BDO.Players.Classes.Kunoichi,
+    'lahn': BDO.Players.Classes.Lahn,
+    'maehwa': BDO.Players.Classes.Maehwa,
+    'musa': BDO.Players.Classes.Musa,
+    'mystic': BDO.Players.Classes.Mystic,
+    'ninja': BDO.Players.Classes.Ninja,
+    'ranger': BDO.Players.Classes.Ranger,
+    'sorceress': BDO.Players.Classes.Sorceress,
+    'striker': BDO.Players.Classes.Striker,
+    'tamer': BDO.Players.Classes.Tamer,
+    'valkyrie': BDO.Players.Classes.Valkyrie,
+    'warrior': BDO.Players.Classes.Warrior,
+    'witch': BDO.Players.Classes.Witch,
+    'wizard': BDO.Players.Classes.Wizard,
 }
 
 const ExclusiveDict = {
     [App.Locales.US]: ['Exclusive'],
 }
 
-export const getExclusiveTo: Getter<BDO.Player.Classes[]> = ({ $, id, locale, type }) => {
+export const getExclusiveTo: Getter<BDO.Players.Classes[]> = ({ $, id, locale, type }) => {
     const matcher = LocaleMatcher(ExclusiveDict, locale)
 
     $('.outer.item_info td').contents().toArray().find(element => {

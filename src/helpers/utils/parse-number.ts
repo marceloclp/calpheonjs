@@ -2,11 +2,9 @@
  * Converts a string to a number. If the value can't be converted, it will return
  * a default value.
  * 
- * @param {string | number} value
- *      - The value to be converted to integer.
- * @param {number} defaultValue
- *      - The default value in case the conversion fails.
- * @returns {number}
+ * @param value - The value to be converted to integer.
+ * @param defaultValue - The default value in case the conversion fails.
+ * @returns the parsed value when available, otherwise the default value.
  */
 export const parseNumber = (value?: string | number, defaultValue = 0) => {
     if (typeof value === 'number')
