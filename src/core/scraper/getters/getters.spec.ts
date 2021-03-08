@@ -1,3 +1,4 @@
+import { App } from '@typings/namespaces'
 import { getTestCaseData, getTestCases } from '@tests/utils'
 import { GetterArgs } from './getters.types'
 import * as Getters from './index'
@@ -10,9 +11,10 @@ describe('Getters', () => {
 
         const args: GetterArgs = {
             ...data,
+            type: expected.type,
             category: expected.category,
             $,
-        } 
+        }
 
         expected.category && it('getCategory()', () => {
             expect(Getters.getCategory(args)).toBe(expected.category)
@@ -38,6 +40,9 @@ describe('Getters', () => {
         expected.grade && it('getGrade()', () => {
             expect(Getters.getGrade(args)).toBe(expected.grade)
         })
+        expected.group && it('getGroup()', () => {
+            expect(Getters.getGroup(args)).toBe(expected.group)
+        })
         expected.icon && it('getIconURL()', () => {
             expect(Getters.getIconURL(args)).toBe(expected.icon)
         })
@@ -53,11 +58,17 @@ describe('Getters', () => {
         expected.name && it('getName()', () => {
             expect(Getters.getName(args)).toBe(expected.name)
         })
+        expected.obtainedFrom && it('getObtainedFrom', () => {
+            expect(Getters.getObtainedFrom(args)).toMatchObject(expected.obtainedFrom)
+        })
         expected.prices && it('getPrices()', () => {
             expect(Getters.getPrices(args)).toMatchObject(expected.prices)
         })
         expected.process && it('getProcess()', () => {
-            expect(Getters.getProcess(args)).toBe(expected.process)
+            const getProcess = expected.type === App.Entities.Types.Recipe
+                ? Getters.getRecipeProcess
+                : Getters.getProcessingProcess
+            expect(getProcess(args)).toBe(expected.process)
         })
         expected.products && it('getProducts()', () => {
             expect(Getters.getProducts(args)).toMatchObject(expected.products)

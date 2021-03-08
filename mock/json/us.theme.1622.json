@@ -1,0 +1,14 @@
+{
+    "id": "1622",
+    "icon": "/items/ui_artwork/ic_01622.png",
+    "name": "Rosaria",
+    "type": "knowledge",
+    "group": "Residents of Kamasylvia",
+    "description": "Rosaria, the dreaming shepherd of Kamasylvia.\n\nA most sociable Papu, known to be the no.1 handler of Griffons on Papuraora Island. She is currently overseeing a cow farm near Grána by the royal decree of Brolina Ornette, queen of Kamasylvia. However, her cows have yet to warm up to her, so she's been hiring many adventurers to help her out. The villagers of Grána are dumbstruck at why she can handle the enormous griffons yet struggle so with cows.",
+    "obtainedFrom": {
+        "type": "npc",
+        "id": "45598",
+        "name": "Rosaria",
+        "icon": "/items/ui_artwork/ic_01622.png"
+    }
+}

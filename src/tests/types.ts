@@ -1,8 +1,8 @@
-import { App } from '@typings/namespaces'
+import { App, BDOCodex } from '@typings/namespaces'
 
 export type TestCase = [string, {
     readonly id: string
-    readonly type: App.Entities.Types
+    readonly type: BDOCodex.Entities.Types
     readonly locale: App.Locales
 }]
 

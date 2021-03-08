@@ -40,5 +40,5 @@ export const getMastery: Getter<App.Shared.Mastery> = ({ $, id, type, locale }) 
         'Please report this warning by opening an issue on the GitHub page.'
     )
 
-    return [MasteryLookup[masteryText], parseNumber(masteryText, 1)]
+    return [MasteryLookup[masteryText], parseNumber(str, 0)]
 }

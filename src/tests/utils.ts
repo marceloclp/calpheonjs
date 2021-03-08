@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import cheerio from 'cheerio'
-import { App } from '@typings/namespaces'
+import { App, BDOCodex } from '@typings/namespaces'
+import { EntityLookup } from '@config/lookups'
 import { MockPath } from './constants'
 import { TestCase, TestCaseData } from './types'
 
@@ -11,12 +12,15 @@ export const getTestCases = (): TestCase[] => {
         { encoding: 'utf-8' }
     ).map(fileName => {
         const [locale, type, id] = fileName.split('.')
+        if (!(type in EntityLookup)) {
+            return
+        }
         return [fileName, {
             id: id.replace(/-/g, '/'),
-            type: type as App.Entities.Types,
+            type: type as BDOCodex.Entities.Types,
             locale: locale as App.Locales,
         }]
-    })
+    }).filter(Boolean) as TestCase[]
 }
 
 export const getTestCaseData = (

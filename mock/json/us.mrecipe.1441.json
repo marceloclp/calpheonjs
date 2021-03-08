@@ -1,0 +1,29 @@
+{
+    "id": "1441",
+    "icon": "/items/new_icon/03_etc/07_productmaterial/00009902.png",
+    "name": "[Guild] Ink",
+    "type": "processing",
+    "process": "guildProcessing",
+    "exp": 0,
+    "mastery": ["beginner", 0],
+    "materials": [{
+        "type": "item",
+        "id": "4070",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004070.png",
+        "name": "Processed Coal",
+        "amount": 2
+    }, {
+        "type": "item",
+        "id": "4901",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004901.png",
+        "name": "Black Stone Powder",
+        "amount": 2
+    }],
+    "products": [{
+        "type": "item",
+        "id": "9902",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009902.png",
+        "name": "[Guild] Ink",
+        "amount": 1
+    }]
+}

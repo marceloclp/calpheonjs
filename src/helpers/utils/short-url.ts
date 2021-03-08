@@ -1,8 +1,9 @@
-import { App, BDOCodex } from '@typings/namespaces'
+import { App } from '@typings/namespaces'
+import { EntityLookup, ReverseEntityLookup } from '@config/lookups'
 
 interface ShortURLDescriptor {
     locale: App.Locales
-    type: BDOCodex.Entities.Types
+    type: App.Entities.Types,
     id: string
 }
 
@@ -11,14 +12,15 @@ export const composeShortURL = ({ id, locale, type }: ShortURLDescriptor): strin
         `Failed attempt at building url for /${locale}/${type}/${id}. ` +
         'Please report this warning by opening an issue on the GitHub page.'
     )
-    return `/${locale}/${type}/${id}/`
+    const codexType = ReverseEntityLookup[type]
+    return `/${locale}/${codexType}/${id}/`
 }
 
 export const decomposeShortURL = (shortUrl: string): ShortURLDescriptor => {
-    const args = shortUrl.split('/').filter(e => e)
+    const [locale, type, ...idArgs] = shortUrl.split('/').filter(e => e)
     return {
-        locale: args[0] as App.Locales,
-        type: args[1] as BDOCodex.Entities.Types,
-        id: args.slice(2).join('/')
+        locale: locale as App.Locales,
+        type: EntityLookup[type] || type,
+        id: idArgs.join('/')
     }
 }

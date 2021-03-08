@@ -3,24 +3,21 @@ import { GetterArgs } from '../getters/getters.types'
 import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
-export const buildRecipe: Builder<
-    App.Entities.Recipe
+export const buildKnowledge: Builder<
+    App.Entities.Knowledge
 > = ({ $, id, type, locale }) => {
     const getterArgs: GetterArgs = { $, id, type, locale }
 
-    const recipe: App.Entities.Recipe = {
+    const knowledge: App.Entities.Knowledge = {
         id,
-        type: App.Entities.Types.Recipe,
+        type: App.Entities.Types.Knowledge,
         icon: Getters.getIconURL(getterArgs),
         name: Getters.getName(getterArgs),
         nameAlternative: Getters.getNameAlt(getterArgs),
         description: Getters.getDescription(getterArgs),
-        process: Getters.getRecipeProcess(getterArgs),
-        exp: Getters.getExp(getterArgs),
-        mastery: Getters.getMastery(getterArgs),
-        materials: Getters.getMaterials(getterArgs),
-        products: Getters.getProducts(getterArgs),
+        group: Getters.getGroup(getterArgs),
+        obtainedFrom: Getters.getObtainedFrom(getterArgs),
     }
 
-    return recipe
+    return knowledge
 }

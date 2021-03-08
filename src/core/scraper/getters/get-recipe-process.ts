@@ -8,7 +8,7 @@ const ProcessLookup: Record<string, BDO.Recipes.Processes> = {
     'guild_processing': BDO.Recipes.Processes.GuildProcessing,
 }
 
-export const getProcess: Getter<BDO.Recipes.Processes> = ({ $, id, type, locale }) => {
+export const getRecipeProcess: Getter<BDO.Recipes.Processes> = ({ $, id, type, locale }) => {
     const text = $('.category_text')
         .parent().find('.yellow_text').text()
     const processText = toSnakeCase(text)

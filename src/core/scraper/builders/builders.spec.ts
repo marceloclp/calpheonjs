@@ -11,7 +11,9 @@ describe('Builders', () => {
         const received = {
             [App.Entities.Types.Item]: Builders.buildItem,
             [App.Entities.Types.Recipe]: Builders.buildRecipe,
-        }[data.type]?.({ ...data, $ })
+            [App.Entities.Types.Processing]: Builders.buildProcessing,
+            [App.Entities.Types.Knowledge]: Builders.buildKnowledge,
+        }[expected.type]?.({ ...data, $, type: expected.type })
 
         it('should have all expected keys', () => {
             const hasAllKeys = Object.keys(expected).every(

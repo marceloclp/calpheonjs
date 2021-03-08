@@ -14,4 +14,5 @@ export enum Chars {
     LineBreak = '\n',
     Space = ' ',
     Star = '※',
+    Slash = '/',
 }

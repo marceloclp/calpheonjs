@@ -10,7 +10,7 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getFairyExp({
+    const res = Getters.getGroup({
         id: item.id,
         category: item.category,
         locale: App.Locales.US,
@@ -19,5 +19,5 @@ const test = (id: string) => {
     })
     console.log('res', res)
 }
-test('us.item.14534')
+test('us.theme.1622')
 // test('us.item.694302')
