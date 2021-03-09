@@ -1,3 +1,5 @@
+export type Range = [number, number]
+
 export type Writeable<T> = { -readonly [P in keyof T]: T[P] }
 
 export type Maybe<T> = T | undefined

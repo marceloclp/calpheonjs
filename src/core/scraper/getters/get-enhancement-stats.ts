@@ -1,5 +1,5 @@
 import cheerio from 'cheerio'
-import { App, BDO, BDOCodex } from '@typings/namespaces'
+import { App, BDOCodex } from '@typings/namespaces'
 import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { cleanStr } from '@helpers/utils/clean-str'

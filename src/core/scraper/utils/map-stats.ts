@@ -1,11 +1,11 @@
-import { App, BDOCodex } from '@typings/namespaces'
+import { App, BDO, BDOCodex } from '@typings/namespaces'
 
 /**
  * Maps BDOCodex stats to App stats.
  */
 export const mapStats = (
     stats: Partial<Record<BDOCodex.StatsEnum, string>>
-): App.Shared.Stats => {
+): Partial<Record<BDO.Players.Attributes, string>> => {
     return {
         hp: stats.hp || '0',
         mp: stats.mp || '0',

@@ -1,4 +1,4 @@
-export enum Stats {
+export enum Attributes {
     HP = 'hp',
     MP = 'mp',
     Damage = 'damage',

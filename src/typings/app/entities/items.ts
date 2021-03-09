@@ -38,7 +38,7 @@ export interface Equipment extends Item {
      * The base stats of the equipment as a string. If the stat is a range, then the
      * values are separated by a `~` (e.g., '17 ~ 23').
      */
-    stats: App.Shared.Stats
+    stats: App.Shared.Equipments.Stats
     /** Effects caused at the base enhancement level (0). */
     effects: App.Shared.Equipments.Effects
     /**

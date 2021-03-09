@@ -2,7 +2,7 @@ import { App } from '@typings/namespaces'
 
 export interface Level {
     /** The new equipment stats at the enhancement level. */
-    stats: App.Shared.Stats
+    stats: App.Shared.Equipments.Stats
     /** The chance of sucess as a floating point. */
     successRate: number
     /** Max durability at a given enhancement level. */

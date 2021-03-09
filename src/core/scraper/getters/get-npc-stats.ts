@@ -3,37 +3,37 @@ import { App, BDO } from '@typings/namespaces'
 import { Getter } from './getters.types'
 
 const StatsDicts = {
-    [BDO.Players.Stats.HP]: {
+    [BDO.Players.Attributes.HP]: {
         [App.Locales.US]: ['HP:'],
     },
-    [BDO.Players.Stats.MP]: {
+    [BDO.Players.Attributes.MP]: {
         [App.Locales.US]: ['MP:'],
     },
-    [BDO.Players.Stats.Damage]: {
+    [BDO.Players.Attributes.Damage]: {
         [App.Locales.US]: ['Damage:'],
     },
-    [BDO.Players.Stats.Defense]: {
+    [BDO.Players.Attributes.Defense]: {
         [App.Locales.US]: ['Defense (DP):'],
     },
-    [BDO.Players.Stats.Accuracy]: {
+    [BDO.Players.Attributes.Accuracy]: {
         [App.Locales.US]: ['Accuracy:'],
     },
-    [BDO.Players.Stats.Evasion]: {
+    [BDO.Players.Attributes.Evasion]: {
         [App.Locales.US]: ['Evasion:'],
     },
-    [BDO.Players.Stats.DamageReduction]: {
+    [BDO.Players.Attributes.DamageReduction]: {
         [App.Locales.US]: ['Damage Reduction:'],
     },
 }
 
 export const getNPCStats: Getter<
-    Partial<App.Shared.Stats> | undefined
+    Partial<App.Shared.NPCs.Stats> | undefined
 > = ({ $, locale }) => {
     const matchers = Object.entries(StatsDicts)
         .reduce((obj, [stat, dict]) => {
             return { ...obj, [stat]: LocaleMatcher(dict, locale) }
         }, {} as Record<keyof typeof StatsDicts, Matcher>)
-    const stats: Partial<App.Shared.Stats> = {}
+    const stats: Partial<App.Shared.NPCs.Stats> = {}
 
     $('.titles_cell').contents().toArray().forEach(elem => {
         const text = $(elem).text()

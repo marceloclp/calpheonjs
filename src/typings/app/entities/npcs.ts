@@ -16,7 +16,7 @@ export interface NPC extends Generic<App.Entities.Types.NPC> {
     /** An NPC may have a level. */
     lvl?: number
     /** An NPC may have player stats. */
-    stats?: Partial<App.Shared.Stats>
+    stats?: Partial<App.Shared.NPCs.Stats>
     /** An NPC may reward the player with experience points when killed. */
     exp?: number
     /** An NPC may reward the player with skill experience points when killed. */
@@ -38,11 +38,11 @@ export interface Worker extends NPC {
     /** Whether the worker can be sold. */
     sellable: boolean
     /** The maximum possible stats for a worker, if it hit the lottery. */
-    maxBaseStats: App.Shared.Workers.Stats
+    maxBaseStats: App.Shared.NPCs.Workers.Stats
     /** Information about each level. */
-    levelsInfo: App.Shared.Workers.Level[]
+    levelsInfo: App.Shared.NPCs.Workers.Level[]
     /** The range of which each stat can increase upon level up. */
-    statsGrowth: App.Shared.Workers.Growth
+    statsGrowth: App.Shared.NPCs.Workers.Stats
     /**
      * The precursor NPC required to acquire this worker.
      * Usually the current worker but at a previous grade.

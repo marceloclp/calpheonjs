@@ -2,7 +2,7 @@ import { App } from '@typings/namespaces'
 import { FixedArray } from '@typings/utilities'
 
 export interface Level {
-    stats: App.Shared.Stats
+    stats: App.Shared.Equipments.Stats
     /** The amount of Caphras stones required to perform the enhancement at each level. */
     amount: {
         /** The amount required to enhance to the next level. */
