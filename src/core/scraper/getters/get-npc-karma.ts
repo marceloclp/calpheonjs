@@ -1,16 +1,11 @@
-import { App } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
-
-const Dict = {
-    [App.Locales.US]: ['Karma'],
-}
+import { Matcher } from '@helpers/factory/matcher'
 
 export const getNPCKarma: Getter<
     number | undefined
-> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(Dict, locale)
+> = ({ $ }) => {
+    const matcher = Matcher(['Karma'])
 
     $('.titles_cell').contents().toArray().find(elem => {
         return !!matcher.findIn($(elem).text())

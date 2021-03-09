@@ -1,34 +1,20 @@
 import cheerio from 'cheerio'
 import { App, BDOCodex } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
-import { parseNumber } from '@helpers/utils/parse-number'
+import { Matcher } from '@helpers/factory/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { mapStats } from '../utils/map-stats'
+import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const EnhancementDict = {
-    [App.Locales.US]: ['Enhancement Effect'],
-}
-const ItemDict = {
-    [App.Locales.US]: ['Item Effect'],
-}
-const AdditionalDict = {
-    [App.Locales.US]: ['Additional Effect'],
-}
-const SetDict = {
-    [App.Locales.US]: ['Set Effect']
-}
-
 const parseEffects = (
-    html: string,
-    locale: App.Locales.US
+    html: string
 ): App.Shared.Equipments.Effects => {
     const $ = cheerio.load('<div>' + html + '</div>')
     const matchers = {
-        item: LocaleMatcher(ItemDict, locale),
-        enhancement: LocaleMatcher(EnhancementDict, locale),
-        additional: LocaleMatcher(AdditionalDict, locale),
-        set: LocaleMatcher(SetDict, locale),
+        item: Matcher(['Item Effect']),
+        enhancement: Matcher(['Enhancement Effect']),
+        additional: Matcher(['Additional Effect']),
+        set: Matcher(['Set Effect']),
     }
     const effects: App.Shared.Equipments.Effects = {
         item: [], enhancement: [], additional: [], set: {},
@@ -62,7 +48,7 @@ const parseEffects = (
 
 export const getEnhancementStats: Getter<
     App.Shared.Equipments.Enhancements.Set
-> = ({ $, category, locale }) => {
+> = ({ $, category }) => {
     if (category !== 'equipment') return []
     const data: BDOCodex.Enhancement.Data = JSON.parse($('#enchantment_array').text())
     const maxLevel = parseNumber(data.max_enchant, 0)
@@ -78,7 +64,7 @@ export const getEnhancementStats: Getter<
                 nextLvl: parseNumber(level.cron_value),
                 total: parseNumber(level.cron_tvalue),
             },
-            effects: parseEffects(level.edescription, locale),
+            effects: parseEffects(level.edescription),
             requiredItem: isLastLevel ? {
                 type: App.Entities.Types.Item,
                 id: level.need_enchant_item_id,

@@ -1,17 +1,13 @@
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { App } from '@typings/namespaces'
+import { Matcher } from '@helpers/factory/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { decomposeShortURL } from '@helpers/utils/short-url'
 import { Getter } from './getters.types'
 
-const ObtainedFromDict = {
-    [App.Locales.US]: ['Obtained from'],
-}
-
 export const getObtainedFrom: Getter<
     App.Refs.Ref | undefined
-> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(ObtainedFromDict, locale)
+> = ({ $ }) => {
+    const matcher = Matcher(['Obtained from'])
     const elements = $('.outer.item_info td').contents().toArray()
 
     let idx = elements.findIndex(elem => {

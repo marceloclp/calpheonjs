@@ -1,14 +1,9 @@
-import { App } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const WeightDict = {
-    [App.Locales.US]: ['Weight:']
-}
-
-export const getWeight: Getter<number> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(WeightDict, locale)
+export const getWeight: Getter<number> = ({ $ }) => {
+    const matcher = Matcher(['Weight:'])
     const nodes = $('.category_text')
         .parent()
         .contents()

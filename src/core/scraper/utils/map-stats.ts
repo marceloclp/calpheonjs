@@ -1,4 +1,4 @@
-import { App, BDO, BDOCodex } from '@typings/namespaces'
+import { BDO, BDOCodex } from '@typings/namespaces'
 
 /**
  * Maps BDOCodex stats to App stats.

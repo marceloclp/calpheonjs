@@ -1,11 +1,6 @@
-import { App } from '@typings/namespaces'
+import { Match, Matcher } from './matcher.types'
 
-interface Match {
-    readonly found: string
-    readonly index: number
-    readonly str: string
-}
-export class Matcher {
+export class MatcherClass implements Matcher {
     private readonly cache: Record<string, Match | null> = {}
     private _lastMatch?: Match
 
@@ -54,11 +49,4 @@ export class Matcher {
         cache[str] = null
         return null
     }
-}
-
-export const LocaleMatcher = (
-    matches: Record<App.Locales, string[]>,
-    locale: App.Locales,
-): Matcher => {
-    return new Matcher(matches[locale])
 }

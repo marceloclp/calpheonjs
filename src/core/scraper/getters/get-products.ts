@@ -1,15 +1,11 @@
 import { App, BDOCodex } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { decomposeShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const ProductsDict = {
-    [App.Locales.US]: ['Crafting Result'],
-}
-
-export const getProducts: Getter<App.Shared.Material[]> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(ProductsDict, locale)
+export const getProducts: Getter<App.Shared.Material[]> = ({ $ }) => {
+    const matcher = Matcher(['Crafting Result'])
 
     const row = $('.outer.item_info td').toArray().find(element => {
         const text = $(element).text()

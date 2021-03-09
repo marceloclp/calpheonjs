@@ -1,9 +1,9 @@
+import { App, BDOCodex } from '@typings/namespaces'
 import { BaseUrl } from '@config/constants'
-import { App, BDOCodex } from '@typings/index'
 
 export const buildScrapeUrl = (
     id: string,
-    type: BDOCodex.Entities.Enum,
+    type: BDOCodex.Entities.Types,
     locale: App.Locales
 ): string => {
     return `${BaseUrl}/${locale}/${type}/${id}/`

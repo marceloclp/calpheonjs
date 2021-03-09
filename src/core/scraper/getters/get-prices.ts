@@ -1,30 +1,22 @@
 import { App } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { IMatcher, Matcher } from '@helpers/factory/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const BuyDict = {
-    [App.Locales.US]: ['Buy']
+const Matches = {
+    buy: ['Buy'],
+    sell: ['Sell'],
+    repair: ['Repair']
 }
-const SellDict = {
-    [App.Locales.US]: ['Sell']
-}
-const RepairDict = {
-    [App.Locales.US]: ['Repair']
-}
-const GlobalDict = [BuyDict, SellDict, RepairDict].reduce((obj, dict) => {
-    return Object.entries(dict).reduce((obj2, [locale, values]) => {
-        return { ...obj2, [locale]: [...obj2[locale] || [], ...values] }
-    }, obj)
-}, {} as Record<App.Locales, string[]>)
 
-export const getPrices: Getter<App.Shared.Prices> = ({ $, locale }) => {
-    const matchers = {
-        buy: LocaleMatcher(BuyDict, locale),
-        sell: LocaleMatcher(SellDict, locale),
-        repair: LocaleMatcher(RepairDict, locale),
-    }
-    const globalMatcher = LocaleMatcher(GlobalDict, locale)
+export const getPrices: Getter<App.Shared.Prices> = ({ $ }) => {
+    const matchers = Object.entries(Matches)
+        .reduce((obj, [key, matches]) => {
+            return { ...obj, [key]: Matcher(matches) }
+        }, {} as Record<keyof typeof Matches, IMatcher>)
+    const globalMatcher = Matcher(
+        Object.values(Matches).reduce((arr, curr) => [...arr, ...curr])
+    )
     const keys = Object.keys(matchers) as (keyof typeof matchers)[]
     const prices: App.Shared.Prices = { buy: 0, sell: 0, repair: 0 }
 

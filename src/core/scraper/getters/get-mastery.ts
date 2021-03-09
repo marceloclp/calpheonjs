@@ -1,5 +1,5 @@
 import { App, BDO } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getters.types'
@@ -14,12 +14,8 @@ const MasteryLookup: Record<string, BDO.LifeSkills.Masteries> = {
     'guru': BDO.LifeSkills.Masteries.Guru,
 }
 
-const MasteryDict = {
-    [App.Locales.US]: ['Skill level:'],
-}
-
 export const getMastery: Getter<App.Shared.Mastery> = ({ $, id, type, locale }) => {
-    const matcher = LocaleMatcher(MasteryDict, locale)
+    const matcher = Matcher(['Skill level:'])
 
     const elements = $('.category_text')
         .parent().contents().toArray()

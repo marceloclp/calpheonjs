@@ -1,1 +1,0 @@
-export { LocaleMatcher, Matcher } from './matcher'

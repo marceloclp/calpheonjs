@@ -1,14 +1,9 @@
-import { App } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
-const ExpMatcher = {
-    [App.Locales.US]: ['EXP'],
-}
-
-export const getExp: Getter<number> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(ExpMatcher, locale)
+export const getExp: Getter<number> = ({ $ }) => {
+    const matcher = Matcher(['EXP'])
     const elements = $('.category_text')
         .parent().contents().toArray()
     const element = elements.find(element => {

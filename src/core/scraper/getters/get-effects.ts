@@ -1,15 +1,10 @@
-import { App } from '@typings/namespaces'
 import { DividerChars, GroupBreakChars } from '@config/constants'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { Getter } from './getters.types'
 
-const EffectsDict = {
-    [App.Locales.US]: ['- Effect', 'Effect'],
-}
-
-export const getEffects: Getter<string[]> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(EffectsDict, locale)
+export const getEffects: Getter<string[]> = ({ $ }) => {
+    const matcher = Matcher(['- Effect', 'Effect'])
     const effects: string[] = []
 
     const element = $('.outer.item_info td').toArray().find(element => {

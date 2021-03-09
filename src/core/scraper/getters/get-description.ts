@@ -1,22 +1,18 @@
 import { App } from '@typings/namespaces'
 import { Chars } from '@typings/utilities'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { decodeHTMLEntities } from '@helpers/utils/decode-html-entities'
 import { Getter } from './getters.types'
 
-const DescriptionDict = {
-    [App.Locales.US]: ['Description:'],
-}
-
 export const getDescription: Getter<
     string | undefined
-> = ({ $, type, locale }) => {
+> = ({ $, type }) => {
     if (
         type === App.Entities.Types.Knowledge ||
         type === App.Entities.Types.NPC
     ) {
-        const matcher = LocaleMatcher(DescriptionDict, locale)
+        const matcher = Matcher(['Description:'])
         const element = $('.outer.item_info td').toArray().find(elem => {
             const text = $(elem).text()
             return !!matcher.findIn(text)

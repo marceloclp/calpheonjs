@@ -1,6 +1,6 @@
-import { App, BDO } from '@typings/namespaces'
+import { BDO } from '@typings/namespaces'
 import { Chars } from '@typings/utilities'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
+import { Matcher } from '@helpers/factory/matcher'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getters.types'
 
@@ -24,12 +24,8 @@ const ClassesLookup: Record<string, BDO.Players.Classes> = {
     'wizard': BDO.Players.Classes.Wizard,
 }
 
-const ExclusiveDict = {
-    [App.Locales.US]: ['Exclusive'],
-}
-
 export const getExclusiveTo: Getter<BDO.Players.Classes[]> = ({ $, id, locale, type }) => {
-    const matcher = LocaleMatcher(ExclusiveDict, locale)
+    const matcher = Matcher(['Exclusive'])
 
     $('.outer.item_info td').contents().toArray().find(element => {
         const text = $(element).text()

@@ -1,14 +1,9 @@
-import { App } from '@typings/namespaces'
-import { LocaleMatcher } from '@helpers/factory/locale-matcher'
 import { parseTime } from '@helpers/utils/parse-time'
+import { Matcher } from '@helpers/factory/matcher'
 import { Getter } from './getters.types'
 
-const DurationDict = {
-    [App.Locales.US]: ['Duration'],
-}
-
-export const getDuration: Getter<number> = ({ $, locale }) => {
-    const matcher = LocaleMatcher(DurationDict, locale)
+export const getDuration: Getter<number> = ({ $ }) => {
+    const matcher = Matcher(['Duration'])
     
     const elements = $('.outer.item_info td').contents().toArray()
     const matchedIndex = elements.findIndex(element => {
@@ -17,5 +12,5 @@ export const getDuration: Getter<number> = ({ $, locale }) => {
     })
     if (matchedIndex === -1) return 0
     const value = $(elements[matchedIndex + 1]).text()
-    return parseTime(value, 0, locale)
+    return parseTime(value, 0)
 }
