@@ -25,7 +25,7 @@ const ClassesLookup: Record<string, BDO.Players.Classes> = {
 }
 
 export const getExclusiveTo: Getter<BDO.Players.Classes[]> = ({ $, id, locale, type }) => {
-    const matcher = Matcher(['Exclusive'])
+    const matcher = Matcher('Exclusive')
 
     $('.outer.item_info td').contents().toArray().find(element => {
         const text = $(element).text()

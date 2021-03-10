@@ -17,7 +17,7 @@ export const parseTime = (
         return defaultValue
     let parsedValue = parseNumber(value, defaultValue)
     for (const [dict, convertFn] of ConversionTable)
-        if (Matcher(dict).findIn(value))
+        if (Matcher(...dict).findIn(value))
             return convertFn(parsedValue)
     return parsedValue
 }

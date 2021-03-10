@@ -12,10 +12,10 @@ const Matches = {
 export const getPrices: Getter<App.Shared.Prices> = ({ $ }) => {
     const matchers = Object.entries(Matches)
         .reduce((obj, [key, matches]) => {
-            return { ...obj, [key]: Matcher(matches) }
+            return { ...obj, [key]: Matcher(...matches) }
         }, {} as Record<keyof typeof Matches, IMatcher>)
     const globalMatcher = Matcher(
-        Object.values(Matches).reduce((arr, curr) => [...arr, ...curr])
+        ...Object.values(Matches).reduce((arr, curr) => [...arr, ...curr])
     )
     const keys = Object.keys(matchers) as (keyof typeof matchers)[]
     const prices: App.Shared.Prices = { buy: 0, sell: 0, repair: 0 }

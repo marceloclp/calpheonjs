@@ -5,7 +5,7 @@ import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
 export const getMaterials: Getter<App.Shared.Material[]> = ({ $ }) => {
-    const matcher = Matcher(['Crafting Material'])
+    const matcher = Matcher('Crafting Material')
 
     const row = $('.outer.item_info td').toArray().find(element => {
         const text = $(element).text()

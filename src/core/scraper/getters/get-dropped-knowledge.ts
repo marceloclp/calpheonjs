@@ -7,7 +7,7 @@ import { Getter } from './getters.types'
 export const getDroppedKnowledge: Getter<
     App.Refs.Knowledge<{ dropChance?: number }> | undefined
 > = ({ $ }) => {
-    let matcher = Matcher(['Knowledge drop chance:'])
+    let matcher = Matcher('Knowledge drop chance:')
     const dcElement = $('.titles_cell').contents().toArray()
         .find(elem => {
             if (matcher.lastMatch)
@@ -22,7 +22,7 @@ export const getDroppedKnowledge: Getter<
 
     // To simplify things, we will assume the HTML structure is consistent.
     // This may not always be the case, but this can be improved later.
-    matcher = Matcher(['Knowledge:'])
+    matcher = Matcher('Knowledge:')
     const rowElement = $('.outer.item_info td').toArray().find(elem => {
         return !!matcher.findIn($(elem).text())
     })

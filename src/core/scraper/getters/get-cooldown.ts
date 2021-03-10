@@ -3,7 +3,7 @@ import { parseTime } from '@helpers/utils/parse-time'
 import { Getter } from './getters.types'
 
 export const getCooldown: Getter<number> = ({ $ }) => {
-    const matcher = Matcher(['Cooldown'])
+    const matcher = Matcher('Cooldown')
     const elements = $('.outer.item_info td').contents().toArray()
     const matchedIndex = elements.findIndex(element => {
         const text = $(element).text()

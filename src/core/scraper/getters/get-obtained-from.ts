@@ -7,7 +7,7 @@ import { Getter } from './getters.types'
 export const getObtainedFrom: Getter<
     App.Refs.Ref | undefined
 > = ({ $ }) => {
-    const matcher = Matcher(['Obtained from'])
+    const matcher = Matcher('Obtained from')
     const elements = $('.outer.item_info td').contents().toArray()
 
     let idx = elements.findIndex(elem => {

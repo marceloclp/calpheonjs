@@ -11,10 +11,10 @@ const parseEffects = (
 ): App.Shared.Equipments.Effects => {
     const $ = cheerio.load('<div>' + html + '</div>')
     const matchers = {
-        item: Matcher(['Item Effect']),
-        enhancement: Matcher(['Enhancement Effect']),
-        additional: Matcher(['Additional Effect']),
-        set: Matcher(['Set Effect']),
+        item: Matcher('Item Effect'),
+        enhancement: Matcher('Enhancement Effect'),
+        additional: Matcher('Additional Effect'),
+        set: Matcher('Set Effect'),
     }
     const effects: App.Shared.Equipments.Effects = {
         item: [], enhancement: [], additional: [], set: {},

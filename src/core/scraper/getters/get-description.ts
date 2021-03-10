@@ -12,7 +12,7 @@ export const getDescription: Getter<
         type === App.Entities.Types.Knowledge ||
         type === App.Entities.Types.NPC
     ) {
-        const matcher = Matcher(['Description:'])
+        const matcher = Matcher('Description:')
         const element = $('.outer.item_info td').toArray().find(elem => {
             const text = $(elem).text()
             return !!matcher.findIn(text)

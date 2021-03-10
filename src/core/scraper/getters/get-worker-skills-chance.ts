@@ -15,7 +15,7 @@ const Lookup = {
 export const getWorkerSkillsChance: Getter<
     Record<BDO.NPCs.Workers.SkillLevels, number>
 > = ({ $, id, type, locale }) => {
-    const matcher = Matcher(['Chances of obtaining the skills:'])
+    const matcher = Matcher('Chances of obtaining the skills:')
     const chances = {} as Record<BDO.NPCs.Workers.SkillLevels, number>
 
     const elements = $('.outer.item_info td')

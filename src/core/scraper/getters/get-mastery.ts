@@ -15,7 +15,7 @@ const MasteryLookup: Record<string, BDO.LifeSkills.Masteries> = {
 }
 
 export const getMastery: Getter<App.Shared.Mastery> = ({ $, id, type, locale }) => {
-    const matcher = Matcher(['Skill level:'])
+    const matcher = Matcher('Skill level:')
 
     const elements = $('.category_text')
         .parent().contents().toArray()

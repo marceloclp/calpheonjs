@@ -4,7 +4,7 @@ import { cleanStr } from '@helpers/utils/clean-str'
 import { Getter } from './getters.types'
 
 export const getEffects: Getter<string[]> = ({ $ }) => {
-    const matcher = Matcher(['- Effect', 'Effect'])
+    const matcher = Matcher('- Effect', 'Effect')
     const effects: string[] = []
 
     const element = $('.outer.item_info td').toArray().find(element => {

@@ -5,7 +5,7 @@ import { Getter } from './getters.types'
 export const getGroup: Getter<
     string | undefined
 > = ({ $ }) => {
-    const matcher = Matcher(['Category:'])
+    const matcher = Matcher('Category:')
 
     const elements = $('.quest_icon_cell')
         .parent().find('.valign_top').contents().toArray()

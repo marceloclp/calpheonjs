@@ -5,7 +5,7 @@ import { Getter } from './getters.types'
 export const getWorkerStamina: Getter<
     number
 > = ({ $ }) => {
-    const matcher = Matcher(['Stamina'])
+    const matcher = Matcher('Stamina')
     const elements = $('.outer.item_info table tr table[width] td')
         .toArray()
     for (let i = 0; i < elements.length; i++) {

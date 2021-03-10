@@ -21,7 +21,7 @@ export const getNPCStats: Getter<
 > = ({ $ }) => {
     const matchers = Object.entries(Matches)
         .reduce((obj, [stat, matches]) => {
-            return { ...obj, [stat]: Matcher(matches) }
+            return { ...obj, [stat]: Matcher(...matches) }
         }, {} as Partial<App.Shared.NPCs.Stats<IMatcher>>)
     const stats: Partial<App.Shared.NPCs.Stats> = {}
 

@@ -3,7 +3,7 @@ import { Matcher } from '@helpers/factory/matcher'
 import { Getter } from './getters.types'
 
 export const getDuration: Getter<number> = ({ $ }) => {
-    const matcher = Matcher(['Duration'])
+    const matcher = Matcher('Duration')
     
     const elements = $('.outer.item_info td').contents().toArray()
     const matchedIndex = elements.findIndex(element => {

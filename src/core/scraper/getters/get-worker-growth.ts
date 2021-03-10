@@ -7,11 +7,11 @@ export const getWorkerGrowth: Getter<
 > = ({ $ }) => {
     const matchers = {
         [BDO.NPCs.Workers.Attributes.Luck]:
-            Matcher(['Luck growth per level']),
+            Matcher('Luck growth per level'),
         [BDO.NPCs.Workers.Attributes.MovementSpeed]:
-            Matcher(['Speed growth per level']),
+            Matcher('Speed growth per level'),
         [BDO.NPCs.Workers.Attributes.WorkSpeed]:
-            Matcher(['Work speed growth per level']),
+            Matcher('Work speed growth per level'),
     }
     const stats: Partial<App.Shared.NPCs.Workers.Stats<string>> = {}
     const elements = $('.outer.item_info table tr table[width] td')

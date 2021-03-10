@@ -5,7 +5,7 @@ import { Matcher } from '@helpers/factory/matcher'
 export const getLevel: Getter<
     number | undefined
 > = ({ $ }) => {
-    const matcher = Matcher(['Level:'])
+    const matcher = Matcher('Level:')
     const element = $('.titles_cell').contents().toArray()
         .find(elem => !!matcher.findIn($(elem).text()))
     if (!element || !matcher.lastMatch) return

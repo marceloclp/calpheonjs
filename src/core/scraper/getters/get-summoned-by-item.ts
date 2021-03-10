@@ -12,7 +12,7 @@ export const getSummonedByItem: Getter<
 
     // To simplify things, we will assume the HTML structure is consistent.
     // This may not always be the case, but this can be improved later.
-    const matcher = Matcher(['Summoned by item:'])
+    const matcher = Matcher('Summoned by item:')
     const element = $('.outer.item_info td').toArray().find(elem => {
         return !!matcher.findIn($(elem).text())
     })

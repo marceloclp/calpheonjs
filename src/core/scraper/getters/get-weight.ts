@@ -3,7 +3,7 @@ import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getters.types'
 
 export const getWeight: Getter<number> = ({ $ }) => {
-    const matcher = Matcher(['Weight:'])
+    const matcher = Matcher('Weight:')
     const nodes = $('.category_text')
         .parent()
         .contents()
