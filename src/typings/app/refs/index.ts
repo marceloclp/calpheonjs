@@ -12,3 +12,7 @@ export type Knowledge<E = {}> = Ref<App.Entities.Types.Knowledge, E>
 export type NPC<E = {}> = Ref<App.Entities.Types.NPC, E>
 export type MaterialGroup<E = {}> = Ref<App.Entities.Types.MaterialGroup, E>
 export type Quest<E = {}> = Ref<App.Entities.Types.Quest, E>
+
+export type WorkerSkill<E = {}> = Ref<App.Entities.Types.WorkerSkill, {
+    effect: string
+} & E>

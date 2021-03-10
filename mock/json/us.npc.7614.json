@@ -1,0 +1,16 @@
+{
+    "id": "7614",
+    "type": "npc",
+    "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_giant01.png",
+    "name": "Acher",
+    "category": "worker",
+    "grade": 3,
+    "sellable": false,
+    "stamina": 30,
+    "statsGrowth": {
+        "workSpeed": "0.1 ~ 0.43",
+        "movementSpeed": "0.1 ~ 0.25",
+        "luck": "0.1 ~ 0.25"
+    },
+    "description": "A worker at the Extraction Mill in Serendia.\n\nIt is said that if you know Acher well you'll be able to get in touch with excellent workers."
+}

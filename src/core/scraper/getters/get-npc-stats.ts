@@ -2,15 +2,18 @@ import { App, BDO } from '@typings/namespaces'
 import { IMatcher, Matcher } from '@helpers/factory/matcher'
 import { Getter } from './getters.types'
 
-const Attributes = BDO.Players.Attributes
-const Matches = {
-    [Attributes.HP]: ['HP:'],
-    [Attributes.MP]: ['MP:'],
-    [Attributes.Damage]: ['Damage:'],
-    [Attributes.Damage]: ['Defense (DP):'],
-    [Attributes.Accuracy]: ['Accuracy:'],
-    [Attributes.Evasion]: ['Evasion:'],
-    [Attributes.DamageReduction]: ['Damage Reduction:'],
+const Matches: App.Shared.NPCs.Stats<string[]> = {
+    [BDO.Players.Attributes.HP]: ['HP:'],
+    [BDO.Players.Attributes.MP]: ['MP:'],
+    [BDO.Players.Attributes.Damage]: ['Damage:'],
+    [BDO.Players.Attributes.Damage]: ['Defense (DP):'],
+    [BDO.Players.Attributes.Accuracy]: ['Accuracy:'],
+    [BDO.Players.Attributes.Evasion]: ['Evasion:'],
+    [BDO.Players.Attributes.DamageReduction]: ['Damage Reduction:'],
+    lvl: ['Level:'],
+    droppedExp: ['XP:'],
+    droppedSkillExp: ['Skill XP:'],
+    karma: ['Karma:'],
 }
 
 export const getNPCStats: Getter<

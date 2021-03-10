@@ -1,0 +1,15 @@
+{
+    "id": "8006",
+    "type": "npc",
+    "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_padus04.png",
+    "name": "Artisan Fadus Worker",
+    "category": "worker",
+    "grade": 4,
+    "sellable": true,
+    "stamina": 40,
+    "statsGrowth": {
+        "workSpeed": "0.1 ~ 1",
+        "movementSpeed": "0.1 ~ 0.24",
+        "luck": "0.05 ~ 0.3"
+    }
+}

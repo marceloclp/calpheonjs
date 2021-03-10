@@ -3,44 +3,38 @@ import { Generic } from './generic'
 
 export enum Categories {
     Lodging = 'lodging',
-    Worker = 'worker',
     Other = 'other',
+    Worker = 'worker',
 }
 
 export interface NPC extends Generic<App.Entities.Types.NPC> {
     category: Categories
     /** An NPC has a grade, similar to items. */
-    grade: number
+    grade: BDO.Grade
+}
+
+export interface Other extends NPC {
+    category: Categories.Other
     /** An NPC may have a group (the text inside <>). */
     group?: string
-    /** An NPC may have a level. */
-    lvl?: number
     /** An NPC may have player stats. */
     stats?: Partial<App.Shared.NPCs.Stats>
-    /** An NPC may reward the player with experience points when killed. */
-    exp?: number
-    /** An NPC may reward the player with skill experience points when killed. */
-    expSkill?: number
-    /** The karma given by the NPC when killed. */
-    karma?: number
     /** An NPC may be a boss. */
-    bossType?: 'boss' | 'awakenedBoss'
-    /** An NPC may give a knowledge when interacted with (through killing, chatting, etc). */
-    knowledge?: App.Refs.Knowledge
+    mobType?: BDO.NPCs.MobTypes
+    /** An NPC may have a knowledge associated with it. */
+    knowledge?: App.Refs.Knowledge<{ dropChance?: number }>
     // TODO: https://bdocodex.com/us/npc/27051/
     summonedByItem?: App.Refs.Item
 }
 
 export interface Worker extends NPC {
     category: Categories.Worker
-    /** A worker has a grade. */
-    grade: BDO.Grade
     /** Whether the worker can be sold. */
     sellable: boolean
-    /** The maximum possible stats for a worker, if it hit the lottery. */
-    maxBaseStats: App.Shared.NPCs.Workers.Stats
-    /** Information about each level. */
-    levelsInfo: App.Shared.NPCs.Workers.Level[]
+    /** The amount of staming the worker has. This does not change with level. */
+    stamina: number
+    /** Stats, price and experience for each level. */
+    levels: App.Shared.NPCs.Workers.Level[]
     /** The range of which each stat can increase upon level up. */
     statsGrowth: App.Shared.NPCs.Workers.Stats
     /**
@@ -48,6 +42,8 @@ export interface Worker extends NPC {
      * Usually the current worker but at a previous grade.
      */
     obtainedFrom?: App.Refs.NPC
+    /** Chances of acquiring a skill based on its level (artisan, professional, etc). */
+    skillLevelAcquireChance: Record<BDO.NPCs.Workers.SkillLevels, number>
 }
 
 export type Select<C extends Categories> =

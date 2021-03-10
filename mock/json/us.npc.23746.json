@@ -1,0 +1,19 @@
+{
+    "id": "23746",
+    "type": "npc",
+    "icon": "/items/ui_artwork/ic_04919.png",
+    "name": "Agrakhan",
+    "group": "Awakened Boss",
+    "mobType": "awakenedBoss",
+    "stats": {
+        "hp": "412814",
+        "defense": "533",
+        "evasion": "463",
+        "damageReduction": "70",
+        "droppedExp": "1486625",
+        "droppedSkillExp": "914716",
+        "lvl": "58",
+        "karma": "28"
+    },
+    "description": "Leader of Cadry Ruins, and Muskan's brother. He attacked the Cadry Shrine, rich with ancient traces, in order to revive Kzarka in Valencia. The Cadry Shrine turned into ruins, and Agrakhan is still trying to revive Kzarka using the black power."
+}

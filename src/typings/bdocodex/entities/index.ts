@@ -11,6 +11,7 @@ export enum Types {
     GuildQuest = 'guildquest',
     NPC = 'npc',
     Skill = 'skill',
+    WorkerSkill = 'sskill',
     Knowledge = 'theme',
     Design = 'design',
     Recipe = 'recipe',

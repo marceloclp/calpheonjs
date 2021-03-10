@@ -14,6 +14,7 @@ describe('Builders', () => {
             [App.Entities.Types.Processing]: Builders.buildProcessing,
             [App.Entities.Types.Knowledge]: Builders.buildKnowledge,
             [App.Entities.Types.MaterialGroup]: Builders.buildMaterialGroup,
+            [App.Entities.Types.NPC]: Builders.buildNPC,
         }[expected.type]?.({ ...data, $, type: expected.type })
 
         it('should have all expected keys', () => {

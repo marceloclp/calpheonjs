@@ -44,7 +44,9 @@ describe('Getters', () => {
             expect(Getters.getGrade(args)).toBe(expected.grade)
         })
         expected.group && it('getGroup()', () => {
-            expect(Getters.getGroup(args)).toBe(expected.group)
+            if (expected.type === App.Entities.Types.NPC)
+                expect(Getters.getNPCGroup(args)).toBe(expected.group)
+            else expect(Getters.getGroup(args)).toBe(expected.group)
         })
         expected.icon && it('getIconURL()', () => {
             // HACK: bypass material group icons for now
@@ -60,6 +62,9 @@ describe('Getters', () => {
         })
         expected.materials && it('getMaterials()', () => {
             expect(Getters.getMaterials(args)).toMatchObject(expected.materials)
+        })
+        expected.mobType && it('getMobType()', () => {
+            expect(Getters.getMobType(args)).toBe(expected.mobType)
         })
         expected.name && it('getName()', () => {
             expect(Getters.getName(args)).toBe(expected.name)
@@ -78,6 +83,9 @@ describe('Getters', () => {
         })
         expected.products && it('getProducts()', () => {
             expect(Getters.getProducts(args)).toMatchObject(expected.products)
+        })
+        expected.summonedByItem && it('getSummonedByItem()', () => {
+            expect(Getters.getSummonedByItem(args)).toMatchObject(expected.summonedByItem)
         })
         expected.weight && it('getWeight()', () => {
             expect(Getters.getWeight(args)).toBe(expected.weight)

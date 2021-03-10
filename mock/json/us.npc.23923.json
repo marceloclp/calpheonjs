@@ -1,0 +1,16 @@
+{
+    "id": "23923",
+    "type": "npc",
+    "icon": "/items/ui_artwork/ic_00559.png",
+    "name": "[Event] Kzarka, the Lord of Corruption",
+    "group": "Boss",
+    "mobType": "boss",
+    "stats": {
+        "hp": "88937125",
+        "defense": "750",
+        "evasion": "600",
+        "damageReduction": "150",
+        "lvl": "99",
+        "karma": "95"
+    }
+}

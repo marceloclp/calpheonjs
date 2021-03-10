@@ -12,17 +12,11 @@ const CategoryLookup = {
     'license': App.Entities.Items.Categories.License,
     'installable_object': App.Entities.Items.Categories.InstallableObject,
     'worker': App.Entities.NPCs.Categories.Worker,
+    'lodging': App.Entities.NPCs.Categories.Lodging,
 }
 
-export const getCategory: Getter<string> = ({ $, id, type, locale }) => {
+export const getCategory: Getter<string> = ({ $ }) => {
     const text = $('.category_text').text()
         .replace(/[^a-zA-Z ]/g, '')
-    const categoryText = toSnakeCase(text)
-    if (!(categoryText in CategoryLookup)) {
-        throw new Error(
-            `Unknown category ${categoryText} found for /${locale}/${type}/${id}. ` +
-            'Please report this error by opening an issue on the GitHub page.'
-        )
-    }
-    return CategoryLookup[categoryText]
+    return CategoryLookup[toSnakeCase(text)]
 }

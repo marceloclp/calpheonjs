@@ -15,4 +15,5 @@ export enum Types {
     Recipe = 'recipe',
     Processing = 'processing',
     Design = 'design',
+    WorkerSkill = 'workerSkill',
 }
