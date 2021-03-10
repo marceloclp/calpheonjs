@@ -1,10 +1,11 @@
 export * as Items from './items'
 export * as NPCs from './npcs'
+export { Design } from './design'
 export { Knowledge } from './knowledge'
 export { MaterialGroup } from './material-group'
-export { Recipe } from './recipe'
 export { Processing } from './processing'
-export { Design } from './design'
+export { Quest } from './quest'
+export { Recipe } from './recipe'
 export { WorkerSkill } from './worker-skill'
 
 export enum Types {

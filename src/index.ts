@@ -10,7 +10,7 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getWorkerPersonalSkill({
+    const res = Getters.getQuestRewards({
         id: item.id,
         category: item.category,
         locale: App.Locales.US,
@@ -21,6 +21,7 @@ const test = (id: string) => {
 }
 // test('us.npc.8006')
 // test('us.npc.7614')
-test('us.npc.7624')
+test('us.quest.671-9')
+// test('us.quest.803-4')
 // test('us.npc.23720')
 // test('us.item.694302')

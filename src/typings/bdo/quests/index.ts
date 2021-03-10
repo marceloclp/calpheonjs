@@ -1,14 +1,14 @@
 export enum Categories {
     BlackSpirit = 'blackSpirit',
-    Story = 'story',
-    Town = 'town',
     Exploration = 'exploration',
-    Trade = 'trade',
     Production = 'production',
     Repeat = 'repeat',
+    Story = 'story',
+    Town = 'town',
+    Trade = 'trade',
 }
 
-export enum Types {
-    Family = 'family',
+export enum Groups {
     Character = 'character',
+    Family = 'family',
 }

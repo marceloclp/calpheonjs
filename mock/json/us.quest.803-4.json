@@ -1,0 +1,33 @@
+{
+    "id": "803/4",
+    "type": "quest",
+    "icon": "/items/new_icon/03_etc/03_quest_item/00042598.png",
+    "name": "[Absorb] Igor Bartali's Black Spirit",
+    "description": "Igor Bartali said the dark power is resonating to find its owner. Accept it if you're ready, but if not, you'll end up paying the price.\nDecide whether or not you want to accept its power and talk to Igor Bartali.",
+    "region": "All",
+    "category": "blackSpirit",
+    "group": "character",
+    "level": 1,
+    "startNPC": {
+        "id": "40017",
+        "type": "npc",
+        "icon": "/items/ui_artwork/ic_00018.png",
+        "name": "Igor Bartali"
+    },
+    "endNPC": {
+        "id": "40017/1",
+        "type": "npc",
+        "icon": "/items/ui_artwork/ic_00018.png",
+        "name": "Igor Bartali"
+    },
+    "story": "That piece of jewel in your hand!\nWh-where did you find it?\nIt's making me nostalgic,\nhowever, I do not want it.\nI am now old and frail.\nIts power will take control of me.\nPerhaps it's fate that you're the one who found it...\nIf you'd like, the power within this pendant\ncan be transferred to your Black Spirit.\nBut remember this.\nThat power won't always be beneficial for you.\n\nGaining power will make you happy during that moment.\nHowever, remember, that power won't always be beneficial for you.\n\nI'll ask you one last time, Player!!\nAre you sure you won't regret making this decision?",
+    "rewards": {
+        "standard": [{
+            "type": "exp",
+            "name": "Contribution EXP",
+            "icon": "/items/new_icon/06_pc_equipitem/00_common/00_etc/00000402.png",
+            "amount": 200
+        }],
+        "choseOneOf": []
+    }
+}

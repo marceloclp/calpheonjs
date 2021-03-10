@@ -1,8 +1,8 @@
 import { App } from '@typings/namespaces'
 import { Matcher } from '@helpers/factory/matcher'
-import { Getter } from './getters.types'
-import { decomposeShortURL } from '@helpers/utils/short-url'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { decomposeShortURL } from '@helpers/utils/short-url'
+import { Getter } from './getters.types'
 
 export const getWorkerPersonalSkill: Getter<
     App.Refs.WorkerSkill | undefined
@@ -13,7 +13,6 @@ export const getWorkerPersonalSkill: Getter<
     let idx = elements.findIndex(elem => {
         return !!matcher.findIn($(elem).text())
     })
-    console.log('got here', idx)
     if (idx === -1)
         return
     while (idx < elements.length) {

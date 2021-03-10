@@ -1,5 +1,6 @@
 export * as Equipments from './equipments'
 export * as NPCs from './npcs'
+export * as Quests from './quests'
 export { EXP } from './exp'
 export { Mastery } from './mastery'
 export { Material } from './material'

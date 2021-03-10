@@ -5,6 +5,7 @@ export type Ref<T extends App.Entities.Types = any, E = {}> = {
     id: string
     name: string
     icon: string
+    grade?: number
 } & E
 
 export type Item<E = {}> = Ref<App.Entities.Types.Item, E>

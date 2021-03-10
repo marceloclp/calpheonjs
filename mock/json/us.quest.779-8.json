@@ -1,0 +1,28 @@
+{
+    "id": "779/8",
+    "type": "quest",
+    "icon": "/items/quest/black_fairy.png",
+    "name": "[ADV Complete] Journey to Calpheon",
+    "nameAlternative": "[모험 완료] 칼페온의 여정",
+    "description": "The Black Spirit said that you have reached the end of your journey in Calpheon, and told you to head towards a new place.",
+    "region": "Calpheon City",
+    "category": "blackSpirit",
+    "group": "family",
+    "level": 1,
+    "rewards": {
+        "standard": [{
+            "type": "item",
+            "id": "16001",
+            "icon": "/items/new_icon/03_etc/11_enchant_material/00000008.png",
+            "name": "Black Stone (Weapon)",
+            "amount": 5
+        }, {
+            "type": "item",
+            "id": "16002",
+            "icon": "/items/new_icon/03_etc/11_enchant_material/00000007.png",
+            "name": "Black Stone (Armor)",
+            "amount": 5
+        }],
+        "choseOneOf": []
+    }
+}

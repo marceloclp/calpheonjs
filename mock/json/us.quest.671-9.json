@@ -1,0 +1,38 @@
+{
+    "id": "671/9",
+    "type": "quest",
+    "icon": "/items/quest/blackrake.png",
+    "name": "[Boss] Black Mane",
+    "nameAlternative": "[우두머리] 검은 갈기",
+    "description": "Activate the Troll Elder Summon Scroll given to you by the Black Spirit and go to the targeted place. Summon and defeat Black Mane.",
+    "region": "All",
+    "category": "blackSpirit",
+    "group": "character",
+    "rewards": {
+        "standard": [{
+            "type": "exp",
+            "icon": "/images/exp.png",
+            "name": "EXP",
+            "amount": 20480002
+        }],
+        "choseOneOf": [{
+            "type": "item",
+            "id": "10889",
+            "icon": "/items/new_icon/06_pc_equipitem/00_common/13_hel/00010889.png",
+            "name": "Dobart Helmet",
+            "amount": 1
+        }, {
+            "type": "item",
+            "id": "10891",
+            "icon": "/items/new_icon/06_pc_equipitem/00_common/11_hand/00010891.png",
+            "name": "Dobart Gloves",
+            "amount": 1
+        }, {
+            "type": "item",
+            "id": "10892",
+            "icon": "/items/new_icon/06_pc_equipitem/00_common/12_foot/00010892.png",
+            "name": "Dobart Shoes",
+            "amount": 1
+        }]
+    }
+}
