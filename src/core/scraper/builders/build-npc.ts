@@ -39,6 +39,7 @@ export const buildNPC: Builder<
                 statsGrowth: Getters.getWorkerGrowth(args),
                 obtainedFrom: Getters.getObtainedFrom(args),
                 skillLevelAcquireChance: Getters.getWorkerSkillsChance(args),
+                personalSkill: Getters.getWorkerPersonalSkill(args),
             }) as App.Entities.NPCs.Worker
         default: return npc
     }

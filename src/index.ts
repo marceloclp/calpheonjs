@@ -10,7 +10,7 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getDroppedKnowledge({
+    const res = Getters.getWorkerPersonalSkill({
         id: item.id,
         category: item.category,
         locale: App.Locales.US,
@@ -21,6 +21,6 @@ const test = (id: string) => {
 }
 // test('us.npc.8006')
 // test('us.npc.7614')
-test('us.npc.11617-0')
+test('us.npc.7624')
 // test('us.npc.23720')
 // test('us.item.694302')

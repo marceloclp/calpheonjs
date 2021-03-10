@@ -44,9 +44,11 @@ export interface Worker extends NPC {
     obtainedFrom?: App.Refs.NPC
     /** Chances of acquiring a skill based on its level (artisan, professional, etc). */
     skillLevelAcquireChance: Record<BDO.NPCs.Workers.SkillLevels, number>
+    /** A worker may have a personal skill that is independent of level. */
+    personalSkill?: App.Refs.WorkerSkill
 }
 
 export type Select<C extends Categories> =
     C extends Categories.Worker
         ? Worker
-    : NPC
+    : Other

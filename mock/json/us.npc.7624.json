@@ -1,0 +1,22 @@
+{
+    "id": "7624",
+    "type": "npc",
+    "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_giant01.png",
+    "name": "Berocchio",
+    "category": "worker",
+    "grade": 3,
+    "sellable": false,
+    "stamina": 30,
+    "statsGrowth": {
+        "workSpeed": "0.1 ~ 0.34",
+        "movementSpeed": "0.1 ~ 0.25",
+        "luck": "0.1 ~ 0.25"
+    },
+    "personalSkill": {
+        "id": "2011",
+        "type": "workerSkill",
+        "icon": "/items/new_ui_common_forlua/skill/workerskill/1005.png",
+        "name": "Furniture Knowledge",
+        "effect": "Furniture Crafting Work Speed +5"
+    }
+}

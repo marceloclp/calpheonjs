@@ -5,6 +5,7 @@ export { MaterialGroup } from './material-group'
 export { Recipe } from './recipe'
 export { Processing } from './processing'
 export { Design } from './design'
+export { WorkerSkill } from './worker-skill'
 
 export enum Types {
     Item = 'item',
