@@ -13,7 +13,6 @@ export const buildRecipe: Builder<
         type: App.Entities.Types.Recipe,
         icon: Getters.getIconURL(args),
         name: Getters.getName(args),
-        nameAlternative: Getters.getNameAlt(args),
         description: Getters.getDescription(args),
         process: Getters.Recipes.getProcess(args),
         exp: Getters.getExp(args),

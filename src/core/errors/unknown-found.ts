@@ -1,6 +1,6 @@
 export class UnknownFound extends Error {
     constructor(name: string, id: string, type: string, locale: string) {
-        super('')
+        super()
         this.message =
             `Unknown ${name} found for /${locale}/${type}/${id}. ` +
             'Please report this error by opening an issue on the GitHub page.'

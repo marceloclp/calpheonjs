@@ -1,37 +1,38 @@
-import fetch from 'node-fetch'
 import cheerio from 'cheerio'
-import { App, BDOCodex } from '@typings/namespaces'
+import fetch from 'node-fetch'
+import { App } from '@typings/namespaces'
+import { buildCodexURL } from '@helpers/utils/build-codex-url'
 import { isValidPage } from './utils/is-valid-page'
-import { buildScrapeUrl } from './utils/build-scrape-url'
+import { InvalidEntity } from '@core/errors/invalid-entity'
+import { Build } from './builders'
 
-const SupportedEntities = {
-    Item: BDOCodex.Entities.Types.Item,
-    Knowledge: BDOCodex.Entities.Types.Knowledge,
-    MaterialGroup: BDOCodex.Entities.Types.MaterialGroup,
-    NPC: BDOCodex.Entities.Types.NPC,
-    Quest: BDOCodex.Entities.Types.Quest,
-    Design: BDOCodex.Entities.Types.Design,
-    Recipe: BDOCodex.Entities.Types.Recipe,
-    Processing: BDOCodex.Entities.Types.Processing,
-}
-type ScrapableEntity = keyof typeof SupportedEntities
+type ScrapableEntity =
+    | App.Entities.Types.Item
+    | App.Entities.Types.Knowledge
+    | App.Entities.Types.MaterialGroup
+    | App.Entities.Types.NPC
+    | App.Entities.Types.Processing
+    | App.Entities.Types.Quest
+    | App.Entities.Types.Recipe
 
 interface Options {
     readonly locale?: App.Locales
 }
-const defaultOptions: Options = {
-    locale: App.Locales.US
-}
 
-export const Fetch = async (id: string, type: ScrapableEntity, options = defaultOptions) => {
-    const locale = options.locale || defaultOptions.locale as App.Locales
-    const url = buildScrapeUrl(id, SupportedEntities[type], locale)
+export const Scrape = async <T extends ScrapableEntity>(
+    type: T,
+    id: string,
+    options?: Options
+): Promise<App.Entities.Select<T, any>> => {
+    const locale = options?.locale || App.Locales.US
+    const url = buildCodexURL({ locale, type, id })
 
     const response = await fetch(url)
     const body = await response.text()
 
     const $ = cheerio.load(body)
     if (!isValidPage($)) {
-        throw new Error()
+        throw new InvalidEntity(id, type, locale)
     }
+    return Build(type)({ $, id, type, locale })
 }
