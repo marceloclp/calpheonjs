@@ -4,7 +4,7 @@ import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
 export const buildQuest: Builder<
-    App.Entities.Quest
+    App.Entities.Types.Quest
 > = ({ $, id, type, locale }) => {
     const args: GetterArgs = { $, id, type, locale }
 
@@ -15,15 +15,15 @@ export const buildQuest: Builder<
         name: Getters.getName(args),
         nameAlternative: Getters.getNameAlt(args),
         description: Getters.getDescription(args),
-        category: Getters.getQuestCategory(args),
-        region: Getters.getQuestRegion(args),
-        group: Getters.getQuestGroup(args),
+        category: Getters.Quests.getCategory(args),
+        region: Getters.Quests.getRegion(args),
+        group: Getters.Quests.getGroup(args),
         level: Getters.getLevel(args),
-        chain: Getters.getQuestChain(args),
-        startNPC: Getters.getQuestStartNPC(args),
-        endNPC: Getters.getQuestEndNPC(args),
-        story: Getters.getQuestStory(args),
-        rewards: Getters.getQuestRewards(args),
+        chain: Getters.Quests.getChain(args),
+        startNPC: Getters.Quests.getStartNPC(args),
+        endNPC: Getters.Quests.getEndNPC(args),
+        story: Getters.Quests.getStory(args),
+        rewards: Getters.Quests.getRewards(args),
     }
 
     return entity

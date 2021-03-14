@@ -4,14 +4,13 @@ import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
 export const buildNPC: Builder<
-    App.Entities.NPCs.NPC
+    App.Entities.Types.NPC
 > = ({ $, id, type, locale }) => {
     const category =
-        Getters.getCategory({ $, id, type, locale }) ||
-        App.Entities.NPCs.Categories.Other
+        Getters.NPCs.getCategory({ $, id, type, locale })
     const args: GetterArgs = { $, id, type, locale, category }
 
-    const npc: App.Entities.NPCs.NPC = {
+    const entity: App.Entities.NPCs.NPC = {
         id,
         category: category as App.Entities.NPCs.Categories,
         type: App.Entities.Types.NPC,
@@ -24,23 +23,23 @@ export const buildNPC: Builder<
 
     switch (category) {
         case App.Entities.NPCs.Categories.Other:
-            return Object.assign(npc, {
-                group: Getters.getNPCGroup(args),
-                stats: Getters.getNPCStats(args),
-                mobType: Getters.getNPCMobType(args),
+            return Object.assign(entity, {
+                group: Getters.NPCs.Others.getGroup(args),
+                stats: Getters.NPCs.Others.getStats(args),
+                mobType: Getters.NPCs.Others.getMobType(args),
                 knowledge: Getters.getDroppedKnowledge(args),
                 summonedByItem: Getters.getSummonedByItem(args),
             }) as App.Entities.NPCs.Other
         case App.Entities.NPCs.Categories.Worker:
-            return Object.assign(npc, {
-                sellable: Getters.getWorkerSellable(args),
-                stamina: Getters.getWorkerStamina(args),
-                levels: Getters.getWorkerLevels(args),
-                statsGrowth: Getters.getWorkerGrowth(args),
+            return Object.assign(entity, {
+                sellable: Getters.NPCs.Workers.getSellable(args),
+                stamina: Getters.NPCs.Workers.getStamina(args),
+                levels: Getters.NPCs.Workers.getLevels(args),
+                statsGrowth: Getters.NPCs.Workers.getGrowth(args),
                 obtainedFrom: Getters.getObtainedFrom(args),
-                skillLevelAcquireChance: Getters.getWorkerSkillsChance(args),
-                personalSkill: Getters.getWorkerPersonalSkill(args),
+                acquireChanceTable: Getters.NPCs.Workers.getSkillsChance(args),
+                personalSkill: Getters.NPCs.Workers.getPersonalSkill(args),
             }) as App.Entities.NPCs.Worker
-        default: return npc
+        default: return entity
     }
 }

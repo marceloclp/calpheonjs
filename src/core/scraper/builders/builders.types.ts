@@ -7,4 +7,6 @@ export interface BuilderArgs {
     readonly locale: App.Locales
 }
 
-export type Builder<T> = (options: BuilderArgs) => T
+export type Builder<
+    T extends App.Entities.Types
+> = (options: BuilderArgs) => App.Entities.Select<T, any>

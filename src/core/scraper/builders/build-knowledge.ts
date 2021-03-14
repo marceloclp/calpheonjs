@@ -4,20 +4,19 @@ import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
 export const buildKnowledge: Builder<
-    App.Entities.Knowledge
+    App.Entities.Types.Knowledge
 > = ({ $, id, type, locale }) => {
-    const getterArgs: GetterArgs = { $, id, type, locale }
+    const args: GetterArgs = { $, id, type, locale }
 
-    const knowledge: App.Entities.Knowledge = {
+    const entity: App.Entities.Knowledge = {
         id,
         type: App.Entities.Types.Knowledge,
-        icon: Getters.getIconURL(getterArgs),
-        name: Getters.getName(getterArgs),
-        nameAlternative: Getters.getNameAlt(getterArgs),
-        description: Getters.getDescription(getterArgs),
-        group: Getters.getKnowledgeGroup(getterArgs),
-        obtainedFrom: Getters.getObtainedFrom(getterArgs),
+        icon: Getters.getIconURL(args),
+        name: Getters.getName(args),
+        description: Getters.getDescription(args),
+        group: Getters.Knowledge.getGroup(args),
+        obtainedFrom: Getters.getObtainedFrom(args),
     }
 
-    return knowledge
+   return entity
 }

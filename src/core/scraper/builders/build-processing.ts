@@ -4,23 +4,22 @@ import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
 export const buildProcessing: Builder<
-    App.Entities.Processing
+    App.Entities.Types.Processing
 > = ({ $, id, type, locale }) => {
-    const getterArgs: GetterArgs = { $, id, type, locale }
+    const args: GetterArgs = { $, id, type, locale }
 
-    const recipe: App.Entities.Processing = {
+    const entity: App.Entities.Processing = {
         id,
         type: App.Entities.Types.Processing,
-        icon: Getters.getIconURL(getterArgs),
-        name: Getters.getName(getterArgs),
-        nameAlternative: Getters.getNameAlt(getterArgs),
-        description: Getters.getDescription(getterArgs),
-        process: Getters.getProcessingProcess(getterArgs),
-        exp: Getters.getExp(getterArgs),
-        mastery: Getters.getMastery(getterArgs),
-        materials: Getters.getMaterials(getterArgs),
-        products: Getters.getProducts(getterArgs),
+        icon: Getters.getIconURL(args),
+        name: Getters.getName(args),
+        description: Getters.getDescription(args),
+        process: Getters.Processing.getProcess(args),
+        exp: Getters.getExp(args),
+        mastery: Getters.getMastery(args),
+        materials: Getters.Processing.getMaterials(args),
+        products: Getters.Processing.getProducts(args),
     }
 
-    return recipe
+    return entity
 }

@@ -11,7 +11,7 @@ export const getTestCases = <
     T extends App.Entities.Types,
     C extends App.Entities.SelectCategory<T>
 >(
-    entityType: T,
+    entityType?: T,
     entityCategory?: C
 ): TestData<T, C>[] => {
     const fileNames = fs.readdirSync(
@@ -24,7 +24,7 @@ export const getTestCases = <
         const [locale, codexType, fileId] = fileName.split('.')
         if (!(codexType in EntityLookup))
             continue
-        if (entityType !== EntityLookup[codexType])
+        if (entityType && entityType !== EntityLookup[codexType])
             continue
         const expected = require(
             path.join(MockPath, 'json', fileName)

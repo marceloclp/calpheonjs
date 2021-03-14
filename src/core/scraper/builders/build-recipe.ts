@@ -4,22 +4,22 @@ import * as Getters from '../getters'
 import { Builder } from './builders.types'
 
 export const buildRecipe: Builder<
-    App.Entities.Recipe
+    App.Entities.Types.Recipe
 > = ({ $, id, type, locale }) => {
-    const getterArgs: GetterArgs = { $, id, type, locale }
+    const args: GetterArgs = { $, id, type, locale }
 
     const recipe: App.Entities.Recipe = {
         id,
         type: App.Entities.Types.Recipe,
-        icon: Getters.getIconURL(getterArgs),
-        name: Getters.getName(getterArgs),
-        nameAlternative: Getters.getNameAlt(getterArgs),
-        description: Getters.getDescription(getterArgs),
-        process: Getters.getRecipeProcess(getterArgs),
-        exp: Getters.getExp(getterArgs),
-        mastery: Getters.getMastery(getterArgs),
-        materials: Getters.getMaterials(getterArgs),
-        products: Getters.getProducts(getterArgs),
+        icon: Getters.getIconURL(args),
+        name: Getters.getName(args),
+        nameAlternative: Getters.getNameAlt(args),
+        description: Getters.getDescription(args),
+        process: Getters.Recipes.getProcess(args),
+        exp: Getters.getExp(args),
+        mastery: Getters.getMastery(args),
+        materials: Getters.Recipes.getMaterials(args),
+        products: Getters.Recipes.getProducts(args),
     }
 
     return recipe
