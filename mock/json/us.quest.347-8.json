@@ -5,10 +5,63 @@
     "name": "[Archer Ascension] Purpose Regained",
     "nameAlternative": "[아처] 숙명의 깨달음",
     "description": "After you retrieved the broken arrow, the Black Spirit said it feels a familiar aura.\n\nLet's find out where the familiar aura is coming from.",
-    "region": "All",
     "category": "blackSpirit",
+    "region": "All",
     "group": "character",
     "level": 56,
+    "chain": [{
+        "type": "quest",
+        "id": "347/1",
+        "name": "[Archer Ascension] Lost Purpose",
+        "icon": "/items/quest/archerawake_001.png"
+    }, {
+        "type": "quest",
+        "id": "347/2",
+        "name": "[Archer Ascension] Searching for Answers",
+        "icon": "/items/quest/archerawake_002.png"
+    }, {
+        "type": "quest",
+        "id": "347/3",
+        "name": "[Archer Ascension] Rising Smoke of Darkness",
+        "icon": "/items/quest/archerawake_003.png"
+    }, {
+        "type": "quest",
+        "id": "347/4",
+        "name": "[Archer Ascension] Light that Pursues Darkness",
+        "icon": "/items/quest/archerawake_004.png"
+    }, {
+        "type": "quest",
+        "id": "347/5",
+        "name": "[Archer Ascension] Light and Darkness Clashes",
+        "icon": "/items/quest/archerawake_007.png"
+    }, {
+        "type": "quest",
+        "id": "347/6",
+        "name": "[Archer Ascension] Remnants of a Broken Arrow",
+        "icon": "/items/quest/archerawake_005.png"
+    }, {
+        "type": "quest",
+        "id": "347/7",
+        "name": "[Archer Ascension] Encountering the Power of Light",
+        "icon": "/items/quest/archerawake_006.png"
+    }, {
+        "type": "quest",
+        "id": "347/8",
+        "name": "[Archer Ascension] Purpose Regained",
+        "icon": "/items/quest/archerawake_006.png"
+    }, {
+        "type": "quest",
+        "id": "347/9",
+        "name": "[Archer Ascension] The Watchers of Adùir: Battle",
+        "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00013902.png"
+    }],
+    "startNPC": {
+        "type": "npc",
+        "id": "57159/3",
+        "name": "Sylvian Wolf",
+        "icon": "/items/ui_artwork/ic_00559.png"
+    },
+    "story": "(The wolf lowered its body as you stepped closer.\nYou feel a familiar aura from the wolf, so you want to try communing with it.)\n\n(You reached out a hand to the wolf\nand try to commune with it.)\n\nKeke, isn't this great?\nLike I said, you should always listen to me!",
     "rewards": {
         "standard": [{
             "type": "item",

@@ -3,6 +3,8 @@
     "type": "npc",
     "icon": "/items/ui_artwork/ic_00559.png",
     "name": "Abandoned Iron Mine Executor",
+    "category": "other",
+    "grade": 4,
     "stats": {
         "hp": "174007",
         "defense": "557",

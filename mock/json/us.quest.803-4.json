@@ -4,10 +4,31 @@
     "icon": "/items/new_icon/03_etc/03_quest_item/00042598.png",
     "name": "[Absorb] Igor Bartali's Black Spirit",
     "description": "Igor Bartali said the dark power is resonating to find its owner. Accept it if you're ready, but if not, you'll end up paying the price.\nDecide whether or not you want to accept its power and talk to Igor Bartali.",
-    "region": "All",
     "category": "blackSpirit",
+    "region": "All",
     "group": "character",
     "level": 1,
+    "chain": [{
+        "type": "quest",
+        "id": "803/1",
+        "name": "Endless Training",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "803/2",
+        "name": "The Secret Left Behind by a Strong Adventurer",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "803/3",
+        "name": "Heritage for the Adventurer",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "803/4",
+        "name": "[Absorb] Igor Bartali's Black Spirit",
+        "icon": "/items/new_icon/03_etc/03_quest_item/00042598.png"
+    }],
     "startNPC": {
         "id": "40017",
         "type": "npc",

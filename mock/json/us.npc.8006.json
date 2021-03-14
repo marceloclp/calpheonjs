@@ -7,9 +7,334 @@
     "grade": 4,
     "sellable": true,
     "stamina": 40,
+    "levels": [
+        {
+            "sellPrice": 90000,
+            "expToNextLevel": 30,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6,
+                "movementSpeed": 3,
+                "workSpeed": 85
+            }
+        },
+        {
+            "sellPrice": 90000,
+            "expToNextLevel": 45,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6.3,
+                "movementSpeed": 3.24,
+                "workSpeed": 86
+            }
+        },
+        {
+            "sellPrice": 112680,
+            "expToNextLevel": 63,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6.6,
+                "movementSpeed": 3.48,
+                "workSpeed": 87
+            }
+        },
+        {
+            "sellPrice": 118980,
+            "expToNextLevel": 86,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6.9,
+                "movementSpeed": 3.72,
+                "workSpeed": 88
+            }
+        },
+        {
+            "sellPrice": 122760,
+            "expToNextLevel": 112,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7.2,
+                "movementSpeed": 3.96,
+                "workSpeed": 89
+            }
+        },
+        {
+            "sellPrice": 125280,
+            "expToNextLevel": 140,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7.5,
+                "movementSpeed": 4.2,
+                "workSpeed": 90
+            }
+        },
+        {
+            "sellPrice": 129060,
+            "expToNextLevel": 171,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7.8,
+                "movementSpeed": 4.44,
+                "workSpeed": 91
+            }
+        },
+        {
+            "sellPrice": 137880,
+            "expToNextLevel": 209,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8.1,
+                "movementSpeed": 4.68,
+                "workSpeed": 92
+            }
+        },
+        {
+            "sellPrice": 147960,
+            "expToNextLevel": 255,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8.4,
+                "movementSpeed": 4.92,
+                "workSpeed": 93
+            }
+        },
+        {
+            "sellPrice": 161820,
+            "expToNextLevel": 312,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8.7,
+                "movementSpeed": 5.16,
+                "workSpeed": 94
+            }
+        },
+        {
+            "sellPrice": 176940,
+            "expToNextLevel": 381,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9,
+                "movementSpeed": 5.4,
+                "workSpeed": 95
+            }
+        },
+        {
+            "sellPrice": 199800,
+            "expToNextLevel": 477,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9.3,
+                "movementSpeed": 5.64,
+                "workSpeed": 96
+            }
+        },
+        {
+            "sellPrice": 217800,
+            "expToNextLevel": 597,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9.6,
+                "movementSpeed": 5.88,
+                "workSpeed": 97
+            }
+        },
+        {
+            "sellPrice": 239400,
+            "expToNextLevel": 747,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9.9,
+                "movementSpeed": 6.12,
+                "workSpeed": 98
+            }
+        },
+        {
+            "sellPrice": 262800,
+            "expToNextLevel": 934,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10.2,
+                "movementSpeed": 6.36,
+                "workSpeed": 99
+            }
+        },
+        {
+            "sellPrice": 289800,
+            "expToNextLevel": 1168,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10.5,
+                "movementSpeed": 6.6,
+                "workSpeed": 100
+            }
+        },
+        {
+            "sellPrice": 459900,
+            "expToNextLevel": 1460,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10.8,
+                "movementSpeed": 6.84,
+                "workSpeed": 101
+            }
+        },
+        {
+            "sellPrice": 522000,
+            "expToNextLevel": 1825,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11.1,
+                "movementSpeed": 7.08,
+                "workSpeed": 102
+            }
+        },
+        {
+            "sellPrice": 594900,
+            "expToNextLevel": 2282,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11.4,
+                "movementSpeed": 7.32,
+                "workSpeed": 103
+            }
+        },
+        {
+            "sellPrice": 681300,
+            "expToNextLevel": 2853,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11.7,
+                "movementSpeed": 7.56,
+                "workSpeed": 104
+            }
+        },
+        {
+            "sellPrice": 783900,
+            "expToNextLevel": 3567,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12,
+                "movementSpeed": 7.8,
+                "workSpeed": 105
+            }
+        },
+        {
+            "sellPrice": 1234800,
+            "expToNextLevel": 4495,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12.3,
+                "movementSpeed": 8.04,
+                "workSpeed": 106
+            }
+        },
+        {
+            "sellPrice": 1440000,
+            "expToNextLevel": 5664,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12.6,
+                "movementSpeed": 8.28,
+                "workSpeed": 107
+            }
+        },
+        {
+            "sellPrice": 1684800,
+            "expToNextLevel": 7137,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12.9,
+                "movementSpeed": 8.52,
+                "workSpeed": 108
+            }
+        },
+        {
+            "sellPrice": 1969200,
+            "expToNextLevel": 8993,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 13.2,
+                "movementSpeed": 8.76,
+                "workSpeed": 109
+            }
+        },
+        {
+            "sellPrice": 2307600,
+            "expToNextLevel": 11332,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 13.5,
+                "movementSpeed": 9,
+                "workSpeed": 110
+            }
+        },
+        {
+            "sellPrice": 3546000,
+            "expToNextLevel": 14392,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 13.8,
+                "movementSpeed": 9.24,
+                "workSpeed": 111
+            }
+        },
+        {
+            "sellPrice": 5020200,
+            "expToNextLevel": 18278,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 14.1,
+                "movementSpeed": 9.48,
+                "workSpeed": 112
+            }
+        },
+        {
+            "sellPrice": 6938100,
+            "expToNextLevel": 23214,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 14.4,
+                "movementSpeed": 9.72,
+                "workSpeed": 113
+            }
+        },
+        {
+            "sellPrice": 9399600,
+            "expToNextLevel": 29482,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 14.7,
+                "movementSpeed": 9.96,
+                "workSpeed": 114
+            }
+        },
+        {
+            "sellPrice": 12555900,
+            "expToNextLevel": 30000,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 15,
+                "movementSpeed": 10.2,
+                "workSpeed": 115
+            }
+        }
+    ],
     "statsGrowth": {
         "workSpeed": "0.1 ~ 1",
         "movementSpeed": "0.1 ~ 0.24",
         "luck": "0.05 ~ 0.3"
+    },
+    "obtainedFrom": {
+        "type": "npc",
+        "id": "8005",
+        "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_padus03.png",
+        "name": "Professional Fadus Worker"
+    },
+    "acquireChanceTable": {
+        "naive": 50,
+        "general": 30,
+        "skilled": 10,
+        "professional": 0,
+        "artisan": 10
     }
 }

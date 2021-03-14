@@ -35,15 +35,8 @@ export interface Consumable extends Item {
 export interface Equipment extends Item {
     category: Categories.Equipment
     /**
-     * The base stats of the equipment as a string. If the stat is a range, then the
-     * values are separated by a `~` (e.g., '17 ~ 23').
-     */
-    stats: App.Shared.Equipments.Stats
-    /** Effects caused at the base enhancement level (0). */
-    effects: App.Shared.Equipments.Effects
-    /**
      * The stats for each enhancement level done through black stones.
-     * Note that at index 0 is the same as the base stats.
+     * Equipment base stats are at index 0.
      */
     enhancementStats: App.Shared.Equipments.Enhancements.Set
     /** The stats for each enhancement level done through caphras upgrades. */

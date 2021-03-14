@@ -3,6 +3,7 @@
     "type": "npc",
     "icon": "/items/ui_artwork/ic_00559.png",
     "name": "Abandoned Iron Mine Executor",
+    "category": "other",
     "stats": {
         "hp": "131472",
         "defense": "477",
@@ -11,8 +12,8 @@
         "lvl": "55"
     },
     "summonedByItem": {
-        "id": "41587",
         "type": "item",
+        "id": "41587",
         "name": "Cartian Spell",
         "icon": "/items/new_icon/03_etc/03_quest_item/00041587.png"
     }

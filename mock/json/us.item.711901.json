@@ -1,10 +1,736 @@
 {
     "id": "711901",
+    "type": "item",
     "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010014.png",
     "name": "Cliff's Longsword",
     "nameAlternative": "클리프의 장검",
-    "type": "item",
     "description": "A longsword from Cliff awarded only to those who have distinguished themselves in the battlefield. Whoever receives the weapon will earn respect from others.",
     "category": "equipment",
-    "grade": 3
+    "grade": 3,
+    "prices": {
+        "buy": 0,
+        "sell": 0,
+        "repair": 100000
+    },
+    "weight": 7,
+    "enhancementStats": [
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "16 ~ 20",
+                "defense": "0",
+                "accuracy": "0",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "20 ~ 24",
+                "defense": "0",
+                "accuracy": "6",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "23 ~ 27",
+                "defense": "0",
+                "accuracy": "12",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "26 ~ 30",
+                "defense": "0",
+                "accuracy": "18",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "28 ~ 32",
+                "defense": "0",
+                "accuracy": "22",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "30 ~ 34",
+                "defense": "0",
+                "accuracy": "26",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "33 ~ 37",
+                "defense": "0",
+                "accuracy": "32",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 100,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "36 ~ 40",
+                "defense": "0",
+                "accuracy": "38",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 90,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "41 ~ 45",
+                "defense": "0",
+                "accuracy": "46",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 20.41,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "46 ~ 50",
+                "defense": "0",
+                "accuracy": "54",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 14.29,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "51 ~ 55",
+                "defense": "0",
+                "accuracy": "62",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 10,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "56 ~ 60",
+                "defense": "0",
+                "accuracy": "74",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 6.67,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "61 ~ 65",
+                "defense": "0",
+                "accuracy": "88",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 4,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "66 ~ 70",
+                "defense": "0",
+                "accuracy": "102",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 2.5,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "71 ~ 75",
+                "defense": "0",
+                "accuracy": "116",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 2,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "76 ~ 80",
+                "defense": "0",
+                "accuracy": "130",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 15.29,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "84 ~ 88",
+                "defense": "0",
+                "accuracy": "140",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 10,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Extra AP against Monsters +1",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "92 ~ 96",
+                "defense": "0",
+                "accuracy": "150",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 8.13,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Extra AP against Monsters +3",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "104 ~ 108",
+                "defense": "0",
+                "accuracy": "160",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 2.6,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Extra AP against Monsters +6",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            },
+            "requiredItem": {
+                "type": "item",
+                "id": "16004",
+                "icon": "/new_icon/06_pc_equipitem/03_etc/12_doapplydirectlyitem/00000018.png",
+                "name": "Concentrated Magical Black Stone (Weapon)",
+                "amount": 1,
+                "durabilityLossOnFailure": 10
+            },
+            "perfectEnhancement": {
+                "amount": 0,
+                "durabilityLossOnFailure": 0
+            }
+        },
+        {
+            "stats": {
+                "hp": "0",
+                "mp": "0",
+                "damage": "112 ~ 116",
+                "defense": "0",
+                "accuracy": "170",
+                "evasion": "0",
+                "damageReduction": "0",
+                "bonusDamage": "0",
+                "bonusDefense": "0",
+                "bonusAccuracy": "0",
+                "bonusEvasion": "0",
+                "bonusDamageReduction": "0"
+            },
+            "successRate": 0,
+            "durability": 100100,
+            "cronStonesAmount": {
+                "nextLvl": 0,
+                "total": 0
+            },
+            "effects": {
+                "item": [
+                    "Extra Damage to All Species +5",
+                    "Extra AP against Monsters +10",
+                    "Critical Hit +3"
+                ],
+                "enhancement": [
+                    "Extra AP against monsters up (enhancement level PRI or up)",
+                    "All AP Up",
+                    "All Accuracy Up"
+                ],
+                "additional": [],
+                "set": {}
+            }
+        }
+    ],
+    "exclusiveTo": ["warrior","valkyrie"],
+    "fairyExp": 0
 }

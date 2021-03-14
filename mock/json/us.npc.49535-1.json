@@ -4,6 +4,7 @@
     "icon": "/items/ui_artwork/collected_study.png",
     "name": "Zya",
     "description": "Zya is the Old Moon Manager of Grána City.\n\nIt is obvious that there is a story behind the small scar on Zya's face. This can be deduced from the fact that Zya always rubs her scar whenever it rains while talking to herself. However, no one has managed to get that story out of her. She doesn't seem to want to talk about it.",
+    "category": "other",
     "group": "Old Moon Manager",
     "stats": {
         "lvl": "99"

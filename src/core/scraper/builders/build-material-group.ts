@@ -8,7 +8,7 @@ export const buildMaterialGroup: Builder<
 > = ({ $, id, type, locale }) => {
     const getterArgs: GetterArgs = { $, id, type, locale }
 
-    const items = Getters.getBelongingItems(getterArgs)
+    const items = Getters.getMaterialGroupItems(getterArgs)
 
     const materialGroup: App.Entities.MaterialGroup = {
         id,

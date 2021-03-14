@@ -4,6 +4,8 @@
     "icon": "/items/ui_artwork/collected_journal.png",
     "name": "101 Essential Stories about the Valkyrie",
     "description": "Valkyries hate this book because it contains too much information.",
+    "category": "other",
+    "grade": 0,
     "stats": {
         "hp": "5000",
         "defense": "1",

@@ -10,18 +10,18 @@ const test = (id: string) => {
         path.resolve(__dirname, `../mock/html/${id}.html`),
         { encoding: 'utf-8' },
     )
-    const res = Getters.getQuestRewards({
+    const res = Getters.Items.Equipments.getEnhancementStats({
         id: item.id,
         category: item.category,
         locale: App.Locales.US,
         type: item.type as App.Entities.Types,
         $: cheerio.load(html),
     })
-    console.log('res', res)
+    console.log('res', JSON.stringify(res))
 }
 // test('us.npc.8006')
 // test('us.npc.7614')
-test('us.quest.671-9')
+test('us.item.10002')
 // test('us.quest.803-4')
 // test('us.npc.23720')
 // test('us.item.694302')

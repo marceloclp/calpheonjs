@@ -5,9 +5,73 @@
     "name": "[Boss] Black Mane",
     "nameAlternative": "[우두머리] 검은 갈기",
     "description": "Activate the Troll Elder Summon Scroll given to you by the Black Spirit and go to the targeted place. Summon and defeat Black Mane.",
-    "region": "All",
     "category": "blackSpirit",
+    "region": "All",
     "group": "character",
+    "level": 1,
+    "chain": [{
+        "type": "quest",
+        "id": "671/1",
+        "name": "Defend the Anti-Troll Fortification",
+        "icon": "/items/quest/calph_troll_01.png"
+    }, {
+        "type": "quest",
+        "id": "671/2",
+        "name": "Novice Adventurer",
+        "icon": "/items/quest/calph_troll_01.png"
+    }, {
+        "type": "quest",
+        "id": "671/3",
+        "name": "A Cranky Captain and a Sweet Aide",
+        "icon": "/items/quest/calph_troll_02.png"
+    }, {
+        "type": "quest",
+        "id": "671/4",
+        "name": "Death Squad of the Wilderness",
+        "icon": "/items/quest/calph_troll_03.png"
+    }, {
+        "type": "quest",
+        "id": "671/5",
+        "name": "Man-Hunting Trolls",
+        "icon": "/items/quest/calph_troll_04.png"
+    }, {
+        "type": "quest",
+        "id": "671/6",
+        "name": "Trolls on the Ground, Humans Above",
+        "icon": "/items/quest/calph_troll_05.png"
+    }, {
+        "type": "quest",
+        "id": "671/7",
+        "name": "Trina's Supply System",
+        "icon": "/items/quest/calph_troll_06.png"
+    }, {
+        "type": "quest",
+        "id": "671/8",
+        "name": "Into the Fire",
+        "icon": "/items/quest/calph_troll_07.png"
+    }, {
+        "type": "quest",
+        "id": "671/9",
+        "name": "[Boss] Black Mane",
+        "icon": "/items/quest/blackrake.png"
+    }, {
+        "type": "quest",
+        "id": "671/10",
+        "name": "Sage's Advice",
+        "icon": "/items/quest/gorgas.png"
+    }, {
+        "type": "quest",
+        "id": "671/11",
+        "name": "Master of the Trina Knights",
+        "icon": "/items/quest/delphadcastillion.png"
+    }],
+    "endNPC": {
+        "type": "npc",
+        "id": "50403/1",
+        "name": "Andre Vidal",
+        "icon": "/items/ui_artwork/ic_00506.png"
+    },
+    "story": "I didn't think the Trolls would be this aggressive.\nWhat's got them so excited?\nThere must be an explanation for all this.\nBlack Mane, the elder of the Trolls, may know something.\nIf you want, I can arrange a meeting with Black Mane.\nAnd there's someone else you should meet too. His name's Andre.\n\nHey, you're not afraid of that nickname, right?\n\nIt was an honor to see you triumph!\nToday, I bore witness to the birth of a new hero!\nThe story of your victory over Black Mane\nwill be told among the Knights for many years to come.",
     "rewards": {
         "standard": [{
             "type": "exp",

@@ -1,9 +1,14 @@
-import { App, BDOCodex } from '@typings/namespaces'
+import { App } from '@typings/namespaces'
 
-export type TestCase = [string, {
+export type TestDescriptor<T extends App.Entities.Types> = {
     readonly id: string
-    readonly type: BDOCodex.Entities.Types
+    readonly type: T
     readonly locale: App.Locales
-}]
+    readonly category?: App.Entities.SelectCategory<T>
+    readonly $: cheerio.Root
+}
 
-export type TestCaseData<T = any> = [T, cheerio.Root]
+export type TestData<
+    T extends App.Entities.Types,
+    C extends App.Entities.SelectCategory<T>
+> = [string, App.Entities.Select<T, C>, TestDescriptor<T>]

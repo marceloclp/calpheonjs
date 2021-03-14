@@ -5,6 +5,8 @@ export interface Level {
     sellPrice?: number
     /** Experience required to level up to next level. */
     expToNextLevel: number
+    /** Chance of upgrading to a higher grade worker. */
+    upgradeChance: number
     /** Maximum stats possible for the current level. */
     maxStats: App.Shared.NPCs.Workers.Stats<number>
 }

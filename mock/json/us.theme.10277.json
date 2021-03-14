@@ -1,10 +1,10 @@
 {
     "id": "10277",
+    "type": "knowledge",
     "icon": "/items/ui_artwork/collected_journal.png",
     "name": "Back to Basics at Western Guard Camp Entrance",
-    "type": "knowledge",
-    "group": "Luis Pollak's Memories",
     "description": "The third spot recommended by Luis Pollak is the path with trees near the entrance to the Western Guard Camp. This path has been traversed by many novice adventurers who just completed their initial training at the Western Guard Camp, setting off on their first adventure. How about using that nostalgic feeling to calm your tired nerves, to return back to the basics, and reignite the original passion in your heart?",
+    "group": "Luis Pollak's Memories",
     "obtainedFrom": {
         "type": "quest",
         "id": "4520/197",

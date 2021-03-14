@@ -5,10 +5,77 @@
     "name": "[ADV Complete] Journey to Calpheon",
     "nameAlternative": "[모험 완료] 칼페온의 여정",
     "description": "The Black Spirit said that you have reached the end of your journey in Calpheon, and told you to head towards a new place.",
-    "region": "Calpheon City",
     "category": "blackSpirit",
+    "region": "Calpheon City",
     "group": "family",
     "level": 1,
+    "chain": [{
+        "type": "quest",
+        "id": "779/1",
+        "name": "[ADV Complete] Journey to Balenos",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/2",
+        "name": "[ADV Complete] Journey to Balenos",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/3",
+        "name": "[ADV Complete] Journey to Serendia",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/4",
+        "name": "[ADV Complete] Journey to Serendia",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/5",
+        "name": "[ADV Complete] Journey to Serendia",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/6",
+        "name": "[ADV Complete] Journey to Serendia",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/7",
+        "name": "[ADV Complete] Journey to Calpheon",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/8",
+        "name": "[ADV Complete] Journey to Calpheon",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/9",
+        "name": "[ADV Complete] Journey to Mediah",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/10",
+        "name": "[ADV Complete] Journey to Mediah",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/11",
+        "name": "[ADV Complete] Journey to Valencia",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/12",
+        "name": "[ADV Complete] Journey to Kamasylvia",
+        "icon": "/items/quest/black_fairy.png"
+    }, {
+        "type": "quest",
+        "id": "779/13",
+        "name": "[ADV Complete] Journey to Drieghan",
+        "icon": "/items/quest/black_fairy.png"
+    }],
+    "story": "I think our journey here is over now, hehe.\nI wonder who that witch was at the temple?\nShe remembered you or so it looked like, hehe.\nBut now is not the time to figure that out. It's time to embark on a new adventure.\nIt wouldn't be a bad idea to tag along with other adventurers.\nNot that we would have to, because we're strong on our own. Hehe.\n\nWhat are you doing just standing around? Don't you want to go on your next adventure?\n\nWe conquered all of Calpheon, hehe!\nI guess saying conquered is bit of an exaggeration, right? It doesn't matter. Hehe.",
     "rewards": {
         "standard": [{
             "type": "item",

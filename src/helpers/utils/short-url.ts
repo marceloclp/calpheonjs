@@ -2,12 +2,14 @@ import { App } from '@typings/namespaces'
 import { EntityLookup, ReverseEntityLookup } from '@config/lookups'
 
 interface ShortURLDescriptor {
-    locale: App.Locales
-    type: App.Entities.Types,
-    id: string
+    readonly locale: App.Locales
+    readonly type: App.Entities.Types,
+    readonly id: string
 }
 
-export const composeShortURL = ({ id, locale, type }: ShortURLDescriptor): string => {
+export const composeShortURL = (
+    { locale, type, id }: ShortURLDescriptor
+): string => {
     (!id || !locale || !type) && console.warn(
         `Failed attempt at building url for /${locale}/${type}/${id}. ` +
         'Please report this warning by opening an issue on the GitHub page.'

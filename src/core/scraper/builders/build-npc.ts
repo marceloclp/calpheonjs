@@ -27,7 +27,7 @@ export const buildNPC: Builder<
             return Object.assign(npc, {
                 group: Getters.getNPCGroup(args),
                 stats: Getters.getNPCStats(args),
-                mobType: Getters.getMobType(args),
+                mobType: Getters.getNPCMobType(args),
                 knowledge: Getters.getDroppedKnowledge(args),
                 summonedByItem: Getters.getSummonedByItem(args),
             }) as App.Entities.NPCs.Other

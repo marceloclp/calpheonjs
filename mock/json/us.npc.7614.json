@@ -3,14 +3,340 @@
     "type": "npc",
     "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_giant01.png",
     "name": "Acher",
+    "description": "A worker at the Extraction Mill in Serendia.\n\nIt is said that if you know Acher well you'll be able to get in touch with excellent workers.",
     "category": "worker",
     "grade": 3,
     "sellable": false,
     "stamina": 30,
+    "levels": [
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 30,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 5,
+                "movementSpeed": 2,
+                "workSpeed": 50
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 45,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 5.25,
+                "movementSpeed": 2.25,
+                "workSpeed": 50.43
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 63,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 5.5,
+                "movementSpeed": 2.5,
+                "workSpeed": 50.86
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 86,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 5.75,
+                "movementSpeed": 2.75,
+                "workSpeed": 51.29
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 112,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6,
+                "movementSpeed": 3,
+                "workSpeed": 51.72
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 140,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6.25,
+                "movementSpeed": 3.25,
+                "workSpeed": 52.15
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 171,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6.5,
+                "movementSpeed": 3.5,
+                "workSpeed": 52.58
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 209,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 6.75,
+                "movementSpeed": 3.75,
+                "workSpeed": 53.01
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 255,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7,
+                "movementSpeed": 4,
+                "workSpeed": 53.44
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 312,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7.25,
+                "movementSpeed": 4.25,
+                "workSpeed": 53.87
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 381,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7.5,
+                "movementSpeed": 4.5,
+                "workSpeed": 54.3
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 462,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 7.75,
+                "movementSpeed": 4.75,
+                "workSpeed": 54.73
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 560,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8,
+                "movementSpeed": 5,
+                "workSpeed": 55.16
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 678,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8.25,
+                "movementSpeed": 5.25,
+                "workSpeed": 55.59
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 821,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8.5,
+                "movementSpeed": 5.5,
+                "workSpeed": 56.02
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 994,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 8.75,
+                "movementSpeed": 5.75,
+                "workSpeed": 56.45
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 1203,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9,
+                "movementSpeed": 6,
+                "workSpeed": 56.88
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 1456,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9.25,
+                "movementSpeed": 6.25,
+                "workSpeed": 57.31
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 1762,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9.5,
+                "movementSpeed": 6.5,
+                "workSpeed": 57.74
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 2133,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 9.75,
+                "movementSpeed": 6.75,
+                "workSpeed": 58.17
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 2581,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10,
+                "movementSpeed": 7,
+                "workSpeed": 58.6
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 3124,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10.25,
+                "movementSpeed": 7.25,
+                "workSpeed": 59.03
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 3781,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10.5,
+                "movementSpeed": 7.5,
+                "workSpeed": 59.46
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 4576,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 10.75,
+                "movementSpeed": 7.75,
+                "workSpeed": 59.89
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 5537,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11,
+                "movementSpeed": 8,
+                "workSpeed": 60.32
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 6700,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11.25,
+                "movementSpeed": 8.25,
+                "workSpeed": 60.75
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 8107,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11.5,
+                "movementSpeed": 8.5,
+                "workSpeed": 61.18
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 9810,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 11.75,
+                "movementSpeed": 8.75,
+                "workSpeed": 61.61
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 11871,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12,
+                "movementSpeed": 9,
+                "workSpeed": 62.04
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 14364,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12.25,
+                "movementSpeed": 9.25,
+                "workSpeed": 62.47
+            }
+        },
+        {
+            "sellPrice": 0,
+            "expToNextLevel": 30000,
+            "upgradeChance": 0,
+            "maxStats": {
+                "luck": 12.5,
+                "movementSpeed": 9.5,
+                "workSpeed": 62.9
+            }
+        }
+    ],
     "statsGrowth": {
         "workSpeed": "0.1 ~ 0.43",
         "movementSpeed": "0.1 ~ 0.25",
         "luck": "0.1 ~ 0.25"
     },
-    "description": "A worker at the Extraction Mill in Serendia.\n\nIt is said that if you know Acher well you'll be able to get in touch with excellent workers."
+    "acquireChanceTable": {
+        "naive": 50,
+        "general": 34,
+        "skilled": 13,
+        "professional": 3,
+        "artisan": 0
+    },
+    "personalSkill": {
+        "type": "workerSkill",
+        "id": "2012",
+        "name": "Masterly Skill",
+        "icon": "/items/new_ui_common_forlua/skill/workerskill/1006.png",
+        "effect": "Work Speed +2"
+    }
 }

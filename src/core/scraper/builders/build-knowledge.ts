@@ -15,7 +15,7 @@ export const buildKnowledge: Builder<
         name: Getters.getName(getterArgs),
         nameAlternative: Getters.getNameAlt(getterArgs),
         description: Getters.getDescription(getterArgs),
-        group: Getters.getGroup(getterArgs),
+        group: Getters.getKnowledgeGroup(getterArgs),
         obtainedFrom: Getters.getObtainedFrom(getterArgs),
     }
 
