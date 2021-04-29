@@ -1,18 +1,28 @@
 import fs from 'fs'
 import path from 'path'
 import * as Getters from '@core/query/getters'
+import * as Builders from '@core/query/builders'
 import { App } from '@typings/namespaces'
 
 const readFile = (folder: 'query' | 'scraper', file: string) => {
-    const p = path.join(__dirname, `../mocks/${folder}/cache/${file}.txt`)
+    const p = path.join(__dirname, `../cache/${folder}/${file}.txt`)
     return fs.readFileSync(p, { encoding: 'utf-8' })
+}
+
+const saveResult = (fileName: string, data: string) => {
+    fs.writeFileSync(
+        path.join(__dirname, '../mocks/query/', fileName + '.json'),
+        data,
+    )
 }
 
 const test = async () => {
     const body = readFile('query', 'quests.questrewards.16002.us').trim()
     const json = JSON.parse(body)
-    console.log(json.aaData[0][4])
-    console.log('response', Getters.Quests.getRewards(json.aaData[0]))
+    // console.log(JSON.stringify(Builders.buildQuest(json)))
+    // saveResult('quests.questrewards.16002.us', JSON.stringify(Builders.buildQuest(json)))
+    // console.log(json.aaData[0][4])
+    // console.log('response', Getters.Quests.getRewards(json.aaData[0]))
 }
 test()
 
