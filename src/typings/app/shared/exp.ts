@@ -1,5 +1,5 @@
 export type EXP<E = {}> = {
     type: 'exp'
-    icon: string
+    icon?: string
     name: string
 } & E

@@ -2,7 +2,7 @@ import { App } from '@typings/namespaces'
 import { getTestCases, expectObject } from '@tests/utils'
 import * as Getters from '../index'
 
-const cases = getTestCases(App.Entities.Types.Quest)
+const cases = getTestCases('scraper', App.Entities.Types.Quest)
 
 describe('Quest Getters', () => {
     describe.each(cases)('%s', (_, expected, args) => {

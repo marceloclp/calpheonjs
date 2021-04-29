@@ -3,6 +3,7 @@ import { getTestCases, expectObject } from '@tests/utils'
 import * as Getters from '../../index'
 
 const cases = getTestCases(
+    'scraper',
     App.Entities.Types.NPC,
     App.Entities.NPCs.Categories.Other
 )

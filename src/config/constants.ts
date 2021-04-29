@@ -1,3 +1,4 @@
+import { App } from '@typings/namespaces'
 import { Chars } from '@typings/utilities'
 
 export const BaseUrl = 'https://bdocodex.com'
@@ -28,3 +29,5 @@ export const GroupBreakChars = [
     Chars.Hyphen,
     Chars.Star,
 ].join('')
+
+export const DefaultLocale = App.Locales.US

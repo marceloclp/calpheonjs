@@ -1,9 +1,10 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { App } from '@typings/namespaces'
+import { DefaultLocale } from '@config/constants'
+import { InvalidEntity } from '@core/errors/invalid-entity'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
 import { isValidPage } from './utils/is-valid-page'
-import { InvalidEntity } from '@core/errors/invalid-entity'
 import { Build } from './builders'
 
 type ScrapableEntity =
@@ -24,7 +25,7 @@ export const Scrape = async <T extends ScrapableEntity>(
     id: string,
     options?: Options
 ): Promise<App.Entities.Select<T, any>> => {
-    const locale = options?.locale || App.Locales.US
+    const locale = options?.locale || DefaultLocale
     const url = buildCodexURL({ locale, type, id })
 
     const response = await fetch(url)

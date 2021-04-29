@@ -5,7 +5,7 @@
  * These columns are not consistent with the rest of the application
  * and use a different data structure.
  */
-interface HTMLSortRow {
+ interface HTMLSortRow {
     /** The actual DOM element as a string. */
     readonly display: string
     readonly sort_value: string
@@ -14,11 +14,11 @@ interface HTMLSortRow {
 /**
  * The query response wrapper.
  */
-interface Response<T extends Record<number, any>> {
+export interface Wrapper<T extends Record<number, any>> {
     readonly aaData: T[]
 }
 
-export type Item = Response<{
+export type Item = Wrapper<{
     /** Item id. */
     readonly 0: string
     /** HTML containing the item icon url. */
@@ -31,7 +31,7 @@ export type Item = Response<{
     readonly 5: string
 }>
 
-export type NodeDrop = Response<{
+export type NodeDrop = Wrapper<{
     /** Node id. */
     readonly 0: string
     /** HTML containing the node icon url. */
@@ -48,7 +48,7 @@ export type NodeDrop = Response<{
     readonly 6: string
 }>
 
-export type NPCDrop = Response<{
+export type NPCDrop = Wrapper<{
     /** NPC id. */
     readonly 0: string
     /** HTML containing the NPC icon url. */
@@ -61,7 +61,7 @@ export type NPCDrop = Response<{
     readonly 4: string
 }>
 
-export type NPC = Response<{
+export type NPC = Wrapper<{
     /** NPC id. */
     readonly 0: HTMLSortRow
     /** HTML containing the NPC icon url. */
@@ -84,7 +84,7 @@ export type NPC = Response<{
     readonly 9: string
 }>
 
-export type Quest = Response<{
+export type Quest = Wrapper<{
     /** Quest id. */
     readonly 0: HTMLSortRow;
     /** HTML containing the quest icon url. */
@@ -107,7 +107,7 @@ export type Quest = Response<{
     readonly 10: string;
 }>
 
-export type Recipe = Response<{
+export type Recipe = Wrapper<{
     /** Entity id. */
     readonly 0: string;
     /** HTML containing the recipe icon url.. */

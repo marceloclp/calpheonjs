@@ -1,9 +1,20 @@
 import fs from 'fs'
 import path from 'path'
-import cheerio from 'cheerio'
+import * as Getters from '@core/query/getters'
 import { App } from '@typings/namespaces'
-import * as Getters from '@core/scraper/getters'
-import { Scrape } from '@core/scraper'
+
+const readFile = (folder: 'query' | 'scraper', file: string) => {
+    const p = path.join(__dirname, `../mocks/${folder}/cache/${file}.txt`)
+    return fs.readFileSync(p, { encoding: 'utf-8' })
+}
+
+const test = async () => {
+    const body = readFile('query', 'quests.questrewards.16002.us').trim()
+    const json = JSON.parse(body)
+    console.log(json.aaData[0][4])
+    console.log('response', Getters.Quests.getRewards(json.aaData[0]))
+}
+test()
 
 // const test = (id: string) => {
 //     const item = require(`../mock/json/${id}.json`)

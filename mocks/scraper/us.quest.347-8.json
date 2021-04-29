@@ -81,12 +81,6 @@
             "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00013902.png",
             "name": "Canon Greatbow",
             "amount": 1
-        }, {
-            "type": "item",
-            "id": "56467",
-            "icon": "/items/new_icon/03_etc/00044902.png",
-            "name": "PRI (I) Tuvala Awakening Weapon Box",
-            "amount": 1
         }],
         "choseOneOf": [],
         "knowledge": {

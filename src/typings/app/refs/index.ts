@@ -3,8 +3,8 @@ import { App } from '@typings/namespaces'
 export type Ref<T extends App.Entities.Types = any, E = {}> = {
     type: T
     id: string
-    name: string
-    icon: string
+    name?: string
+    icon?: string
 } & E
 
 export type Item<E = {}> = Ref<App.Entities.Types.Item, E>
@@ -16,3 +16,5 @@ export type Quest<E = {}> = Ref<App.Entities.Types.Quest, E>
 export type WorkerSkill<E = {}> = Ref<App.Entities.Types.WorkerSkill, {
     effect: string
 } & E>
+
+export type Recipe<E = {}> = Ref<App.Entities.Types.Recipe, E>
