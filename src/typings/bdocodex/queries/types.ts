@@ -11,7 +11,7 @@ interface Generic {
     readonly l: App.Locales
 }
 
-/** Mabs the App queries to BDOCodex query tabs. */
+/** Maps the App queries to BDOCodex query tabs. */
 interface Tabs {}
 
 /**

@@ -6,6 +6,7 @@ import { parseNumber } from '@helpers/utils/parse-number'
 import { substrOf } from '@helpers/utils/substr-of'
 import { Getter } from '../getter.types'
 
+// TODO: it's not returning the correct amount
 export const getRewards: Getter<
     BDOCodex.Queries.Response.Quest,
     App.Shared.Quests.Rewards

@@ -1,6 +1,7 @@
 import { App } from '@typings/namespaces'
 import { BaseUrl } from '@config/constants'
 
+// TODO: change options to fit our naming patterns
 interface QueryDescriptor {
     readonly a: string
     readonly type: string

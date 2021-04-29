@@ -8,8 +8,7 @@ import { buildProcessing } from './build-processing'
 import { buildQuest } from './build-quest'
 import { buildRecipe } from './build-recipe'
 
-// @ts-ignore
-const BuildTable: Record<App.Entities.Types, Builder<any>> = {
+const BuildTable = {
     [App.Entities.Types.Item]: buildItem,
     [App.Entities.Types.Knowledge]: buildKnowledge,
     [App.Entities.Types.MaterialGroup]: buildMaterialGroup,
@@ -19,8 +18,8 @@ const BuildTable: Record<App.Entities.Types, Builder<any>> = {
     [App.Entities.Types.Recipe]: buildRecipe,
 }
 
-export const Build = <T extends App.Entities.Types>(type: T): Builder<T> => {
+export const Build = <T extends App.Entities.Types>(type: T): Builder<any> => {
     if (type in BuildTable)
-        return BuildTable[type]
+        return BuildTable[type as keyof typeof BuildTable] // TODO: remove this cast
     throw new Error('Entity type is not yet supported.')
 }
