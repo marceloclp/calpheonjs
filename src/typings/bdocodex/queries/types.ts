@@ -77,7 +77,7 @@ interface QuestNPCs extends Generic {
 /**
  * Returns the quest whose one of the rewards is the specified item.
  */
-//
+// DONE
 interface QuestRewards extends Generic {
     readonly a: 'quests'
     readonly type: 'questrewards'
