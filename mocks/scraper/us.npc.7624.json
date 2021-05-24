@@ -3,7 +3,7 @@
     "type": "npc",
     "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_giant01.png",
     "name": "Berocchio",
-    "category": "worker",
+    "subType": "worker",
     "description": "A Worker at the Northern Wheat Plantation in Calpheon.\n\nIt is said that if you get to know Berocchio you'll be able to get in touch with excellent farm workers.",
     "grade": 3,
     "sellable": false,

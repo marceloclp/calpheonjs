@@ -3,7 +3,7 @@
     "type": "npc",
     "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_padus04.png",
     "name": "Artisan Fadus Worker",
-    "category": "worker",
+    "subType": "worker",
     "grade": 4,
     "sellable": true,
     "stamina": 40,

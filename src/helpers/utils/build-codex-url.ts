@@ -1,10 +1,10 @@
-import { App } from '@typings/namespaces'
+import { App, BDO } from '@typings/namespaces'
 import { BaseUrl } from '@config/constants'
 import { ReverseEntityLookup } from '@config/lookups'
 
 interface URLDescriptor {
     readonly locale: App.Locales
-    readonly type: App.Entities.Types
+    readonly type: BDO.Entities.Types
     readonly id: string
 }
 

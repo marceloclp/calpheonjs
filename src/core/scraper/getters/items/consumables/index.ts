@@ -1,3 +1,3 @@
-export { getCooldown } from './get-cooldown'
-export { getDuration } from './get-duration'
-export { getEffects } from './get-effects'
+export * from './cooldown.getter'
+export * from './duration.getter'
+export * from './effects.getter'

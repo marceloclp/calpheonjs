@@ -1,1 +1,2 @@
-export { getGroup } from './get-group'
+export * from './group.getter'
+export * from './obtained-from.getter'

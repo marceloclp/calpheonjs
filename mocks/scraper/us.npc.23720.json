@@ -3,16 +3,12 @@
     "type": "npc",
     "icon": "/items/ui_artwork/ic_00559.png",
     "name": "Abandoned Iron Mine Executor",
-    "category": "other",
+    "subType": "other",
     "grade": 4,
     "stats": {
         "hp": "174007",
         "defense": "557",
         "evasion": "457",
-        "damageReduction": "100",
-        "lvl": "55",
-        "droppedExp": "2505749",
-        "droppedSkillExp": "808444",
-        "karma": "80"
+        "damageReduction": "100"
     }
 }

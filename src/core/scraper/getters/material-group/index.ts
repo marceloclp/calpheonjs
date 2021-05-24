@@ -1,1 +1,1 @@
-export { getItems } from './get-items'
+export * from './items.getter'

@@ -5,7 +5,7 @@
     "nameAlternative": "고대 마력의 수정 - 아디스",
     "type": "item",
     "description": "A Black Stone Crystal that can be fused into Main Weapon sockets.",
-    "category": "socketItem",
+    "subType": "socketItem",
     "grade": 4,
     "prices": {
         "buy": 300000,

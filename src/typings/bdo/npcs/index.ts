@@ -1,2 +1,4 @@
 export * as Workers from './workers'
-export { MobTypes } from './mob-types'
+export * from './stats.interface'
+export * from './mob-types.enum'
+export * from './sub-types.enum'

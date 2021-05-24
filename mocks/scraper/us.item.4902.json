@@ -5,6 +5,12 @@
     "nameAlternative": "사금",
     "type": "item",
     "description": "A rare ingredient filtered from River Water that can be Heated to create Gold.",
-    "category": "craftingMaterial",
-    "grade": 0
+    "subType": "craftingMaterial",
+    "grade": 0,
+    "prices": {
+        "buy": 11250,
+        "sell": 450,
+        "repair": 0
+    },
+    "weight": 0.1
 }

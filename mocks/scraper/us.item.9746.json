@@ -5,6 +5,12 @@
     "nameAlternative": "심연의 황동 주괴",
     "type": "item",
     "description": "A Brass Ingot imbued with mystical powers. An unknown force seems to seep out from deep within. The item is used to create Hughol's Weapon.",
-    "category": "craftingMaterial",
-    "grade": 3
+    "subType": "craftingMaterial",
+    "grade": 3,
+    "prices": {
+        "buy": 124626,
+        "sell": 12400,
+        "repair": 0
+    },
+    "weight": 0.1
 }

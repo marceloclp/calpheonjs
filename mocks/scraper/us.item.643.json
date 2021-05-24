@@ -5,7 +5,7 @@
     "nameAlternative": "[파티] 저항의 비약",
     "type": "item",
     "description": "Elixir with a defensive function.",
-    "category": "consumable",
+    "subType": "consumable",
     "grade": 1,
     "prices": {
         "buy": 1881,

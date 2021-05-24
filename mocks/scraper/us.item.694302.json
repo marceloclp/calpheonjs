@@ -5,7 +5,7 @@
     "name": "Fiery Dandelion Great Sword",
     "nameAlternative": "타오르는 단델리온 대검",
     "description": "Gear imbued with the fiery magical powers of Garmoth.",
-    "category": "equipment",
+    "subType": "equipment",
     "grade": 4,
     "prices": {
         "buy": 150000000,

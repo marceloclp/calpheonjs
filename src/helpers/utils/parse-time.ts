@@ -1,4 +1,4 @@
-import { Matcher } from '@helpers/factory/matcher'
+import { Matcher } from '@helpers/matcher'
 import { parseNumber } from './parse-number'
 
 const ConversionTable = [

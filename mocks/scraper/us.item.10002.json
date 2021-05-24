@@ -5,7 +5,7 @@
     "name": "Militia Longsword",
     "nameAlternative": "민병대 장검",
     "description": "A longsword mass produced for the Militia.",
-    "category": "equipment",
+    "subType": "equipment",
     "grade": 0,
     "prices": {
         "buy": 13400,

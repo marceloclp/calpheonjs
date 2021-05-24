@@ -5,7 +5,7 @@
     "name": "Rosar Kunai of Temptation",
     "nameAlternative": "유혹의 로사르 수리검",
     "description": "Gear possessing the energy of temptation.",
-    "category": "equipment",
+    "subType": "equipment",
     "grade": 2,
     "prices": {
         "buy": 80800,

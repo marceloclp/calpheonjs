@@ -5,7 +5,7 @@
     "nameAlternative": "곰 가죽",
     "type": "item",
     "description": "Material that has been gathered and may be used during crafting. It may also be changed to a different form through alchemy or processing.",
-    "category": "craftingMaterial",
+    "subType": "craftingMaterial",
     "grade": 0,
     "prices": {
         "buy": 2250,

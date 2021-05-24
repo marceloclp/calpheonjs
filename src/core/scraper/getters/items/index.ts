@@ -1,5 +1,5 @@
 export * as Consumables from './consumables'
 export * as Equipments from './equipments'
-export { getCategory } from './get-category'
-export { getPrices } from './get-prices'
-export { getWeight } from './get-weight'
+export * from './prices.getter'
+export * from './sub-type.getter'
+export * from './weight.getter'

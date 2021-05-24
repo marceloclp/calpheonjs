@@ -5,19 +5,23 @@ import { BDO, BDOCodex } from '@typings/namespaces'
  */
 export const mapStats = (
     stats: Partial<Record<BDOCodex.StatsEnum, string>>
-): Partial<Record<BDO.Players.Attributes, string>> => {
-    return {
-        hp: stats.hp || '0',
-        mp: stats.mp || '0',
-        damage: stats.damage || '0',
-        defense: stats.defense || '0',
-        accuracy: stats.accuracy || '0',
-        evasion: stats.evasion || '0',
-        damageReduction: stats.dreduction || '0',
-        bonusDamage: stats.hdamage || '0',
-        bonusDefense: stats.hdefense || '0',
-        bonusAccuracy: stats.haccuracy || '0',
-        bonusEvasion: stats.hevasion || '0',
-        bonusDamageReduction: stats.hdreduction || '0',
-    }
+): BDO.Characters.Stats<string> => {
+    return Object.entries({
+        hp: stats.hp,
+        mp: stats.mp,
+        damage: stats.damage,
+        defense: stats.defense,
+        accuracy: stats.accuracy,
+        evasion: stats.evasion,
+        damageReduction: stats.dreduction,
+        bonusDamage: stats.hdamage,
+        bonusDefense: stats.hdefense,
+        bonusAccuracy: stats.haccuracy,
+        bonusEvasion: stats.hevasion,
+        bonusDamageReduction: stats.hdreduction,
+    }).reduce((obj, [key, value]) => {
+        if (typeof value !== 'undefined')
+            return { ...obj, [key]: value }
+        return obj
+    }, {} as BDO.Characters.Stats<string>)
 }

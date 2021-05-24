@@ -1,4 +1,4 @@
-export { getCaphrasStats } from './get-caphras-stats'
-export { getEnhancementStats } from './get-enhancement-stats'
-export { getExclusiveTo } from './get-exclusive-to'
-export { getFairyExp } from './get-fairy-exp'
+export * from './caphras.getter'
+export * from './enhancements.getter'
+export * from './exclusive-to.getter'
+export * from './fairy-exp.getter'

@@ -1,3 +1,5 @@
+const StoreLoader = require('./scripts/jest-store-loader')
+
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
@@ -9,5 +11,11 @@ module.exports = {
     '^@tests/(.*)$': '<rootDir>/src/tests/$1',
   },
   resolver: undefined,
-  globalSetup: './scripts/jest-global-setup.js',
-};
+  globalSetup: '<rootDir>/scripts/jest-global-setup.js',
+  globals: {
+    stores: {
+      query: StoreLoader('query'),
+      scraper: StoreLoader('scraper'),
+    },
+  },
+}

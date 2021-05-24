@@ -4,7 +4,7 @@
     "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_giant01.png",
     "name": "Acher",
     "description": "A worker at the Extraction Mill in Serendia.\n\nIt is said that if you know Acher well you'll be able to get in touch with excellent workers.",
-    "category": "worker",
+    "subType": "worker",
     "grade": 3,
     "sellable": false,
     "stamina": 30,
