@@ -1,15 +1,23 @@
 import { App } from '@typings/namespaces'
-import { BaseUrl } from '@config/constants'
+import { BaseUrl, DefaultLocale } from '@config/constants'
+import { Types } from '@core/query/typings'
 
-// TODO: change options to fit our naming patterns
-interface QueryDescriptor {
-    readonly a: string
-    readonly type: string
-    readonly l: App.Locales
+const init = (params: { a: string, type: string }, key = 'id') =>
+    (id: string) => ({ ...params, [key]: id })
+const QueryFnLookup = {
+    [Types.QuestReward]: init({ a: 'quests', type: 'questrewards' })
 }
 
-export const buildQueryURL = <T extends QueryDescriptor>(query: T) => {
-    return Object.entries(query).reduce((url, [key, value]) => {
-        return url + `${key}=${value}&`
-    }, BaseUrl + '/query.php?')
+interface Arguments {
+    readonly type: Types
+    readonly id: string
+    readonly locale?: App.Locales
+}
+
+export const buildQueryURL = ({ type, id, locale = DefaultLocale }: Arguments) => {
+    return BaseUrl + '/query.php?' + Object
+        .entries({ ...QueryFnLookup[type](id), l: locale })
+        .reduce((query, [key, value]) => {
+            return value ? `${query}&${key}=${value}` : query
+        }, '')
 }

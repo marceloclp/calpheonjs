@@ -1,1 +1,2 @@
-export { QueryFactory as Query } from './query.factory'
+export { Query } from './query'
+export { Types } from './typings'

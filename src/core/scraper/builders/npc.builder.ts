@@ -3,12 +3,12 @@ import * as Getters from '@core/scraper/getters'
 import { Generic } from './generic.builder'
 
 export const NPC = Generic
-    .convert(args => ({
+    .forType(args => ({
         type: BDO.Entities.Types.NPC,
         subType: Getters.NPCs.getSubType(args),
         grade: Getters.getGrade(args),
     }))
-    .extend(BDO.NPCs.SubTypes.Worker, args => ({
+    .forSubType(BDO.NPCs.SubTypes.Worker, args => ({
         sellable: Getters.NPCs.Workers.getSellable(args),
         stamina: Getters.NPCs.Workers.getStamina(args),
         levels: Getters.NPCs.Workers.getLevels(args),
@@ -17,7 +17,7 @@ export const NPC = Generic
         acquireChanceTable: Getters.NPCs.Workers.getSkillsChance(args),
         personalSkill: Getters.NPCs.Workers.getPersonalSkill(args),
     }))
-    .extend(BDO.NPCs.SubTypes.Other, args => ({
+    .forSubType(BDO.NPCs.SubTypes.Other, args => ({
         group: Getters.NPCs.Others.getGroup(args),
         stats: Getters.NPCs.Others.getStats(args),
         mobType: Getters.NPCs.Others.getMobType(args),

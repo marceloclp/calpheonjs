@@ -3,7 +3,7 @@ import * as Getters from '@core/scraper/getters'
 import { Generic } from './generic.builder'
 
 export const Recipe = Generic
-    .convert(args => ({
+    .forType(args => ({
         type: BDO.Entities.Types.Recipe,
         subType: undefined,
         materials: Getters.Crafting.getMaterials(args),

@@ -1,2 +1,3 @@
 export * as Response from './response'
-export { Tabs } from './tabs'
+export * from './tabs'
+export { Types } from './types'

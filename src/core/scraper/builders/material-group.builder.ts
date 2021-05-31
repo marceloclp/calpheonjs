@@ -3,7 +3,7 @@ import * as Getters from '@core/scraper/getters'
 import { Generic } from './generic.builder'
 
 export const MaterialGroup = Generic
-    .convert(args => {
+    .forType(args => {
         const items = Getters.MaterialGroup.getItems(args)
         return {
             type: BDO.Entities.Types.MaterialGroup,

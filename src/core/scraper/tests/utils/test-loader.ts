@@ -1,17 +1,16 @@
 import cheerio from 'cheerio'
 import { BDO } from '@typings/namespaces'
 import { Entities, ScrapableEntity } from '@core/scraper/typings'
-import { buildCodexURL } from '@helpers/utils/build-codex-url'
-
-import { getStore } from '@tests/utils/get-store'
-import { decomposeFileKey } from './decompose-file-key'
 import { Builder } from '@core/scraper/utils/builder'
+import { buildCodexURL } from '@helpers/utils/build-codex-url'
+import { getTestStore } from './get-test-store'
+import { decomposeFileKey } from './decompose-file-key'
 
 export class TestLoader<
     T extends ScrapableEntity,
     S extends BDO.Entities.GetSubType<T> = BDO.Entities.GetSubType<T>,
 > {
-    private readonly store = getStore('scraper')
+    private readonly store = getTestStore()
     private keys: string[] = [...this.store.keys]
 
     filterByType<NT extends ScrapableEntity>(type: NT) {
@@ -42,7 +41,7 @@ export class TestLoader<
             const $ = cheerio.load(this.store.cache[key])
             return [
                 buildCodexURL({ locale, type, id }),
-                this.store.mocks[key] as Entities.Select<T, S>,
+                this.store.mocks[key] as R,
                 builder.build({ $, locale, type: type as T, id }),
             ] as [string, R, R]
         })

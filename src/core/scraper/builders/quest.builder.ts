@@ -3,7 +3,7 @@ import * as Getters from '@core/scraper/getters'
 import { Generic } from './generic.builder'
 
 export const Quest = Generic
-    .convert(args => ({
+    .forType(args => ({
         grade: Getters.getGrade(args),
         type: BDO.Entities.Types.Quest,
         subType: undefined,

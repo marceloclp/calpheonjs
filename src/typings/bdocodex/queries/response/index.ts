@@ -18,7 +18,7 @@ export interface Wrapper<T extends Record<number, any>> {
     readonly aaData: T[]
 }
 
-export type Item = Wrapper<{
+export interface Item {
     /** Item id. */
     readonly 0: string
     /** HTML containing the item icon url. */
@@ -29,9 +29,9 @@ export type Item = Wrapper<{
     readonly 3: number
     readonly 4: string
     readonly 5: string
-}>
+}
 
-export type NodeDrop = Wrapper<{
+export interface NodeDrop {
     /** Node id. */
     readonly 0: string
     /** HTML containing the node icon url. */
@@ -46,9 +46,9 @@ export type NodeDrop = Wrapper<{
     readonly 5: string
     /** Water as a percentage string. */
     readonly 6: string
-}>
+}
 
-export type NPCDrop = Wrapper<{
+export interface NPCDrop {
     /** NPC id. */
     readonly 0: string
     /** HTML containing the NPC icon url. */
@@ -59,9 +59,9 @@ export type NPCDrop = Wrapper<{
     readonly 3: string
     /** Drop chance as a percentage string. */
     readonly 4: string
-}>
+}
 
-export type NPC = Wrapper<{
+export interface NPC {
     /** NPC id. */
     readonly 0: HTMLSortRow
     /** HTML containing the NPC icon url. */
@@ -82,9 +82,9 @@ export type NPC = Wrapper<{
     readonly 8: string
     /** NPC karma. */
     readonly 9: string
-}>
+}
 
-export type Quest = Wrapper<{
+export interface Quest {
     /** Quest id. */
     readonly 0: HTMLSortRow;
     /** HTML containing the quest icon url. */
@@ -105,9 +105,9 @@ export type Quest = Wrapper<{
     readonly 8: string;
     readonly 9: string;
     readonly 10: string;
-}>
+}
 
-export type Recipe = Wrapper<{
+export interface Recipe {
     /** Entity id. */
     readonly 0: string;
     /** HTML containing the recipe icon url.. */
@@ -129,4 +129,4 @@ export type Recipe = Wrapper<{
     readonly 9: string;
     readonly 10: string;
     readonly 11: string;
-}>
+}

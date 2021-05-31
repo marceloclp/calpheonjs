@@ -29,7 +29,7 @@ export class Builder<
         return new Builder<any>(builder)
     }
 
-    convert<NT extends ScrapableEntity>(
+    forType<NT extends ScrapableEntity>(
         builder: (args: Args) =>
             & { type: NT, subType: SubTypes }
             & Defined<Diff<Entities.Select<NT>, Entity>>
@@ -41,7 +41,7 @@ export class Builder<
         return new Builder<NT>(newBuilder)
     }
 
-    extend<S extends SubTypes>(
+    forSubType<S extends SubTypes>(
         subType: S,
         builder: (args: Args) => Defined<Diff<Entities.Select<T, S>, Entity>>
     ) {
