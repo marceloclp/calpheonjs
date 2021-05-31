@@ -1,9 +1,10 @@
 import { BDOCodex } from '@typings/namespaces'
-import { Entities, QueryableEntity } from '@core/query/typings'
+import { Entities, QueryableEntity, Types } from '@core/query/typings'
 import { Builder } from '@core/query/utils/builder'
+import { getQueriedType } from '@core/query/utils/get-queried-type'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
-import { decomposeFileKey } from './decompose-file-key'
 import { getTestStore } from './get-test-store'
+import { decomposeFileKey } from './decompose-file-key'
 
 export class TestLoader<T extends QueryableEntity> {
     private readonly store = getTestStore<T>()
@@ -11,6 +12,7 @@ export class TestLoader<T extends QueryableEntity> {
 
     /** There may be too many entities on a query. Specify a limit to reduce test times. */
     private hydrationLevel?: number
+    private entityIds: Record<string, true> = {}
 
     filterByReturnType<NT extends QueryableEntity>(type: NT) {
         this.keys = this.keys.filter(key => {
@@ -19,10 +21,15 @@ export class TestLoader<T extends QueryableEntity> {
         return this as unknown as TestLoader<NT>
     }
 
-    filterById(id: string) {
+    filterByFileId(id: string) {
         this.keys = this.keys.filter(key => {
-            return this.store.mocks[key][0]?.id === id
+            return decomposeFileKey(key).id === id
         })
+        return this
+    }
+
+    filterByEntityId(id: string) {
+        this.entityIds[id] = true
         return this
     }
 
@@ -34,19 +41,23 @@ export class TestLoader<T extends QueryableEntity> {
     buildTests(builder: Builder<T>) {
         type R = Entities.Select<T>
         return this.keys.reduce((tests, key) => {
-            const { id, returns, locale } = decomposeFileKey(key)
+            const { type, locale } = decomposeFileKey(key)
             const data = JSON.parse(this.store.cache[key].trim()) as
                 BDOCodex.Queries.Response.Wrapper<any>
-            const stopAt = this.hydrationLevel || data.aaData.length
-            return tests.concat(data.aaData.slice(0, stopAt).map((data, index) => [
-                TestLoader.buildTestId({ type: returns, id, index }),
-                this.store.mocks[key][index] as R,
-                builder.build(data, { locale }) as R,
+            
+            const items = !!Object.keys(this.entityIds).length
+                ? data.aaData.filter((_, i) => this.store.mocks[key][i].id in this.entityIds)
+                : data.aaData.slice(0, this.hydrationLevel)
+
+            return tests.concat(items.map((item, i) => [
+                TestLoader.buildTestId({ type, id: this.store.mocks[key][i].id }),
+                this.store.mocks[key][i],
+                builder.build(item, { locale }),
             ]))
         }, [] as [string, R, R][])
     }
 
-    static buildTestId({ type, id, index }: { type: QueryableEntity, id: string, index: number }) {
-        return buildCodexURL({ type, id }) + ` [${index}] (ID: ${id})`
+    static buildTestId({ type, id }: { type: Types, id: string }) {
+        return buildCodexURL({ type: getQueriedType(type), id }) + ` (ID: ${id})`
     }
 }

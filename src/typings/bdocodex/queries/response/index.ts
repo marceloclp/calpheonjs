@@ -7,8 +7,8 @@
  */
  interface HTMLSortRow {
     /** The actual DOM element as a string. */
-    readonly display: string
-    readonly sort_value: string
+    readonly display?: string
+    readonly sort_value?: string | number
 }
 
 /**
