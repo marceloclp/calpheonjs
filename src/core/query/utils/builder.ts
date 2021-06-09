@@ -1,23 +1,30 @@
-import { App } from '@typings/namespaces'
-import { Defined } from '@typings/utilities'
-import { Entities, GetResponseData, QueryableEntity } from '@core/query/typings'
-
-interface Args {
-    readonly locale: App.Locales
-}
-type BuilderFn<T extends QueryableEntity> =
-    (data: GetResponseData<T>, args: Args) => Defined<Entities.Select<T>>
+import { Defined, Diff } from '@typings/utilities'
+import { QueryableEntity, Selectors } from '@core/query/typings'
 
 export class Builder<T extends QueryableEntity> {
     constructor(
-        private builder: BuilderFn<T>
+        private builder: (data: Selectors.Data<T>) => Selectors.Entity<T>
     ) {}
 
-    static forType<NT extends QueryableEntity>(builder: BuilderFn<NT>) {
-        return new Builder<NT>(builder)
+    static init(
+        builder: (data: Selectors.Data) => Defined<Selectors.Entity>
+    ) {
+        return new Builder<QueryableEntity>(builder as any)
     }
 
-    build(data: GetResponseData<T>, args: Args) {
-        return this.builder(data, args) as unknown as Entities.Select<T>
+    forType<NT extends QueryableEntity>(
+        builder: (data: Selectors.Data<NT>) =>
+            & { type: NT }
+            & Defined<Diff<Selectors.Entity<NT>, Selectors.Entity<T>>>
+    ) {
+        const newBuilder = (data: Selectors.Data<NT>) => ({
+            ...this.builder(data as unknown as Selectors.Data<T>),
+            ...builder(data),
+        }) as unknown as Selectors.Entity<NT>
+        return new Builder<NT>(newBuilder)
+    }
+
+    build(data: Selectors.Data<T>) {
+        return this.builder(data)
     }
 }

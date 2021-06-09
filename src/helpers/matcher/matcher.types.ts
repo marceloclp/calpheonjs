@@ -19,4 +19,4 @@ export interface Matcher {
 
 export type MatchesMap = Record<string, Match | undefined>
 
-export type MatcherMap<T = string> = Record<T, Matcher>
+export type MatcherMap<T extends string | number | symbol = string> = Record<T, Matcher>

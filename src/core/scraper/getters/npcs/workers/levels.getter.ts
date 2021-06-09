@@ -11,7 +11,7 @@ export const getLevels: Getter<
     const startIdx = html.indexOf('[')
     const data = JSON.parse(
         html.substr(startIdx)
-    ) as BDOCodex.Workers.Upgrade[]
+    ) as BDOCodex.Shared.Workers.Upgrade[]
 
     return data.map(upgrade => ({
         sellPrice: parseNumber(upgrade.sell_price),

@@ -10,7 +10,7 @@ export class TestLoader<
     T extends ScrapableEntity,
     S extends BDO.Entities.GetSubType<T> = BDO.Entities.GetSubType<T>,
 > {
-    private readonly store = getTestStore()
+    private readonly store = getTestStore<T>()
     private keys: string[] = [...this.store.keys]
 
     filterByType<NT extends ScrapableEntity>(type: NT) {

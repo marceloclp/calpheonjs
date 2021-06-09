@@ -41,9 +41,9 @@ export class TestLoader<T extends QueryableEntity> {
     buildTests(builder: Builder<T>) {
         type R = Entities.Select<T>
         return this.keys.reduce((tests, key) => {
-            const { type, locale } = decomposeFileKey(key)
+            const { type } = decomposeFileKey(key)
             const data = JSON.parse(this.store.cache[key].trim()) as
-                BDOCodex.Queries.Response.Wrapper<any>
+                BDOCodex.Query.Response<any>
             
             const items = !!Object.keys(this.entityIds).length
                 ? data.aaData.filter((_, i) => this.store.mocks[key][i].id in this.entityIds)
@@ -51,8 +51,8 @@ export class TestLoader<T extends QueryableEntity> {
 
             return tests.concat(items.map((item, i) => [
                 TestLoader.buildTestId({ type, id: this.store.mocks[key][i].id }),
-                this.store.mocks[key][i],
-                builder.build(item, { locale }),
+                this.store.mocks[key][i] as R,
+                builder.build(item) as unknown as R,
             ]))
         }, [] as [string, R, R][])
     }

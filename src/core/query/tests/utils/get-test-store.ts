@@ -1,10 +1,5 @@
-import { Entities, QueryableEntity } from '@core/query/typings'
-
-interface TestStore<T extends QueryableEntity> {
-    readonly keys: string[]
-    readonly mocks: Record<string, Entities.Select<T>[]>
-    readonly cache: Record<string, string>
-}
+import { QueryableEntity } from '@core/query/typings'
+import { TestStore } from '../typings/test-store.interface'
 
 export const getTestStore = <T extends QueryableEntity>() => {
     return (global as any).stores.query as TestStore<T>

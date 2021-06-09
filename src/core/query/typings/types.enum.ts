@@ -1,3 +1,4 @@
 export enum Types {
-    QuestReward = 'questReward'
+    QuestReward = 'questReward',
+    RecipeMaterial = 'recipeMaterial',
 }

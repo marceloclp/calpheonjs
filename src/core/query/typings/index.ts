@@ -1,4 +1,5 @@
 export * as Entities from './entities'
+export * as Selectors from './selectors'
 export * from './types.enum'
 export * from './queryable-entity.type'
 export * from './get-return-type.type'

@@ -49,7 +49,7 @@ const parseEffects = (
 export const getEnhancements: Getter<
     Entities.Items.Equipment['enhancements']
 > = ({ $ }) => {
-    const data: BDOCodex.Enhancement.Data = JSON.parse($('#enchantment_array').text())
+    const data: BDOCodex.Shared.Enhancements.Data = JSON.parse($('#enchantment_array').text())
     const maxLevel = parseNumber(data.max_enchant, 0)
 
     return Array(maxLevel + 1).fill(0).map((_, index) => {

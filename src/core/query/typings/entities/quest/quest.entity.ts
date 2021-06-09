@@ -8,7 +8,7 @@ export interface Quest extends
     level: number
 
     /** A quest may belong to a certain region. */
-    region: string
+    region?: string
     
     /** A quest may reward the player upon completion. */
     rewards: BDO.Quests.Rewards

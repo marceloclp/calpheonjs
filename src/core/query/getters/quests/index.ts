@@ -1,6 +1,3 @@
-export * from './icon.getter'
-export * from './id.getter'
 export * from './level.getter'
-export * from './name.getter'
 export * from './region.getter'
 export * from './rewards.getter'

@@ -1,1 +1,0 @@
-export type FetchFn = (url: string) => Promise<string | null> | string;

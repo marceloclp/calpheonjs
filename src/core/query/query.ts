@@ -14,7 +14,7 @@ export const Query: {
         buildQueryURL({ type, id })
     )
     const body = await response.json()
-    const data = body as BDOCodex.Queries.Response.Wrapper<any>
+    const data = body as BDOCodex.Query.Response<any>
 
     const builder = {
         [Types.QuestReward]: Builders.Quest,

@@ -5,4 +5,6 @@ import { Types } from './types.enum'
 export type GetReturnType<T extends Types> =
     T extends Types.QuestReward
         ? BDO.Entities.Types.Quest
+    : T extends Types.RecipeMaterial
+        ? BDO.Entities.Types.Recipe
     : BDO.Entities.Types

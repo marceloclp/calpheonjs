@@ -13,7 +13,7 @@ interface Arguments {
 export const decomposeFileKey = (fileKey: string): Arguments => {
     const [, codexQueryType, fileId, locale] = fileKey.split('.') as [
         string,
-        BDOCodex.Queries.Types,
+        BDOCodex.Query.Types,
         string,
         App.Locales,
     ]
