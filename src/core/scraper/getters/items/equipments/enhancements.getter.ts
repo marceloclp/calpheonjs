@@ -1,8 +1,8 @@
 import cheerio from 'cheerio'
 import { BDO, BDOCodex } from '@typings/namespaces'
 import { Entities, Getter } from '@core/scraper/typings'
-import { mapStats } from '@core/scraper/utils/map-stats'
 import { Matcher } from '@helpers/matcher'
+import { StatsMapper } from '@helpers/mappers/stats.mapper'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
 
@@ -56,7 +56,7 @@ export const getEnhancements: Getter<
         const isLastLevel = index === maxLevel - 1
         const level = data[index]
         return {
-            stats: mapStats(level),
+            stats: StatsMapper.toBDO(level),
             successRate: parseNumber(level.enchant_chance, 0),
             durability: parseNumber(level.durability.split('.')[0], 100),
             cronStonesAmount: {

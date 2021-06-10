@@ -9,7 +9,7 @@ export class StatsMapper {
             [BDOCodex.Characters.Attributes, T][]
         return entries.reduce((obj, [stat, value]) => {
             const key = AttributeMapper.toBDO(stat)
-            return { ...obj, [key]: value }
+            return key ? { ...obj, [key]: value } : obj
         }, {})
     }
     static toBDOCodex<T = string>(
@@ -19,7 +19,7 @@ export class StatsMapper {
             [BDO.Characters.Attributes, T][]
         return entries.reduce((obj, [stat, value]) => {
             const key = AttributeMapper.toBDOCodex(stat)
-            return { ...obj, [key]: value }
+            return key ? { ...obj, [key]: value } : obj
         }, {})
     }
 }
