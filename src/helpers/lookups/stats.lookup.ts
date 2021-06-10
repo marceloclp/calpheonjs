@@ -1,14 +1,14 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { AttributeMapper } from '@helpers/mappers/attribute.mapper'
+import { AttributeLookup } from '@helpers/lookups/attribute.lookup'
 
-export class StatsMapper {
+export class StatsLookup {
     static toBDO<T = string>(
         stats: BDOCodex.Characters.Stats<T>
     ): BDO.Characters.Stats<T> {
         const entries = Object.entries(stats) as
             [BDOCodex.Characters.Attributes, T][]
         return entries.reduce((obj, [stat, value]) => {
-            const key = AttributeMapper.toBDO(stat)
+            const key = AttributeLookup.toBDO(stat)
             return key ? { ...obj, [key]: value } : obj
         }, {})
     }
@@ -18,7 +18,7 @@ export class StatsMapper {
         const entries = Object.entries(stats) as
             [BDO.Characters.Attributes, T][]
         return entries.reduce((obj, [stat, value]) => {
-            const key = AttributeMapper.toBDOCodex(stat)
+            const key = AttributeLookup.toBDOCodex(stat)
             return key ? { ...obj, [key]: value } : obj
         }, {})
     }

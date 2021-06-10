@@ -1,5 +1,5 @@
 import { App, BDO } from '@typings/namespaces'
-import { EntityLookup } from '@config/entity.lookup'
+import { EntityLookup } from '@helpers/lookups/entity.lookup'
 
 interface Arguments {
     readonly id: string
@@ -11,7 +11,7 @@ export const decomposeFileKey = (fileKey: string): Arguments => {
     const [locale, codexType, fileId] = fileKey.split('.')
     return {
         id: fileId.replace(/-/g, '/'),
-        type: EntityLookup.toBDOFormat(codexType as any),
+        type: EntityLookup.toBDO(codexType as any),
         locale: locale as App.Locales,
     }
 }

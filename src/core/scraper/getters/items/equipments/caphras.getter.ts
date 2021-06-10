@@ -1,6 +1,6 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
 import { Getter, Entities } from '@core/scraper/typings'
-import { StatsMapper } from '@helpers/mappers/stats.mapper'
+import { StatsLookup } from '@helpers/lookups/stats.lookup'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
 
@@ -25,7 +25,7 @@ const buildCaphrasEnhancement = (
     array: BDOCodex.Caphras.Set
 ): BDO.Items.Equipments.Caphras[] => {
     return array.map(enhancement => ({
-        stats: StatsMapper.toBDO(enhancement.stats),
+        stats: StatsLookup.toBDO(enhancement.stats),
         amount: {
             toNextLevel: parseNumber(enhancement.count, 0),
             toThisLevel: parseNumber(enhancement.tcount, 0),

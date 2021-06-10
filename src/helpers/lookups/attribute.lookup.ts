@@ -1,7 +1,7 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
 import { buildLookup } from '@helpers/utils/build-lookup'
 
-export class AttributeMapper {
+export class AttributeLookup {
     private static bdoToCodex = buildLookup(
         BDO.Characters.Attributes,
         BDOCodex.Characters.Attributes,
@@ -12,9 +12,9 @@ export class AttributeMapper {
     )
 
     static toBDO(attr: BDOCodex.Characters.Attributes) {
-        return AttributeMapper.codexToBDO[attr]
+        return AttributeLookup.codexToBDO[attr]
     }
     static toBDOCodex(attr: BDO.Characters.Attributes) {
-        return AttributeMapper.bdoToCodex[attr]
+        return AttributeLookup.bdoToCodex[attr]
     }
 }

@@ -5,7 +5,7 @@ export default function () {
         .entries(tsConfig.compilerOptions.paths)
         .reduce((obj, [baseName, paths]) => {
             const name = '^' + baseName.replace('*', '(.*)$')
-            const path = `<rootDir>/src/${paths[0].replace('*', '$1')}`
+            const path = `<rootDir>/${paths[0].replace('*', '$1')}`
             return { ...obj, [name]: path }
         }, {})
 }

@@ -7,7 +7,8 @@ export default (): Config.InitialOptions => ({
   testEnvironment: 'node',
   moduleNameMapper: mapPaths(),
   resolver: undefined,
-  globalSetup: '<rootDir>/scripts/jest-global-setup.js',
+  rootDir: './src',
+  globalSetup: '<rootDir>/../scripts/jest-global-setup.js',
   globals: {
     stores: {
       query: loadStore('query'),

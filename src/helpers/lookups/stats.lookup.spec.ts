@@ -1,9 +1,9 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { StatsMapper } from './stats.mapper'
+import { StatsLookup } from './stats.lookup'
 
-describe('Stats Mapper', () => {
+describe('Stats Lookup', () => {
     it('should map a BDOCodex stats object to a BDO stats object', () => {
-        expect(StatsMapper.toBDO({
+        expect(StatsLookup.toBDO({
             [BDOCodex.Characters.Attributes.BonusAccuracy]: 10,
             [BDOCodex.Characters.Attributes.Damage]: 10,
         })).toMatchObject({
@@ -12,7 +12,7 @@ describe('Stats Mapper', () => {
         })
     })
     it('should map a BDO stats object to a BDOCodex stats object', () => {
-        expect(StatsMapper.toBDOCodex({
+        expect(StatsLookup.toBDOCodex({
             [BDO.Characters.Attributes.BonusAccuracy]: 10,
             [BDO.Characters.Attributes.Damage]: 10,
         })).toMatchObject({
@@ -21,7 +21,7 @@ describe('Stats Mapper', () => {
         })
     })
     it('should not include invalid stats', () => {
-        expect(StatsMapper.toBDO({
+        expect(StatsLookup.toBDO({
             ['invalidStat' as BDOCodex.Characters.Attributes]: 10,
         })).toMatchObject({})
     })
