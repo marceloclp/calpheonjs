@@ -2,7 +2,7 @@ import { BDO } from '@typings/namespaces'
 import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 
 export const getRewards: Getter<
@@ -62,7 +62,7 @@ export const getRewards: Getter<
             const node = $(elem)
             const url = node.find('a').attr('href') as string
             const name = cleanStr($(elements[i+2]).text())
-            const { type, id } = decomposeShortURL(url)
+            const { type, id } = ShortURL.decompose(url)
 
             if (type === BDO.Entities.Types.Knowledge) {
                 rewards.knowledge = { type, id, name, icon }

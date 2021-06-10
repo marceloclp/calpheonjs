@@ -1,7 +1,7 @@
 import { BDO } from '@typings/namespaces'
 import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 
 export const getDroppedKnowledge: Getter<
@@ -37,7 +37,7 @@ export const getDroppedKnowledge: Getter<
 
     ref.icon = $(elements[idx+2]).find('img').attr('src') as string
     ref.name = anchor.text()
-    ref.id = decomposeShortURL(url).id
+    ref.id = ShortURL.decompose(url).id
 
     if (ref.id) return ref as BDO.Refs.Knowledge<{ dropChance?: number }>
 }

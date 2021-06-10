@@ -1,7 +1,7 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
 import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 
 export const getProducts: Getter<BDO.LifeSkills.Material[]> = ({ $ }) => {
@@ -16,7 +16,7 @@ export const getProducts: Getter<BDO.LifeSkills.Material[]> = ({ $ }) => {
     return $(row).find('img').toArray().map(element => {
         const parent = $(element.parent.parent)
         const shortUrl = parent.attr('href')
-        const { type, id } = decomposeShortURL(shortUrl as string)
+        const { type, id } = ShortURL.decompose(shortUrl as string)
 
         const material: BDO.LifeSkills.Material = {
             type: type === BDOCodex.Entities.Types.Item

@@ -2,7 +2,7 @@ import { BDO } from '@typings/namespaces'
 import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 
 export const getStartNPC: Getter<
     BDO.Refs.NPC | undefined
@@ -29,7 +29,7 @@ export const getStartNPC: Getter<
     const url = first.attr('href') as string
     return {
         type: BDO.Entities.Types.NPC,
-        id: decomposeShortURL(url).id,
+        id: ShortURL.decompose(url).id,
         name: cleanStr(second.text()),
         icon: first.find('img').attr('src') as string,
     }

@@ -8,24 +8,23 @@ interface ShortURLDescriptor {
     readonly id: string
 }
 
-export const composeShortURL = (
-    { locale = DefaultLocale, type, id }: ShortURLDescriptor
-): string => {
-    ;(!id || !type) && console.warn(
-        `Failed attempt at building url for /${locale}/${type}/${id}. ` +
-        'Please report this warning by opening an issue on the GitHub page.'
-    )
-    const codexType = EntityLookup.toBDOCodex(type)
-    return `/${locale}/${codexType}/${id}/`
-}
-
-export const decomposeShortURL = (shortUrl: string): ShortURLDescriptor => {
-    const [locale, type, ...idArgs] = shortUrl.split('/').filter(e => e)
-    return {
-        locale: locale as App.Locales,
-        type: EntityLookup.toBDO(type as any),
-        id: idArgs.join('/')
+export class ShortURL {
+    static compose(
+        { locale = DefaultLocale, type, id }: ShortURLDescriptor
+    ): string {
+        ;(!id || !type) && console.warn(
+            `Failed attempt at building url for /${locale}/${type}/${id}. ` +
+            'Please report this warning by opening an issue on the GitHub page.'
+        )
+        return `/${locale}/${EntityLookup.toBDOCodex(type)}/${id}}`
+    }
+    static decompose(url: string): ShortURLDescriptor {
+        const [locale, type, ...idArgs] = url
+            .split('/').filter(e => e)
+        return {
+            locale: locale as App.Locales,
+            type: EntityLookup.toBDO(type as any),
+            id: idArgs.join('/'),
+        }
     }
 }
-
-// TODO: convert to shortURL.compose and shortURL.decompose

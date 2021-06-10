@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/matcher'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { substrOf } from '@helpers/utils/substr-of'
 import { Getter } from './getter.type'
@@ -28,7 +28,7 @@ export const getRewards: Getter<'rewards'> = (data) => {
         // When the node refers to an item.
         if (elem.type === 'tag' && elem.tagName === 'div') {
             const url = node.find('a').attr('href')
-            if (url && decomposeShortURL(url).type === BDO.Entities.Types.Item)
+            if (url && ShortURL.decompose(url).type === BDO.Entities.Types.Item)
                 rewards[activeKey].push(composeItem(node))
             return
         }
@@ -43,7 +43,7 @@ export const getRewards: Getter<'rewards'> = (data) => {
 
 function composeItem(node: cheerio.Cheerio) {
     const url = node.find('a').attr('href') as string
-    const { id } = decomposeShortURL(url)
+    const { id } = ShortURL.decompose(url)
     const amount = parseNumber(node.find('.quantity_small').text(), 1)
     const icon = substrOf(
         node.find('.icon_wrapper').text(),

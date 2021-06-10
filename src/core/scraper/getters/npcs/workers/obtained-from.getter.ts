@@ -1,7 +1,7 @@
 import { Matcher } from '@helpers/matcher'
 import { Entities, Getter } from '@core/scraper/typings'
 import { cleanStr } from '@helpers/utils/clean-str'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 
 export const getObtainedFrom: Getter<
     Entities.NPCs.Worker['obtainedFrom']
@@ -23,7 +23,7 @@ export const getObtainedFrom: Getter<
 
     const anchor = $(elements[idx])
     const img = anchor.parent().find('img')
-    const { type, id } = decomposeShortURL(anchor.attr('href') as string)
+    const { type, id } = ShortURL.decompose(anchor.attr('href') as string)
 
     return {
         id,

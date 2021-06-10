@@ -2,7 +2,7 @@ import { BDO } from '@typings/namespaces'
 import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 
 export const getPersonalSkill: Getter<
     BDO.Refs.WorkerSkill | undefined
@@ -30,7 +30,7 @@ export const getPersonalSkill: Getter<
         .filter(elem => elem.type === 'text')
     
     return {
-        id: decomposeShortURL(url).id,
+        id: ShortURL.decompose(url).id,
         type: BDO.Entities.Types.WorkerSkill,
         icon: first.find('img').attr('src') as string,
         name: cleanStr($(texts[0]).text()),

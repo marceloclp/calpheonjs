@@ -1,6 +1,6 @@
 import { BDO } from '@typings/namespaces'
 import { Getter } from '@core/scraper/typings'
-import { decomposeShortURL } from '@helpers/utils/short-url'
+import { ShortURL } from '@helpers/utils/short-url'
 
 export const getItems: Getter<
     BDO.Refs.Item[]
@@ -15,7 +15,7 @@ export const getItems: Getter<
         const node = $(elem)
         const icon = node.find('img').attr('src') as string
         const url = node.find('a').attr('href') as string
-        const { id } = decomposeShortURL(url)
+        const { id } = ShortURL.decompose(url)
         const name = $(elements[i+1]).text()
         items.push({ id, type: BDO.Entities.Types.Item, icon, name })
     }
