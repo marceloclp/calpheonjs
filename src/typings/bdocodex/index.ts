@@ -1,3 +1,7 @@
+export * as Caphras from './caphras'
+export * as Characters from './characters'
+export * as Enhancements from './enhancements'
 export * as Entities from './entities'
+export * as HTML from './html'
 export * as Query from './query'
-export * as Shared from './shared'
+export * as Workers from './workers'

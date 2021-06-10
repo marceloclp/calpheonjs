@@ -8,5 +8,5 @@ export interface Level {
     readonly tcount: string
 
     /** Stats at the current enhancement level. */
-    readonly stats: BDOCodex.Shared.Characters.Stats<string>
+    readonly stats: BDOCodex.Characters.Stats<string>
 }

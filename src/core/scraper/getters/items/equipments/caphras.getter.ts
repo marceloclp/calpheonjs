@@ -12,7 +12,7 @@ export const getCaphras: Getter<
     if (!html || !html.length)
         return {}
     const text = html.substring(html.indexOf('=') + 1)
-    const data = JSON.parse(cleanStr(text, ';\t')) as BDOCodex.Shared.Caphras.Data
+    const data = JSON.parse(cleanStr(text, ';\t')) as BDOCodex.Caphras.Data
 
     return {
         atPlus18: buildCaphrasEnhancement(data[18]),
@@ -22,7 +22,7 @@ export const getCaphras: Getter<
 }
 
 const buildCaphrasEnhancement = (
-    array: BDOCodex.Shared.Caphras.Set
+    array: BDOCodex.Caphras.Set
 ): BDO.Items.Equipments.Caphras[] => {
     return array.map(enhancement => ({
         // TODO: refactor mapStats to accept strings

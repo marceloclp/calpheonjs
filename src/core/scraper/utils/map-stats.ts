@@ -4,7 +4,7 @@ import { BDO, BDOCodex } from '@typings/namespaces'
  * Maps BDOCodex stats to App stats.
  */
 export const mapStats = (
-    stats: BDOCodex.Shared.Characters.Stats<string>
+    stats: BDOCodex.Characters.Stats<string>
 ): BDO.Characters.Stats<string> => {
     return Object.entries({
         hp: stats.hp,
