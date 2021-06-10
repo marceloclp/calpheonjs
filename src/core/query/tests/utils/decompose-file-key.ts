@@ -17,7 +17,7 @@ export const decomposeFileKey = (fileKey: string): Arguments => {
         string,
         App.Locales,
     ]
-    const type = QueryTypeLookup.toAppFormat(codexQueryType)
+    const type = QueryTypeLookup.toApp(codexQueryType)
 
     return {
         id: fileId.replace(/-/g, '/'),
