@@ -1,10 +1,9 @@
 import { BDO } from '@typings/namespaces'
-import { Selectors, Types } from '@core/query/typings'
+import { QueryTypes, Selectors } from '../typings'
 
-const Lookup: Record<Types, BDO.Entities.Types> = {
-    [Types.QuestReward]: BDO.Entities.Types.Quest,
-    [Types.RecipeMaterial]: BDO.Entities.Types.Recipe,
-}
-export const getReturnType = <T extends Types>(type: T) => {
-    return Lookup[type] as Selectors.ReturnType<T>
+export function getReturnType<T extends QueryTypes>(type: T) {
+    return {
+        [QueryTypes.QuestReward]: BDO.Entities.Types.Quest,
+        [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Recipe,
+    }[type] as Selectors.ReturnType<T>
 }

@@ -16,7 +16,6 @@ module.exports = async function() {
         const __path = path
             .join(BASE_DIR, 'cache/query', key + '.txt')
         try {
-            console.log("reading", __path)
             await fs.readFile(__path, { encoding: 'utf-8' })
         } catch {
             const args = decomposeFileKey(key)

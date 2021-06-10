@@ -1,2 +1,2 @@
 export { Query } from './query'
-export { Types } from './typings'
+export { QueryTypes } from './typings'

@@ -1,23 +1,23 @@
 import fetch from 'node-fetch'
-import { Types } from '@core/query/typings'
-import { buildQueryURL } from '@core/query/utils/build-query-url'
+import { QueryTypes } from '@core/query/typings'
+import { QueryURL } from '@core/query/utils/build-query-url'
 import { BDOCodex } from '@typings/namespaces'
 import * as Builders from '@core/query/builders'
 import { DefaultLocale } from '@config/constants'
 import { Entities } from '@core/query/typings'
 
 export const Query: {
-    (type: Types.QuestReward, itemId: string): Promise<Entities.Quest[]>
-} = async (type: Types, id: string) => {
+    (type: QueryTypes.QuestReward, itemId: string): Promise<Entities.Quest[]>
+} = async (type: QueryTypes, id: string) => {
     const locale = DefaultLocale
     const response = await fetch(
-        buildQueryURL({ type, id })
+        QueryURL.compose({ type, id })
     )
     const body = await response.json()
     const data = body as BDOCodex.Query.Response<any>
 
     const builder = {
-        [Types.QuestReward]: Builders.Quest,
+        [QueryTypes.QuestReward]: Builders.Quest,
     }[type]
 
     return data.aaData.map(data => {

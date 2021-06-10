@@ -1,4 +1,5 @@
 export * as Responses from './responses'
+export * from './descriptor.interface'
 export * from './response.interface'
-export * from './tabs.enum'
+export * from './as.enum'
 export * from './types.enum'

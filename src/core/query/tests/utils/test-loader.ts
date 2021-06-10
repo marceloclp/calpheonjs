@@ -1,5 +1,5 @@
 import { BDOCodex } from '@typings/namespaces'
-import { QueryableEntity, Selectors, Types } from '@core/query/typings'
+import { QueryableEntity, Selectors, QueryTypes } from '@core/query/typings'
 import { Builder } from '@core/query/utils/builder'
 import { getQueriedType } from '@core/query/utils/get-queried-type'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
@@ -57,7 +57,7 @@ export class TestLoader<T extends QueryableEntity> {
         }, [] as [string, R, R][])
     }
 
-    static buildTestId({ type, id }: { type: Types, id: string }) {
+    static buildTestId({ type, id }: { type: QueryTypes, id: string }) {
         return buildCodexURL({ type: getQueriedType(type), id }) + ` (ID: ${id})`
     }
 }
