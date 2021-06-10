@@ -8,7 +8,7 @@ import { decomposeFileKey } from './decompose-file-key'
 
 export class TestLoader<
     T extends ScrapableEntity,
-    S extends BDO.Entities.GetSubType<T> = BDO.Entities.GetSubType<T>,
+    S extends BDO.Entities.SubType<T> = BDO.Entities.SubType<T>,
 > {
     private readonly store = getTestStore<T>()
     private keys: string[] = [...this.store.keys]
@@ -20,7 +20,7 @@ export class TestLoader<
         return this as unknown as TestLoader<NT>
     }
 
-    filterBySubType<NS extends BDO.Entities.GetSubType<T>>(subType: NS) {
+    filterBySubType<NS extends BDO.Entities.SubType<T>>(subType: NS) {
         this.keys = this.keys.filter(key => {
             return this.store.mocks[key].subType === subType
         })
@@ -41,9 +41,9 @@ export class TestLoader<
             const $ = cheerio.load(this.store.cache[key])
             return [
                 buildCodexURL({ locale, type, id }),
-                this.store.mocks[key] as R,
+                this.store.mocks[key],
                 builder.build({ $, locale, type: type as T, id }),
-            ] as [string, R, R]
+            ] as unknown as [string, R, R]
         })
     }
 }

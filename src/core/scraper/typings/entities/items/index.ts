@@ -1,4 +1,4 @@
 export * from './consumable.entity'
 export * from './equipment.entity'
 export * from './item.entity'
-export * from './select.type'
+export * from './select.selector'

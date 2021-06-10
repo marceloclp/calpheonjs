@@ -12,7 +12,7 @@ interface Args {
 export class Builder<
     T extends ScrapableEntity,
     Entity extends Entities.Select<T> = Entities.Select<T>,
-    SubTypes extends BDO.Entities.GetSubType<T> = BDO.Entities.GetSubType<T>,
+    SubTypes extends BDO.Entities.SubType<T> = BDO.Entities.SubType<T>,
 > {
     private subTypes: Record<
         string,

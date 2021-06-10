@@ -1,9 +1,10 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
 import { QueryableEntity } from '@core/query/typings'
 
+// TODO: rename to Response
 /** Maps the return type to the response object returned by the query. */
-export type Data<T extends QueryableEntity | 'default' = 'default'> = {
+export type Data<T extends QueryableEntity | 'F' = 'F'> = {
     [BDO.Entities.Types.Quest]: BDOCodex.Query.Responses.Quest
     [BDO.Entities.Types.Recipe]: BDOCodex.Query.Responses.Recipe
-    default: BDOCodex.Query.Responses.Generic
+    F: BDOCodex.Query.Responses.Generic
 }[T]

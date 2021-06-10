@@ -1,5 +1,5 @@
 import { BDOCodex } from '@typings/namespaces'
-import { Entities, QueryableEntity, Types } from '@core/query/typings'
+import { QueryableEntity, Selectors, Types } from '@core/query/typings'
 import { Builder } from '@core/query/utils/builder'
 import { getQueriedType } from '@core/query/utils/get-queried-type'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
@@ -39,7 +39,7 @@ export class TestLoader<T extends QueryableEntity> {
     }
 
     buildTests(builder: Builder<T>) {
-        type R = Entities.Select<T>
+        type R = Selectors.ReturnEntity<T>
         return this.keys.reduce((tests, key) => {
             const { type } = decomposeFileKey(key)
             const data = JSON.parse(this.store.cache[key].trim()) as
