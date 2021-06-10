@@ -1,12 +1,10 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getDroppedKnowledge: Getter<
-    BDO.Refs.Knowledge<{ dropChance?: number }> | undefined
-> = ({ $ }) => {
+export const getDroppedKnowledge: Getter<'knowledge'> = ({ $ }) => {
     let matcher = Matcher('Knowledge drop chance:')
     const dcElement = $('.titles_cell').contents().toArray()
         .find(elem => {

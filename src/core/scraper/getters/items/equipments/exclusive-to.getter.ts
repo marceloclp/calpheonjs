@@ -1,8 +1,8 @@
 import { BDO } from '@typings/namespaces'
-import { Entities, Getter } from '@core/scraper/typings'
 import { Chars } from '@typings/utilities'
 import { Matcher } from '@helpers/matcher'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
 const ClassesLookup: Record<string, BDO.Characters.Classes> = {
     'archer': BDO.Characters.Classes.Archer,
@@ -24,9 +24,7 @@ const ClassesLookup: Record<string, BDO.Characters.Classes> = {
     'wizard': BDO.Characters.Classes.Wizard,
 }
 
-export const getExclusiveTo: Getter<
-    Entities.Items.Equipment['exclusiveTo']
-> = ({ $, id, locale, type }) => {
+export const getExclusiveTo: Getter<'exclusiveTo'> = ({ $, id, locale, type }) => {
     const matcher = Matcher('Exclusive')
 
     $('.outer.item_info td').contents().toArray().find(element => {

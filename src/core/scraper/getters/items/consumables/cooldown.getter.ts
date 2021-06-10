@@ -1,10 +1,8 @@
-import { Entities, Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseTime } from '@helpers/utils/parse-time'
+import { Getter } from './getter.type'
 
-export const getCooldown: Getter<
-    Entities.Items.Consumable['cooldown']
-> = ({ $ }) => {
+export const getCooldown: Getter<'cooldown'> = ({ $ }) => {
     const matcher = Matcher('Cooldown')
     const elements = $('.outer.item_info td').contents().toArray()
     const matchedIndex = elements.findIndex(element => {

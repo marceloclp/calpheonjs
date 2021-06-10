@@ -1,10 +1,8 @@
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getStamina: Getter<
-    number
-> = ({ $ }) => {
+export const getStamina: Getter<'stamina'> = ({ $ }) => {
     const matcher = Matcher('Stamina')
     const elements = $('.outer.item_info table tr table[width] td')
         .toArray()

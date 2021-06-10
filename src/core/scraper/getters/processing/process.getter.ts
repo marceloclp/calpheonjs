@@ -1,26 +1,25 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Chars } from '@typings/utilities'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
-const Lookup: Record<string, BDO.LifeSkills.Processing.Processes> = {
-    'shaking': BDO.LifeSkills.Processing.Processes.Shaking,
-    'grinding': BDO.LifeSkills.Processing.Processes.Grinding,
-    'chopping': BDO.LifeSkills.Processing.Processes.Chopping,
-    'drying': BDO.LifeSkills.Processing.Processes.Drying,
-    'filtering': BDO.LifeSkills.Processing.Processes.Filtering,
-    'heating': BDO.LifeSkills.Processing.Processes.Heating,
-    'simple_alchemy': BDO.LifeSkills.Processing.Processes.SimpleAlchemy,
-    'simple_cooking': BDO.LifeSkills.Processing.Processes.SimpleCooking,
-    'imperial_cuisine': BDO.LifeSkills.Processing.Processes.ImperialCuisine,
-    'imperial_alchemy': BDO.LifeSkills.Processing.Processes.ImperialAlchemy,
-    'guild_processing': BDO.LifeSkills.Processing.Processes.GuildProcessing,
-    'manufacture': BDO.LifeSkills.Processing.Processes.Manufacture,
+const { Processes } = BDO.LifeSkills.Processing
+const Lookup = {
+    'shaking': Processes.Shaking,
+    'grinding': Processes.Grinding,
+    'chopping': Processes.Chopping,
+    'drying': Processes.Drying,
+    'filtering': Processes.Filtering,
+    'heating': Processes.Heating,
+    'simple_alchemy': Processes.SimpleAlchemy,
+    'simple_cooking': Processes.SimpleCooking,
+    'imperial_cuisine': Processes.ImperialCuisine,
+    'imperial_alchemy': Processes.ImperialAlchemy,
+    'guild_processing': Processes.GuildProcessing,
+    'manufacture': Processes.Manufacture,
 }
 
-export const getProcess: Getter<
-    BDO.LifeSkills.Processing.Processes
-> = ({ $, id, type, locale }) => {
+export const getProcess: Getter<'process'> = ({ $, id, type, locale }) => {
     const text = $('.category_text')
         .parent().find('.yellow_text').text()
     const lookup = toSnakeCase(text.split(Chars.Slash)[1])

@@ -1,12 +1,10 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { Getter, Entities } from '@core/scraper/typings'
 import { StatsLookup } from '@helpers/lookups/stats.lookup'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getCaphras: Getter<
-    Entities.Items.Equipment['caphras']
-> = ({ $ }) => {
+export const getCaphras: Getter<'caphras'> = ({ $ }) => {
     const html = $('.item_title')
         .first().parent().find('script').first().html()
     if (!html || !html.length)

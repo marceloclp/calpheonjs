@@ -1,12 +1,10 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
+import { Getter } from './getter.type'
 
-export const getPersonalSkill: Getter<
-    BDO.Refs.WorkerSkill | undefined
-> = ({ $ }) => {
+export const getPersonalSkill: Getter<'personalSkill'> = ({ $ }) => {
     const matcher = Matcher('Personal skill:')
     const elements = $('.outer.item_info td')
         .contents().toArray()

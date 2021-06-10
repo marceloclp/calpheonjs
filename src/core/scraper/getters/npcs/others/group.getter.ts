@@ -1,9 +1,7 @@
-import { Getter } from '@core/scraper/typings'
 import { Chars } from '@typings/utilities'
+import { Getter } from './getter.type'
 
-export const getGroup: Getter<
-    string | undefined
-> = ({ $ }) => {
+export const getGroup: Getter<'group'> = ({ $ }) => {
     const element = $('.titles_cell').contents().toArray()
         .find(elem => $(elem).text().indexOf(Chars.SignLess) >= 0)
     if (!element) return

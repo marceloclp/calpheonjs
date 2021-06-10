@@ -1,10 +1,8 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getLevels: Getter<
-    BDO.NPCs.Workers.Level[]
-> = ({ $ }) => {
+export const getLevels: Getter<'levels'> = ({ $ }) => {
     const html = $('.smallertext')
         .first().find('script').html()
     if (!html) return []

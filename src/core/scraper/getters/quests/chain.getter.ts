@@ -1,11 +1,9 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
+import { Getter } from './getter.type'
 
-export const getChain: Getter<
-    BDO.Refs.Quest[]
-> = ({ $ }) => {
+export const getChain: Getter<'chain'> = ({ $ }) => {
     return $('#full_quest_chain').find('a').toArray().map(elem => {
         const node = $(elem)
         const url = node.attr('href') as string

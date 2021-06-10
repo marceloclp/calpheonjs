@@ -1,21 +1,20 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
+const { Categories } = BDO.Quests
 const Lookup = {
-    'black_spirit': BDO.Quests.Categories.BlackSpirit,
-    'exploration': BDO.Quests.Categories.Exploration,
-    'production': BDO.Quests.Categories.Production,
-    'repeat': BDO.Quests.Categories.Repeat,
-    'story': BDO.Quests.Categories.Story,
-    'town': BDO.Quests.Categories.Town,
-    'trade': BDO.Quests.Categories.Trade,
+    'black_spirit': Categories.BlackSpirit,
+    'exploration': Categories.Exploration,
+    'production': Categories.Production,
+    'repeat': Categories.Repeat,
+    'story': Categories.Story,
+    'town': Categories.Town,
+    'trade': Categories.Trade,
 }
 
-export const getCategory: Getter<
-    BDO.Quests.Categories
-> = ({ $ }) => {
+export const getCategory: Getter<'category'> = ({ $ }) => {
     const matcher = Matcher('Category:')
     $('.titles_cell').contents().toArray().find(elem => {
         return matcher.findIn($(elem).text())

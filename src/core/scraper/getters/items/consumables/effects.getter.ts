@@ -1,11 +1,9 @@
-import { Entities, Getter } from '@core/scraper/typings'
 import { DividerChars, GroupBreakChars } from '@config/constants'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { Getter } from './getter.type'
 
-export const getEffects: Getter<
-    Entities.Items.Consumable['effects']
-> = ({ $ }) => {
+export const getEffects: Getter<'effects'> = ({ $ }) => {
     const matcher = Matcher('- Effect', 'Effect')
     const effects: string[] = []
 

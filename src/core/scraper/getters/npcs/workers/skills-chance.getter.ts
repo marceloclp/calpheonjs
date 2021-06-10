@@ -1,8 +1,8 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
 const Lookup = {
     'naive': BDO.NPCs.Workers.SkillLevels.Naive,
@@ -12,9 +12,7 @@ const Lookup = {
     'artisan': BDO.NPCs.Workers.SkillLevels.Artisan,
 }
 
-export const getSkillsChance: Getter<
-    Record<BDO.NPCs.Workers.SkillLevels, number>
-> = ({ $, id, type, locale }) => {
+export const getSkillsChance: Getter<'acquireChanceTable'> = ({ $, id, type, locale }) => {
     const matcher = Matcher('Chances of obtaining the skills:')
     const chances = {} as Record<BDO.NPCs.Workers.SkillLevels, number>
 

@@ -1,8 +1,8 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from '../../getter.type'
 
 const MasteryLookup: Record<string, BDO.LifeSkills.Masteries> = {
     'beginner': BDO.LifeSkills.Masteries.Beginner,

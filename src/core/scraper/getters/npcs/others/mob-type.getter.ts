@@ -1,16 +1,14 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Chars } from '@typings/utilities'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
 const Lookup = {
     'boss': BDO.NPCs.MobTypes.Boss,
     'awakened_boss': BDO.NPCs.MobTypes.AwakenedBoss,
 }
 
-export const getMobType: Getter<
-    BDO.NPCs.MobTypes | undefined
-> = ({ $ }) => {
+export const getMobType: Getter<'mobType'> = ({ $ }) => {
     const element = $('.titles_cell').contents().toArray().find(elem => {
         const text = $(elem).text()
         if (text.indexOf(Chars.SignLess) !== -1)

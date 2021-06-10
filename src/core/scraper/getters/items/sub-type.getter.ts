@@ -1,6 +1,6 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
 const Lookup = {
     'equipment': BDO.Items.SubTypes.Equipment,
@@ -13,9 +13,7 @@ const Lookup = {
     'installable_object': BDO.Items.SubTypes.InstallableObject,
 }
 
-export const getSubType: Getter<
-    BDO.Items.SubTypes
-> = ({ $ }) => {
+export const getSubType: Getter<'subType'> = ({ $ }) => {
     const text = $('.category_text').text()
         .replace(/[^a-zA-Z ]/g, '')
     return Lookup[toSnakeCase(text)]

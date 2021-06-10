@@ -1,13 +1,11 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Chars } from '@typings/utilities'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { decodeHTMLEntities } from '@helpers/utils/decode-html-entities'
+import { Getter } from './getter.type'
 
-export const getDescription: Getter<
-    string | undefined
-> = ({ $, type }) => {
+export const getDescription: Getter<'description'> = ({ $, type }) => {
     if (
         type === BDO.Entities.Types.Knowledge ||
         type === BDO.Entities.Types.NPC

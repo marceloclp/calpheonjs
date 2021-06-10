@@ -1,10 +1,8 @@
-import { Getter } from '@core/scraper/typings'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Matcher } from '@helpers/matcher'
+import { Getter } from './getter.type'
 
-export const getLevel: Getter<
-    number | undefined
-> = ({ $ }) => {
+export const getLevel: Getter<'level'> = ({ $ }) => {
     const matcher = Matcher('Level:')
     const element = $('.titles_cell').contents().toArray()
         .find(elem => !!matcher.findIn($(elem).text()))

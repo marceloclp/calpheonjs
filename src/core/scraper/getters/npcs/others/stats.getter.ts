@@ -1,6 +1,6 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher, MatcherMap } from '@helpers/matcher'
+import { Getter } from './getter.type'
 
 const Matches: BDO.NPCs.Stats<string[]> = {
     [BDO.Characters.Attributes.HP]: ['HP:'],
@@ -17,9 +17,7 @@ const Matches: BDO.NPCs.Stats<string[]> = {
     // karma: ['Karma:'],
 }
 
-export const getStats: Getter<
-    BDO.NPCs.Stats<string> | undefined
-> = ({ $ }) => {
+export const getStats: Getter<'stats'> = ({ $ }) => {
     const matchers = Object.entries(Matches)
         .reduce((obj, [stat, matches]) => {
             return { ...obj, [stat]: Matcher(...matches) }

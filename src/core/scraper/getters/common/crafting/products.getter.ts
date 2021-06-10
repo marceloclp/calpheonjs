@@ -1,10 +1,10 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getProducts: Getter<BDO.LifeSkills.Material[]> = ({ $ }) => {
+export const getProducts: Getter<'products'> = ({ $ }) => {
     const matcher = Matcher('Crafting Result')
 
     const row = $('.outer.item_info td').toArray().find(element => {

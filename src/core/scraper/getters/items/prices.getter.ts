@@ -1,6 +1,6 @@
-import { Entities, Getter } from '@core/scraper/typings'
 import { Matcher, MatcherMap } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
 const Matches = {
     buy: ['Buy'],
@@ -8,9 +8,7 @@ const Matches = {
     repair: ['Repair']
 }
 
-export const getPrices: Getter<
-    Entities.Items.Item['prices']
-> = ({ $ }) => {
+export const getPrices: Getter<'prices'> = ({ $ }) => {
     const matchers = Object.entries(Matches)
         .reduce((obj, [key, matches]) => {
             return { ...obj, [key]: Matcher(...matches) }

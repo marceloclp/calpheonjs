@@ -1,10 +1,8 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
+import { Getter } from './getter.type'
 
-export const getGrowth: Getter<
-    BDO.NPCs.Workers.Stats<string>
-> = ({ $ }) => {
+export const getGrowth: Getter<'statsGrowth'> = ({ $ }) => {
     const matchers = {
         [BDO.NPCs.Workers.Attributes.Luck]:
             Matcher('Luck growth per level'),
@@ -13,7 +11,7 @@ export const getGrowth: Getter<
         [BDO.NPCs.Workers.Attributes.WorkSpeed]:
             Matcher('Work speed growth per level'),
     }
-    const stats: Partial<BDO.NPCs.Workers.Stats<string>> = {}
+    const stats: Partial<BDO.NPCs.Workers.Stats> = {}
     const elements = $('.outer.item_info table tr table[width] td')
         .toArray()
     for (let i = 0; i < elements.length; i++) {

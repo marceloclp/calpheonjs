@@ -1,12 +1,10 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
+import { Getter } from './getter.type'
 
-export const getStartNPC: Getter<
-    BDO.Refs.NPC | undefined
-> = ({ $ }) => {
+export const getStartNPC: Getter<'startNPC'> = ({ $ }) => {
     const matcher = Matcher('Start NPC:')
     const elements = $('.outer.item_info td').contents().toArray()
 

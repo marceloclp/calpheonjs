@@ -1,10 +1,8 @@
-import { Getter } from '@core/scraper/typings'
 import { Chars } from '@typings/utilities'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { Getter } from './getter.type'
 
-export const getStory: Getter<
-    string | undefined
-> = ({ $ }) => {
+export const getStory: Getter<'story'> = ({ $ }) => {
     const elements = $('#full_quest_text')
         .contents().toArray()
     if (!elements.length)

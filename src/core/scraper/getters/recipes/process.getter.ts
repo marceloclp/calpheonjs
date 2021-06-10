@@ -1,16 +1,15 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { Getter } from './getter.type'
 
-const ProcessLookup: Record<string, BDO.LifeSkills.Recipes.Processes> = {
-    'alchemy': BDO.LifeSkills.Recipes.Processes.Alchemy,
-    'cooking': BDO.LifeSkills.Recipes.Processes.Cooking,
-    'guild_processing': BDO.LifeSkills.Recipes.Processes.GuildProcessing,
+const { Processes } = BDO.LifeSkills.Recipes
+const ProcessLookup = {
+    'alchemy': Processes.Alchemy,
+    'cooking': Processes.Cooking,
+    'guild_processing': Processes.GuildProcessing,
 }
 
-export const getProcess: Getter<
-    BDO.LifeSkills.Recipes.Processes
-> = ({ $, id, type, locale }) => {
+export const getProcess: Getter<'process'> = ({ $, id, type, locale }) => {
     const text = $('.category_text')
         .parent().find('.yellow_text').text()
     const processText = toSnakeCase(text)

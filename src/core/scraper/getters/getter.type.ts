@@ -1,5 +1,5 @@
 import { App } from '@typings/namespaces'
-import { ScrapableEntity } from '@core/scraper/typings/scrapable-entity.type'
+import { ScrapableEntity } from '@core/scraper/typings'
 
 export interface GetterArgs {
     readonly $: cheerio.Root
@@ -9,4 +9,5 @@ export interface GetterArgs {
     readonly locale: App.Locales
 }
 
-export type Getter<R> = (args: GetterArgs) => R
+export type Getter<R> =
+    (args: GetterArgs) => R

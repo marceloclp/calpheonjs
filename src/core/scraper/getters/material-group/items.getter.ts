@@ -1,10 +1,8 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { ShortURL } from '@helpers/utils/short-url'
+import { Getter } from './getter.type'
 
-export const getItems: Getter<
-    BDO.Refs.Item[]
-> = ({ $ }) => {
+export const getItems: Getter<'items'> = ({ $ }) => {
     const elements = $('hr.hr_long')
         .parent().children().toArray()
     const items: BDO.Refs.Item[] = []

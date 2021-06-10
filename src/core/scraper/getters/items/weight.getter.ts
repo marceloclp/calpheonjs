@@ -1,10 +1,8 @@
-import { Entities, Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getWeight: Getter<
-    Entities.Items.Item['weight']
-> = ({ $ }) => {
+export const getWeight: Getter<'weight'> = ({ $ }) => {
     const matcher = Matcher('Weight:')
     const nodes = $('.category_text')
         .parent()

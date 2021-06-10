@@ -1,10 +1,8 @@
-import { Entities, Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseTime } from '@helpers/utils/parse-time'
+import { Getter } from './getter.type'
 
-export const getDuration: Getter<
-    Entities.Items.Consumable['duration']
-> = ({ $ }) => {
+export const getDuration: Getter<'duration'> = ({ $ }) => {
     const matcher = Matcher('Duration')
     
     const elements = $('.outer.item_info td').contents().toArray()

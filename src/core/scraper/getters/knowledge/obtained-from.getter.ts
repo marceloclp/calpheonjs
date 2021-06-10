@@ -1,11 +1,10 @@
+import { Entities } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
-import { Entities, Getter } from '@core/scraper/typings'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
+import { Getter } from './getter.type'
 
-export const getObtainedFrom: Getter<
-    Entities.Knowledge['obtainedFrom']
-> = ({ $ }) => {
+export const getObtainedFrom: Getter<'obtainedFrom'> = ({ $ }) => {
     const matcher = Matcher('Obtained from')
     const elements = $('.outer.item_info td').contents().toArray()
 

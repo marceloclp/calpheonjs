@@ -1,10 +1,10 @@
 import cheerio from 'cheerio'
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { Entities, Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { StatsLookup } from '@helpers/lookups/stats.lookup'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
 const parseEffects = (
     html: string
@@ -46,9 +46,7 @@ const parseEffects = (
     return effects
 }
 
-export const getEnhancements: Getter<
-    Entities.Items.Equipment['enhancements']
-> = ({ $ }) => {
+export const getEnhancements: Getter<'enhancements'> = ({ $ }) => {
     const data: BDOCodex.Enhancements.Data = JSON.parse($('#enchantment_array').text())
     const maxLevel = parseNumber(data.max_enchant, 0)
 

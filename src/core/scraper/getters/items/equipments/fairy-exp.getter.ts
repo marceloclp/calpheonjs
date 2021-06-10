@@ -1,10 +1,8 @@
-import { Entities, Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getFairyExp: Getter<
-    Entities.Items.Equipment['fairyExp']
-> = ({ $ }) => {
+export const getFairyExp: Getter<'fairyExp'> = ({ $ }) => {
     const matcher = Matcher('Used as Fairy growth item')
 
     $('.outer.item_info td').contents().toArray().find(element => {

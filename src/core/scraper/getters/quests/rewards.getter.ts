@@ -1,13 +1,11 @@
 import { BDO } from '@typings/namespaces'
-import { Getter } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Getter } from './getter.type'
 
-export const getRewards: Getter<
-    BDO.Quests.Rewards
-> = ({ $ }) => {
+export const getRewards: Getter<'rewards'> = ({ $ }) => {
     const matchers = {
         standard: Matcher('Standard'),
         choseOneOf: Matcher('Choose'),
