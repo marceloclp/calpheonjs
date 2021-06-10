@@ -1,7 +1,6 @@
 import { BDO } from '@typings/namespaces'
 import { Entities, QueryableEntity } from '@core/query/typings'
 
-// TODO: can't we just use QueryTypes to for all of them?
 /**
  * Maps the queryable entity types to their corresponding
  * entity interfaces.
