@@ -1,5 +1,4 @@
-// TOOD: Rename to Modes
-export enum QueryTypes {
+export enum Modes {
     QuestReward = 'questReward',
     RecipeMaterial = 'recipeMaterial',
     RecipeProduct = 'recipeProduct',

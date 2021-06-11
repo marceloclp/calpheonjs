@@ -1,14 +1,14 @@
 import { BDO } from '@typings/namespaces'
-import { QueryTypes, Selectors } from '../typings'
+import { Modes, Selectors } from '../typings'
 
-export function getQueriedType<T extends QueryTypes>(type: T) {
+export function getQueriedType<M extends Modes>(mode: M) {
     return {
-        [QueryTypes.QuestReward]: BDO.Entities.Types.Item,
-        [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Item,
-        [QueryTypes.RecipeProduct]: BDO.Entities.Types.Item,
-        [QueryTypes.ProcessingMaterial]: BDO.Entities.Types.Item,
-        [QueryTypes.ProcessingProduct]: BDO.Entities.Types.Item,
-        [QueryTypes.DesignMaterial]: BDO.Entities.Types.Design,
-        [QueryTypes.DesignProduct]: BDO.Entities.Types.Design,
-    }[type] as Selectors.QueriedType<T>
+        [Modes.QuestReward]: BDO.Entities.Types.Item,
+        [Modes.RecipeMaterial]: BDO.Entities.Types.Item,
+        [Modes.RecipeProduct]: BDO.Entities.Types.Item,
+        [Modes.ProcessingMaterial]: BDO.Entities.Types.Item,
+        [Modes.ProcessingProduct]: BDO.Entities.Types.Item,
+        [Modes.DesignMaterial]: BDO.Entities.Types.Design,
+        [Modes.DesignProduct]: BDO.Entities.Types.Design,
+    }[mode] as Selectors.QueriedType<M>
 }

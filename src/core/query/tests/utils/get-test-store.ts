@@ -1,6 +1,6 @@
-import { QueryableEntity } from '@core/query/typings'
+import { BuildableEntity } from '@core/query/typings'
 import { TestStore } from '../typings/test-store.interface'
 
-export const getTestStore = <T extends QueryableEntity>() => {
-    return (global as any).stores.query as TestStore<T>
+export const getTestStore = <BE extends BuildableEntity>() => {
+    return (global as any).stores.query as TestStore<BE>
 }

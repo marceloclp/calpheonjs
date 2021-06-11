@@ -1,30 +1,31 @@
 import { Defined, Diff } from '@typings/utilities'
-import { QueryableEntity, Selectors } from '@core/query/typings'
+import { BuildableEntity, Selectors } from '@core/query/typings'
 
-export class Builder<T extends QueryableEntity> {
+export class Builder<BE extends BuildableEntity> {
     constructor(
-        private builder: (data: Selectors.Response<T>) => Selectors.ReturnEntity<T>
+        private builder: (data: Selectors.Response<BE>) =>
+            Selectors.ReturnEntity<BE>
     ) {}
 
     static init(
         builder: (data: Selectors.Response) => Defined<Selectors.ReturnEntity>
     ) {
-        return new Builder<QueryableEntity>(builder as any)
+        return new Builder<BuildableEntity>(builder as any)
     }
 
-    forType<NT extends QueryableEntity>(
-        builder: (data: Selectors.Response<NT>) =>
-            & { type: NT }
-            & Defined<Diff<Selectors.ReturnEntity<NT>, Selectors.ReturnEntity<T>>>
+    forType<NBE extends BuildableEntity>(
+        builder: (data: Selectors.Response<NBE>) =>
+            & { type: NBE }
+            & Defined<Diff<Selectors.ReturnEntity<NBE>, Selectors.ReturnEntity<BE>>>
     ) {
-        const newBuilder = (data: Selectors.Response<NT>) => ({
-            ...this.builder(data as unknown as Selectors.Response<T>),
+        const newBuilder = (data: Selectors.Response<NBE>) => ({
+            ...this.builder(data as unknown as Selectors.Response<BE>),
             ...builder(data),
-        }) as unknown as Selectors.ReturnEntity<NT>
-        return new Builder<NT>(newBuilder)
+        }) as unknown as Selectors.ReturnEntity<NBE>
+        return new Builder<NBE>(newBuilder)
     }
 
-    build(data: Selectors.Response<T>) {
+    build(data: Selectors.Response<BE>) {
         return this.builder(data)
     }
 }

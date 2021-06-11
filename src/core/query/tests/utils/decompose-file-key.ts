@@ -1,28 +1,28 @@
 import { App, BDOCodex } from '@typings/namespaces'
-import { QueryableEntity, QueryTypes } from '@core/query/typings'
-import { QueryTypeLookup } from '@core/query/utils/query-type.lookup'
+import { BuildableEntity, Modes } from '@core/query/typings'
+import { ModeLookup } from '@core/query/utils/mode.lookup'
 import { getReturnType } from '@core/query/utils/get-return-type'
 
-interface Arguments {
+interface FileKeyArguments {
     readonly id: string
-    readonly type: QueryTypes
-    readonly returns: QueryableEntity
+    readonly mode: Modes
+    readonly returns: BuildableEntity
     readonly locale: App.Locales
 }
 
-export const decomposeFileKey = (fileKey: string): Arguments => {
+export const decomposeFileKey = (fileKey: string): FileKeyArguments => {
     const [a, type, fileId, locale] = fileKey.split('.') as [
         BDOCodex.Query.As,
         BDOCodex.Query.Types,
         string,
         App.Locales,
     ]
-    const queryType = QueryTypeLookup
+    const mode = ModeLookup
         .toQueryType({ a, type })
     return {
         id: fileId.replace(/-/g, '/'),
-        type: queryType,
-        returns: getReturnType(queryType),
+        mode,
+        returns: getReturnType(mode),
         locale,
     }
 }

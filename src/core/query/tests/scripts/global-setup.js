@@ -1,7 +1,7 @@
 const fs = require('fs/promises')
 const path = require('path')
 const fetch = require('node-fetch')
-const { QueryURL } = require('../../utils/build-query-url')
+const { QueryURL } = require('../../utils/query-url')
 const { decomposeFileKey } = require('../utils/decompose-file-key')
 
 module.exports = async function() {
