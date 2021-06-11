@@ -1,5 +1,5 @@
 import { BDO } from '@typings/namespaces'
-import { Generic } from '../generic.interface'
+import { Generic } from './generic.interface'
 
 export interface Quest extends
     Generic<BDO.Entities.Types.Quest> {

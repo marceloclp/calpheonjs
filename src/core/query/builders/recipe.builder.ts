@@ -6,4 +6,9 @@ export const Recipe = Generic
     .forType<BDO.Entities.Types.Recipe>(data => ({
         type: BDO.Entities.Types.Recipe,
         grade: Getters.Recipes.getGrade(data),
-    } as any))
+        process: Getters.Recipes.getProcess(data),
+        mastery: Getters.Recipes.getMastery(data),
+        exp: Getters.Recipes.getExp(data),
+        materials: Getters.Recipes.getMaterials(data),
+        products: Getters.Recipes.getProducts(data),
+    }))

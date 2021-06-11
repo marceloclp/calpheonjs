@@ -5,7 +5,7 @@ export enum QueryTypes {
     QuestReward = 'questReward',
     RecipeMaterial = 'recipeMaterial',
     // RecipeProduct = 'recipeProduct',
-    // ProcessingMaterial = 'processingMaterial',
+    ProcessingMaterial = 'processingMaterial',
     // ProcessingProduct = 'processingProduct',
     // DesignMaterial = 'designMaterial',
     // DesignProduct = 'designProduct',

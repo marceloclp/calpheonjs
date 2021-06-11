@@ -1,16 +1,12 @@
 import { BDOCodex } from '@typings/namespaces'
 import { QueryTypes } from '../typings'
 
+const { As, Types } = BDOCodex.Query
 export class QueryTypeLookup {
     private static typeToDescriptor: Record<QueryTypes, BDOCodex.Query.Descriptor> = {
-        [QueryTypes.QuestReward]: {
-            a: BDOCodex.Query.As.Quest,
-            type: BDOCodex.Query.Types.QuestReward,
-        },
-        [QueryTypes.RecipeMaterial]: {
-            a: BDOCodex.Query.As.Recipe,
-            type: BDOCodex.Query.Types.Material,
-        },
+        [QueryTypes.QuestReward]: { a: As.Quest, type: Types.QuestReward },
+        [QueryTypes.RecipeMaterial]: { a: As.Recipe, type: Types.Material },
+        [QueryTypes.ProcessingMaterial]: { a: As.Processing, type: Types.Material },
     }
 
     private static descriptorToType: Record<string, QueryTypes> = Object

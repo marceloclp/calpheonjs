@@ -13,14 +13,23 @@ export class QueryURL {
     private static factory = (key: string, params: BDOCodex.Query.Descriptor) =>
         (id: string) => ({ ...params, [key]: id })
 
-    private static lookup = Object.entries({
+    /**
+     * Queries use an inconsistent naming for the entity id that is being queried.
+     * Sometimes it's reffered as `item_id`, other times as `id`, and so on.
+     */
+    private static keyLookup: Record<QueryTypes, string> = {
         [QueryTypes.QuestReward]: 'id',
         [QueryTypes.RecipeMaterial]: 'item_id',
-    }).reduce((obj, [type, key]) => {
-        const params = QueryTypeLookup
-            .toCodexDescriptor(type as QueryTypes)
-        return { ...obj, [type]: QueryURL.factory(key, params) }
-    }, {} as Record<QueryTypes, (id: string) => {}>)
+        [QueryTypes.ProcessingMaterial]: 'item_id',
+    }
+
+    private static lookup = Object
+        .entries(QueryURL.keyLookup)
+        .reduce((obj, [type, key]) => {
+            const params = QueryTypeLookup
+                .toCodexDescriptor(type as QueryTypes)
+            return { ...obj, [type]: QueryURL.factory(key, params) }
+        }, {} as Record<QueryTypes, (id: string) => {}>)
 
     static compose({ id, type, locale = DefaultLocale }: QueryURLDescriptor) {
         if (!(type in QueryURL.lookup)) {
