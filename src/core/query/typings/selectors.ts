@@ -15,8 +15,11 @@ import { Entities } from '.'
 export type ReturnType<T extends QueryTypes | 'F' = 'F'> = {
     [QueryTypes.QuestReward]: BDO.Entities.Types.Quest
     [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Recipe
+    [QueryTypes.RecipeProduct]: BDO.Entities.Types.Recipe
     [QueryTypes.ProcessingMaterial]: BDO.Entities.Types.Processing
+    [QueryTypes.ProcessingProduct]: BDO.Entities.Types.Processing
     [QueryTypes.DesignMaterial]: BDO.Entities.Types.Design
+    [QueryTypes.DesignProduct]: BDO.Entities.Types.Design
     F: BDO.Entities.Types
 }[T]
 
@@ -32,8 +35,11 @@ export type ReturnType<T extends QueryTypes | 'F' = 'F'> = {
 export type QueriedType<T extends QueryTypes | 'F' = 'F'> = {
     [QueryTypes.QuestReward]: BDO.Entities.Types.Item
     [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Item
+    [QueryTypes.RecipeProduct]: BDO.Entities.Types.Item
     [QueryTypes.ProcessingMaterial]: BDO.Entities.Types.Item
+    [QueryTypes.ProcessingProduct]: BDO.Entities.Types.Item
     [QueryTypes.DesignMaterial]: BDO.Entities.Types.Item
+    [QueryTypes.DesignProduct]: BDO.Entities.Types.Item
     F: BDO.Entities.Types
 }[T]
 

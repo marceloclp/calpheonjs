@@ -1,0 +1,46 @@
+[
+    {
+        "type": "processing",
+        "id": "1702",
+        "name": "Exquisite Cron Meal",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009693.png",
+        "grade": 4,
+        "process": "simpleCooking",
+        "mastery": ["beginner", 0],
+        "exp": 0,
+        "materials": [
+            {
+                "type": "item",
+                "id": "9603",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009603.png",
+                "amount": 3
+            },
+            {
+                "type": "item",
+                "id": "9632",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009632.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "9635",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009635.png",
+                "amount": 3
+            },
+            {
+                "type": "item",
+                "id": "9019",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009019.png",
+                "amount": 1
+            }
+        ],
+        "products": [
+            {
+                "type": "item",
+                "id": "9693",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009693.png",
+                "amount": 1
+            }
+        ]
+    }
+]

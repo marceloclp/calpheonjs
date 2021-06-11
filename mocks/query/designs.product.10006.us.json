@@ -1,0 +1,55 @@
+[
+    {
+        "type": "design",
+        "id": "5028",
+        "name": "Ultimate Ain Longsword",
+        "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010006.png",
+        "grade": 0,
+        "materials": [
+            {
+                "type": "item",
+                "id": "4077",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004077.png",
+                "amount": 5
+            },
+            {
+                "type": "item",
+                "id": "4062",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004062.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "6160",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00006160.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "5956",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00005956.png",
+                "amount": 4
+            },
+            {
+                "type": "item",
+                "id": "4901",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004901.png",
+                "amount": 12
+            }
+        ],
+        "products": [
+            {
+                "type": "item",
+                "id": "10027",
+                "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010006.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "10006",
+                "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010006.png",
+                "amount": 1
+            }
+        ]
+    }
+]

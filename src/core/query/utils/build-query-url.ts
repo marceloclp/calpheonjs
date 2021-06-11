@@ -20,8 +20,11 @@ export class QueryURL {
     private static keyLookup: Record<QueryTypes, string> = {
         [QueryTypes.QuestReward]: 'id',
         [QueryTypes.RecipeMaterial]: 'item_id',
+        [QueryTypes.RecipeProduct]: 'item_id',
         [QueryTypes.ProcessingMaterial]: 'item_id',
+        [QueryTypes.ProcessingProduct]: 'item_id',
         [QueryTypes.DesignMaterial]: 'item_id',
+        [QueryTypes.DesignProduct]: 'item_id',
     }
 
     private static lookup = Object

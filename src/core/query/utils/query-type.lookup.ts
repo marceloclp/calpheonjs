@@ -6,8 +6,11 @@ export class QueryTypeLookup {
     private static typeToDescriptor: Record<QueryTypes, BDOCodex.Query.Descriptor> = {
         [QueryTypes.QuestReward]: { a: As.Quest, type: Types.QuestReward },
         [QueryTypes.RecipeMaterial]: { a: As.Recipe, type: Types.Material },
+        [QueryTypes.RecipeProduct]: { a: As.Recipe, type: Types.Product },
         [QueryTypes.ProcessingMaterial]: { a: As.Processing, type: Types.Material },
+        [QueryTypes.ProcessingProduct]: { a: As.Processing, type: Types.Product },
         [QueryTypes.DesignMaterial]: { a: As.Design, type: Types.Material },
+        [QueryTypes.DesignProduct]: { a: As.Design, type: Types.Product },
     }
 
     private static descriptorToType: Record<string, QueryTypes> = Object

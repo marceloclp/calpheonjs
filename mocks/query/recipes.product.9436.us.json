@@ -1,0 +1,52 @@
+[
+    {
+        "type": "recipe",
+        "id": "141",
+        "name": "Boiled Bird Eggs",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00009402.png",
+        "grade": 1,
+        "process": "cooking",
+        "mastery": ["beginner", 6],
+        "exp": 400,
+        "materials": [
+            {
+                "type": "item",
+                "id": "9064",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009064.png",
+                "amount": 3
+            },
+            {
+                "type": "item",
+                "id": "9059",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009059.png",
+                "amount": 6
+            },
+            {
+                "type": "item",
+                "id": "9017",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009017.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "9001",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009001.png",
+                "amount": 1
+            }
+        ],
+        "products": [
+            {
+                "type": "item",
+                "id": "9402",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009402.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "9436",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00009436.png",
+                "amount": 1
+            }
+        ]
+    }
+]

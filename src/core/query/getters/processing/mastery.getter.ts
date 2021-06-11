@@ -15,7 +15,6 @@ const Lookup: Record<string, BDO.LifeSkills.Masteries> = {
 
 export const getMastery: Getter<'mastery'> = (data) => {
     const text = data[4].display
-    console.log(text)
     if (!text) return
     const args = text.split(Chars.Space)
     const level = parseNumber(args.pop())
