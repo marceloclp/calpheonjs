@@ -1,6 +1,3 @@
-/**
- * The only source of truth for defining query types.
- */
 export enum QueryTypes {
     QuestReward = 'questReward',
     RecipeMaterial = 'recipeMaterial',

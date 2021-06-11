@@ -1,0 +1,34 @@
+[
+    {
+        "type": "processing",
+        "id": "1918",
+        "name": "Dim Origin of Clear Water",
+        "icon": "/items/new_icon/06_pc_equipitem/00_common/00_etc/00000293.png",
+        "grade": 2,
+        "process": "simpleAlchemy",
+        "mastery": ["beginner", 0],
+        "exp": 0,
+        "materials": [
+            {
+                "type": "item",
+                "id": "5212",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00005212.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "5217",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00005217.png",
+                "amount": 1
+            }
+        ],
+        "products": [
+            {
+                "type": "item",
+                "id": "293",
+                "icon": "/items/new_icon/06_pc_equipitem/00_common/00_etc/00000293.png",
+                "amount": 1
+            }
+        ]
+    }
+]

@@ -5,5 +5,6 @@ export function getReturnType<T extends QueryTypes>(type: T) {
     return {
         [QueryTypes.QuestReward]: BDO.Entities.Types.Quest,
         [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Recipe,
+        [QueryTypes.ProcessingMaterial]: BDO.Entities.Types.Processing,
     }[type] as Selectors.ReturnType<T>
 }
