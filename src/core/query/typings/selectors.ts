@@ -16,6 +16,7 @@ export type ReturnType<T extends QueryTypes | 'F' = 'F'> = {
     [QueryTypes.QuestReward]: BDO.Entities.Types.Quest
     [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Recipe
     [QueryTypes.ProcessingMaterial]: BDO.Entities.Types.Processing
+    [QueryTypes.DesignMaterial]: BDO.Entities.Types.Design
     F: BDO.Entities.Types
 }[T]
 
@@ -32,6 +33,7 @@ export type QueriedType<T extends QueryTypes | 'F' = 'F'> = {
     [QueryTypes.QuestReward]: BDO.Entities.Types.Item
     [QueryTypes.RecipeMaterial]: BDO.Entities.Types.Item
     [QueryTypes.ProcessingMaterial]: BDO.Entities.Types.Item
+    [QueryTypes.DesignMaterial]: BDO.Entities.Types.Item
     F: BDO.Entities.Types
 }[T]
 
@@ -48,6 +50,7 @@ export type ReturnEntity<T extends QueryableEntity | 'F' = 'F'> = {
     [BDO.Entities.Types.Quest]: Entities.Quest
     [BDO.Entities.Types.Recipe]: Entities.Recipe
     [BDO.Entities.Types.Processing]: Entities.Processing
+    [BDO.Entities.Types.Design]: Entities.Design
     F: Entities.Generic
 }[T]
 
@@ -59,5 +62,6 @@ export type Response<T extends QueryableEntity | 'F' = 'F'> = {
     [BDO.Entities.Types.Quest]: BDOCodex.Query.Responses.Quest
     [BDO.Entities.Types.Recipe]: BDOCodex.Query.Responses.Recipe
     [BDO.Entities.Types.Processing]: BDOCodex.Query.Responses.Processing
+    [BDO.Entities.Types.Design]: BDOCodex.Query.Responses.Design
     F: BDOCodex.Query.Responses.Generic
 }[T]

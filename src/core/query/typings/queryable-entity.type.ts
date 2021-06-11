@@ -9,7 +9,9 @@ import { BDO } from '@typings/namespaces'
 // TODO: this is wrong, the only queryable entity is Item right now.
 // TODO: drop this and just use BDO.Entities.Types instead
 // TODO: enforce correct typing through the Query function
+// this would be better as BuildableEntity
 export type QueryableEntity =
     | BDO.Entities.Types.Quest
     | BDO.Entities.Types.Recipe
     | BDO.Entities.Types.Processing
+    | BDO.Entities.Types.Design

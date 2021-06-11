@@ -1,0 +1,90 @@
+[
+    {
+        "type": "design",
+        "id": "8951",
+        "name": "Granverre Metal Horseshoe",
+        "icon": "/items/new_icon/03_etc/09_petitem/00052906.png",
+        "grade": 0,
+        "materials": [
+            {
+                "type": "item",
+                "id": "4083",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004083.png",
+                "amount": 10
+            },
+            {
+                "type": "item",
+                "id": "4902",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004902.png",
+                "amount": 125
+            },
+            {
+                "type": "item",
+                "id": "6528",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00006528.png",
+                "amount": 125
+            },
+            {
+                "type": "item",
+                "id": "50807",
+                "icon": "/items/new_icon/03_etc/09_petitem/00050807.png",
+                "amount": 10
+            }
+        ],
+        "products": [
+            {
+                "type": "item",
+                "id": "52906",
+                "icon": "/items/new_icon/03_etc/09_petitem/00052906.png",
+                "amount": 1
+            }
+        ]
+    },
+    {
+        "type": "design",
+        "id": "9012",
+        "name": "[Donkey] Granverre Metal Horseshoe",
+        "icon": "/items/new_icon/03_etc/09_petitem/00052921.png",
+        "grade": 0,
+        "materials": [
+            {
+                "type": "item",
+                "id": "4083",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004083.png",
+                "amount": 10
+            },
+            {
+                "type": "item",
+                "id": "4902",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004902.png",
+                "amount": 10
+            },
+            {
+                "type": "item",
+                "id": "6528",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00006528.png",
+                "amount": 10
+            },
+            {
+                "type": "item",
+                "id": "50807",
+                "icon": "/items/new_icon/03_etc/09_petitem/00050807.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "43935",
+                "icon": "/items/new_icon/03_etc/03_quest_item/00043935.png",
+                "amount": 1
+            }
+        ],
+        "products": [
+            {
+                "type": "item",
+                "id": "52921",
+                "icon": "/items/new_icon/03_etc/09_petitem/00052921.png",
+                "amount": 1
+            }
+        ]
+    }
+]

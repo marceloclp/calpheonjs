@@ -1,3 +1,4 @@
+export * from './design.interface'
 export * from './generic.interface'
 export * from './item.interface'
 export * from './processing.interface'

@@ -7,6 +7,7 @@ export class QueryTypeLookup {
         [QueryTypes.QuestReward]: { a: As.Quest, type: Types.QuestReward },
         [QueryTypes.RecipeMaterial]: { a: As.Recipe, type: Types.Material },
         [QueryTypes.ProcessingMaterial]: { a: As.Processing, type: Types.Material },
+        [QueryTypes.DesignMaterial]: { a: As.Design, type: Types.Material },
     }
 
     private static descriptorToType: Record<string, QueryTypes> = Object

@@ -21,6 +21,7 @@ export class QueryURL {
         [QueryTypes.QuestReward]: 'id',
         [QueryTypes.RecipeMaterial]: 'item_id',
         [QueryTypes.ProcessingMaterial]: 'item_id',
+        [QueryTypes.DesignMaterial]: 'item_id',
     }
 
     private static lookup = Object

@@ -1,4 +1,5 @@
 export * from './generic.builder'
+export * from './design.builder'
 export * from './processing.builder'
 export * from './quest.builder'
 export * from './recipe.builder'
