@@ -2,7 +2,7 @@ import { Matcher } from '@helpers/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from '../../getter.type'
 
-export const getExp: Getter<number | undefined> = ({ $ }) => {
+export const getExp: Getter<number> = ({ $ }) => {
     const matcher = Matcher('EXP')
     const elements = $('.category_text')
         .parent().contents().toArray()

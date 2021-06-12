@@ -1,12 +1,11 @@
 import { BDO } from '@typings/namespaces'
 import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { Knowledge } from '@core/scraper/builders'
 import { expect } from '@tests/utils/expect'
 
-describe('Scraper: Knowledge', () => {
+describe('Scraper: Material Group', () => {
     const tests = new TestLoader()
-        .filterByType(BDO.Entities.Types.Knowledge)
-        .buildTests(Knowledge)
+        .filterByType(BDO.Entities.Types.MaterialGroup)
+        .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('getIcon()', () => {
             expect(received.icon).toBe(expected.icon)
@@ -17,11 +16,8 @@ describe('Scraper: Knowledge', () => {
         it('getNameAlternative()', () => {
             expect(received.nameAlternative).toBe(expected.nameAlternative)
         })
-        it('getGroup()', () => {
-            expect(received.group).toBe(expected.group)
-        })
-        it('getObtainedFrom()', () => {
-            expect(received.obtainedFrom).toMatch(expected.obtainedFrom)
+        it('getItems()', () => {
+            expect(received.items).toMatch(expected.items)
         })
     })
 })

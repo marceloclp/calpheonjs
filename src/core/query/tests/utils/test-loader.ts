@@ -1,6 +1,6 @@
 import { BDOCodex } from '@typings/namespaces'
 import { Selectors, Modes, BuildableEntity } from '@core/query/typings'
-import { Builder } from '@core/query/utils/builder'
+import { Builder } from '@core/query/builders/builder'
 import { getQueriedType } from '@core/query/utils/get-queried-type'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
 import { getTestStore } from './get-test-store'
@@ -38,7 +38,7 @@ export class TestLoader<BE extends BuildableEntity> {
         return this
     }
 
-    buildTests(builder: Builder<BE>) {
+    buildTests() {
         type R = Selectors.ReturnEntity<BE>
         return this.keys.reduce((tests, key) => {
             const { mode } = decomposeFileKey(key)
@@ -52,7 +52,7 @@ export class TestLoader<BE extends BuildableEntity> {
             return tests.concat(items.map((item, i) => [
                 TestLoader.buildTestId({ mode, id: this.store.mocks[key][i].id }),
                 this.store.mocks[key][i] as R,
-                builder.build(item) as unknown as R,
+                Builder(mode, item) as unknown as R,
             ]))
         }, [] as [string, R, R][])
     }

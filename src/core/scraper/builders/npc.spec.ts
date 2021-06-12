@@ -1,13 +1,12 @@
 import { BDO } from '@typings/namespaces'
 import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { NPC } from '@core/scraper/builders'
 import { expect } from '@tests/utils/expect'
 
 describe('Scraper: NPCs', () => {
     describe('All', () => {
         const tests = new TestLoader()
             .filterByType(BDO.Entities.Types.NPC)
-            .buildTests(NPC)
+            .buildTests()
         describe.each(tests)('%s', (_, expected, received) => {
             it('getIcon()', () => {
                 expect(received.icon).toBe(expected.icon)
@@ -27,7 +26,7 @@ describe('Scraper: NPCs', () => {
         const tests = new TestLoader()
             .filterByType(BDO.Entities.Types.NPC)
             .filterBySubType(BDO.NPCs.SubTypes.Other)
-            .buildTests(NPC)
+            .buildTests()
         describe.each(tests)('%s', (_, expected, received) => {
             it('getGroup()', () => {
                 expect(received.group).toBe(expected.group)
@@ -47,7 +46,7 @@ describe('Scraper: NPCs', () => {
         const tests = new TestLoader()
             .filterByType(BDO.Entities.Types.NPC)
             .filterBySubType(BDO.NPCs.SubTypes.Worker)
-            .buildTests(NPC)
+            .buildTests()
         describe.each(tests)('%s', (_, expected, received) => {
             it('getSellable()', () => {
                 expect(received.sellable).toBe(expected.sellable)

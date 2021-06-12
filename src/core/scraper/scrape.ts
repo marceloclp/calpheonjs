@@ -7,7 +7,7 @@ import { isValidPage } from '@core/scraper/utils/is-valid-page'
 import { Entities, ScrapableEntity } from '@core/scraper/typings'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
 import { isScrapableEntity } from './utils/is-scrapable-entity'
-import * as Builders from '@core/scraper/builders'
+import { Builder } from '@core/scraper/builders'
 
 export const Scrape: {
     (type: BDO.Entities.Types.Item, itemId: string): Promise<Entities.Items.Item>
@@ -20,7 +20,7 @@ export const Scrape: {
 } = async <T extends ScrapableEntity>(
     type: T,
     id: string
-) => {
+): Promise<any> => {
     const locale = DefaultLocale
     const response = await fetch(
         buildCodexURL({ locale, type, id })
@@ -31,14 +31,5 @@ export const Scrape: {
     if (!isScrapableEntity(type) || !isValidPage($)) {
         throw new InvalidEntity(id, type, locale)
     }
-
-    return {
-        [BDO.Entities.Types.Item]: Builders.Item,
-        [BDO.Entities.Types.Knowledge]: Builders.Knowledge,
-        [BDO.Entities.Types.MaterialGroup]: Builders.MaterialGroup,
-        [BDO.Entities.Types.NPC]: Builders.NPC,
-        [BDO.Entities.Types.Processing]: Builders.Processing,
-        [BDO.Entities.Types.Quest]: Builders.Quest,
-        [BDO.Entities.Types.Recipe]: Builders.Recipe,
-    }[type].build({ $, id, type, locale }) as any
+    return Builder(type, { $, id, type, locale })
 }

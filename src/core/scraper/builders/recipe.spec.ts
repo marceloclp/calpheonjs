@@ -1,12 +1,11 @@
 import { BDO } from '@typings/namespaces'
 import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { Recipe } from '@core/scraper/builders'
 import { expect } from '@tests/utils/expect'
 
 describe('Scraper: Recipes', () => {
     const tests = new TestLoader()
         .filterByType(BDO.Entities.Types.Recipe)
-        .buildTests(Recipe)
+        .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('getIcon()', () => {
             expect(received.icon).toBe(expected.icon)

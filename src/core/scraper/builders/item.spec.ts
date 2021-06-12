@@ -1,13 +1,12 @@
 import { BDO } from '@typings/namespaces'
 import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { Item } from '@core/scraper/builders'
 import { expect } from '@tests/utils/expect'
 
 describe('Scraper: Items', () => {
     describe('All', () => {
         const tests = new TestLoader()
             .filterByType(BDO.Entities.Types.Item)
-            .buildTests(Item)
+            .buildTests()
         describe.each(tests)('%s', (_, expected, received) => {
             it('getIcon()', () => {
                 expect(received.icon).toBe(expected.icon)
@@ -33,7 +32,7 @@ describe('Scraper: Items', () => {
         const tests = new TestLoader()
             .filterByType(BDO.Entities.Types.Item)
             .filterBySubType(BDO.Items.SubTypes.Consumable)
-            .buildTests(Item)
+            .buildTests()
         describe.each(tests)('%s', (_, expected, received) => {
             it('getEffects()', () => {
                 expect(received.effects).toMatch(expected.effects)
@@ -50,7 +49,7 @@ describe('Scraper: Items', () => {
         const tests = new TestLoader()
             .filterByType(BDO.Entities.Types.Item)
             .filterBySubType(BDO.Items.SubTypes.Equipment)
-            .buildTests(Item)
+            .buildTests()
         describe.each(tests)('%s', (_, expected, received) => {
             it('getEnhancements()', () => {
                 expect(received.enhancements).toMatch(expected.enhancements)

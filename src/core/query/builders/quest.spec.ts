@@ -1,12 +1,11 @@
 import { BDO } from '@typings/namespaces'
 import { TestLoader } from '@core/query/tests/utils/test-loader'
-import { Quest } from '@core/query/builders'
 
 describe('Query > Builders > Quests', () => {
     const tests = new TestLoader()
         .filterByReturnType(BDO.Entities.Types.Quest)
         .forHydrationLevel(1)
-        .buildTests(Quest)
+        .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('level', () => {
             expect(received.level).toBe(expected.level)
