@@ -1,6 +1,8 @@
 import { BDO } from '@typings/namespaces'
 
-export interface Generic<T extends BDO.Entities.Types = any> {
+export interface Generic<
+    T extends BDO.Entities.Types = BDO.Entities.Types,
+> {
     /** All entities must have an id. */
     id: string
 

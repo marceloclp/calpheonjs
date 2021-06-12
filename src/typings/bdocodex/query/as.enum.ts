@@ -4,4 +4,5 @@ export enum As {
     Design = 'designs',
     Drop = 'drop',
     Quest = 'quests',
+    NPC = 'npcs',
 }

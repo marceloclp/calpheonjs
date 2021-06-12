@@ -25,6 +25,7 @@ export class QueryURL {
         [Modes.ProcessingProduct]: 'item_id',
         [Modes.DesignMaterial]: 'item_id',
         [Modes.DesignProduct]: 'item_id',
+        [Modes.SoldByNPC]: 'item_id',
     }
 
     private static lookup = Object

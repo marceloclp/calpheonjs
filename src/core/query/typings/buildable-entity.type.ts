@@ -8,3 +8,4 @@ export type BuildableEntity =
     | BDO.Entities.Types.Recipe
     | BDO.Entities.Types.Processing
     | BDO.Entities.Types.Design
+    | BDO.Entities.Types.NPC

@@ -1,0 +1,56 @@
+[
+    {
+        "type": "npc",
+        "id": "40003/1",
+        "name": "Alfredo",
+        "icon": "/items/ui_artwork/ic_00003.png",
+        "title": "Arms Dealer",
+        "level": 99,
+        "stats": {
+            "hp": 10000,
+            "defense": 10,
+            "evasion": 10
+        },
+        "droppedExp": {
+            "base": 0,
+            "skill": 0
+        },
+        "droppedKarma": 0
+    },
+    {
+        "type": "npc",
+        "id": "40033/1",
+        "name": "Claus",
+        "icon": "/items/ui_artwork/ic_00035.png",
+        "title": "Arms Dealer",
+        "level": 99,
+        "stats": {
+            "hp": 10000,
+            "defense": 2,
+            "evasion": 1
+        },
+        "droppedExp": {
+            "base": 0,
+            "skill": 0
+        },
+        "droppedKarma": 0
+    },
+    {
+        "type": "npc",
+        "id": "41002/1",
+        "name": "Ornella",
+        "icon": "/items/ui_artwork/ic_00003.png",
+        "title": "Arms Dealer",
+        "level": 99,
+        "stats": {
+            "hp": 10000,
+            "defense": 2,
+            "evasion": 1
+        },
+        "droppedExp": {
+            "base": 0,
+            "skill": 0
+        },
+        "droppedKarma": 0
+    }
+]

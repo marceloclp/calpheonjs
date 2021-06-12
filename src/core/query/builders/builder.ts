@@ -36,4 +36,11 @@ export const Builder = CreateBuilder<QueryBuilder>()
         materials: Getters.Recipes.getMaterials(data),
         products: Getters.Recipes.getProducts(data),
     }))
+    .forType(BDO.Entities.Types.NPC, data => ({
+        title: Getters.NPCs.getTitle(data),
+        level: Getters.NPCs.getLevel(data),
+        stats: Getters.NPCs.getStats(data),
+        droppedExp: Getters.NPCs.getDroppedExp(data),
+        droppedKarma: Getters.NPCs.getDroppedKarma(data),
+    }))
     .create(mode => ({ type: getReturnType(mode) }))

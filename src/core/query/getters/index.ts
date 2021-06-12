@@ -1,5 +1,6 @@
 export * from './common'
 export * as Designs from './designs'
+export * as NPCs from './npcs'
 export * as Processing from './processing'
 export * as Quests from './quests'
 export * as Recipes from './recipes'

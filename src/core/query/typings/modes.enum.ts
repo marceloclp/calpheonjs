@@ -6,4 +6,5 @@ export enum Modes {
     ProcessingProduct = 'processingProduct',
     DesignMaterial = 'designMaterial',
     DesignProduct = 'designProduct',
+    SoldByNPC = 'soldByNPC',
 }

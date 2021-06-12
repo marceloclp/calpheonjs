@@ -10,5 +10,6 @@ export function getReturnType<M extends Modes>(mode: M) {
         [Modes.ProcessingProduct]: BDO.Entities.Types.Processing,
         [Modes.DesignMaterial]: BDO.Entities.Types.Design,
         [Modes.DesignProduct]: BDO.Entities.Types.Design,
+        [Modes.SoldByNPC]: BDO.Entities.Types.NPC,
     }[mode] as Selectors.ReturnType<M>
 }

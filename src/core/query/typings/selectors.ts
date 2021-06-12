@@ -1,7 +1,5 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { BuildableEntity } from './buildable-entity.type'
-import { Modes } from './modes.enum'
-import { Entities } from '.'
+import { BuildableEntity, Entities, Modes } from '.'
 
 /**
  * Maps the query mode to the corresponding entity type that
@@ -20,6 +18,7 @@ export type ReturnType<M extends Modes | 'F' = 'F'> = {
     [Modes.ProcessingProduct]: BDO.Entities.Types.Processing
     [Modes.DesignMaterial]: BDO.Entities.Types.Design
     [Modes.DesignProduct]: BDO.Entities.Types.Design
+    [Modes.SoldByNPC]: BDO.Entities.Types.NPC
     F: BDO.Entities.Types
 }[M]
 
@@ -40,6 +39,7 @@ export type QueriedType<M extends Modes | 'F' = 'F'> = {
     [Modes.ProcessingProduct]: BDO.Entities.Types.Item
     [Modes.DesignMaterial]: BDO.Entities.Types.Item
     [Modes.DesignProduct]: BDO.Entities.Types.Item
+    [Modes.SoldByNPC]: BDO.Entities.Types.Item
     F: BDO.Entities.Types
 }[M]
 
@@ -52,6 +52,7 @@ export type ReturnEntity<BE extends BuildableEntity | 'F' = 'F'> = {
     [BDO.Entities.Types.Recipe]: Entities.Recipe
     [BDO.Entities.Types.Processing]: Entities.Processing
     [BDO.Entities.Types.Design]: Entities.Design
+    [BDO.Entities.Types.NPC]: Entities.NPC
     F: Entities.Generic
 }[BE]
 
@@ -64,5 +65,6 @@ export type Response<BE extends BuildableEntity | 'F' = 'F'> = {
     [BDO.Entities.Types.Recipe]: BDOCodex.Query.Responses.Recipe
     [BDO.Entities.Types.Processing]: BDOCodex.Query.Responses.Processing
     [BDO.Entities.Types.Design]: BDOCodex.Query.Responses.Design
+    [BDO.Entities.Types.NPC]: BDOCodex.Query.Responses.NPC
     F: BDOCodex.Query.Responses.Generic
 }[BE]

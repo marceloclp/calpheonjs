@@ -11,6 +11,7 @@ export class ModeLookup {
         [Modes.ProcessingProduct]: { a: As.Processing, type: Types.Product },
         [Modes.DesignMaterial]: { a: As.Design, type: Types.Material },
         [Modes.DesignProduct]: { a: As.Design, type: Types.Product },
+        [Modes.SoldByNPC]: { a: As.NPC, type: Types.Sellable },
     }
 
     private static descriptorToMode: Record<string, Modes> = Object

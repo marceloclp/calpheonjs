@@ -3,8 +3,7 @@ import { Generic } from './generic.interface'
 import { Craftable } from './craftable.interface'
 
 export interface Recipe extends
-    Generic<BDO.Entities.Types.Recipe>,
-    Craftable {
+    Generic<BDO.Entities.Types.Recipe>, Craftable {
 
     grade: BDO.Grade
 
