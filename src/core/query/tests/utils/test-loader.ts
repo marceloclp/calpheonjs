@@ -1,7 +1,6 @@
 import { BDOCodex } from '@typings/namespaces'
-import { Selectors, Modes, BuildableEntity } from '@core/query/typings'
+import { Selectors, BuildableEntity } from '@core/query/typings'
 import { Builder } from '@core/query/builders/builder'
-import { getQueriedType } from '@core/query/utils/get-queried-type'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
 import { getTestStore } from './get-test-store'
 import { decomposeFileKey } from './decompose-file-key'
@@ -50,14 +49,14 @@ export class TestLoader<BE extends BuildableEntity> {
                 : data.aaData.slice(0, this.hydrationLevel)
 
             return tests.concat(items.map((item, i) => [
-                TestLoader.buildTestId({ mode, id: this.store.mocks[key][i].id }),
+                TestLoader.buildTestId(this.store.mocks[key][i]),
                 this.store.mocks[key][i] as R,
                 Builder(mode, item) as unknown as R,
             ]))
         }, [] as [string, R, R][])
     }
 
-    static buildTestId({ mode, id }: { mode: Modes, id: string }) {
-        return buildCodexURL({ type: getQueriedType(mode), id }) + ` (ID: ${id})`
+    static buildTestId({ type, id }: { type: BuildableEntity, id: string }) {
+        return buildCodexURL({ type, id }) + ` (ID: ${id})`
     }
 }
