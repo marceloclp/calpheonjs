@@ -12,5 +12,8 @@
         "evasion": "600",
         "damageReduction": "150"
     },
-    "mobType": "boss"
+    "mobType": "boss",
+    "level": 55,
+    "droppedExp": {},
+    "droppedKarma": 95
 }

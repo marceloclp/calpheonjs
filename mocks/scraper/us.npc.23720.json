@@ -10,5 +10,11 @@
         "defense": "557",
         "evasion": "457",
         "damageReduction": "100"
-    }
+    },
+    "level": 55,
+    "droppedExp": {
+        "base": 2505749,
+        "skill": 808444
+    },
+    "droppedKarma": 80
 }

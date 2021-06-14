@@ -31,6 +31,9 @@ describe('Scraper: NPCs', () => {
             it('getGroup()', () => {
                 expect(received.group).toBe(expected.group)
             })
+            it('getLevel()', () => {
+                expect(received.level).toBe(expected.level)
+            })
             it('getStats()', () => {
                 expect(received.stats).toMatch(expected.stats)
             })
@@ -39,6 +42,12 @@ describe('Scraper: NPCs', () => {
             })
             it('getKnowledge()', () => {
                 expect(received.knowledge).toMatch(expected.knowledge)
+            })
+            it('getDroppedExp()', () => {
+                expect(received.droppedExp).toMatch(expected.droppedExp)
+            })
+            it('getDroppedKarma()', () => {
+                expect(received.droppedKarma).toBe(expected.droppedKarma)
             })
         })
     })

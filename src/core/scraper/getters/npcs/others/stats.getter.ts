@@ -10,11 +10,6 @@ const Matches: BDO.NPCs.Stats<string[]> = {
     [BDO.Characters.Attributes.Accuracy]: ['Accuracy:'],
     [BDO.Characters.Attributes.Evasion]: ['Evasion:'],
     [BDO.Characters.Attributes.DamageReduction]: ['Damage Reduction:'],
-    // TODO: redo this
-    // lvl: ['Level:'],
-    // droppedExp: ['XP:'],
-    // droppedSkillExp: ['Skill XP:'],
-    // karma: ['Karma:'],
 }
 
 export const getStats: Getter<'stats'> = ({ $ }) => {

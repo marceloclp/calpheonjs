@@ -52,9 +52,12 @@ export const Builder = CreateBuilder<ScraperBuilder>()
     }))
     .forSubType(BDO.NPCs.SubTypes.Other, args => ({
         group: Getters.NPCs.Others.getGroup(args),
+        level: Getters.NPCs.Others.getLevel(args),
         stats: Getters.NPCs.Others.getStats(args),
         mobType: Getters.NPCs.Others.getMobType(args),
         knowledge: Getters.NPCs.Others.getDroppedKnowledge(args),
+        droppedExp: Getters.NPCs.Others.getDroppedExp(args),
+        droppedKarma: Getters.NPCs.Others.getDroppedKarma(args),
     }))
     .forType(BDO.Entities.Types.Processing, args => ({
         materials: Getters.Crafting.getMaterials(args),

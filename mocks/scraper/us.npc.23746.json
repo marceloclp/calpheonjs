@@ -19,5 +19,11 @@
         "id": "4919",
         "icon": "/items/ui_artwork/ic_04919.png",
         "name": "Agrakhan"
-    }
+    },
+    "level": 58,
+    "droppedExp": {
+        "base": 1486625,
+        "skill": 914716
+    },
+    "droppedKarma": 28
 }

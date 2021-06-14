@@ -10,5 +10,8 @@
         "hp": "5000",
         "defense": "1",
         "evasion": "1"
-    }
+    },
+    "level": 1,
+    "droppedExp": {},
+    "droppedKarma": 0
 }

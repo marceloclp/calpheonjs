@@ -16,5 +16,8 @@
         "id": "41587",
         "name": "Cartian Spell",
         "icon": "/items/new_icon/03_etc/03_quest_item/00041587.png"
-    }
+    },
+    "level": 55,
+    "droppedExp": {},
+    "droppedKarma": 0
 }
