@@ -1,46 +1,50 @@
 import { BDO } from '@typings/namespaces'
-import { CreateBuilder } from '@helpers/utils/create-builder'
-import { QueryBuilder } from '../typings/query-builder.interface'
-import { getReturnType } from '../utils/get-return-type'
-import * as Getters from '../getters'
+import { Entities } from '../typings'
+import { CreateBuilder } from '../utils/create-builder'
+import { Getters as _ } from '../getters'
 
-export const Builder = CreateBuilder<QueryBuilder>()
-    .forGeneric(data => ({
-        id: Getters.getId(data),
-        name: Getters.getName(data),
-        icon: Getters.getIcon(data),
+export const Builder = CreateBuilder
+    .with(data => ({
+        id: _.Generic.getId(data),
+        name: _.Generic.getName(data),
+        icon: _.Generic.getIcon(data),
     }))
-    .forType(BDO.Entities.Types.Design, data => ({
-        grade: Getters.Designs.getGrade(data),
-        materials: Getters.Designs.getMaterials(data),
-        products: Getters.Designs.getProducts(data),
+    .as(Entities.As.Design, data => ({
+        type: BDO.Entities.Types.Design,
+        grade: _.Design.getGrade(data),
+        materials: _.Craftable.getMaterials(data),
+        products: _.Design.getProducts(data),
     }))
-    .forType(BDO.Entities.Types.Processing, data => ({
-        grade: Getters.Processing.getGrade(data),
-        process: Getters.Processing.getProcess(data),
-        mastery: Getters.Processing.getMastery(data),
-        exp: Getters.Processing.getExp(data),
-        materials: Getters.Processing.getMaterials(data),
-        products: Getters.Processing.getProducts(data),
+    .as(Entities.As.NPCSells, data => ({
+        type: BDO.Entities.Types.NPC,
+        title: _.NPCSells.getTitle(data),
+        level: _.NPCSells.getLevel(data),
+        stats: _.NPCSells.getStats(data),
+        droppedExp: _.NPCSells.getDroppedExp(data),
+        droppedKarma: _.NPCSells.getDroppedKarma(data),
     }))
-    .forType(BDO.Entities.Types.Quest, data => ({
-        level: Getters.Quests.getLevel(data),
-        region: Getters.Quests.getRegion(data),
-        rewards: Getters.Quests.getRewards(data),
+    .as(Entities.As.Processing, data => ({
+        type: BDO.Entities.Types.Processing,
+        grade: _.Processing.getGrade(data),
+        process: _.Processing.getProcess(data),
+        mastery: _.Craftable.getMastery(data),
+        exp: _.Craftable.getExp(data),
+        materials: _.Craftable.getMaterials(data),
+        products: _.Craftable.getProducts(data),
     }))
-    .forType(BDO.Entities.Types.Recipe, data => ({
-        grade: Getters.Recipes.getGrade(data),
-        process: Getters.Recipes.getProcess(data),
-        mastery: Getters.Recipes.getMastery(data),
-        exp: Getters.Recipes.getExp(data),
-        materials: Getters.Recipes.getMaterials(data),
-        products: Getters.Recipes.getProducts(data),
+    .as(Entities.As.Quest, data => ({
+        type: BDO.Entities.Types.Quest,
+        level: _.Quest.getLevel(data),
+        region: _.Quest.getRegion(data),
+        rewards: _.Quest.getRewards(data),
     }))
-    .forType(BDO.Entities.Types.NPC, data => ({
-        title: Getters.NPCs.getTitle(data),
-        level: Getters.NPCs.getLevel(data),
-        stats: Getters.NPCs.getStats(data),
-        droppedExp: Getters.NPCs.getDroppedExp(data),
-        droppedKarma: Getters.NPCs.getDroppedKarma(data),
+    .as(Entities.As.Recipe, data => ({
+        type: BDO.Entities.Types.Recipe,
+        grade: _.Recipe.getGrade(data),
+        process: _.Recipe.getProcess(data),
+        mastery: _.Craftable.getMastery(data),
+        exp: _.Craftable.getExp(data),
+        materials: _.Craftable.getMaterials(data),
+        products: _.Craftable.getProducts(data),
     }))
-    .create(mode => ({ type: getReturnType(mode) }))
+    .create()

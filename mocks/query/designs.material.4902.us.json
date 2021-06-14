@@ -1,5 +1,6 @@
 [
     {
+        "as": "design",
         "type": "design",
         "id": "8951",
         "name": "Granverre Metal Horseshoe",
@@ -41,6 +42,7 @@
         ]
     },
     {
+        "as": "design",
         "type": "design",
         "id": "9012",
         "name": "[Donkey] Granverre Metal Horseshoe",

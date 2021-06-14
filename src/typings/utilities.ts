@@ -1,3 +1,7 @@
+export type WithFallback<T> = T | 'F'
+
+export type U<T> = T | undefined
+
 export type Range = [number, number]
 
 export type Writeable<T> = { -readonly [P in keyof T]: T[P] }

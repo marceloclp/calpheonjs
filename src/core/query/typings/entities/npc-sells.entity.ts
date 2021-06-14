@@ -1,9 +1,8 @@
 import { BDO } from '@typings/namespaces'
 import { Generic } from './generic.interface'
+import { As } from './as.enum'
 
-export interface NPC extends
-    Generic<BDO.Entities.Types.NPC> {
-    
+export interface NPCSells extends Generic<As.NPCSells> {
     title?: string
 
     level: number

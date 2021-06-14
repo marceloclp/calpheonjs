@@ -1,26 +1,25 @@
-import { BDOCodex } from '@typings/namespaces'
-import { Selectors, BuildableEntity } from '@core/query/typings'
-import { Builder } from '@core/query/builders/builder'
+import { BDO } from '@typings/namespaces'
+import { Entities, Selectors } from '@core/query/typings'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
-import { getTestStore } from './get-test-store'
 import { decomposeFileKey } from './decompose-file-key'
+import { Builder } from '@core/query/builders'
+import { TestStore } from './test-store'
 
-export class TestLoader<BE extends BuildableEntity> {
-    private readonly store = getTestStore<BE>()
-    private keys: string[] = [...this.store.keys]
+export class TestLoader<A extends Entities.As = Entities.As> {
+    private readonly store = new TestStore<A>()
+    private keys = [...this.store.getKeys()]
 
-    /** There may be too many entities on a query. Specify a limit to reduce test times. */
-    private hydrationLevel?: number
-    private entityIds: Record<string, true> = {}
+    private maxDepthLevel = 2
+    private idsLookup = new Map<string, true>()
 
-    filterByReturnType<NBE extends BuildableEntity>(type: NBE) {
+    filterByAs<NA extends Entities.As>(as: NA) {
         this.keys = this.keys.filter(key => {
-            return this.store.mocks[key][0]?.type === type
+            return this.store.getMocksForFile(key)[0]?.as === as
         })
-        return this as unknown as TestLoader<NBE>
+        return this as unknown as TestLoader<NA>
     }
 
-    filterByFileId(id: string) {
+    filterByQueriedId(id: string) {
         this.keys = this.keys.filter(key => {
             return decomposeFileKey(key).id === id
         })
@@ -28,35 +27,42 @@ export class TestLoader<BE extends BuildableEntity> {
     }
 
     filterByEntityId(id: string) {
-        this.entityIds[id] = true
+        this.idsLookup.set(id, true)
         return this
     }
 
-    forHydrationLevel(level: number) {
-        this.hydrationLevel = level
+    withDepthLevelOf(depth: number) {
+        this.maxDepthLevel = depth
         return this
     }
 
     buildTests() {
-        type R = Selectors.ReturnEntity<BE>
-        return this.keys.reduce((tests, key) => {
-            const { mode } = decomposeFileKey(key)
-            const data = JSON.parse(this.store.cache[key].trim()) as
-                BDOCodex.Query.Response<any>
-            
-            const items = !!Object.keys(this.entityIds).length
-                ? data.aaData.filter((_, i) => this.store.mocks[key][i].id in this.entityIds)
-                : data.aaData.slice(0, this.hydrationLevel)
-
-            return tests.concat(items.map((item, i) => [
-                TestLoader.buildTestId(this.store.mocks[key][i]),
-                this.store.mocks[key][i] as R,
-                Builder(mode, item) as unknown as R,
-            ]))
-        }, [] as [string, R, R][])
+        return this.keys
+            .reduce((tests, key) => {
+                return [...tests, ...this.buildTestsFromFile(key)]
+            }, [] as any[])
+            .slice(0, this.maxDepthLevel)
     }
 
-    static buildTestId({ type, id }: { type: BuildableEntity, id: string }) {
-        return buildCodexURL({ type, id }) + ` (ID: ${id})`
+    private buildTestsFromFile(key: string) {
+        type R = Selectors.Entity<A>
+        const tests: [string, R, R][] = []
+        const { mode } = decomposeFileKey(key)
+
+        for (const [i, entity] of this.store.getMocksForFile(key).entries()) {
+            if (this.idsLookup.size && !this.idsLookup.has(entity.id))
+                continue
+            const { id, type } = entity
+
+            const name = TestLoader.buildTestName({ key, id, type })
+            const response = Builder(mode)
+                (this.store.getResponseForFile(key)[i])
+            tests.push([name, entity, response as R])
+        }
+        return tests
+    }
+
+    static buildTestName({ key, id, type }: { key: string, id: string, type: BDO.Entities.Types }) {
+        return `(${key}) ` + buildCodexURL({ id, type })
     }
 }

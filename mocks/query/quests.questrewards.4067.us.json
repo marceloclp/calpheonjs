@@ -1,0 +1,27 @@
+[
+    {
+        "as": "quest",
+        "type": "quest",
+        "id": "2100/34",
+        "name": "Collecting Materials to Upgrade #1",
+        "icon": "/items/quest/00004067.png",
+        "level": 0,
+        "region": "All",
+        "rewards": {
+            "standard": [
+                {
+                    "type": "exp",
+                    "name": "Contribution EXP",
+                    "amount": 90
+                },
+                {
+                    "type": "item",
+                    "id": "4067",
+                    "icon": "/items/new_icon/03_etc/07_productmaterial/00004067.png",
+                    "amount": 2
+                }
+            ],
+            "choseOneOf": []
+        }
+    }
+]

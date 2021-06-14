@@ -1,5 +1,6 @@
 [
     {
+        "as": "recipe",
         "type": "recipe",
         "id": "141",
         "name": "Boiled Bird Eggs",

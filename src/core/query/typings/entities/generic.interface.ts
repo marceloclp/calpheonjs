@@ -1,13 +1,15 @@
-import { BDO } from '@typings/namespaces'
+import { Selectors } from '../index'
+import { As } from './as.enum'
 
-export interface Generic<
-    T extends BDO.Entities.Types = BDO.Entities.Types,
-> {
+export interface Generic<A extends As = As> {
     /** All entities must have an id. */
     id: string
 
-    /** The type defines which properties the entity has. */
-    type: T
+    /** Defines which properties the entity has in runtime. */
+    as: A
+
+    /** The type of entity that will be returned on scrape(). */
+    type: Selectors.BDOType<A>
 
     /** All entities have a name. */
     name: string

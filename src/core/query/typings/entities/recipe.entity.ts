@@ -1,26 +1,11 @@
 import { BDO } from '@typings/namespaces'
 import { Generic } from './generic.interface'
-import { Craftable } from './craftable.interface'
+import { RankedCraftable } from './craftable.interface'
+import { As } from './as.enum'
 
-export interface Recipe extends
-    Generic<BDO.Entities.Types.Recipe>, Craftable {
-
+export interface Recipe extends Generic<As.Recipe>, RankedCraftable {
     grade: BDO.Grade
 
     /** The process used to craft this recipe (alchemy, cooking, guild processing). */
     process: BDO.LifeSkills.Recipes.Processes
-
-    /**
-     * The life skill level required to craft this recipe.
-     * Note that a recipe of category 'alchemy' means the skill level refers
-     * to the alchemy life skill as well. This field won't be available for
-     * guild processing recipes.
-     */
-    mastery?: BDO.LifeSkills.Mastery
-
-    /**
-     * The experience received on successful craft. Some processes, such as
-     * simple alchemy and simple cooking do not give EXP.
-     */
-    exp: number
 }

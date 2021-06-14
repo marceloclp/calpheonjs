@@ -1,10 +1,10 @@
-import { BDO } from '@typings/namespaces'
-import { TestLoader } from '@core/query/tests/utils/test-loader'
+import { Entities } from '../typings'
+import { TestLoader } from '../tests/utils/test-loader'
 
 describe('Query > Builders > Processing', () => {
     const tests = new TestLoader()
-        .filterByReturnType(BDO.Entities.Types.Processing)
-        .forHydrationLevel(1)
+        .filterByAs(Entities.As.Processing)
+        .withDepthLevelOf(3)
         .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('grade', () => {

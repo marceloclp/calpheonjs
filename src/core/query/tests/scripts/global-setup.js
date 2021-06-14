@@ -1,8 +1,8 @@
 const fs = require('fs/promises')
 const path = require('path')
 const fetch = require('node-fetch')
-const { QueryURL } = require('../../utils/query-url')
 const { decomposeFileKey } = require('../utils/decompose-file-key')
+const { composeQueryURL } = require('../utils/compose-query-url')
 
 module.exports = async function() {
     const BASE_DIR = path.join(__dirname, '../../../../../')
@@ -19,7 +19,7 @@ module.exports = async function() {
             await fs.readFile(__path, { encoding: 'utf-8' })
         } catch {
             const args = decomposeFileKey(key)
-            const url = QueryURL.compose(args)
+            const url = composeQueryURL(args)
             const response = await fetch(url)
             await fs.writeFile(__path, await response.text())
         }

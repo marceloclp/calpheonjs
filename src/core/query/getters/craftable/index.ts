@@ -1,6 +1,4 @@
 export * from './exp.getter'
-export * from './grade.getter'
 export * from './mastery.getter'
 export * from './materials.getter'
-export * from './process.getter'
 export * from './products.getter'

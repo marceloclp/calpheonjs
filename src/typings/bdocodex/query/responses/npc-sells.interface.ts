@@ -1,6 +1,6 @@
 import { SortRow } from '../sort-row.interface'
 
-export interface NPC {
+export interface NPCSells {
     /** NPC id. */
     readonly 0: SortRow
 

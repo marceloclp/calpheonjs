@@ -1,5 +1,6 @@
 [
     {
+        "as": "recipe",
         "type": "recipe",
         "id": "325",
         "name": "Oil of the Abyss",

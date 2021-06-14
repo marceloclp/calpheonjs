@@ -1,37 +1,14 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { BuildableEntity, Entities, Modes } from '.'
-
-/**
- * Maps the query mode to the corresponding entity type that
- * will be returned from the query.
- * 
- * Many modes may map to the same return type.
- * 
- * For example, a recipe material and a recipe product will
- * both map to a return type of recipes.
- */
-export type ReturnType<M extends Modes | 'F' = 'F'> = {
-    [Modes.QuestReward]: BDO.Entities.Types.Quest
-    [Modes.RecipeMaterial]: BDO.Entities.Types.Recipe
-    [Modes.RecipeProduct]: BDO.Entities.Types.Recipe
-    [Modes.ProcessingMaterial]: BDO.Entities.Types.Processing
-    [Modes.ProcessingProduct]: BDO.Entities.Types.Processing
-    [Modes.DesignMaterial]: BDO.Entities.Types.Design
-    [Modes.DesignProduct]: BDO.Entities.Types.Design
-    [Modes.SoldByNPC]: BDO.Entities.Types.NPC
-    F: BDO.Entities.Types
-}[M]
+import { WithFallback } from '@typings/utilities'
+import { Entities, Modes } from './index'
 
 /**
  * Maps the query mode to the corresponding entity type that is
  * used to perform the query.
  * 
  * Many modes may map to the same queried type.
- * 
- * For example, both recipe materials and quest rewards receive
- * items as the queried types.
  */
-export type QueriedType<M extends Modes | 'F' = 'F'> = {
+export type QueriedType<M extends Modes = Modes> = {
     [Modes.QuestReward]: BDO.Entities.Types.Item
     [Modes.RecipeMaterial]: BDO.Entities.Types.Item
     [Modes.RecipeProduct]: BDO.Entities.Types.Item
@@ -40,31 +17,69 @@ export type QueriedType<M extends Modes | 'F' = 'F'> = {
     [Modes.DesignMaterial]: BDO.Entities.Types.Item
     [Modes.DesignProduct]: BDO.Entities.Types.Item
     [Modes.SoldByNPC]: BDO.Entities.Types.Item
-    F: BDO.Entities.Types
+    [Modes.DroppedByNPC]: BDO.Entities.Types.Item
 }[M]
 
 /**
- * Maps the buildable entity types to their corresponding
- * entity interfaces.
+ * Maps the query mode to the corresponding entity type that is
+ * returned from the query, which is used to check the shape of
+ * the entity object in runtime.
+ * 
+ * Many modes may map to the same return type.
  */
-export type ReturnEntity<BE extends BuildableEntity | 'F' = 'F'> = {
-    [BDO.Entities.Types.Quest]: Entities.Quest
-    [BDO.Entities.Types.Recipe]: Entities.Recipe
-    [BDO.Entities.Types.Processing]: Entities.Processing
-    [BDO.Entities.Types.Design]: Entities.Design
-    [BDO.Entities.Types.NPC]: Entities.NPC
-    F: Entities.Generic
-}[BE]
+export type ReturnedAs<M extends Modes = Modes> = {
+    [Modes.QuestReward]: Entities.As.Quest
+    [Modes.RecipeMaterial]: Entities.As.Recipe
+    [Modes.RecipeProduct]: Entities.As.Recipe
+    [Modes.ProcessingMaterial]: Entities.As.Processing
+    [Modes.ProcessingProduct]: Entities.As.Processing
+    [Modes.DesignMaterial]: Entities.As.Design
+    [Modes.DesignProduct]: Entities.As.Design
+    [Modes.SoldByNPC]: Entities.As.NPCSells
+    [Modes.DroppedByNPC]: Entities.As.NPCDrops
+}[M]
 
 /**
- * Maps the expected entity type to the corresponding
- * query response interface.
+ * Maps the query mode to the corresponding type of entity that
+ * will be returned on the response.
+ * 
+ * The returned entity type, unlike the scraper, does not define
+ * the type of properties contained on the object.
+ * 
+ * This is used to strongly type the scrape method of the returned
+ * objects when the type is known.
  */
-export type Response<BE extends BuildableEntity | 'F' = 'F'> = {
-    [BDO.Entities.Types.Quest]: BDOCodex.Query.Responses.Quest
-    [BDO.Entities.Types.Recipe]: BDOCodex.Query.Responses.Recipe
-    [BDO.Entities.Types.Processing]: BDOCodex.Query.Responses.Processing
-    [BDO.Entities.Types.Design]: BDOCodex.Query.Responses.Design
-    [BDO.Entities.Types.NPC]: BDOCodex.Query.Responses.NPC
+export type BDOType<A extends Entities.As = Entities.As> = {
+    [Entities.As.Recipe]: BDO.Entities.Types.Recipe
+    [Entities.As.Processing]: BDO.Entities.Types.Processing
+    [Entities.As.Design]: BDO.Entities.Types.Design
+    [Entities.As.NPCDrops]: BDO.Entities.Types.NPC
+    [Entities.As.NPCSells]: BDO.Entities.Types.NPC
+    [Entities.As.Quest]: BDO.Entities.Types.Quest
+}[A]
+
+export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
+    [Entities.As.Recipe]: Entities.Recipe
+    [Entities.As.Processing]: Entities.Processing
+    [Entities.As.Design]: Entities.Design
+    [Entities.As.NPCDrops]: Entities.Generic
+    [Entities.As.NPCSells]: Entities.NPCSells
+    [Entities.As.Quest]: Entities.Quest
+    F: Entities.Generic
+}[A]
+
+/**
+ * Maps the query mode to the corresponding response from the
+ * scraped query url.
+ * 
+ * Many modes may map to the same type of response.
+ */
+ export type Response<A extends WithFallback<Entities.As> = 'F'> = {
+    [Entities.As.Recipe]: BDOCodex.Query.Responses.Recipe
+    [Entities.As.Processing]: BDOCodex.Query.Responses.Processing
+    [Entities.As.Design]: BDOCodex.Query.Responses.Design
+    [Entities.As.NPCDrops]: BDOCodex.Query.Responses.Generic
+    [Entities.As.NPCSells]: BDOCodex.Query.Responses.NPCSells
+    [Entities.As.Quest]: BDOCodex.Query.Responses.Quest
     F: BDOCodex.Query.Responses.Generic
-}[BE]
+}[A]

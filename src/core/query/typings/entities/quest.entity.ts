@@ -1,9 +1,8 @@
 import { BDO } from '@typings/namespaces'
 import { Generic } from './generic.interface'
+import { As } from './as.enum'
 
-export interface Quest extends
-    Generic<BDO.Entities.Types.Quest> {
-
+export interface Quest extends Generic<As.Quest> {
     /** A quest may have a minimum required level to be accepted by the player. */
     level: number
 
