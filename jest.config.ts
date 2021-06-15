@@ -1,11 +1,16 @@
 import { Config } from '@jest/types'
-import mapPaths from './scripts/jest-path-mapper'
-import loadStore from './scripts/jest-store-loader'
+import tsConfig from './tsconfig.json'
+import loadStore from './scripts/load-store'
 
 export default (): Config.InitialOptions => ({
   preset: 'ts-jest',
   testEnvironment: 'node',
-  moduleNameMapper: mapPaths(),
+  moduleNameMapper: Object
+    .entries(tsConfig.compilerOptions.paths)
+    .reduce((paths, [alias, [path]]) => Object.assign(paths, {
+      [`^${alias.replace('*', '(.*)$')}`]:
+        `<rootDir>/${path.replace('*', '$1')}`
+    }), {}),
   resolver: undefined,
   rootDir: './src',
   globals: {

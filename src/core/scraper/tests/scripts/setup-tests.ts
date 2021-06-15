@@ -15,15 +15,15 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
 );
 
 (async function() {
-    const root = path.join(__dirname, '../../../../../')
-    const mocks = path.join(root, 'mocks/scraper')
-    const cache = path.join(root, 'cache/scraper')
+    const rootDir = path.join(__dirname, '../../../../../')
+    const mocksDir = path.join(rootDir, 'mocks/scraper')
+    const cacheDir = path.join(rootDir, 'cache/scraper')
 
     const keys = await fs
-        .readdir(mocks, { encoding: 'utf-8' })
+        .readdir(mocksDir, { encoding: 'utf-8' })
         .then(keys => keys.map(k => k.split('.').slice(0, -1).join('.')))
     const missing = await fs
-        .readdir(cache, { encoding: 'utf-8' })
+        .readdir(cacheDir, { encoding: 'utf-8' })
         .then(arr => keys.length - arr.length)
     if (missing === 0) return
     
@@ -33,7 +33,7 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
     )
     
     await Promise.all(keys.map(async key => {
-        const filePath = path.join(cache, key + '.txt')
+        const filePath = path.join(cacheDir, key + '.txt')
         try {
             await fs.access(filePath)
             logFile(key, 'F')
