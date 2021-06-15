@@ -8,6 +8,9 @@ export enum Modes {
     RecipeMaterial = 'recipeMaterial',
     RecipeProduct = 'recipeProduct',
 
+    PatternMaterial = 'patternMaterial',
+    PatternProduct = 'patternProduct',
+
     ProcessingMaterial = 'processingMaterial',
     ProcessingProduct = 'processingProduct',
 

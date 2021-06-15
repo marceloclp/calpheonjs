@@ -6,6 +6,7 @@ export enum Types {
     Quest = 'quest',
     Recipe = 'recipe',
     Processing = 'processing',
+    Pattern = 'pattern',
     Design = 'design',
     WorkerSkill = 'workerSkill',
 }

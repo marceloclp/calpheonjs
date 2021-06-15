@@ -12,8 +12,8 @@ export const Builder = CreateBuilder
     .as(Entities.As.Design, data => ({
         type: BDO.Entities.Types.Design,
         grade: _.Design.getGrade(data),
-        materials: _.Craftable.getMaterials(data),
-        products: _.Design.getProducts(data),
+        materials: _.Craftable.getItems(data, 6),
+        products: _.Craftable.getItems(data, 7),
     }))
     .as(Entities.As.NPCSells, data => ({
         type: BDO.Entities.Types.NPC,
@@ -23,14 +23,19 @@ export const Builder = CreateBuilder
         droppedExp: _.NPCSells.getDroppedExp(data),
         droppedKarma: _.NPCSells.getDroppedKarma(data),
     }))
+    .as(Entities.As.Pattern, data => ({
+        type: BDO.Entities.Types.Pattern,
+        materials: _.Craftable.getItems(data, 3),
+        products: _.Craftable.getItems(data, 4),
+    }))
     .as(Entities.As.Processing, data => ({
         type: BDO.Entities.Types.Processing,
         grade: _.Processing.getGrade(data),
         process: _.Processing.getProcess(data),
         mastery: _.Craftable.getMastery(data),
         exp: _.Craftable.getExp(data),
-        materials: _.Craftable.getMaterials(data),
-        products: _.Craftable.getProducts(data),
+        materials: _.Craftable.getItems(data, 6),
+        products: _.Craftable.getItems(data, 7),
     }))
     .as(Entities.As.Quest, data => ({
         type: BDO.Entities.Types.Quest,
@@ -44,7 +49,7 @@ export const Builder = CreateBuilder
         process: _.Recipe.getProcess(data),
         mastery: _.Craftable.getMastery(data),
         exp: _.Craftable.getExp(data),
-        materials: _.Craftable.getMaterials(data),
-        products: _.Craftable.getProducts(data),
+        materials: _.Craftable.getItems(data, 6),
+        products: _.Craftable.getItems(data, 7),
     }))
     .create()

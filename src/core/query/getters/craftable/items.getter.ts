@@ -5,8 +5,8 @@ import { substrOf } from '@helpers/utils/substr-of'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
 
-export const getMaterials: Getter<'materials'> = (data) => {
-    const $ = cheerio.load('<div>' + data[6] + '</div>')
+export const getItems: Getter<'materials' | 'products', number> = (data, index) => {
+    const $ = cheerio.load('<div>' + data[index || 0] + '</div>')
 
     return $('.iconset_wrapper_medium').toArray().map(elem => {
         const { id, type } = ShortURL.decompose(

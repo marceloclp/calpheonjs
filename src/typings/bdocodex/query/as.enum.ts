@@ -15,4 +15,5 @@ export enum As {
     Drop = 'drop',
     Quest = 'quests',
     NPC = 'npcs',
+    Pattern = 'puzzles',
 }

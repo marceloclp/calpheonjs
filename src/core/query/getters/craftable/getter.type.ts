@@ -1,4 +1,4 @@
 import { Entities, Selectors } from '../../typings'
 
-export type Getter<K extends keyof Entities.RankedCraftable> =
-    (data: Selectors.Response) => Entities.RankedCraftable[K]
+export type Getter<K extends keyof Entities.RankedCraftable, E = never> =
+    (data: Selectors.Response, extra?: E) => Entities.RankedCraftable[K]

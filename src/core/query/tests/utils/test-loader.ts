@@ -12,9 +12,9 @@ export class TestLoader<A extends Entities.As = Entities.As> {
     private maxDepthLevel = 2
     private idsLookup = new Map<string, true>()
 
-    filterByAs<NA extends Entities.As>(as: NA) {
+    filterByAs<NA extends Entities.As>(_as: NA) {
         this.keys = this.keys.filter(key => {
-            return this.store.getMocksForFile(key)[0]?.as === as
+            return this.store.getMocksForFile(key)[0]?.as === _as
         })
         return this as unknown as TestLoader<NA>
     }

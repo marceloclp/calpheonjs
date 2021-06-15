@@ -4,6 +4,7 @@
  */
 export enum As {
     Recipe = 'recipe',
+    Pattern = 'pattern',
     Processing = 'processing',
     Design = 'design',
     NPCDrops = 'npcDrops',

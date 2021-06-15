@@ -1,6 +1,7 @@
 export * from './as.enum'
 export * from './design.entity'
 export * from './npc-sells.entity'
+export * from './pattern.entity'
 export * from './processing.entity'
 export * from './quest.entity'
 export * from './recipe.entity'

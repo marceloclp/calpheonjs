@@ -1,0 +1,186 @@
+[
+    {
+        "as": "pattern",
+        "type": "pattern",
+        "id": "96",
+        "name": "Pattern 96",
+        "icon": "/images/icon_puzzle.png",
+        "materials": [
+            {
+                "type": "item",
+                "id": "44277",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4456",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004456.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44279",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4453",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004453.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44278",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4459",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004459.png",
+                "amount": 1
+            }
+        ],
+        "products": []
+    },
+    {
+        "as": "pattern",
+        "type": "pattern",
+        "id": "223",
+        "name": "Pattern 223",
+        "icon": "/images/icon_puzzle.png",
+        "materials": [
+            {
+                "type": "item",
+                "id": "44277",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4456",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004456.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44418",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044418.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4453",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004453.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44278",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4459",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004459.png",
+                "amount": 1
+            }
+        ],
+        "products": []
+    },
+    {
+        "as": "pattern",
+        "type": "pattern",
+        "id": "224",
+        "name": "Pattern 224",
+        "icon": "/images/icon_puzzle.png",
+        "materials": [
+            {
+                "type": "item",
+                "id": "44277",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4456",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004456.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44279",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4453",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004453.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44417",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044417.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4459",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004459.png",
+                "amount": 1
+            }
+        ],
+        "products": []
+    },
+    {
+        "as": "pattern",
+        "type": "pattern",
+        "id": "225",
+        "name": "Pattern 225",
+        "icon": "/images/icon_puzzle.png",
+        "materials": [
+            {
+                "type": "item",
+                "id": "44277",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4456",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004456.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44418",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044418.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4453",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004453.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "44417",
+                "icon": "/items/new_icon/03_etc/04_dropitem/00044417.png",
+                "amount": 1
+            },
+            {
+                "type": "item",
+                "id": "4459",
+                "icon": "/items/new_icon/03_etc/07_productmaterial/00004459.png",
+                "amount": 1
+            }
+        ],
+        "products": []
+    }
+]

@@ -12,6 +12,8 @@ export type QueriedType<M extends Modes = Modes> = {
     [Modes.QuestReward]: BDO.Entities.Types.Item
     [Modes.RecipeMaterial]: BDO.Entities.Types.Item
     [Modes.RecipeProduct]: BDO.Entities.Types.Item
+    [Modes.PatternMaterial]: BDO.Entities.Types.Pattern
+    [Modes.PatternProduct]: BDO.Entities.Types.Pattern
     [Modes.ProcessingMaterial]: BDO.Entities.Types.Item
     [Modes.ProcessingProduct]: BDO.Entities.Types.Item
     [Modes.DesignMaterial]: BDO.Entities.Types.Item
@@ -31,6 +33,8 @@ export type ReturnedAs<M extends Modes = Modes> = {
     [Modes.QuestReward]: Entities.As.Quest
     [Modes.RecipeMaterial]: Entities.As.Recipe
     [Modes.RecipeProduct]: Entities.As.Recipe
+    [Modes.PatternMaterial]: Entities.As.Pattern
+    [Modes.PatternProduct]: Entities.As.Pattern
     [Modes.ProcessingMaterial]: Entities.As.Processing
     [Modes.ProcessingProduct]: Entities.As.Processing
     [Modes.DesignMaterial]: Entities.As.Design
@@ -48,6 +52,7 @@ export type ReturnedAs<M extends Modes = Modes> = {
  */
 export type BDOType<A extends Entities.As = Entities.As> = {
     [Entities.As.Recipe]: BDO.Entities.Types.Recipe
+    [Entities.As.Pattern]: BDO.Entities.Types.Pattern
     [Entities.As.Processing]: BDO.Entities.Types.Processing
     [Entities.As.Design]: BDO.Entities.Types.Design
     [Entities.As.NPCDrops]: BDO.Entities.Types.NPC
@@ -57,6 +62,7 @@ export type BDOType<A extends Entities.As = Entities.As> = {
 
 export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Recipe]: Entities.Recipe
+    [Entities.As.Pattern]: Entities.Pattern
     [Entities.As.Processing]: Entities.Processing
     [Entities.As.Design]: Entities.Design
     [Entities.As.NPCDrops]: Entities.Generic
@@ -73,6 +79,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
  */
  export type Response<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Recipe]: BDOCodex.Query.Responses.Recipe
+    [Entities.As.Pattern]: BDOCodex.Query.Responses.Pattern
     [Entities.As.Processing]: BDOCodex.Query.Responses.Processing
     [Entities.As.Design]: BDOCodex.Query.Responses.Design
     [Entities.As.NPCDrops]: BDOCodex.Query.Responses.Generic
