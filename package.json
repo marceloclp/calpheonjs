@@ -14,19 +14,20 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
+    "tsnode": "node --require ts-node/register --require tsconfig-paths/register",
     "dev": "nodemon src/index.ts",
     "watch": "tsc --watch",
     "build": "tsc",
     "start": "node ./dist/index.js",
+    "pretest": "npm run tsnode ./scripts/setup-tests.ts",
     "test": "jest",
-    "test:getters": "npm t src/core/scraper/getters",
-    "test:builders": "npm t src/core/scraper/builders",
     "prepublish": "tsc"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.18",
     "@types/jest": "^26.0.20",
     "@types/node-fetch": "^2.5.8",
+    "chalk": "^4.1.1",
     "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "ts-jest": "^26.5.3",
