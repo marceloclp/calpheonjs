@@ -1,5 +1,0 @@
-export * as Consumables from './consumables'
-export * as Equipments from './equipments'
-export * from './prices.getter'
-export * from './sub-type.getter'
-export * from './weight.getter'

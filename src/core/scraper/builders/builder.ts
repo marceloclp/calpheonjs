@@ -1,88 +1,96 @@
-import { BDO } from '@typings/namespaces'
-import { CreateBuilder } from '@helpers/utils/create-builder'
-import { ScraperBuilder } from '../typings/scraper-builder.interface'
-import * as Getters from '../getters'
+import { Entities } from '../typings'
+import { CreateBuilder } from '../utils/create-builder'
+import { getReturnedAs } from '../utils/get-returned-as'
+import { Getters as _ } from '../getters'
 
-export const Builder = CreateBuilder<ScraperBuilder>()
-    .forGeneric(args => ({
+export const Builder = CreateBuilder
+    .with(args => ({
+        as: getReturnedAs(args.type),
         id: args.id,
-        icon: Getters.getIcon(args),
-        name: Getters.getName(args),
-        nameAlternative: Getters.getNameAlt(args),
-        description: Getters.getDescription(args),
+        icon: _.Generic.getIcon(args),
+        name: _.Generic.getName(args),
+        description: _.Generic.getDescription(args),
+        nameAlternative: _.Generic.getNameAlt(args),
+        type: args.type,
     }))
-    .forType(BDO.Entities.Types.Item, args => ({
-        subType: Getters.Items.getSubType(args),
-        grade: Getters.getGrade(args),
-        prices: Getters.Items.getPrices(args),
-        weight: Getters.Items.getWeight(args),
+    .as(Entities.As.Item, (args, subType = _.Item.getSubType(args)) => ({
+        as: _.Item.getReturnedAs(subType),
+        subType,
+        grade: _.Gradeable.getGrade(args),
+        prices: _.Item.getPrices(args),
+        weight: _.Item.getWeight(args),
     }))
-    .forSubType(BDO.Items.SubTypes.Consumable, args => ({
-        effects: Getters.Items.Consumables.getEffects(args),
-        duration: Getters.Items.Consumables.getDuration(args),
-        cooldown: Getters.Items.Consumables.getCooldown(args),
+    .extend(Entities.As.ItemConsumable, args => ({
+        effects: _.ItemConsumable.getEffects(args),
+        duration: _.ItemConsumable.getDuration(args),
+        cooldown: _.ItemConsumable.getCooldown(args),
     }))
-    .forSubType(BDO.Items.SubTypes.Equipment, args => ({
-        enhancements: Getters.Items.Equipments.getEnhancements(args),
-        caphras: Getters.Items.Equipments.getCaphras(args),
-        exclusiveTo: Getters.Items.Equipments.getExclusiveTo(args),
-        fairyExp: Getters.Items.Equipments.getFairyExp(args),
+    .extend(Entities.As.ItemEquipment, args => ({
+        enhancements: _.ItemEquipment.getEnhancements(args),
+        caphras: _.ItemEquipment.getCaphras(args),
+        exclusiveTo: _.ItemEquipment.getExclusiveTo(args),
+        fairyExp: _.ItemEquipment.getFairyExp(args),
     }))
-    .forType(BDO.Entities.Types.Knowledge, args => ({
-        group: Getters.Knowledge.getGroup(args),
-        obtainedFrom: Getters.Knowledge.getObtainedFrom(args),
+    .as(Entities.As.Knowledge, args => ({
+        as: Entities.As.Knowledge,
+        group: _.Knowledge.getGroup(args),
+        obtainedFrom: _.Knowledge.getObtainedFrom(args),
     }))
-    .forType(BDO.Entities.Types.MaterialGroup, args => ({
-        type: BDO.Entities.Types.MaterialGroup,
-        icon: Getters.MaterialGroup.getItems(args)[0].icon,
-        items: Getters.MaterialGroup.getItems(args),
+    .as(Entities.As.MaterialGroup, args => ({
+        as: Entities.As.MaterialGroup,
+        icon: _.MaterialGroup.getItems(args)[0].icon,
+        items: _.MaterialGroup.getItems(args),
     }))
-    .forType(BDO.Entities.Types.NPC, args => ({
-        subType: Getters.NPCs.getSubType(args),
-        grade: Getters.getGrade(args),
+    .as(Entities.As.NPC, (args, subType = _.NPC.getSubType(args)) => ({
+        as: _.NPC.getReturnedAs(subType),
+        subType,
+        grade: _.Gradeable.getGrade(args),
     }))
-    .forSubType(BDO.NPCs.SubTypes.Worker, args => ({
-        sellable: Getters.NPCs.Workers.getSellable(args),
-        stamina: Getters.NPCs.Workers.getStamina(args),
-        levels: Getters.NPCs.Workers.getLevels(args),
-        statsGrowth: Getters.NPCs.Workers.getGrowth(args),
-        obtainedFrom: Getters.NPCs.Workers.getObtainedFrom(args),
-        acquireChanceTable: Getters.NPCs.Workers.getSkillsChance(args),
-        personalSkill: Getters.NPCs.Workers.getPersonalSkill(args),
+    .extend(Entities.As.NPCOther, args => ({
+        group: _.NPCOther.getGroup(args),
+        level: _.NPCOther.getLevel(args),
+        stats: _.NPCOther.getStats(args),
+        mobType: _.NPCOther.getMobType(args),
+        knowledge: _.NPCOther.getDroppedKnowledge(args),
+        droppedExp: _.NPCOther.getDroppedExp(args),
+        droppedKarma: _.NPCOther.getDroppedKarma(args),
     }))
-    .forSubType(BDO.NPCs.SubTypes.Other, args => ({
-        group: Getters.NPCs.Others.getGroup(args),
-        level: Getters.NPCs.Others.getLevel(args),
-        stats: Getters.NPCs.Others.getStats(args),
-        mobType: Getters.NPCs.Others.getMobType(args),
-        knowledge: Getters.NPCs.Others.getDroppedKnowledge(args),
-        droppedExp: Getters.NPCs.Others.getDroppedExp(args),
-        droppedKarma: Getters.NPCs.Others.getDroppedKarma(args),
+    .extend(Entities.As.NPCWorker, args => ({
+        sellable: _.NPCWorker.getSellable(args),
+        stamina: _.NPCWorker.getStamina(args),
+        levels: _.NPCWorker.getLevels(args),
+        statsGrowth: _.NPCWorker.getGrowth(args),
+        obtainedFrom: _.NPCWorker.getObtainedFrom(args),
+        acquireChanceTable: _.NPCWorker.getSkillsChance(args),
+        personalSkill: _.NPCWorker.getPersonalSkill(args),
     }))
-    .forType(BDO.Entities.Types.Processing, args => ({
-        materials: Getters.Crafting.getMaterials(args),
-        products: Getters.Crafting.getProducts(args),
-        process: Getters.Processing.getProcess(args),
-        exp: Getters.Crafting.getExp(args),
-        mastery: Getters.Crafting.getMastery(args),
+    .as(Entities.As.Processing, args => ({
+        as: Entities.As.Processing,
+        process: _.Processing.getProcess(args),
+        materials: _.Craftable.getMaterials(args),
+        products: _.Craftable.getProducts(args),
+        exp: _.Craftable.getExp(args),
+        mastery: _.Craftable.getMastery(args),
     }))
-    .forType(BDO.Entities.Types.Quest, args => ({
-        grade: Getters.getGrade(args),
-        category: Getters.Quests.getCategory(args),
-        group: Getters.Quests.getGroup(args),
-        region: Getters.Quests.getRegion(args),
-        level: Getters.Quests.getLevel(args),
-        chain: Getters.Quests.getChain(args),
-        startNPC: Getters.Quests.getStartNPC(args),
-        endNPC: Getters.Quests.getEndNPC(args),
-        story: Getters.Quests.getStory(args),
-        rewards: Getters.Quests.getRewards(args),
+    .as(Entities.As.Quest, args => ({
+        as: Entities.As.Quest,
+        grade: _.Gradeable.getGrade(args),
+        category: _.Quest.getCategory(args),
+        group: _.Quest.getGroup(args),
+        region: _.Quest.getRegion(args),
+        level: _.Quest.getLevel(args),
+        chain: _.Quest.getChain(args),
+        startNPC: _.Quest.getStartNPC(args),
+        endNPC: _.Quest.getEndNPC(args),
+        story: _.Quest.getStory(args),
+        rewards: _.Quest.getRewards(args),
     }))
-    .forType(BDO.Entities.Types.Recipe, args => ({
-        materials: Getters.Crafting.getMaterials(args),
-        products: Getters.Crafting.getProducts(args),
-        process: Getters.Recipes.getProcess(args),
-        exp: Getters.Crafting.getExp(args),
-        mastery: Getters.Crafting.getMastery(args),
+    .as(Entities.As.Recipe, args => ({
+        as: Entities.As.Recipe,
+        process: _.Recipe.getProcess(args),
+        materials: _.Craftable.getMaterials(args),
+        products: _.Craftable.getProducts(args),
+        exp: _.Craftable.getExp(args),
+        mastery: _.Craftable.getMastery(args),
     }))
-    .create(type => ({ type }))
+    .create()

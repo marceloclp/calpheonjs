@@ -1,17 +1,15 @@
-import { BDO } from '@typings/namespaces'
+import { Selectors } from '../index'
+import { As } from './as.enum'
 
-export interface Generic<
-    T extends BDO.Entities.Types = any,
-    S extends BDO.Entities.SubType<T> = BDO.Entities.SubType<T>
-> {
+export interface Generic<A extends As = As> {
+    /** Defines which properties the entity has in runtime. */
+    as: A
+
     /** All entities must have an id. */
     id: string
 
-    /** The type allows checking in runtime which type of entity it is. */
-    type: T
-
-    /** The sub type further defines an entity and its properties. */
-    subType: S
+    /** The type of entity returned. */
+    type: Selectors.BDOType<A>
 
     /** All entities have an icon. */
     icon: string

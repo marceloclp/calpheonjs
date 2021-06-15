@@ -1,10 +1,9 @@
-import { BDO } from '@typings/namespaces'
-import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { expect } from '@tests/utils/expect'
+import { TestLoader } from '../tests/utils/test-loader'
+import { Entities } from '../typings'
 
-describe('Scraper: Processing', () => {
+describe('Scraper > Processing', () => {
     const tests = new TestLoader()
-        .filterByType(BDO.Entities.Types.Processing)
+        .filterByAs(Entities.As.Processing)
         .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('getIcon()', () => {
@@ -17,10 +16,10 @@ describe('Scraper: Processing', () => {
             expect(received.nameAlternative).toBe(expected.nameAlternative)
         })
         it('getMaterials()', () => {
-            expect(received.materials).toMatch(expected.materials)
+            expect(received.materials).toEqual(expected.materials)
         })
         it('getProducts()', () => {
-            expect(received.materials).toMatch(expected.materials)
+            expect(received.materials).toEqual(expected.materials)
         })
         it('getProcess()', () => {
             expect(received.process).toBe(expected.process)
@@ -29,7 +28,7 @@ describe('Scraper: Processing', () => {
             expect(received.exp).toBe(expected.exp)
         })
         it('getMastery()', () => {
-            expect(received.mastery).toMatch(expected.mastery)
+            expect(received.mastery).toEqual(expected.mastery)
         })
     })
 })

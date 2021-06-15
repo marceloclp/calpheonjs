@@ -1,4 +1,5 @@
 {
+    "as": "itemConsumable",
     "id": "643",
     "icon": "/items/new_icon/03_etc/08_potion/00000643.png",
     "name": "[Party] Elixir of Resistance",

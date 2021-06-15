@@ -1,51 +1,46 @@
 import cheerio from 'cheerio'
-import { BDO } from '@typings/namespaces'
-import { Entities, ScrapableEntity } from '@core/scraper/typings'
-// import { Builder } from '@core/scraper/utils/builder'
+import { App, BDO } from '@typings/namespaces'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
-import { getTestStore } from './get-test-store'
+import { Entities, Selectors } from '@core/scraper/typings'
+import { Builder } from '@core/scraper/builders'
+import { TestStore } from './test-store'
 import { decomposeFileKey } from './decompose-file-key'
-import { Builder } from '@core/scraper/builders/builder'
 
-export class TestLoader<
-    T extends ScrapableEntity,
-    S extends BDO.Entities.SubType<T> = BDO.Entities.SubType<T>,
-> {
-    private readonly store = getTestStore<T>()
-    private keys: string[] = [...this.store.keys]
+export class TestLoader<A extends Entities.As> {
+    private readonly store = new TestStore<A>()
+    private keys = [...this.store.getKeys()]
 
-    filterByType<NT extends ScrapableEntity>(type: NT) {
+    filterByAs<NA extends Entities.As>(_as: NA) {
         this.keys = this.keys.filter(key => {
-            return this.store.mocks[key].type === type
+            return this.store.getMockForFile(key).as === _as
         })
-        return this as unknown as TestLoader<NT>
-    }
-
-    filterBySubType<NS extends BDO.Entities.SubType<T>>(subType: NS) {
-        this.keys = this.keys.filter(key => {
-            return this.store.mocks[key].subType === subType
-        })
-        return this as unknown as TestLoader<T, NS>
+        return this as unknown as TestLoader<NA>
     }
 
     filterById(id: string) {
         this.keys = this.keys.filter(key => {
-            return this.store.mocks[key].id === id
+            return this.store.getMockForFile(key).id === id
         })
         return this
     }
 
     buildTests() {
-        type R = Entities.Select<T, S>
+        type R = Selectors.Entity<A>
         return this.keys.map(key => {
             const { locale, type, id } = decomposeFileKey(key)
-            const $ = cheerio.load(this.store.cache[key])
-            return [
-                buildCodexURL({ locale, type, id }),
-                this.store.mocks[key],
-                Builder(type as T, { $, locale, type: type as T, id })
-                // builder.build({ $, locale, type: type as T, id }),
-            ] as unknown as [string, R, R]
+            const $ = cheerio.load(this.store.getResponseForFile(key))
+            const name = TestLoader.buildTestName({ locale, type, id })
+            const mock = this.store.getMockForFile(key) as R
+            const entity = Builder(type)({ $, locale, type, id }) as R
+            return [name, mock, entity] as [string, R, R]
         })
+    }
+
+    static buildTestName({ locale, type, id }: {
+        locale: App.Locales,
+        type: BDO.Entities.Types,
+        id: string
+    }) {
+        return buildCodexURL({ locale, type, id })
     }
 }

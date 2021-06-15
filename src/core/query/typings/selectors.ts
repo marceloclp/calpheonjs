@@ -43,9 +43,6 @@ export type ReturnedAs<M extends Modes = Modes> = {
  * Maps the query mode to the corresponding type of entity that
  * will be returned on the response.
  * 
- * The returned entity type, unlike the scraper, does not define
- * the type of properties contained on the object.
- * 
  * This is used to strongly type the scrape method of the returned
  * objects when the type is known.
  */

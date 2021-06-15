@@ -1,7 +1,7 @@
-import { Entities } from '@core/scraper/typings'
 import { Matcher } from '@helpers/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
+import { Entities } from '../../typings'
 import { Getter } from './getter.type'
 
 export const getObtainedFrom: Getter<'obtainedFrom'> = ({ $ }) => {

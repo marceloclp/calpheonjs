@@ -1,4 +1,5 @@
 {
+    "as": "itemEquipment",
     "id": "711901",
     "type": "item",
     "icon": "/items/new_icon/06_pc_equipitem/00_common/01_weapon/00010014.png",
@@ -13,7 +14,7 @@
         "repair": 100000
     },
     "weight": 7,
-    "enhancementStats": [
+    "enhancements": [
         {
             "stats": {
                 "hp": "0",

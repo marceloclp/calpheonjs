@@ -1,4 +1,5 @@
 {
+    "as": "npcOther",
     "id": "23746",
     "type": "npc",
     "icon": "/items/ui_artwork/ic_04919.png",
@@ -18,7 +19,8 @@
         "type": "knowledge",
         "id": "4919",
         "icon": "/items/ui_artwork/ic_04919.png",
-        "name": "Agrakhan"
+        "name": "Agrakhan",
+        "dropChance": 15
     },
     "level": 58,
     "droppedExp": {

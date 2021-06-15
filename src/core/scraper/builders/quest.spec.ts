@@ -1,10 +1,9 @@
-import { BDO } from '@typings/namespaces'
-import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { expect } from '@tests/utils/expect'
+import { TestLoader } from '../tests/utils/test-loader'
+import { Entities } from '../typings'
 
-describe('Scraper: Quests', () => {
+describe('Scraper > Quest', () => {
     const tests = new TestLoader()
-        .filterByType(BDO.Entities.Types.Quest)
+        .filterByAs(Entities.As.Quest)
         .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('getIcon()', () => {
@@ -29,19 +28,23 @@ describe('Scraper: Quests', () => {
             expect(received.level).toBe(expected.level)
         })
         it('getChain()', () => {
-            expect(received.chain).toMatch(expected.chain)
+            expect(received.chain).toEqual(expected.chain)
         })
         it('getStartNPC()', () => {
-            expect(received.startNPC).toMatch(expected.startNPC)
+            if (!received.startNPC)
+                return expect(true).toBeTruthy()
+            expect(received.startNPC).toEqual(expected.startNPC)
         })
         it('getEndNPC()', () => {
-            expect(received.endNPC).toMatch(expected.endNPC)
+            if (!received.endNPC)
+                return expect(true).toBeTruthy()
+            expect(received.endNPC).toEqual(expected.endNPC)
         })
         it('getStory()', () => {
             expect(received.story).toBe(expected.story)
         })
         it('getRewards()', () => {
-            expect(received.rewards).toMatch(expected.rewards)
+            expect(received.rewards).toEqual(expected.rewards)
         })
     })
 })

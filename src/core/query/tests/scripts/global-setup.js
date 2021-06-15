@@ -2,7 +2,7 @@ const fs = require('fs/promises')
 const path = require('path')
 const fetch = require('node-fetch')
 const { decomposeFileKey } = require('../utils/decompose-file-key')
-const { composeQueryURL } = require('../utils/compose-query-url')
+const { composeQueryURL } = require('../../utils/compose-query-url')
 
 module.exports = async function() {
     const BASE_DIR = path.join(__dirname, '../../../../../')

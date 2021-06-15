@@ -1,5 +1,5 @@
-import { Entities } from '@core/scraper/typings'
-import { Getter as GetterFn } from '../getter.type'
+import { Entities } from '../../typings'
+import { GetterArgs } from '../getter-args.interface'
 
 export type Getter<K extends keyof Entities.Knowledge> =
-    GetterFn<Entities.Knowledge[K]>
+    (args: GetterArgs) => Entities.Knowledge[K]

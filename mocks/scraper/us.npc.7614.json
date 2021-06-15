@@ -1,4 +1,5 @@
 {
+    "as": "npcWorker",
     "id": "7614",
     "type": "npc",
     "icon": "/items/new_ui_common_forlua/widget/worldmap/workericon/worker_giant01.png",

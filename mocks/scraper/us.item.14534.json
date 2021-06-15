@@ -1,4 +1,5 @@
 {
+    "as": "itemEquipment",
     "id": "14534",
     "type": "item",
     "icon": "/items/new_icon/06_pc_equipitem/00_common/08_subweapon/00014525.png",
@@ -13,7 +14,7 @@
         "repair": 8080
     },
     "weight": 5,
-    "enhancementStats": [
+    "enhancements": [
         {
             "stats": {
                 "hp": "0",
@@ -43,7 +44,7 @@
             }
         }
     ],
-    "caphrasStats": {
+    "caphras": {
         "atPlus18": [
             {
                 "stats": {

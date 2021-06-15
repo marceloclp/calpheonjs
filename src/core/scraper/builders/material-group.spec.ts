@@ -1,10 +1,9 @@
-import { BDO } from '@typings/namespaces'
-import { TestLoader } from '@core/scraper/tests/utils/test-loader'
-import { expect } from '@tests/utils/expect'
+import { TestLoader } from '../tests/utils/test-loader'
+import { Entities } from '../typings'
 
-describe('Scraper: Material Group', () => {
+describe('Scraper > MaterialGroup', () => {
     const tests = new TestLoader()
-        .filterByType(BDO.Entities.Types.MaterialGroup)
+        .filterByAs(Entities.As.MaterialGroup)
         .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('getIcon()', () => {
@@ -17,7 +16,7 @@ describe('Scraper: Material Group', () => {
             expect(received.nameAlternative).toBe(expected.nameAlternative)
         })
         it('getItems()', () => {
-            expect(received.items).toMatch(expected.items)
+            expect(received.items).toEqual(expected.items)
         })
     })
 })
