@@ -7,6 +7,7 @@ import { Descriptor, Entities, Modes, Selectors } from '../typings'
  */
 export const MODES_TO_DESCRIPTORS: Record<Modes, Descriptor> = ((A, T) => ({
     [Modes.QuestReward]: { as: A.Quest, type: T.QuestReward },
+    [Modes.ExchangeList]: { as: A.ExchangeItem, type: T.Item },
     [Modes.RecipeMaterial]: { as: A.Recipe, type: T.Material },
     [Modes.RecipeProduct]: { as: A.Recipe, type: T.Product },
     [Modes.PatternMaterial]: { as: A.Pattern, type: T.Material },
@@ -36,6 +37,7 @@ export const MODES_TO_RETURNED_AS: {
     [M in Modes]: Selectors.ReturnedAs<M>
 } = ({
     [Modes.QuestReward]: Entities.As.Quest,
+    [Modes.ExchangeList]: Entities.As.ExchangeItem,
     [Modes.RecipeMaterial]: Entities.As.Recipe,
     [Modes.RecipeProduct]: Entities.As.Recipe,
     [Modes.PatternMaterial]: Entities.As.Pattern,

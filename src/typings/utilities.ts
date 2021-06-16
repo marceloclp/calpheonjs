@@ -2,12 +2,6 @@ export type WithFallback<T> = T | 'F'
 
 export type U<T> = T | undefined
 
-export type Range = [number, number]
-
-export type Writeable<T> = { -readonly [P in keyof T]: T[P] }
-
-export type Maybe<T> = T | undefined
-
 export type Diff<T, K> = Omit<T, keyof K>
 
 /**

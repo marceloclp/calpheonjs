@@ -11,9 +11,16 @@ export const Builder = CreateBuilder
     }))
     .as(Entities.As.Design, data => ({
         type: BDO.Entities.Types.Design,
-        grade: _.Design.getGrade(data),
+        grade: _.Gradeable.getGrade(data),
         materials: _.Craftable.getItems(data, 6),
         products: _.Craftable.getItems(data, 7),
+    }))
+    .as(Entities.As.ExchangeItem, data => ({
+        type: BDO.Entities.Types.Item,
+        grade: _.Gradeable.getGrade(data),
+        quantity: _.ExchangeItem.getQuantity(data),
+        tradeForItem: _.ExchangeItem.getTradeForItem(data),
+        tradeWith: _.ExchangeItem.getTradeWith(data),
     }))
     .as(Entities.As.NPCSells, data => ({
         type: BDO.Entities.Types.NPC,
@@ -30,7 +37,7 @@ export const Builder = CreateBuilder
     }))
     .as(Entities.As.Processing, data => ({
         type: BDO.Entities.Types.Processing,
-        grade: _.Processing.getGrade(data),
+        grade: _.Gradeable.getGrade(data),
         process: _.Processing.getProcess(data),
         mastery: _.Craftable.getMastery(data),
         exp: _.Craftable.getExp(data),
@@ -45,7 +52,7 @@ export const Builder = CreateBuilder
     }))
     .as(Entities.As.Recipe, data => ({
         type: BDO.Entities.Types.Recipe,
-        grade: _.Recipe.getGrade(data),
+        grade: _.Gradeable.getGrade(data),
         process: _.Recipe.getProcess(data),
         mastery: _.Craftable.getMastery(data),
         exp: _.Craftable.getExp(data),

@@ -10,10 +10,11 @@ import { Entities, Modes } from './index'
  */
 export type QueriedType<M extends Modes = Modes> = {
     [Modes.QuestReward]: BDO.Entities.Types.Item
+    [Modes.ExchangeList]: BDO.Entities.Types.Item
     [Modes.RecipeMaterial]: BDO.Entities.Types.Item
     [Modes.RecipeProduct]: BDO.Entities.Types.Item
-    [Modes.PatternMaterial]: BDO.Entities.Types.Pattern
-    [Modes.PatternProduct]: BDO.Entities.Types.Pattern
+    [Modes.PatternMaterial]: BDO.Entities.Types.Item
+    [Modes.PatternProduct]: BDO.Entities.Types.Item
     [Modes.ProcessingMaterial]: BDO.Entities.Types.Item
     [Modes.ProcessingProduct]: BDO.Entities.Types.Item
     [Modes.DesignMaterial]: BDO.Entities.Types.Item
@@ -31,6 +32,7 @@ export type QueriedType<M extends Modes = Modes> = {
  */
 export type ReturnedAs<M extends Modes = Modes> = {
     [Modes.QuestReward]: Entities.As.Quest
+    [Modes.ExchangeList]: Entities.As.ExchangeItem
     [Modes.RecipeMaterial]: Entities.As.Recipe
     [Modes.RecipeProduct]: Entities.As.Recipe
     [Modes.PatternMaterial]: Entities.As.Pattern
@@ -51,6 +53,7 @@ export type ReturnedAs<M extends Modes = Modes> = {
  * objects when the type is known.
  */
 export type BDOType<A extends Entities.As = Entities.As> = {
+    [Entities.As.ExchangeItem]: BDO.Entities.Types.Item
     [Entities.As.Recipe]: BDO.Entities.Types.Recipe
     [Entities.As.Pattern]: BDO.Entities.Types.Pattern
     [Entities.As.Processing]: BDO.Entities.Types.Processing
@@ -61,6 +64,7 @@ export type BDOType<A extends Entities.As = Entities.As> = {
 }[A]
 
 export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
+    [Entities.As.ExchangeItem]: Entities.ExchangeItem
     [Entities.As.Recipe]: Entities.Recipe
     [Entities.As.Pattern]: Entities.Pattern
     [Entities.As.Processing]: Entities.Processing
@@ -78,6 +82,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
  * Many modes may map to the same type of response.
  */
  export type Response<A extends WithFallback<Entities.As> = 'F'> = {
+    [Entities.As.ExchangeItem]: BDOCodex.Query.Responses.ExchangeItem
     [Entities.As.Recipe]: BDOCodex.Query.Responses.Recipe
     [Entities.As.Pattern]: BDOCodex.Query.Responses.Pattern
     [Entities.As.Processing]: BDOCodex.Query.Responses.Processing

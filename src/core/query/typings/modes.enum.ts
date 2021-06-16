@@ -4,6 +4,7 @@
  */
 export enum Modes {
     QuestReward = 'questReward',
+    ExchangeList = 'exchangeList',
 
     RecipeMaterial = 'recipeMaterial',
     RecipeProduct = 'recipeProduct',

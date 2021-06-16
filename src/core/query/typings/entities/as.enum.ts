@@ -3,6 +3,7 @@
  * in runtime.
  */
 export enum As {
+    ExchangeItem = 'exchangeItem',
     Recipe = 'recipe',
     Pattern = 'pattern',
     Processing = 'processing',

@@ -12,4 +12,5 @@ export enum Types {
     QuestReward = 'questrewards',
     Sellable = 'sellspecialitems',
     NPCDropGroup = 'npcdropgroups',
+    Item = 'item',
 }

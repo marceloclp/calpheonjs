@@ -1,0 +1,23 @@
+[
+    {
+        "as": "exchangeItem",
+        "type": "item",
+        "id": "44416",
+        "name": "Lafi Bedmountain's Upgraded Compass Parts",
+        "grade": 3,
+        "icon": "/items/new_icon/03_etc/04_dropitem/00044416.png",
+        "quantity": 1,
+        "tradeForItem": {
+            "type": "item",
+            "id": "44277",
+            "icon": "/items/new_icon/03_etc/04_dropitem/00044277.png"
+        },
+        "tradeWith": [
+            {
+                "type": "npc",
+                "id": "50564/1",
+                "name": "Ain Greid"
+            }
+        ]
+    }
+]

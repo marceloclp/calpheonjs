@@ -1,0 +1,54 @@
+[
+    {
+        "as": "exchangeItem",
+        "type": "item",
+        "id": "65118",
+        "name": "EXP Increase (1)",
+        "grade": 0,
+        "icon": "/items/new_icon/03_etc/12_doapplydirectlyitem/00000000_common.png",
+        "quantity": 1,
+        "tradeForItem": {
+            "type": "item",
+            "id": "9306",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009306.png"
+        },
+        "tradeWith": [
+            {
+                "type": "npc",
+                "id": "50662/1",
+                "name": "Botul"
+            },
+            {
+                "type": "npc",
+                "id": "45559/1",
+                "name": "Merindora"
+            }
+        ]
+    },
+    {
+        "as": "exchangeItem",
+        "type": "item",
+        "id": "65118",
+        "name": "EXP Increase (1)",
+        "grade": 0,
+        "icon": "/items/new_icon/03_etc/12_doapplydirectlyitem/00000000_common.png",
+        "quantity": 1,
+        "tradeForItem": {
+            "type": "item",
+            "id": "9306",
+            "icon": "/items/new_icon/03_etc/07_productmaterial/00009306.png"
+        },
+        "tradeWith": [
+            {
+                "type": "npc",
+                "id": "50662/1",
+                "name": "Botul"
+            },
+            {
+                "type": "npc",
+                "id": "45559/1",
+                "name": "Merindora"
+            }
+        ]
+    }
+]

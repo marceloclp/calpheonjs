@@ -37,10 +37,11 @@ export class TestLoader<A extends Entities.As = Entities.As> {
     }
 
     buildTests() {
+        type R = [string, Selectors.Entity<A>, Selectors.Entity<A>]
         return this.keys
             .reduce((tests, key) => {
                 return [...tests, ...this.buildTestsFromFile(key)]
-            }, [] as any[])
+            }, [] as R[])
             .slice(0, this.maxDepthLevel)
     }
 
