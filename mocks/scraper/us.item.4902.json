@@ -13,5 +13,11 @@
         "sell": 450,
         "repair": 0
     },
-    "weight": 0.1
+    "weight": 0.1,
+    "query": {
+        "processingProduct": true,
+        "processingMaterial": true,
+        "designMaterial": true,
+        "exchangeList": true
+    }
 }

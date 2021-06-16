@@ -669,5 +669,10 @@
         }
     ],
     "exclusiveTo": ["warrior", "valkyrie"],
-    "fairyExp": 0
+    "fairyExp": 0,
+    "query": {
+        "soldByNPC": true,
+        "droppedByNPC": true,
+        "droppedByUserNPC": false
+    }
 }

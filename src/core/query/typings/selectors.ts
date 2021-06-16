@@ -26,6 +26,8 @@ export type ReturnedAs<M extends Modes = Modes> = {
     [Modes.GatheredFrom]: Entities.As.DropGatherable
     [Modes.GiftMaterial]: Entities.As.NPC
 }[M]
+export type ReturnedEntity<M extends Modes = Modes> =
+    Entity<ReturnedAs<M>>
 
 /**
  * Maps the query mode to the corresponding type of entity that

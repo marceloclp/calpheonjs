@@ -10,6 +10,13 @@ export class TestLoader<A extends Entities.As> {
     private readonly store = new TestStore<A>()
     private keys = [...this.store.getKeys()]
 
+    filter(fn: (entity: Selectors.Entity<A>) => boolean) {
+        this.keys = this.keys.filter(key => {
+            return fn(this.store.getMockForFile(key))
+        })
+        return this
+    }
+
     filterByAs<NA extends Entities.As>(_as: NA) {
         this.keys = this.keys.filter(key => {
             return this.store.getMockForFile(key).as === _as
@@ -24,16 +31,21 @@ export class TestLoader<A extends Entities.As> {
         return this
     }
 
-    buildTests() {
+    buildTests(amount?: number) {
         type R = Selectors.Entity<A>
-        return this.keys.map(key => {
+
+        const tests: [string, R, R][] = []
+        for (const key of this.keys) {
+            if (amount && tests.length >= amount)
+                break
             const { locale, type, id } = decomposeFileKey(key)
             const $ = cheerio.load(this.store.getResponseForFile(key))
             const name = TestLoader.buildTestName({ locale, type, id })
-            const mock = this.store.getMockForFile(key) as R
+            const mock = this.store.getMockForFile(key)
             const entity = Builder(type)({ $, locale, type, id }) as R
-            return [name, mock, entity] as [string, R, R]
-        })
+            tests.push([name, mock, entity])
+        }
+        return tests
     }
 
     static buildTestName({ locale, type, id }: {

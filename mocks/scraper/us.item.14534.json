@@ -1313,5 +1313,6 @@
         ]
     },
     "exclusiveTo": ["kunoichi", "ninja"],
-    "fairyExp": 283
+    "fairyExp": 283,
+    "query": {}
 }

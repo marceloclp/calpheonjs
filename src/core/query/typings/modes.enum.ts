@@ -16,6 +16,7 @@ export enum Modes {
 
     SoldByNPC = 'soldByNPC',
     DroppedByNPC = 'droppedByNPC',
+    // DroppedByUserNPC = 'droppedByUserNPC',
 
     DroppedByNode = 'droppedByNode',
 

@@ -13,5 +13,11 @@
         "sell": 90,
         "repair": 0
     },
-    "weight": 0.1
+    "weight": 0.1,
+    "query": {
+        "questReward": true,
+        "processingMaterial": true,
+        "droppedByNPC": true,
+        "droppedByUserNPC": false
+    }
 }

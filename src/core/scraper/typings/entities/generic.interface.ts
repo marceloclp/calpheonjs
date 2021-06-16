@@ -1,3 +1,4 @@
+import { Query } from '@core/query'
 import { Selectors } from '../index'
 import { As } from './as.enum'
 
@@ -21,19 +22,22 @@ export interface Generic<A extends As = As> {
     nameAlternative?: string
     
     /**
-     * An entity may have a short description about what it is or does.
+     * @deprecated
      * 
-     * BDOCodex has really inconsistent HTML trees when it comes to the
+     * An entity may have a description about what it is or does.
+     * 
+     * BDOCodex has really inconsistent HTML when it comes to the
      * description, so it's extremely hard to find a consistent way to
-     * scrape it. Althought for the most cases, it will work fine, there
-     * are some edge cases that haven't be solved.
+     * scrape this field. It works for most cases, but there are some
+     * edges that couldn't be solved.
      * 
-     * Given the above, support for description has been solved, and
-     * althought it can still be scraped and used, it is not being
-     * tested right now or improved.
-     * 
-     * If you know of a consistent way to scrape this field, please open
-     * a PR on GitHub.
+     * For this reason this field is now deprecated, and although it can
+     * still be used, it's not reliable enough to be used in production.
      */
     description?: string
+
+    query: Partial<{
+        [Mode in Query.Modes]:
+            () => Promise<Query.Selectors.ReturnedEntity<Mode>>
+    }>
 }

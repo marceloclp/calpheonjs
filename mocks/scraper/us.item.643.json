@@ -18,5 +18,8 @@
         "Debuff Resistance Against Monsters +10%"
     ],
     "duration": 600,
-    "cooldown": 10
+    "cooldown": 10,
+    "query": {
+        "processingProduct": true
+    }
 }

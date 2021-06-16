@@ -12,6 +12,7 @@ export const Builder = CreateBuilder
         description: _.Generic.getDescription(args),
         nameAlternative: _.Generic.getNameAlt(args),
         type: args.type,
+        query: _.Generic.getQuery(args),
     }))
     .as(Entities.As.Item, (args, subType = _.Item.getSubType(args)) => ({
         as: _.Item.getReturnedAs(subType),
