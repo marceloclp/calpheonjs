@@ -1,0 +1,56 @@
+[
+    {
+        "as": "gatherable",
+        "type": "gatherable",
+        "id": "10094",
+        "name": "Andesite",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004001.png",
+        "quantity": 1,
+        "chance": 4.15
+    },
+    {
+        "as": "gatherable",
+        "type": "gatherable",
+        "id": "10051",
+        "name": "Iron",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004001.png",
+        "quantity": 1,
+        "chance": 4.15
+    },
+    {
+        "as": "gatherable",
+        "type": "gatherable",
+        "id": "10091",
+        "name": "Bloodstone",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004005.png",
+        "quantity": 1,
+        "chance": 4.15
+    },
+    {
+        "as": "gatherable",
+        "type": "gatherable",
+        "id": "10108",
+        "name": "Sandstone",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004005.png",
+        "quantity": 1,
+        "chance": 4.15
+    },
+    {
+        "as": "gatherable",
+        "type": "gatherable",
+        "id": "10136",
+        "name": "Soft Sandstone",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004009.png",
+        "quantity": 1,
+        "chance": 4.15
+    },
+    {
+        "as": "gatherable",
+        "type": "gatherable",
+        "id": "10004",
+        "name": "Feldspar",
+        "icon": "/items/new_icon/03_etc/07_productmaterial/00004001.png",
+        "quantity": 1,
+        "chance": 4.15
+    }
+]

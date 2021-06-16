@@ -22,8 +22,8 @@ export const Builder = CreateBuilder
     }))
     .as(Entities.As.NPCDrops, data => ({
         type: BDO.Entities.Types.NPC,
-        quantity: _.NPCDrops.getQuantity(data),
-        chance: _.NPCDrops.getChance(data),
+        quantity: _.Collectable.getQuantity(data),
+        chance: _.Collectable.getChance(data),
     }))
     .as(Entities.As.ExchangeItem, data => ({
         type: BDO.Entities.Types.Item,
@@ -68,5 +68,10 @@ export const Builder = CreateBuilder
         exp: _.Craftable.getExp(data),
         materials: _.Craftable.getItems(data, 6),
         products: _.Craftable.getItems(data, 7),
+    }))
+    .as(Entities.As.Gatherable, data => ({
+        type: BDO.Entities.Types.Gatherable,
+        quantity: _.Collectable.getQuantity(data),
+        chance: _.Collectable.getChance(data),
     }))
     .create()

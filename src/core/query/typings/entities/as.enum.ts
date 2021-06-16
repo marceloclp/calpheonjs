@@ -12,4 +12,5 @@ export enum As {
     NPCDrops = 'npcDrops',
     NPCSells = 'npcSells',
     Quest = 'quest',
+    Gatherable = 'gatherable',
 }

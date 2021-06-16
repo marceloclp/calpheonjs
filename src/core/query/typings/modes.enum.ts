@@ -1,7 +1,3 @@
-/**
- * Modes defines the type of the required entity and the type
- * of the returned entity and its properties.
- */
 export enum Modes {
     QuestReward = 'questReward',
     ExchangeList = 'exchangeList',
@@ -22,4 +18,6 @@ export enum Modes {
     DroppedByNPC = 'droppedByNPC',
 
     DroppedByNode = 'droppedByNode',
+
+    GatheredFrom = 'gatheredFrom',
 }

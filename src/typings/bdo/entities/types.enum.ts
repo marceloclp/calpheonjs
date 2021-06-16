@@ -10,4 +10,5 @@ export enum Types {
     Pattern = 'pattern',
     Design = 'design',
     WorkerSkill = 'workerSkill',
+    Gatherable = 'gatherable',
 }
