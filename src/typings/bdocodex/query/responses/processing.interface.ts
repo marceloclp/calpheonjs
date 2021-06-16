@@ -1,35 +1,22 @@
-import { BDOCodex } from '@typings/namespaces'
-import { SortRow } from '../sort-row.interface'
+import { Generic } from './generic.interface'
+import { HTMLString, SorteableField } from '../utilities'
 
-export interface Processing extends
-    BDOCodex.Query.Responses.Generic {
-    
-    /** Recipe id. */
-    readonly 0: string;
-
+export interface Processing extends Generic<string> {
     /** Processing type. */
-    readonly 3: string;
+    readonly 3: string
 
     /** The required level to be able to craft this recipe. */
-    readonly 4: SortRow;
+    readonly 4: SorteableField
 
     /** EXP awarded upon successful craft. */
-    readonly 5: string;
+    readonly 5: string
 
-    /** HTML string containing the required materials. */
-    readonly 6: string;
+    /** Required materials. */
+    readonly 6: HTMLString
 
-    /** HTML string containing the resulting products. */
-    readonly 7: string;
+    /** Resulting products. */
+    readonly 7: HTMLString
 
     /** A stringified array containing the materials ids. */
-    readonly 8: string;
-
-    readonly 9: string;
-
-    readonly 10: string;
-
-    readonly 11: string;
-
-    readonly 12: string;
+    readonly 8: string
 }

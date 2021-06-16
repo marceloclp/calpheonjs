@@ -4,27 +4,6 @@ import { Entities, Modes } from './index'
 
 /**
  * Maps the query mode to the corresponding entity type that is
- * used to perform the query.
- * 
- * Many modes may map to the same queried type.
- */
-export type QueriedType<M extends Modes = Modes> = {
-    [Modes.QuestReward]: BDO.Entities.Types.Item
-    [Modes.ExchangeList]: BDO.Entities.Types.Item
-    [Modes.RecipeMaterial]: BDO.Entities.Types.Item
-    [Modes.RecipeProduct]: BDO.Entities.Types.Item
-    [Modes.PatternMaterial]: BDO.Entities.Types.Item
-    [Modes.PatternProduct]: BDO.Entities.Types.Item
-    [Modes.ProcessingMaterial]: BDO.Entities.Types.Item
-    [Modes.ProcessingProduct]: BDO.Entities.Types.Item
-    [Modes.DesignMaterial]: BDO.Entities.Types.Item
-    [Modes.DesignProduct]: BDO.Entities.Types.Item
-    [Modes.SoldByNPC]: BDO.Entities.Types.Item
-    [Modes.DroppedByNPC]: BDO.Entities.Types.Item
-}[M]
-
-/**
- * Maps the query mode to the corresponding entity type that is
  * returned from the query, which is used to check the shape of
  * the entity object in runtime.
  * 
@@ -69,7 +48,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Pattern]: Entities.Pattern
     [Entities.As.Processing]: Entities.Processing
     [Entities.As.Design]: Entities.Design
-    [Entities.As.NPCDrops]: Entities.Generic
+    [Entities.As.NPCDrops]: Entities.NPCDrops
     [Entities.As.NPCSells]: Entities.NPCSells
     [Entities.As.Quest]: Entities.Quest
     F: Entities.Generic
@@ -87,7 +66,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Pattern]: BDOCodex.Query.Responses.Pattern
     [Entities.As.Processing]: BDOCodex.Query.Responses.Processing
     [Entities.As.Design]: BDOCodex.Query.Responses.Design
-    [Entities.As.NPCDrops]: BDOCodex.Query.Responses.Generic
+    [Entities.As.NPCDrops]: BDOCodex.Query.Responses.NPCDrops
     [Entities.As.NPCSells]: BDOCodex.Query.Responses.NPCSells
     [Entities.As.Quest]: BDOCodex.Query.Responses.Quest
     F: BDOCodex.Query.Responses.Generic

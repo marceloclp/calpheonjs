@@ -1,12 +1,12 @@
-import { SortRow } from '../sort-row.interface'
+import { HTMLString, SorteableField } from '../utilities'
 
-export interface Generic {
-    /** Item id. */
-    readonly 0: string | SortRow
+export interface Generic<IDType extends string | SorteableField = string | SorteableField> {
+    /** Entity id. */
+    readonly 0: IDType
 
-    /** Item icon url. */
-    readonly 1: string
+    /** Entity icon url. */
+    readonly 1: HTMLString
 
-    /** Item name. */
-    readonly 2: string
+    /** Entity name. */
+    readonly 2: HTMLString
 }

@@ -1,4 +1,3 @@
-import { BDO } from '@typings/namespaces'
 import { Generic } from './generic.interface'
 import { Craftable } from './craftable.interface'
 import { Gradeable } from './gradeable.interface'

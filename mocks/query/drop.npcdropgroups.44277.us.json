@@ -1,0 +1,11 @@
+[
+    {
+        "as": "npcDrops",
+        "type": "npc",
+        "id": "21322",
+        "name": "Vodkhan",
+        "icon": "/items/ui_artwork/ic_04931.png",
+        "quantity": 1,
+        "chance": 0.005
+    }
+]

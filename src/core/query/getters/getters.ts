@@ -1,4 +1,5 @@
 export * as Craftable from './craftable'
+export * as NPCDrops from './npc-drops'
 export * as ExchangeItem from './exchange-item'
 export * as Generic from './generic'
 export * as Gradeable from './gradeable'

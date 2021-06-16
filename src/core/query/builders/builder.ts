@@ -15,6 +15,11 @@ export const Builder = CreateBuilder
         materials: _.Craftable.getItems(data, 6),
         products: _.Craftable.getItems(data, 7),
     }))
+    .as(Entities.As.NPCDrops, data => ({
+        type: BDO.Entities.Types.NPC,
+        quantity: _.NPCDrops.getQuantity(data),
+        chance: _.NPCDrops.getChance(data),
+    }))
     .as(Entities.As.ExchangeItem, data => ({
         type: BDO.Entities.Types.Item,
         grade: _.Gradeable.getGrade(data),

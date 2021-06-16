@@ -1,15 +1,7 @@
-import { SortRow } from '../sort-row.interface'
+import { Generic } from './generic.interface'
+import { SorteableField } from '../utilities'
 
-export interface NPCSells {
-    /** NPC id. */
-    readonly 0: SortRow
-
-    /** HTML string containing the icon url. */
-    readonly 1: string
-
-    /** HTML string containing the NPC name and title.  */
-    readonly 2: string
-
+export interface NPCSells extends Generic<SorteableField> {
     /** Level. */
     readonly 3: string
 
