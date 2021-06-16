@@ -22,6 +22,7 @@ export type ReturnedAs<M extends Modes = Modes> = {
     [Modes.DesignProduct]: Entities.As.Design
     [Modes.SoldByNPC]: Entities.As.NPCSells
     [Modes.DroppedByNPC]: Entities.As.NPCDrops
+    [Modes.DroppedByNode]: Entities.As.NodeDrops
 }[M]
 
 /**
@@ -37,6 +38,7 @@ export type BDOType<A extends Entities.As = Entities.As> = {
     [Entities.As.Pattern]: BDO.Entities.Types.Pattern
     [Entities.As.Processing]: BDO.Entities.Types.Processing
     [Entities.As.Design]: BDO.Entities.Types.Design
+    [Entities.As.NodeDrops]: BDO.Entities.Types.Node
     [Entities.As.NPCDrops]: BDO.Entities.Types.NPC
     [Entities.As.NPCSells]: BDO.Entities.Types.NPC
     [Entities.As.Quest]: BDO.Entities.Types.Quest
@@ -48,6 +50,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Pattern]: Entities.Pattern
     [Entities.As.Processing]: Entities.Processing
     [Entities.As.Design]: Entities.Design
+    [Entities.As.NodeDrops]: Entities.NodeDrops
     [Entities.As.NPCDrops]: Entities.NPCDrops
     [Entities.As.NPCSells]: Entities.NPCSells
     [Entities.As.Quest]: Entities.Quest
@@ -66,6 +69,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Pattern]: BDOCodex.Query.Responses.Pattern
     [Entities.As.Processing]: BDOCodex.Query.Responses.Processing
     [Entities.As.Design]: BDOCodex.Query.Responses.Design
+    [Entities.As.NodeDrops]: BDOCodex.Query.Responses.NodeDrops
     [Entities.As.NPCDrops]: BDOCodex.Query.Responses.NPCDrops
     [Entities.As.NPCSells]: BDOCodex.Query.Responses.NPCSells
     [Entities.As.Quest]: BDOCodex.Query.Responses.Quest

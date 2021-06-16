@@ -1,5 +1,6 @@
 export * from './as.enum'
 export * from './design.entity'
+export * from './node-drops.entity'
 export * from './npc-drops.entity'
 export * from './exchange-item.entity'
 export * from './npc-sells.entity'

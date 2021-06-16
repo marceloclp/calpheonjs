@@ -8,6 +8,7 @@ export enum As {
     Pattern = 'pattern',
     Processing = 'processing',
     Design = 'design',
+    NodeDrops = 'nodeDrops',
     NPCDrops = 'npcDrops',
     NPCSells = 'npcSells',
     Quest = 'quest',

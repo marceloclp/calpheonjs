@@ -1,0 +1,67 @@
+[
+    {
+        "as": "nodeDrops",
+        "type": "node",
+        "id": "706",
+        "name": "Rhutum Outstation",
+        "icon": "/images/node_icons/icon_node_9.png",
+        "zone": "Republic of Calpheon",
+        "conditions": {
+            "temperature": 15,
+            "humidity": 20,
+            "water": 28
+        }
+    },
+    {
+        "as": "nodeDrops",
+        "type": "node",
+        "id": "707",
+        "name": "Rhutum Sentry Post",
+        "icon": "/images/node_icons/icon_node_5.png",
+        "zone": "Republic of Calpheon",
+        "conditions": {
+            "temperature": 15,
+            "humidity": 20,
+            "water": 28
+        }
+    },
+    {
+        "as": "nodeDrops",
+        "type": "node",
+        "id": "724",
+        "name": "Hexe Sanctuary",
+        "icon": "/images/node_icons/icon_node_9.png",
+        "zone": "Republic of Calpheon",
+        "conditions": {
+            "temperature": 30,
+            "humidity": 30,
+            "water": 35
+        }
+    },
+    {
+        "as": "nodeDrops",
+        "type": "node",
+        "id": "1148",
+        "name": "Soldiers' Cemetery",
+        "icon": "/images/node_icons/icon_node_9.png",
+        "zone": "Republic of Mediah",
+        "conditions": {
+            "temperature": 50,
+            "humidity": 20,
+            "water": 28
+        }
+    },
+    {
+        "as": "nodeDrops",
+        "type": "node",
+        "id": "1618",
+        "name": "Loopy Tree Forest",
+        "icon": "/images/node_icons/icon_node_9.png",
+        "zone": "Kamasylvia",
+        "conditions": {
+            "temperature": 30,
+            "humidity": 30,
+            "water": 50
+        }
+    }
+]

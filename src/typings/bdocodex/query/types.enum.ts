@@ -15,4 +15,5 @@ export enum Types {
     // Figure out the difference between NPCDropGroup and NPCUserDropGroup
     // NPCUserDropGroup = 'npcuserdropgroups',
     Item = 'item',
+    NodeDrop = 'nodedrop',
 }

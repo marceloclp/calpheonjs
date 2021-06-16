@@ -18,6 +18,7 @@ export const MODES_TO_DESCRIPTORS: Record<Modes, Descriptor> = ((A, T) => ({
     [Modes.DesignProduct]: { as: A.Design, type: T.Product },
     [Modes.SoldByNPC]: { as: A.NPC, type: T.Sellable },
     [Modes.DroppedByNPC]: { as: A.Drop, type: T.NPCDropGroup },
+    [Modes.DroppedByNode]: { as: A.Node, type: T.NodeDrop },
 }))(BDOCodex.Query.As, BDOCodex.Query.Types)
 
 /**
@@ -48,4 +49,5 @@ export const MODES_TO_RETURNED_AS: {
     [Modes.DesignProduct]: Entities.As.Design,
     [Modes.SoldByNPC]: Entities.As.NPCSells,
     [Modes.DroppedByNPC]: Entities.As.NPCDrops,
+    [Modes.DroppedByNode]: Entities.As.NodeDrops,
 })
