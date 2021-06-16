@@ -24,6 +24,7 @@ export type ReturnedAs<M extends Modes = Modes> = {
     [Modes.DroppedByNPC]: Entities.As.DropNPC
     [Modes.DroppedByNode]: Entities.As.Node
     [Modes.GatheredFrom]: Entities.As.DropGatherable
+    [Modes.GiftMaterial]: Entities.As.NPC
 }[M]
 
 /**

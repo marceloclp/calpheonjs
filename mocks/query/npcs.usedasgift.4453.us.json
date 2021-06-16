@@ -1,0 +1,21 @@
+[
+    {
+        "as": "npc",
+        "type": "npc",
+        "id": "43310/1",
+        "name": "Rikta",
+        "icon": "/items/ui_artwork/ic_00447.png",
+        "title": "Trade Manager",
+        "level": 99,
+        "stats": {
+            "hp": 10000,
+            "defense": 2,
+            "evasion": 1
+        },
+        "droppedExp": {
+            "base": 0,
+            "skill": 0
+        },
+        "droppedKarma": 0
+    }
+]

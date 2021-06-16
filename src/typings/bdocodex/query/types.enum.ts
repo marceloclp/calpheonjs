@@ -16,5 +16,5 @@ export enum Types {
     // NPCUserDropGroup = 'npcuserdropgroups',
     Item = 'item',
     NodeDrop = 'nodedrop',
-    Gift = 'usedasgift',
+    UsedAsGift = 'usedasgift',
 }

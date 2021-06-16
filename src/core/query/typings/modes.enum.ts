@@ -20,4 +20,6 @@ export enum Modes {
     DroppedByNode = 'droppedByNode',
 
     GatheredFrom = 'gatheredFrom',
+    
+    GiftMaterial = 'giftMaterial',
 }
