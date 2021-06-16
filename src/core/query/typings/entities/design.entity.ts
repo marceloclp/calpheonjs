@@ -1,6 +1,6 @@
-import { Generic } from './generic.interface'
-import { Craftable } from './craftable.interface'
-import { Gradeable } from './gradeable.interface'
+import { Generic } from './extendables/generic.interface'
+import { Craftable } from './extendables/craftable.interface'
+import { Gradeable } from './extendables/gradeable.interface'
 import { As } from './as.enum'
 
 export interface Design extends Generic<As.Design>, Craftable, Gradeable {}

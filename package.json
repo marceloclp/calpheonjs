@@ -21,6 +21,7 @@
     "start": "node ./dist/index.js",
     "pretest": "npm run tsnode ./scripts/setup-tests.ts",
     "test": "jest",
+    "test:query": "jest src/core/query",
     "prepublish": "tsc"
   },
   "devDependencies": {

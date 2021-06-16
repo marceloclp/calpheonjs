@@ -1,6 +1,6 @@
 [
     {
-        "as": "nodeDrops",
+        "as": "node",
         "type": "node",
         "id": "706",
         "name": "Rhutum Outstation",
@@ -13,7 +13,7 @@
         }
     },
     {
-        "as": "nodeDrops",
+        "as": "node",
         "type": "node",
         "id": "707",
         "name": "Rhutum Sentry Post",
@@ -26,7 +26,7 @@
         }
     },
     {
-        "as": "nodeDrops",
+        "as": "node",
         "type": "node",
         "id": "724",
         "name": "Hexe Sanctuary",
@@ -39,7 +39,7 @@
         }
     },
     {
-        "as": "nodeDrops",
+        "as": "node",
         "type": "node",
         "id": "1148",
         "name": "Soldiers' Cemetery",
@@ -52,7 +52,7 @@
         }
     },
     {
-        "as": "nodeDrops",
+        "as": "node",
         "type": "node",
         "id": "1618",
         "name": "Loopy Tree Forest",

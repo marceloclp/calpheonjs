@@ -1,5 +1,5 @@
-import { Generic } from './generic.interface'
-import { Craftable } from './craftable.interface'
+import { Generic } from './extendables/generic.interface'
+import { Craftable } from './extendables/craftable.interface'
 import { As } from './as.enum'
 
 export interface Pattern extends Generic<As.Pattern>, Craftable {}

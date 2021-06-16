@@ -1,9 +1,9 @@
 import { Entities } from '../typings'
 import { TestLoader } from '../tests/utils/test-loader'
 
-describe('Query > Builders > NPCDrops', () => {
+describe('Query > Builders > DropNPC', () => {
     const tests = new TestLoader()
-        .filterByAs(Entities.As.NPCDrops)
+        .filterByAs(Entities.As.DropNPC)
         .withDepthLevelOf(3)
         .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {

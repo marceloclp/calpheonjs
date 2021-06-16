@@ -3,14 +3,14 @@
  * in runtime.
  */
 export enum As {
+    Design = 'design',
+    DropNPC = 'dropNpc',
+    DropGatherable = 'dropGatherable',
     ExchangeItem = 'exchangeItem',
-    Recipe = 'recipe',
+    Node = 'node',
+    NPC = 'npc',
     Pattern = 'pattern',
     Processing = 'processing',
-    Design = 'design',
-    NodeDrops = 'nodeDrops',
-    NPCDrops = 'npcDrops',
-    NPCSells = 'npcSells',
+    Recipe = 'recipe',
     Quest = 'quest',
-    Gatherable = 'gatherable',
 }

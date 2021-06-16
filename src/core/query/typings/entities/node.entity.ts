@@ -1,7 +1,7 @@
-import { Generic } from './generic.interface'
+import { Generic } from './extendables/generic.interface'
 import { As } from './as.enum'
 
-export interface NodeDrops extends Generic<As.NodeDrops> {
+export interface Node extends Generic<As.Node> {
     /** The region the node is located at. */
     zone: string
 

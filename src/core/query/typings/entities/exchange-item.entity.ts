@@ -1,6 +1,6 @@
 import { BDO } from '@typings/namespaces'
-import { Generic } from './generic.interface'
-import { Gradeable } from './gradeable.interface'
+import { Generic } from './extendables/generic.interface'
+import { Gradeable } from './extendables/gradeable.interface'
 import { As } from './as.enum'
 
 export interface ExchangeItem extends Generic<As.ExchangeItem>, Gradeable {

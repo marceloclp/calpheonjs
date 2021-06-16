@@ -9,13 +9,13 @@
  * type NPC, but contain different fields.
  */
 export enum As {
-    Recipe = 'recipes',
-    Processing = 'mrecipes',
     Design = 'designs',
     Drop = 'drop',
-    Quest = 'quests',
-    NPC = 'npcs',
-    Pattern = 'puzzles',
     ExchangeItem = 'exchangeitems',
     Node = 'nodes',
+    NPC = 'npcs',
+    Pattern = 'puzzles',
+    Processing = 'mrecipes',
+    Quest = 'quests',
+    Recipe = 'recipes',
 }

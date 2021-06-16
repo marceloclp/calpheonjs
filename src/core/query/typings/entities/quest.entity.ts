@@ -1,5 +1,5 @@
 import { BDO } from '@typings/namespaces'
-import { Generic } from './generic.interface'
+import { Generic } from './extendables/generic.interface'
 import { As } from './as.enum'
 
 export interface Quest extends Generic<As.Quest> {

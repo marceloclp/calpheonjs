@@ -1,5 +1,5 @@
-import { Selectors } from '../index'
-import { As } from './as.enum'
+import { Selectors } from '../../index'
+import { As } from '../as.enum'
 
 export interface Generic<A extends As = As> {
     /** Defines which properties the entity has in runtime. */

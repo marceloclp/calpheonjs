@@ -1,6 +1,6 @@
 [
     {
-        "as": "npcSells",
+        "as": "npc",
         "type": "npc",
         "id": "40003/1",
         "name": "Alfredo",
@@ -37,7 +37,7 @@
         "droppedKarma": 0
     },
     {
-        "as": "npcSells",
+        "as": "npc",
         "type": "npc",
         "id": "41002/1",
         "name": "Ornella",

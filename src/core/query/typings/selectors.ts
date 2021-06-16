@@ -20,10 +20,10 @@ export type ReturnedAs<M extends Modes = Modes> = {
     [Modes.ProcessingProduct]: Entities.As.Processing
     [Modes.DesignMaterial]: Entities.As.Design
     [Modes.DesignProduct]: Entities.As.Design
-    [Modes.SoldByNPC]: Entities.As.NPCSells
-    [Modes.DroppedByNPC]: Entities.As.NPCDrops
-    [Modes.DroppedByNode]: Entities.As.NodeDrops
-    [Modes.GatheredFrom]: Entities.As.Gatherable
+    [Modes.SoldByNPC]: Entities.As.NPC
+    [Modes.DroppedByNPC]: Entities.As.DropNPC
+    [Modes.DroppedByNode]: Entities.As.Node
+    [Modes.GatheredFrom]: Entities.As.DropGatherable
 }[M]
 
 /**
@@ -34,29 +34,29 @@ export type ReturnedAs<M extends Modes = Modes> = {
  * objects when the type is known.
  */
 export type BDOType<A extends Entities.As = Entities.As> = {
+    [Entities.As.Design]: BDO.Entities.Types.Design
+    [Entities.As.DropNPC]: BDO.Entities.Types.NPC
+    [Entities.As.DropGatherable]: BDO.Entities.Types.Gatherable
     [Entities.As.ExchangeItem]: BDO.Entities.Types.Item
-    [Entities.As.Recipe]: BDO.Entities.Types.Recipe
+    [Entities.As.Node]: BDO.Entities.Types.Node
+    [Entities.As.NPC]: BDO.Entities.Types.NPC
     [Entities.As.Pattern]: BDO.Entities.Types.Pattern
     [Entities.As.Processing]: BDO.Entities.Types.Processing
-    [Entities.As.Design]: BDO.Entities.Types.Design
-    [Entities.As.NodeDrops]: BDO.Entities.Types.Node
-    [Entities.As.NPCDrops]: BDO.Entities.Types.NPC
-    [Entities.As.NPCSells]: BDO.Entities.Types.NPC
     [Entities.As.Quest]: BDO.Entities.Types.Quest
-    [Entities.As.Gatherable]: BDO.Entities.Types.Gatherable
+    [Entities.As.Recipe]: BDO.Entities.Types.Recipe
 }[A]
 
 export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
+    [Entities.As.Design]: Entities.Design
+    [Entities.As.DropNPC]: Entities.DropNPC
+    [Entities.As.DropGatherable]: Entities.DropGatherable
     [Entities.As.ExchangeItem]: Entities.ExchangeItem
-    [Entities.As.Recipe]: Entities.Recipe
+    [Entities.As.Node]: Entities.Node
+    [Entities.As.NPC]: Entities.NPC
     [Entities.As.Pattern]: Entities.Pattern
     [Entities.As.Processing]: Entities.Processing
-    [Entities.As.Design]: Entities.Design
-    [Entities.As.NodeDrops]: Entities.NodeDrops
-    [Entities.As.NPCDrops]: Entities.NPCDrops
-    [Entities.As.NPCSells]: Entities.NPCSells
     [Entities.As.Quest]: Entities.Quest
-    [Entities.As.Gatherable]: Entities.Gatherable
+    [Entities.As.Recipe]: Entities.Recipe
     F: Entities.Generic
 }[A]
 
@@ -67,15 +67,15 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
  * Many modes may map to the same type of response.
  */
  export type Response<A extends WithFallback<Entities.As> = 'F'> = {
+    [Entities.As.Design]: BDOCodex.Query.Responses.Design
+    [Entities.As.DropNPC]: BDOCodex.Query.Responses.Drop
+    [Entities.As.DropGatherable]: BDOCodex.Query.Responses.Drop
     [Entities.As.ExchangeItem]: BDOCodex.Query.Responses.ExchangeItem
-    [Entities.As.Recipe]: BDOCodex.Query.Responses.Recipe
+    [Entities.As.Node]: BDOCodex.Query.Responses.Node
+    [Entities.As.NPC]: BDOCodex.Query.Responses.NPC
     [Entities.As.Pattern]: BDOCodex.Query.Responses.Pattern
     [Entities.As.Processing]: BDOCodex.Query.Responses.Processing
-    [Entities.As.Design]: BDOCodex.Query.Responses.Design
-    [Entities.As.NodeDrops]: BDOCodex.Query.Responses.NodeDrops
-    [Entities.As.NPCDrops]: BDOCodex.Query.Responses.Drop
-    [Entities.As.NPCSells]: BDOCodex.Query.Responses.NPCSells
     [Entities.As.Quest]: BDOCodex.Query.Responses.Quest
-    [Entities.As.Gatherable]: BDOCodex.Query.Responses.Drop
+    [Entities.As.Recipe]: BDOCodex.Query.Responses.Recipe
     F: BDOCodex.Query.Responses.Generic
 }[A]

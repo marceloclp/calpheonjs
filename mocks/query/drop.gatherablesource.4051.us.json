@@ -1,6 +1,6 @@
 [
     {
-        "as": "gatherable",
+        "as": "dropGatherable",
         "type": "gatherable",
         "id": "10094",
         "name": "Andesite",
@@ -9,7 +9,7 @@
         "chance": 4.15
     },
     {
-        "as": "gatherable",
+        "as": "dropGatherable",
         "type": "gatherable",
         "id": "10051",
         "name": "Iron",
@@ -18,7 +18,7 @@
         "chance": 4.15
     },
     {
-        "as": "gatherable",
+        "as": "dropGatherable",
         "type": "gatherable",
         "id": "10091",
         "name": "Bloodstone",
@@ -27,7 +27,7 @@
         "chance": 4.15
     },
     {
-        "as": "gatherable",
+        "as": "dropGatherable",
         "type": "gatherable",
         "id": "10108",
         "name": "Sandstone",
@@ -36,7 +36,7 @@
         "chance": 4.15
     },
     {
-        "as": "gatherable",
+        "as": "dropGatherable",
         "type": "gatherable",
         "id": "10136",
         "name": "Soft Sandstone",
@@ -45,7 +45,7 @@
         "chance": 4.15
     },
     {
-        "as": "gatherable",
+        "as": "dropGatherable",
         "type": "gatherable",
         "id": "10004",
         "name": "Feldspar",

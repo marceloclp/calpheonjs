@@ -15,12 +15,12 @@ export const Builder = CreateBuilder
         materials: _.Craftable.getItems(data, 6),
         products: _.Craftable.getItems(data, 7),
     }))
-    .as(Entities.As.NodeDrops, data => ({
+    .as(Entities.As.Node, data => ({
         type: BDO.Entities.Types.Node,
-        zone: _.NodeDrops.getZone(data),
-        conditions: _.NodeDrops.getConditions(data),
+        zone: _.Node.getZone(data),
+        conditions: _.Node.getConditions(data),
     }))
-    .as(Entities.As.NPCDrops, data => ({
+    .as(Entities.As.DropNPC, data => ({
         type: BDO.Entities.Types.NPC,
         quantity: _.Collectable.getQuantity(data),
         chance: _.Collectable.getChance(data),
@@ -32,13 +32,13 @@ export const Builder = CreateBuilder
         tradeForItem: _.ExchangeItem.getTradeForItem(data),
         tradeWith: _.ExchangeItem.getTradeWith(data),
     }))
-    .as(Entities.As.NPCSells, data => ({
+    .as(Entities.As.NPC, data => ({
         type: BDO.Entities.Types.NPC,
-        title: _.NPCSells.getTitle(data),
-        level: _.NPCSells.getLevel(data),
-        stats: _.NPCSells.getStats(data),
-        droppedExp: _.NPCSells.getDroppedExp(data),
-        droppedKarma: _.NPCSells.getDroppedKarma(data),
+        title: _.NPC.getTitle(data),
+        level: _.NPC.getLevel(data),
+        stats: _.NPC.getStats(data),
+        droppedExp: _.NPC.getDroppedExp(data),
+        droppedKarma: _.NPC.getDroppedKarma(data),
     }))
     .as(Entities.As.Pattern, data => ({
         type: BDO.Entities.Types.Pattern,
@@ -69,7 +69,7 @@ export const Builder = CreateBuilder
         materials: _.Craftable.getItems(data, 6),
         products: _.Craftable.getItems(data, 7),
     }))
-    .as(Entities.As.Gatherable, data => ({
+    .as(Entities.As.DropGatherable, data => ({
         type: BDO.Entities.Types.Gatherable,
         quantity: _.Collectable.getQuantity(data),
         chance: _.Collectable.getChance(data),

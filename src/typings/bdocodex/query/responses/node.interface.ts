@@ -1,6 +1,6 @@
 import { Generic } from './generic.interface'
 
-export interface NodeDrops extends Generic<string> {
+export interface Node extends Generic<string> {
     /** Zone. */
     readonly 3: string
 

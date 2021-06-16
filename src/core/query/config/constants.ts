@@ -48,8 +48,8 @@ export const MODES_TO_RETURNED_AS: {
     [Modes.ProcessingProduct]: Entities.As.Processing,
     [Modes.DesignMaterial]: Entities.As.Design,
     [Modes.DesignProduct]: Entities.As.Design,
-    [Modes.SoldByNPC]: Entities.As.NPCSells,
-    [Modes.DroppedByNPC]: Entities.As.NPCDrops,
-    [Modes.DroppedByNode]: Entities.As.NodeDrops,
-    [Modes.GatheredFrom]: Entities.As.Gatherable,
+    [Modes.SoldByNPC]: Entities.As.NPC,
+    [Modes.DroppedByNPC]: Entities.As.DropNPC,
+    [Modes.DroppedByNode]: Entities.As.Node,
+    [Modes.GatheredFrom]: Entities.As.DropGatherable,
 })

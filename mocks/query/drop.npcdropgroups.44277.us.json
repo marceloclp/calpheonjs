@@ -1,6 +1,6 @@
 [
     {
-        "as": "npcDrops",
+        "as": "dropNpc",
         "type": "npc",
         "id": "21322",
         "name": "Vodkhan",
