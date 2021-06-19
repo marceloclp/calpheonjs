@@ -1,6 +1,6 @@
 import { BDO } from '@typings/namespaces'
 import { Chars } from '@typings/utilities'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { decodeHTMLEntities } from '@helpers/utils/decode-html-entities'
 import { Getter } from './getter.type'
@@ -10,7 +10,7 @@ export const getDescription: Getter<'description'> = ({ $, type }) => {
         type === BDO.Entities.Types.Knowledge ||
         type === BDO.Entities.Types.NPC
     ) {
-        const matcher = Matcher('Description:')
+        const matcher = Matcher.initWith('Description:')
         const element = $('.outer.item_info td').toArray().find(elem => {
             const text = $(elem).text()
             return !!matcher.findIn(text)

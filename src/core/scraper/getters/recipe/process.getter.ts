@@ -1,21 +1,21 @@
-import { BDO } from '@typings/namespaces'
-import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { App, BDO } from '@typings/namespaces'
+import { LocaleLookup } from '@helpers/utils/locale-lookup'
 import { Getter } from './getter.type'
 
-const ProcessLookup:
-    Record<string, BDO.LifeSkills.Recipes.Processes> = ((P) => ({
-        'alchemy': P.Alchemy,
-        'cooking': P.Cooking,
-        'guild_processing': P.GuildProcessing,
-    }))(BDO.LifeSkills.Recipes.Processes)
+const ProcessLookup = new LocaleLookup(BDO.LifeSkills.Recipes.Processes)
+    .forLocale(App.Locales.US, (P) => ({
+        'Alchemy': P.Alchemy,
+        'Cooking': P.Cooking,
+        'Guild Processing': P.GuildProcessing,
+    }))
 
 export const getProcess: Getter<'process'> = ({ $, id, type, locale }) => {
-    const text = $('.category_text')
+    const lookup = ProcessLookup.init(locale)
+    const process = $('.category_text')
         .parent().find('.yellow_text').text()
-    const processText = toSnakeCase(text)
-    ;(!(processText in ProcessLookup)) && console.warn(
-        `Unknown process ${processText} found for /${locale}/${type}/${id}. ` +
-        'Please report this warning by opening an issue on the GitHub page.'
+    ;(!lookup.has(process)) && console.warn(
+        `Unknown process ${process} found for /${locale}/${type}/${id}. ` +
+        App.REPORT_ISSUE_MESSAGE,
     )
-    return ProcessLookup[processText] || processText
+    return lookup.get(process)
 }

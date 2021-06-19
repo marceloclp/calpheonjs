@@ -1,11 +1,11 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
 
 export const getMaterials: Getter<'materials'> = ({ $ }) => {
-    const matcher = Matcher('Crafting Material')
+    const matcher = Matcher.initWith('Crafting Material')
 
     const row = $('.outer.item_info td').toArray().find(element => {
         const text = $(element).text()

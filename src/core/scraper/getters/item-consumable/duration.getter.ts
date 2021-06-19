@@ -1,9 +1,9 @@
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { parseTime } from '@helpers/utils/parse-time'
 import { Getter } from './getter.type'
 
 export const getDuration: Getter<'duration'> = ({ $ }) => {
-    const matcher = Matcher('Duration')
+    const matcher = Matcher.initWith('Duration')
     
     const elements = $('.outer.item_info td').contents().toArray()
     const matchedIndex = elements.findIndex(element => {

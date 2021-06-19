@@ -1,11 +1,11 @@
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
 import { Entities } from '../../typings'
 import { Getter } from './getter.type'
 
 export const getObtainedFrom: Getter<'obtainedFrom'> = ({ $ }) => {
-    const matcher = Matcher('Obtained from')
+    const matcher = Matcher.initWith('Obtained from')
     const elements = $('.outer.item_info td').contents().toArray()
 
     let idx = elements.findIndex(elem => {

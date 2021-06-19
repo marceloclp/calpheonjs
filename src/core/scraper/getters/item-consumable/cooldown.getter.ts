@@ -1,9 +1,9 @@
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { parseTime } from '@helpers/utils/parse-time'
 import { Getter } from './getter.type'
 
 export const getCooldown: Getter<'cooldown'> = ({ $ }) => {
-    const matcher = Matcher('Cooldown')
+    const matcher = Matcher.initWith('Cooldown')
     const elements = $('.outer.item_info td').contents().toArray()
     const matchedIndex = elements.findIndex(element => {
         const text = $(element).text()

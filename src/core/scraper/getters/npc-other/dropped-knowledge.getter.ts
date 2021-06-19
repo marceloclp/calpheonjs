@@ -1,11 +1,11 @@
 import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
 
 export const getDroppedKnowledge: Getter<'knowledge'> = ({ $ }) => {
-    let matcher = Matcher('Knowledge drop chance:')
+    let matcher = Matcher.initWith('Knowledge drop chance:')
     const dcElement = $('.titles_cell').contents().toArray()
         .find(elem => {
             if (matcher.lastMatch)
@@ -20,7 +20,7 @@ export const getDroppedKnowledge: Getter<'knowledge'> = ({ $ }) => {
 
     // To simplify things, we will assume the HTML structure is consistent.
     // This may not always be the case, but this can be improved later.
-    matcher = Matcher('Knowledge:')
+    matcher = Matcher.initWith('Knowledge:')
     const rowElement = $('.outer.item_info td').toArray().find(elem => {
         return !!matcher.findIn($(elem).text())
     })

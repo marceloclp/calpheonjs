@@ -1,21 +1,23 @@
-import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { App, BDO } from '@typings/namespaces'
+import { LocaleLookup } from '@helpers/utils/locale-lookup'
+import { Matcher } from '@helpers/utils/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
-import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getter.type'
 
-const MasteryLookup: Record<string, BDO.LifeSkills.Masteries> = {
-    'beginner': BDO.LifeSkills.Masteries.Beginner,
-    'apprentice': BDO.LifeSkills.Masteries.Apprentice,
-    'skilled': BDO.LifeSkills.Masteries.Skilled,
-    'professional': BDO.LifeSkills.Masteries.Professional,
-    'artisan': BDO.LifeSkills.Masteries.Artisan,
-    'master': BDO.LifeSkills.Masteries.Master,
-    'guru': BDO.LifeSkills.Masteries.Guru,
-}
+const MasteryLookup = new LocaleLookup(BDO.LifeSkills.Masteries)
+    .forLocale(App.Locales.US, (M) => ({
+        'Beginner': M.Beginner,
+        'Apprentice': M.Apprentice,
+        'Skilled': M.Skilled,
+        'Professional': M.Professional,
+        'Artisan': M.Artisan,
+        'Master': M.Master,
+        'Guru': M.Guru,
+    }))
 
 export const getMastery: Getter<'mastery'> = ({ $, id, type, locale }) => {
-    const matcher = Matcher('Skill level:')
+    const lookup = MasteryLookup.init(locale)
+    const matcher = Matcher.initWith('Skill level:')
 
     const elements = $('.category_text')
         .parent().contents().toArray()
@@ -25,16 +27,14 @@ export const getMastery: Getter<'mastery'> = ({ $, id, type, locale }) => {
     })
     if (!element || !matcher.lastMatch) throw new Error()
 
-    const { str, index, found } = matcher.lastMatch
-    const text = str
-        .substr(index + found.length + 1)
+    const { matchedStr, endIdx } = matcher.lastMatch
+    const mastery = matchedStr
+        .substr(endIdx + 1)
         .replace(/[0-9]/g, '')
-
-    const masteryText = toSnakeCase(text)
-    ;(!(masteryText in MasteryLookup)) && console.warn(
-        `Unknown mastery ${masteryText} found for /${locale}/${type}/${id}. ` +
-        'Please report this warning by opening an issue on the GitHub page.'
+        .trim()
+    ;(!lookup.has(mastery)) && console.warn(
+        `Unknown mastery "${mastery}" found for /${locale}/${type}/${id}.` +
+        App.REPORT_ISSUE_MESSAGE,
     )
-
-    return [MasteryLookup[masteryText], parseNumber(str, 0)]
+    return [lookup.get(mastery), parseNumber(matchedStr, 0)]
 }

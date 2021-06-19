@@ -1,6 +1,6 @@
 import { BDO } from '@typings/namespaces'
 import { Chars } from '@typings/utilities'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getter.type'
 
@@ -25,7 +25,7 @@ const ClassesLookup: Record<string, BDO.Characters.Classes> = {
 }
 
 export const getExclusiveTo: Getter<'exclusiveTo'> = ({ $, id, locale, type }) => {
-    const matcher = Matcher('Exclusive')
+    const matcher = Matcher.initWith('Exclusive')
 
     $('.outer.item_info td').contents().toArray().find(element => {
         const text = $(element).text()
@@ -33,7 +33,7 @@ export const getExclusiveTo: Getter<'exclusiveTo'> = ({ $, id, locale, type }) =
     })
     if (!matcher.lastMatch) return []
 
-    const { str: text } = matcher.lastMatch
+    const { matchedStr: text } = matcher.lastMatch
     const stripped = text
         .substr(text.indexOf(Chars.DoubleDots) + 1)
 

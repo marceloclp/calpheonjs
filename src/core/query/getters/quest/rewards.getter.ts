@@ -1,6 +1,6 @@
 import cheerio from 'cheerio'
 import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { substrOf } from '@helpers/utils/substr-of'
@@ -8,8 +8,8 @@ import { Getter } from './getter.type'
 
 export const getRewards: Getter<'rewards'> = (data) => {
     const matchers = {
-        standard: Matcher('Standard'),
-        choseOneOf: Matcher('Choose'),
+        standard: Matcher.initWith('Standard'),
+        choseOneOf: Matcher.initWith('Choose'),
     }
     const rewards: BDO.Quests.Rewards = {
         choseOneOf: [],

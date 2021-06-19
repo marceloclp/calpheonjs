@@ -1,18 +1,16 @@
 import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
 
 export const getRewards: Getter<'rewards'> = ({ $ }) => {
-    const matchers = {
-        standard: Matcher('Standard'),
-        choseOneOf: Matcher('Choose'),
-    }
+    const matcher = Matcher.initWithMap({
+        standard: 'Standard', choseOneOf: 'Choose'
+    })
     const rewards: BDO.Quests.Rewards = {
-        standard: [],
-        choseOneOf: [],
+        standard: [], choseOneOf: []
     }
 
     // First step is finding the actual table row that contains
@@ -24,21 +22,17 @@ export const getRewards: Getter<'rewards'> = ({ $ }) => {
     // TODO: find a better way of scraping the rewards.
     const row = $('.outer.item_info td')
         .toArray().reverse().find(elem => {
-            return Object.values(matchers).some(matcher => {
-                return matcher.findIn($(elem).text())
-            })
+            return matcher.findIn($(elem).text())
         })
     if (!row) return rewards
     
-    let currKey = 'standard' as keyof typeof matchers
+    let currKey: keyof BDO.Quests.Rewards = 'standard'
     const elements = $(row).contents().toArray()
     for (let i = 0; i < elements.length; i++) {
         const elem = elements[i]
         if (elem.type === 'text') {
-            const newKey = Object.keys(matchers).find(key => {
-                return !!matchers[key].findIn($(elem).text())
-            }) as keyof typeof matchers
-            if (newKey) currKey = newKey
+            const match = matcher.findIn($(elem).text())
+            if (match) currKey = match.candidateKey
             continue
         }
         if (elem.type !== 'tag' || elem.tagName !== 'div')

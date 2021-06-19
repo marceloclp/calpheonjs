@@ -2,6 +2,8 @@ export type WithFallback<T> = T | 'F'
 
 export type U<T> = T | undefined
 
+export type OrArray<T> = T | T[]
+
 export type Diff<T, K> = Omit<T, keyof K>
 
 /**

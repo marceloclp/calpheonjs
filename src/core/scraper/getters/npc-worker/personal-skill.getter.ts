@@ -1,11 +1,11 @@
 import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { ShortURL } from '@helpers/utils/short-url'
 import { Getter } from './getter.type'
 
 export const getPersonalSkill: Getter<'personalSkill'> = ({ $ }) => {
-    const matcher = Matcher('Personal skill:')
+    const matcher = Matcher.initWith('Personal skill:')
     const elements = $('.outer.item_info td')
         .contents().toArray()
     let idx = elements.findIndex(elem => {

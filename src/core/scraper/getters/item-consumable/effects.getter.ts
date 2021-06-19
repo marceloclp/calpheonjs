@@ -1,10 +1,10 @@
 import { DividerChars, GroupBreakChars } from '@config/constants'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { Getter } from './getter.type'
 
 export const getEffects: Getter<'effects'> = ({ $ }) => {
-    const matcher = Matcher('- Effect', 'Effect')
+    const matcher = Matcher.initWith('- Effect', 'Effect')
     const effects: string[] = []
 
     const element = $('.outer.item_info td').toArray().find(element => {

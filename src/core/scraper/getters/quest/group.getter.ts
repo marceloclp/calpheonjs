@@ -1,22 +1,23 @@
-import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
-import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { App, BDO } from '@typings/namespaces'
+import { LocaleLookup } from '@helpers/utils/locale-lookup'
+import { Matcher } from '@helpers/utils/matcher'
 import { Getter } from './getter.type'
 
-const { Groups } = BDO.Quests
-const Lookup = {
-    'character_quest': Groups.Character,
-    'family_quest': Groups.Family,
-}
+const GroupsLookup = new LocaleLookup(BDO.Quests.Groups)
+    .forLocale(App.Locales.US, (G) => ({
+        'Character quest': G.Character,
+        'Family quest': G.Family,
+    }))
 
-export const getGroup: Getter<'group'> = ({ $ }) => {
-    const matcher = Matcher('Type:')
+export const getGroup: Getter<'group'> = ({ $, locale }) => {
+    const lookup = GroupsLookup.init(locale)
+    const matcher = Matcher.initWith('Type:')
     $('.titles_cell').contents().toArray().find(elem => {
         return matcher.findIn($(elem).text())
     })
     if (!matcher.lastMatch)
         return
-    const { str, index, found } = matcher.lastMatch
-    const text = str.substr(index + found.length + 1)
-    return Lookup[toSnakeCase(text)]
+    const { matchedStr, endIdx } = matcher.lastMatch
+    const text = matchedStr.substr(endIdx + 1).trim()
+    return lookup.get(text)
 }

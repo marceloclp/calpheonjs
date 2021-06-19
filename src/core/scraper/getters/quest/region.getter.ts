@@ -1,14 +1,14 @@
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { Getter } from './getter.type'
 
 export const getRegion: Getter<'region'> = ({ $ }) => {
-    const matcher = Matcher('Region:')
+    const matcher = Matcher.initWith('Region:')
     $('.titles_cell').contents().toArray().find(elem => {
         return matcher.findIn($(elem).text())
     })
     if (!matcher.lastMatch)
         return
-    const { str, index, found } = matcher.lastMatch
-    return cleanStr(str.substr(index + found.length + 1))
+    const { matchedStr, endIdx } = matcher.lastMatch
+    return cleanStr(matchedStr.substr(endIdx + 1))
 }

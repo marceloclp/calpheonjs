@@ -1,19 +1,21 @@
-import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { App, BDO } from '@typings/namespaces'
+import { LocaleLookup } from '@helpers/utils/locale-lookup'
+import { Matcher } from '@helpers/utils/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
-import { toSnakeCase } from '@helpers/utils/to-snake-case'
 import { Getter } from './getter.type'
 
-const Lookup = {
-    'naive': BDO.NPCs.Workers.SkillLevels.Naive,
-    'general': BDO.NPCs.Workers.SkillLevels.General,
-    'skilled': BDO.NPCs.Workers.SkillLevels.Skilled,
-    'pro': BDO.NPCs.Workers.SkillLevels.Professional,
-    'artisan': BDO.NPCs.Workers.SkillLevels.Artisan,
-}
+const LevelLookup = new LocaleLookup(BDO.NPCs.Workers.SkillLevels)
+    .forLocale(App.Locales.US, (SL) => ({
+        'Naive': SL.Naive,
+        'General': SL.General,
+        'Skilled': SL.Skilled,
+        'Pro': SL.Professional,
+        'Artisan': SL.Artisan,
+    }))
 
 export const getSkillsChance: Getter<'acquireChanceTable'> = ({ $, id, type, locale }) => {
-    const matcher = Matcher('Chances of obtaining the skills:')
+    const lookup = LevelLookup.init(locale)
+    const matcher = Matcher.initWith('Chances of obtaining the skills:')
     const chances = {} as Record<BDO.NPCs.Workers.SkillLevels, number>
 
     const elements = $('.outer.item_info td')
@@ -33,16 +35,13 @@ export const getSkillsChance: Getter<'acquireChanceTable'> = ({ $, id, type, loc
     const rows = $(elements[idx]).find('td')
     // Jump the first two elements as they are the headers.
     for (let pair = 2; pair < rows.length; pair += 2) {
-        const lookup = toSnakeCase($(rows[pair]).text())
-        if (lookup in Lookup) {
-            chances[Lookup[lookup]] = parseNumber($(rows[pair+1]).text())
-            continue
-        }
-        console.warn(
-            `Unknown skill level ${lookup} found for /${locale}/${type}/${id}. `,
-            'Please report this warning by opening an issue on the GitHub page.'
+        const skillLevel = $(rows[pair]).text().trim()
+        ;(!lookup.has(skillLevel)) && console.warn(
+            `Unknown skill level ${skillLevel} found for /${locale}/${type}/${id}.`,
+            App.REPORT_ISSUE_MESSAGE,
         )
+        chances[lookup.get(skillLevel)] =
+            parseNumber($(rows[pair+1]).text())
     }
-
     return chances
 }

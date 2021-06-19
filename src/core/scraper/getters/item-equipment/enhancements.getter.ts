@@ -1,6 +1,6 @@
 import cheerio from 'cheerio'
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { StatsLookup } from '@helpers/lookups/stats.lookup'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
@@ -11,10 +11,10 @@ const parseEffects = (
 ): BDO.Items.Equipments.Effects => {
     const $ = cheerio.load('<div>' + html + '</div>')
     const matchers = {
-        item: Matcher('Item Effect'),
-        enhancement: Matcher('Enhancement Effect'),
-        additional: Matcher('Additional Effect'),
-        set: Matcher('Set Effect'),
+        item: Matcher.initWith('Item Effect'),
+        enhancement: Matcher.initWith('Enhancement Effect'),
+        additional: Matcher.initWith('Additional Effect'),
+        set: Matcher.initWith('Set Effect'),
     }
     const effects: BDO.Items.Equipments.Effects = {
         item: [], enhancement: [], additional: [], set: {},

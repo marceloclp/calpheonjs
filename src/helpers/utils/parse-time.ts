@@ -1,23 +1,19 @@
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { parseNumber } from './parse-number'
 
-const ConversionTable = [
-    [['sec'], (n: number) => n],
-    [['min'], (n: number) => n * 60],
-    [['h'], (n: number) => n * 60 * 60],
-] as [string[], (n: number) => number][]
-
-export const parseTime = (
-    value: string | number | undefined,
-    defaultValue: number
-) => {
+export function parseTime(value?: string | number, defaultValue: number = 0) {
     if (typeof value === 'number')
         return value
     if (typeof value !== 'string')
         return defaultValue
     let parsedValue = parseNumber(value, defaultValue)
-    for (const [dict, convertFn] of ConversionTable)
-        if (Matcher(...dict).findIn(value))
-            return convertFn(parsedValue)
-    return parsedValue
+    const match = Matcher.initWithMap({
+        sec: 'sec', min: 'min', hour: 'h'
+    }).findIn(value)
+    if (!match) return defaultValue
+    return {
+        sec: (n: number) => n,
+        min: (n: number) => n * 60,
+        hour: (n: number) => n * 60 * 60,
+    }[match.candidateKey](parsedValue)
 }

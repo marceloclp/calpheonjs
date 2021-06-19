@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import { Builder } from './builders'
-import { Modes, Entities, Selectors } from './typings'
+import { Modes } from './typings'
 import { composeQueryURL } from './utils/compose-query-url'
 export { Modes, Entities, Selectors } from './typings'
 

@@ -1,11 +1,11 @@
 import { BDO } from '@typings/namespaces'
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { Getter } from './getter.type'
 
 export const getEndNPC: Getter<'endNPC'> = ({ $ }) => {
-    const matcher = Matcher('End NPC:')
+    const matcher = Matcher.initWith('End NPC:')
     const elements = $('.outer.item_info td').contents().toArray()
 
     let idx = elements.findIndex(elem => {

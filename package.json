@@ -22,6 +22,8 @@
     "pretest": "npm run tsnode ./scripts/setup-tests.ts",
     "test": "jest",
     "test:query": "npm run test src/core/query",
+    "test:scraper": "npm run test src/core/scraper",
+    "test:scraper:builders": "npm run test src/core/scraper/builders",
     "prepublish": "tsc"
   },
   "devDependencies": {

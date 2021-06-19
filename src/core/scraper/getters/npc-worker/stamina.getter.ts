@@ -1,9 +1,9 @@
-import { Matcher } from '@helpers/matcher'
+import { Matcher } from '@helpers/utils/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
 
 export const getStamina: Getter<'stamina'> = ({ $ }) => {
-    const matcher = Matcher('Stamina')
+    const matcher = Matcher.initWith('Stamina')
     const elements = $('.outer.item_info table tr table[width] td')
         .toArray()
     for (let i = 0; i < elements.length; i++) {

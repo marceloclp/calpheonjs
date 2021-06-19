@@ -1,31 +1,33 @@
-import { BDO } from '@typings/namespaces'
+import { App, BDO } from '@typings/namespaces'
 import { Chars } from '@typings/utilities'
-import { toSnakeCase } from '@helpers/utils/to-snake-case'
+import { LocaleLookup } from '@helpers/utils/locale-lookup'
 import { Getter } from './getter.type'
 
-const { Processes } = BDO.LifeSkills.Processing
-const Lookup = {
-    'shaking': Processes.Shaking,
-    'grinding': Processes.Grinding,
-    'chopping': Processes.Chopping,
-    'drying': Processes.Drying,
-    'filtering': Processes.Filtering,
-    'heating': Processes.Heating,
-    'simple_alchemy': Processes.SimpleAlchemy,
-    'simple_cooking': Processes.SimpleCooking,
-    'imperial_cuisine': Processes.ImperialCuisine,
-    'imperial_alchemy': Processes.ImperialAlchemy,
-    'guild_processing': Processes.GuildProcessing,
-    'manufacture': Processes.Manufacture,
-}
+const ProcessLookup = new LocaleLookup(BDO.LifeSkills.Processing.Processes)
+    .forLocale(App.Locales.US, (P) => ({
+        'Shaking': P.Shaking,
+        'Grinding': P.Grinding,
+        'Chopping': P.Chopping,
+        'Drying': P.Drying,
+        'Filtering': P.Filtering,
+        'Heating': P.Heating,
+        'Simple Alchemy': P.SimpleAlchemy,
+        'Simple Cooking': P.SimpleCooking,
+        'Imperial Cuisine': P.ImperialCuisine,
+        'Imperial Alchemy': P.ImperialAlchemy,
+        'Guild Processing': P.GuildProcessing,
+        'Manufacture': P.Manufacture,
+    }))
 
 export const getProcess: Getter<'process'> = ({ $, id, type, locale }) => {
-    const text = $('.category_text')
+    const lookup = ProcessLookup.init(locale)
+    const process = $('.category_text')
         .parent().find('.yellow_text').text()
-    const lookup = toSnakeCase(text.split(Chars.Slash)[1])
-    ;(!(lookup in Lookup)) && console.warn(
-        `Unknown process ${lookup} found for /${locale}/${type}/${id}. ` +
-        'Please report this warning by opening an issue on the GitHub page.'
+        .split(Chars.Slash)[1]
+        .trim()
+    ;(!lookup.has(process)) && console.warn(
+        `Unknown process ${lookup} found for /${locale}/${type}/${id}.` +
+        App.REPORT_ISSUE_MESSAGE,
     )
-    return Lookup[lookup]
+    return lookup.get(process)
 }
