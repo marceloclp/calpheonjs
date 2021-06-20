@@ -18,6 +18,7 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
     const rootDir = path.join(__dirname, '../../../../../')
     const mokcDir = path.join(rootDir, 'mocks/query')
     const cacheDir = path.join(rootDir, 'cache/query')
+    await fs.mkdir(cacheDir, { recursive: true })
 
     const keys = await fs
         .readdir(mokcDir, { encoding: 'utf-8' })
@@ -43,9 +44,8 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
 
             const args = decomposeFileKey(key)
             const url = composeQueryURL(args)
-            const response = await fetch(url)
-            const text = await response.text()
-
+            const text = await fetch(url)
+                .then(response => response.text())
             await fs.writeFile(filePath, text)
         }
     }))

@@ -17,6 +17,7 @@ export default (): Config.InitialOptions => ({
     stores: {
       query: loadStore('query'),
       scraper: loadStore('scraper'),
+      search: loadStore('search'),
     }
   },
 })

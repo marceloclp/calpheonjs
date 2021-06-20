@@ -9,7 +9,7 @@ export class TestStore<A extends Entities.As> {
     } = (global as any).stores.query
 
     getKeys(): string[] {
-        return this.store.keys
+        return [...this.store.keys]
     }
 
     getMocksForFile(fileKey: string): Selectors.Entity<A>[] {
@@ -20,14 +20,14 @@ export class TestStore<A extends Entities.As> {
 
     getResponseForFile(fileKey: string) {
         if (fileKey in this.store.cache) {
-            const response = JSON.parse(this.store.cache[fileKey].trim()) as
-                BDOCodex.Query.Response<any>
+            const response: BDOCodex.Query.Response<any> = JSON
+                .parse(this.store.cache[fileKey].trim())
             return response.aaData
         }
         throw new Error(
             `Missing cache for file ${fileKey}. ` +
-            'This might be due to the tests not being downloaded beforehand. ' +
-            'Try running the test command one more time.'
+            `Try running 'npm run pretest' before running the tests again. ` +
+            `If this doesn't help, please open an issue on GitHub.`
         )
     }
 }

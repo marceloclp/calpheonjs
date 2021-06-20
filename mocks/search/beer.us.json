@@ -1,0 +1,72 @@
+[
+    {
+        "id": "9213",
+        "type": "item",
+        "name": "Beer",
+        "grade": 1,
+        "icon": "items/new_icon/03_etc/07_productmaterial/00009213.png"
+    },
+    {
+        "id": "42353",
+        "type": "item",
+        "name": "Dark Beer",
+        "grade": 0,
+        "icon": "items/new_icon/03_etc/03_quest_item/00042353.png"
+    },
+    {
+        "id": "24156",
+        "type": "item",
+        "name": "Lying Beer Keg",
+        "grade": 0,
+        "icon": "items/new_icon/03_etc/06_housing/inhouse_x_dpfo_kitchen_beerbarrel_04.png"
+    },
+    {
+        "id": "9283",
+        "type": "item",
+        "name": "Cold Draft Beer",
+        "grade": 2,
+        "icon": "items/new_icon/03_etc/07_productmaterial/00009283.png"
+    },
+    {
+        "id": "65153",
+        "type": "item",
+        "name": "Beer Support Box",
+        "grade": 2,
+        "icon": "items/new_icon/03_etc/00016545.png"
+    },
+    {
+        "id": "24155",
+        "type": "item",
+        "name": "Standing Beer Keg",
+        "grade": 0,
+        "icon": "items/new_icon/03_etc/06_housing/inhouse_x_dpfo_kitchen_beerbarrel_02.png"
+    },
+    {
+        "id": "9843",
+        "type": "item",
+        "name": "[Event] Beer Crate",
+        "grade": 2,
+        "icon": "items/new_icon/03_etc/07_productmaterial/00009843.png"
+    },
+    {
+        "id": "16254",
+        "type": "item",
+        "name": "[Event] Cold Dark Beer",
+        "grade": 2,
+        "icon": "items/new_icon/03_etc/00016254.png"
+    },
+    {
+        "id": "16253",
+        "type": "item",
+        "name": "[Event] Cold Draft Beer",
+        "grade": 2,
+        "icon": "items/new_icon/03_etc/00016253.png"
+    },
+    {
+        "id": "9844",
+        "type": "item",
+        "name": "[Event] Sample Beer Crate",
+        "grade": 1,
+        "icon": "items/new_icon/03_etc/07_productmaterial/00009843.png"
+    }
+]

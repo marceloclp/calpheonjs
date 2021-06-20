@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-export default function (folder: 'query' | 'scraper') {
+export default function (folder: 'query' | 'scraper' | 'search') {
     const mocksDir = path.join(__dirname, '../mocks')
     const cacheDir = path.join(__dirname, '../cache')
 

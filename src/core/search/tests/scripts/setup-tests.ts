@@ -3,7 +3,7 @@ import path from 'path'
 import fetch from 'node-fetch'
 import chalk from 'chalk'
 
-import { buildCodexURL } from '@helpers/utils/build-codex-url'
+import { buildSearchURL } from '../../utils/build-search-url'
 import { decomposeFileKey } from '../utils/decompose-file-key'
 
 const logFile = (key: string, status: 'F' | 'D'): void => console.log(
@@ -16,8 +16,8 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
 
 (async function() {
     const rootDir = path.join(__dirname, '../../../../../')
-    const mocksDir = path.join(rootDir, 'mocks/scraper')
-    const cacheDir = path.join(rootDir, 'cache/scraper')
+    const mocksDir = path.join(rootDir, 'mocks/search')
+    const cacheDir = path.join(rootDir, 'cache/search')
     await fs.mkdir(cacheDir, { recursive: true })
 
     const keys = await fs
@@ -30,7 +30,7 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
     
     console.log(chalk
         .bgCyanBright.black
-        .bold(` Preparing scraper tests (${missing}/${keys.length}) `)
+        .bold(` Preparing search tests (${missing}/${keys.length}) `)
     )
     
     await Promise.all(keys.map(async key => {
@@ -43,7 +43,7 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
             logFile(key, 'D')
 
             const args = decomposeFileKey(key)
-            const url = buildCodexURL(args)
+            const url = buildSearchURL(args)
             const text = await fetch(url)
                 .then(response => response.text())
             await fs.writeFile(filePath, text)

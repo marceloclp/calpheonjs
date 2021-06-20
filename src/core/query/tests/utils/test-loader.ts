@@ -1,13 +1,13 @@
 import { BDO } from '@typings/namespaces'
 import { Entities, Selectors } from '@core/query/typings'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
-import { decomposeFileKey } from './decompose-file-key'
 import { Builder } from '@core/query/builders'
+import { decomposeFileKey } from './decompose-file-key'
 import { TestStore } from './test-store'
 
 export class TestLoader<A extends Entities.As = Entities.As> {
     private readonly store = new TestStore<A>()
-    private keys = [...this.store.getKeys()]
+    private keys = this.store.getKeys()
 
     private maxDepthLevel = 2
     private idsLookup = new Map<string, true>()

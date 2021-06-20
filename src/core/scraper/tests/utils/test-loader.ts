@@ -8,7 +8,7 @@ import { decomposeFileKey } from './decompose-file-key'
 
 export class TestLoader<A extends Entities.As> {
     private readonly store = new TestStore<A>()
-    private keys = [...this.store.getKeys()]
+    private keys = this.store.getKeys()
 
     filter(fn: (entity: Selectors.Entity<A>) => boolean) {
         this.keys = this.keys.filter(key => {
