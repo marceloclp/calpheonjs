@@ -3,7 +3,7 @@ import path from 'path'
 import fetch from 'node-fetch'
 import chalk from 'chalk'
 
-import { composeQueryURL } from '@core/query/utils/compose-query-url'
+import { buildQueryURL } from '@core/query/utils/build-query-url'
 import { decomposeFileKey } from '../utils/decompose-file-key'
 
 const logFile = (key: string, status: 'F' | 'D'): void => console.log(
@@ -43,7 +43,7 @@ const logFile = (key: string, status: 'F' | 'D'): void => console.log(
             logFile(key, 'D')
 
             const args = decomposeFileKey(key)
-            const url = composeQueryURL(args)
+            const url = buildQueryURL(args)
             const text = await fetch(url)
                 .then(response => response.text())
             await fs.writeFile(filePath, text)

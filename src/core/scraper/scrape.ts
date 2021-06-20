@@ -1,34 +1,22 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
-import { BDO } from '@typings/namespaces'
 import { DefaultLocale } from '@config/constants'
-import { isValidPage } from '@core/scraper/utils/is-valid-page'
-import { Entities, ScrapableEntity } from '@core/scraper/typings'
 import { buildCodexURL } from '@helpers/utils/build-codex-url'
+import { ScrapableEntity } from './typings'
+import { Builder } from './builders'
 import { isScrapableEntity } from './utils/is-scrapable-entity'
-import { Builder } from '@core/scraper/builders'
+import { isValidPage } from './utils/is-valid-page'
 
-export const Scrape: {
-    (type: BDO.Entities.Types.Item, itemId: string): Promise<Entities.Items.Item>
-    (type: BDO.Entities.Types.Knowledge, knowledgeId: string): Promise<Entities.Knowledge>
-    (type: BDO.Entities.Types.MaterialGroup, materialGroupId: string): Promise<Entities.MaterialGroup>
-    (type: BDO.Entities.Types.NPC, npcId: string): Promise<Entities.NPCs.NPC>
-    (type: BDO.Entities.Types.Processing, recipeId: string): Promise<Entities.Processing>
-    (type: BDO.Entities.Types.Quest, questId: string): Promise<Entities.Quest>
-    (type: BDO.Entities.Types.Recipe, recipeId: string): Promise<Entities.Recipe>
-} = async <T extends ScrapableEntity>(
-    type: T,
-    id: string
-): Promise<any> => {
-    const locale = DefaultLocale
-    const response = await fetch(
-        buildCodexURL({ locale, type, id })
-    )
-    const body = await response.text()
-
-    const $ = cheerio.load(body)
-    if (!isScrapableEntity(type) || !isValidPage($)) {
-        throw new InvalidEntity(id, type, locale)
+export async function Scrape<T extends ScrapableEntity>(type: T, id: string) {
+    if (!isScrapableEntity(type)) {
+        throw new Error(`Entity of type ${type} is not a scrapable entity.`)
     }
-    return Builder(type, { $, id, type, locale })
+    const url = buildCodexURL({ type, id })
+    const $ = await fetch(url)
+        .then(response => response.text())
+        .then(html => cheerio.load(html))
+    if (!isValidPage($)) {
+        throw new Error(`Entity of type ${type} and id ${id} does not exist.`)
+    }
+    return Builder(type)({ $, id, type, locale: DefaultLocale })
 }

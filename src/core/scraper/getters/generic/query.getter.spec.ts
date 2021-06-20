@@ -1,4 +1,4 @@
-import { Query } from '@core/query'
+import { QueryModes } from '@core/query'
 import { TestLoader } from '../../tests/utils/test-loader'
 
 describe('Scraper > Getters > getQuery()', () => {
@@ -10,9 +10,9 @@ describe('Scraper > Getters > getQuery()', () => {
             .entries(expected.query)
             .reduce((arr, [mode, isSupported]) => {
                 if (isSupported)
-                    return [...arr, mode] as Query.Modes[]
+                    return [...arr, mode] as QueryModes[]
                 return arr
-            }, [] as Query.Modes[])
+            }, [] as QueryModes[])
         it.each(modes)('%s', (mode) => {
             expect(typeof received.query[mode]).toBe('function')
         })

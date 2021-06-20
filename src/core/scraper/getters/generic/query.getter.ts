@@ -1,19 +1,19 @@
-import QueryFn, { Query } from '@core/query'
+import { Query, QueryModes } from '@core/query'
 import { Getter } from './getter.type'
 
-const Lookup: Record<string, Query.Modes> = {
-    'questreward': Query.Modes.QuestReward,
-    'mproductofrecipe': Query.Modes.ProcessingProduct,
-    'mrecipematerial': Query.Modes.ProcessingMaterial,
-    'designmaterial': Query.Modes.DesignMaterial,
-    'productofdesign': Query.Modes.DesignProduct,
-    'usedinpuzzle': Query.Modes.PatternMaterial,
-    'usedasgift': Query.Modes.GiftMaterial,
-    'recipematerial': Query.Modes.RecipeMaterial,
-    'productofrecipe': Query.Modes.RecipeProduct,
-    'specialsoldbynpc': Query.Modes.SoldByNPC,
-    'exchangeableitems': Query.Modes.ExchangeList,
-    'droppedbynpc': Query.Modes.DroppedByNPC,
+const Lookup: Record<string, QueryModes> = {
+    'questreward': QueryModes.QuestReward,
+    'mproductofrecipe': QueryModes.ProcessingProduct,
+    'mrecipematerial': QueryModes.ProcessingMaterial,
+    'designmaterial': QueryModes.DesignMaterial,
+    'productofdesign': QueryModes.DesignProduct,
+    'usedinpuzzle': QueryModes.PatternMaterial,
+    'usedasgift': QueryModes.GiftMaterial,
+    'recipematerial': QueryModes.RecipeMaterial,
+    'productofrecipe': QueryModes.RecipeProduct,
+    'specialsoldbynpc': QueryModes.SoldByNPC,
+    'exchangeableitems': QueryModes.ExchangeList,
+    'droppedbynpc': QueryModes.DroppedByNPC,
     // 'droppedbynpcuser': Query.Modes.DroppedByNPC,
 }
 
@@ -26,6 +26,6 @@ export const getQuery: Getter<'query'> = ({ $, id }) => {
         if (!(tabName in Lookup))
             return obj
         const mode = Lookup[tabName]
-        return { ...obj, [mode]: () => QueryFn(mode, id) }
+        return { ...obj, [mode]: () => Query(mode, id) }
     }, {})
 }

@@ -1,4 +1,4 @@
-import { Query } from '@core/query'
+import { QueryModes, QuerySelectors } from '@core/query'
 import { Selectors } from '../index'
 import { As } from './as.enum'
 
@@ -37,7 +37,7 @@ export interface Generic<A extends As = As> {
     description?: string
 
     query: Partial<{
-        [Mode in Query.Modes]:
-            () => Promise<Query.Selectors.ReturnedEntity<Mode>>
+        [Mode in QueryModes]:
+            () => Promise<QuerySelectors.ReturnedEntity<Mode>>
     }>
 }

@@ -9,7 +9,7 @@ interface QueryURLParams {
     readonly id: string
 }
 
-export function composeQueryURL(params: QueryURLParams) {
+export function buildQueryURL(params: QueryURLParams) {
     const { locale = DefaultLocale, mode, id } = params
     const { as, type } = getQueryDescriptor(mode)
     const descriptor: BDOCodex.Query.Descriptor =
