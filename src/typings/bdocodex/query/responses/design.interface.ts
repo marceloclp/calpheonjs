@@ -1,5 +1,5 @@
-import { Generic } from './generic.interface'
 import { HTMLString, SorteableField } from '../utilities'
+import { Generic } from './generic.interface'
 
 export interface Design extends Generic<string> {
     /** The skill level, but it's always the same as designs do not require skil level. */

@@ -1,8 +1,6 @@
 import { BDOCodex } from '@typings/namespaces'
 
-export interface Level extends
-    BDOCodex.Characters.Stats<string> {
-
+export interface Level extends BDOCodex.Characters.Stats<string> {
     /** The chance of a successful enhancement. */
     readonly enchant_chance: string;
 

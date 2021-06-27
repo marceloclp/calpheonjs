@@ -1,5 +1,5 @@
-import { Generic } from './generic.interface'
 import { HTMLString } from '../utilities'
+import { Generic } from './generic.interface'
 
  export interface ExchangeItem extends Generic<string> {
     /** Amount of items received upon successful exchange. */

@@ -1,5 +1,5 @@
-import { Generic } from './generic.interface'
 import { HTMLString, SorteableField } from '../utilities'
+import { Generic } from './generic.interface'
 
 export interface Quest extends Generic<SorteableField> {
     /** Level required to take the quest. */

@@ -1,5 +1,5 @@
-import { Generic } from './generic.interface'
 import { HTMLString, SorteableField } from '../utilities'
+import { Generic } from './generic.interface'
 
 export interface Processing extends Generic<string> {
     /** Processing type. */

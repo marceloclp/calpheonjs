@@ -1,5 +1,5 @@
-import { Generic } from './generic.interface'
 import { SorteableField } from '../utilities'
+import { Generic } from './generic.interface'
 
 export interface NPC extends Generic<SorteableField> {
     /** Level. */
