@@ -1,5 +1,5 @@
 import { BDO, BDOCodex } from '@typings/namespaces'
-import { WithFallback } from '@typings/utilities'
+import { Fallback, WithFallback } from '@typings/utilities'
 import { Entities, Modes } from './index'
 
 /**
@@ -49,7 +49,7 @@ export type BDOType<A extends Entities.As = Entities.As> = {
     [Entities.As.Recipe]: BDO.Entities.Types.Recipe
 }[A]
 
-export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
+export type Entity<A extends WithFallback<Entities.As> = Fallback> = {
     [Entities.As.Design]: Entities.Design
     [Entities.As.DropNPC]: Entities.DropNPC
     [Entities.As.DropGatherable]: Entities.DropGatherable
@@ -60,7 +60,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Processing]: Entities.Processing
     [Entities.As.Quest]: Entities.Quest
     [Entities.As.Recipe]: Entities.Recipe
-    F: Entities.Generic
+    Fallback: Entities.Generic
 }[A]
 
 /**
@@ -69,7 +69,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
  * 
  * Many modes may map to the same type of response.
  */
- export type Response<A extends WithFallback<Entities.As> = 'F'> = {
+ export type Response<A extends WithFallback<Entities.As> = Fallback> = {
     [Entities.As.Design]: BDOCodex.Query.Responses.Design
     [Entities.As.DropNPC]: BDOCodex.Query.Responses.Drop
     [Entities.As.DropGatherable]: BDOCodex.Query.Responses.Drop
@@ -80,5 +80,5 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Processing]: BDOCodex.Query.Responses.Processing
     [Entities.As.Quest]: BDOCodex.Query.Responses.Quest
     [Entities.As.Recipe]: BDOCodex.Query.Responses.Recipe
-    F: BDOCodex.Query.Responses.Generic
+    Fallback: BDOCodex.Query.Responses.Generic
 }[A]

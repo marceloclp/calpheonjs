@@ -1,4 +1,5 @@
 export * as Entities from './entities'
 export * as Selectors from './selectors'
+export * as Refs from './refs'
 export * from './descriptor.interface'
 export * from './modes.enum'

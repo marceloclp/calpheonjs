@@ -33,7 +33,9 @@ describe('Scraper > NPCOther', () => {
         it('getKnowledge()', () => {
             if (!received.knowledge)
                 return expect(true).toBeTruthy()
-            expect(received.knowledge).toEqual(expected.knowledge)
+            expect(received.knowledge).toEqual(
+                expect.objectContaining(expected.knowledge)
+            )
         })
         it('getDroppedExp()', () => {
             expect(received.droppedExp).toEqual(expected.droppedExp)

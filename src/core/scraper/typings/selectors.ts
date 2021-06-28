@@ -1,12 +1,11 @@
 import { BDO } from '@typings/namespaces'
-import { WithFallback } from '@typings/utilities'
-import { Entities } from './index'
-import { ScrapableEntity } from './scrapable-entity.type'
+import { Fallback, WithFallback } from '@typings/utilities'
+import { Entities, ScrapableEntity } from './index'
 
 /**
  * Maps the scrapable entities to their primary entity objects.
  */
-export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
+export type Entity<A extends WithFallback<Entities.As> = Fallback> = {
     [Entities.As.Item]: Entities.Item
     [Entities.As.ItemConsumable]: Entities.ItemConsumable
     [Entities.As.ItemEquipment]: Entities.ItemEquipment
@@ -18,7 +17,7 @@ export type Entity<A extends WithFallback<Entities.As> = 'F'> = {
     [Entities.As.Processing]: Entities.Processing
     [Entities.As.Quest]: Entities.Quest
     [Entities.As.Recipe]: Entities.Recipe
-    F: Entities.Generic
+    Fallback: Entities.Generic
 }[A]
 
 /**
@@ -60,3 +59,5 @@ export type ReturnedAs<T extends ScrapableEntity> = {
     [BDO.Entities.Types.Quest]: Entities.As.Quest
     [BDO.Entities.Types.Recipe]: Entities.As.Recipe
 }[T]
+export type ReturnedEntity<T extends ScrapableEntity> =
+    Entity<ReturnedAs<T>>

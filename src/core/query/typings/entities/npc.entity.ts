@@ -9,7 +9,11 @@ export interface NPC extends Generic<As.NPC> {
 
     stats: BDO.NPCs.Stats<number>
 
-    droppedExp: BDO.NPCs.DroppedExp
+    droppedExp: {
+        base?: number
+        skill?: number
+        contribution?: number
+    }
 
     droppedKarma: number
 }

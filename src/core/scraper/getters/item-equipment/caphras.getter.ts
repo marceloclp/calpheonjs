@@ -1,4 +1,4 @@
-import { BDO, BDOCodex } from '@typings/namespaces'
+import { BDOCodex } from '@typings/namespaces'
 import { StatsLookup } from '@helpers/lookups/stats.lookup'
 import { cleanStr } from '@helpers/utils/clean-str'
 import { parseNumber } from '@helpers/utils/parse-number'
@@ -21,7 +21,7 @@ export const getCaphras: Getter<'caphras'> = ({ $ }) => {
 
 const buildCaphrasEnhancement = (
     array: BDOCodex.Caphras.Set
-): BDO.Items.Equipments.Caphras[] => {
+) => {
     return array.map(enhancement => ({
         stats: StatsLookup.toBDO(enhancement.stats),
         amount: {

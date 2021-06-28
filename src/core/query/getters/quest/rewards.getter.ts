@@ -3,7 +3,9 @@ import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { createRef } from '@helpers/utils/create-ref'
 import { substrOf } from '@helpers/utils/substr-of'
+import { Entities } from '../../query'
 import { Getter } from './getter.type'
 
 export const getRewards: Getter<'rewards'> = (data) => {
@@ -11,7 +13,7 @@ export const getRewards: Getter<'rewards'> = (data) => {
         standard: Matcher.initWith('Standard'),
         choseOneOf: Matcher.initWith('Choose'),
     }
-    const rewards: BDO.Quests.Rewards = {
+    const rewards: Entities.Quest['rewards'] = {
         choseOneOf: [],
         standard: [
             { type: 'exp', name: 'EXP', amount: parseNumber(data[5].display) },
@@ -28,9 +30,19 @@ export const getRewards: Getter<'rewards'> = (data) => {
         // When the node refers to an item.
         if (elem.type === 'tag' && elem.tagName === 'div') {
             const url = node.find('a').attr('href')
-            if (url && ShortURL.decompose(url).type === BDO.Entities.Types.Item)
-                rewards[activeKey].push(composeItem(node))
-            return
+            if (!url)
+                return
+            const { type, id } = ShortURL.decompose(url)
+            if (type !== BDO.Entities.Types.Item)
+                return
+            return rewards[activeKey].push(createRef({
+                id,
+                type,
+                icon: substrOf(
+                    node.find('.icon_wrapper').text(),
+                    { left: 'src="', right: '"' },
+                ),
+            }, { amount: parseNumber(node.find('.quantity_small').text(), 1) }))
         }
         // When the node refers to a label that changes the active key.
         const key = Object.keys(matchers).find(key => {
@@ -39,15 +51,4 @@ export const getRewards: Getter<'rewards'> = (data) => {
         if (key) activeKey = key
     })
     return rewards
-}
-
-function composeItem(node: cheerio.Cheerio) {
-    const url = node.find('a').attr('href') as string
-    const { id } = ShortURL.decompose(url)
-    const amount = parseNumber(node.find('.quantity_small').text(), 1)
-    const icon = substrOf(
-        node.find('.icon_wrapper').text(),
-        { left: 'src="', right: '"' }
-    )
-    return { type: BDO.Entities.Types.Item, id, icon, amount } as const
 }

@@ -1,4 +1,5 @@
-export type WithFallback<T> = T | 'F'
+export type Fallback = 'Fallback'
+export type WithFallback<T> = T | Fallback
 
 export type U<T> = T | undefined
 

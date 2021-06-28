@@ -15,11 +15,15 @@ describe('Scraper > Processing', () => {
         it('getNameAlternative()', () => {
             expect(received.nameAlternative).toBe(expected.nameAlternative)
         })
-        it('getMaterials()', () => {
-            expect(received.materials).toEqual(expected.materials)
+        it('materials', () => {
+            expect(received.materials).toEqual(
+                expected.materials.map(material => expect.objectContaining(material))
+            )
         })
-        it('getProducts()', () => {
-            expect(received.materials).toEqual(expected.materials)
+        it('products', () => {
+            expect(received.products).toEqual(
+                expected.products.map(product => expect.objectContaining(product))
+            )
         })
         it('getProcess()', () => {
             expect(received.process).toBe(expected.process)

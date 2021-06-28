@@ -3,12 +3,16 @@ import { BDO, BDOCodex } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { StatsLookup } from '@helpers/lookups/stats.lookup'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { createRef } from '@helpers/utils/create-ref'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Entities } from '../../typings'
 import { Getter } from './getter.type'
+
+type Effects = Entities.ItemEquipment['enhancements'][0]['effects']
 
 const parseEffects = (
     html: string
-): BDO.Items.Equipments.Effects => {
+): Effects => {
     const $ = cheerio.load('<div>' + html + '</div>')
     const matchers = {
         item: Matcher.initWith('Item Effect'),
@@ -16,10 +20,10 @@ const parseEffects = (
         additional: Matcher.initWith('Additional Effect'),
         set: Matcher.initWith('Set Effect'),
     }
-    const effects: BDO.Items.Equipments.Effects = {
+    const effects: Effects = {
         item: [], enhancement: [], additional: [], set: {},
     }
-    const keys = Object.keys(effects) as (keyof typeof matchers)[]
+    const keys = Object.keys(effects) as (keyof Effects)[]
 
     let numberOfPieces: number
     let currKey: keyof typeof matchers
@@ -62,14 +66,15 @@ export const getEnhancements: Getter<'enhancements'> = ({ $ }) => {
                 total: parseNumber(level.cron_tvalue),
             },
             effects: parseEffects(level.edescription),
-            requiredItem: isLastLevel ? {
+            requiredItem: isLastLevel ? createRef({
                 type: BDO.Entities.Types.Item,
                 id: level.need_enchant_item_id,
                 icon: '/' + level.need_enchant_item_icon,
                 name: level.need_enchant_item_name,
+            }, {
                 amount: parseNumber(level.enchant_item_counter, 0),
-                durabilityLossOnFailure: parseNumber(level.fail_dura_dec, 0),
-            } : undefined,
+                durabilityLossOnFailure: parseNumber(level.fail_dura_dec, 0)
+            }) : undefined,
             perfectEnhancement: isLastLevel ? {
                 amount: parseNumber(level.pe_item_counter, 0),
                 durabilityLossOnFailure: parseNumber(level.pe_dura_dec, 0),

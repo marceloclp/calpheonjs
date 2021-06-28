@@ -40,9 +40,6 @@ describe('Query > Getters > getRewards()', () => {
         it('should return an empty array for choseOneOf', () => {
             expect(rewards.choseOneOf).toMatchObject([])
         })
-        it('should not return a knowledge', () => {
-            expect(rewards.knowledge).toBeUndefined()
-        })
     })
 
     describe('when there are chooseable rewards', () => {
@@ -97,9 +94,6 @@ describe('Query > Getters > getRewards()', () => {
                 { type: 'item', id: '10892', icon: '/items/new_icon/06_pc_equipitem/00_common/12_foot/00010892.png', amount: 1 },
             ])
         })
-        it('should not return a knowledge', () => {
-            expect(rewards.knowledge).toBeUndefined()
-        })
     })
 
     describe('when amity is also a reward', () => {
@@ -140,9 +134,6 @@ describe('Query > Getters > getRewards()', () => {
         })
         it('should return all chooseable rewards', () => {
             expect(rewards.choseOneOf).toMatchObject([])
-        })
-        it('should not return a knowledge', () => {
-            expect(rewards.knowledge).toBeUndefined()
         })
     })
 })

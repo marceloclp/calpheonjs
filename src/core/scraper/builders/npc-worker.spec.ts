@@ -33,10 +33,12 @@ describe('Scraper > NPCWorker', () => {
         it('getObtainedFrom()', () => {
             if (!received.obtainedFrom)
                 return expect(true).toBeTruthy()
-            expect(received.obtainedFrom).toEqual(expected.obtainedFrom)
+            expect(received.obtainedFrom).toEqual(
+                expect.objectContaining(expected.obtainedFrom)
+            )
         })
         it('getAcquireChanceTable()', () => {
-            expect(received.acquireChanceTable).toEqual(expected.acquireChanceTable)
+            expect(received.acquireChanceTable).toMatchObject(expected.acquireChanceTable)
         })
         it('getPersonalSkill()', () => {
             if (!received.personalSkill)

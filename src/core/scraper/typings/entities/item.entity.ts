@@ -6,8 +6,12 @@ import { As } from './as.enum'
 export interface Item extends Generic<As.Item | As.ItemConsumable | As.ItemEquipment>, Gradeable {
     subType: BDO.Items.SubTypes
 
-    /** An item may be sellable or buyable. */
-    prices: BDO.Items.Pricings
+    prices: {
+        buy?: number
+        sell?: number
+        repair?: number
+        // TODO market?: number
+    }
 
     /** The item weight in LT as a floating point. */
     weight: number

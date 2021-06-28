@@ -1,6 +1,7 @@
 import cheerio from 'cheerio'
 import { BDO } from '@typings/namespaces'
 import { ShortURL } from '@helpers/utils/short-url'
+import { createRef } from '@helpers/utils/create-ref'
 import { Getter } from './getter.type'
 
 export const getTradeWith: Getter<'tradeWith'> = (data) => {
@@ -10,6 +11,6 @@ export const getTradeWith: Getter<'tradeWith'> = (data) => {
             $(elem).attr('href') as string
         )
         const name = $(elem).text()
-        return { id, type: BDO.Entities.Types.NPC, name }
+        return createRef({ id, type: BDO.Entities.Types.NPC, name })
     })
 }

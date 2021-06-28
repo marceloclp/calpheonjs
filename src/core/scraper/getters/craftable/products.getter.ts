@@ -1,7 +1,9 @@
-import { BDO, BDOCodex } from '@typings/namespaces'
+import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
+import { createRef } from '@helpers/utils/create-ref'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Entities } from '../../typings'
 import { Getter } from './getter.type'
 
 export const getProducts: Getter<'products'> = ({ $ }) => {
@@ -16,17 +18,16 @@ export const getProducts: Getter<'products'> = ({ $ }) => {
     return $(row).find('img').toArray().map(element => {
         const parent = $(element.parent.parent)
         const shortUrl = parent.attr('href')
-        const { type, id } = ShortURL.decompose(shortUrl as string)
+        if (!shortUrl) return
+        const { type, id } = ShortURL.decompose(shortUrl)
 
-        const material: BDO.LifeSkills.Material = {
-            type: type === BDOCodex.Entities.Types.Item
+        return createRef({
+            id,
+            type: type === BDO.Entities.Types.Item
                 ? BDO.Entities.Types.Item
                 : BDO.Entities.Types.MaterialGroup,
-            id,
             name: $(row).find(`a[href="${shortUrl}"]`).last().text(),
-            icon: $(element).attr('src') as string,
-            amount: parseNumber(parent.text(), 1),
-        }
-        return material
-    })
+            icon: $(element).attr('src'),
+        }, { amount: parseNumber(parent.text(), 1) })
+    }).filter(Boolean) as Entities.Craftable['products']
 }

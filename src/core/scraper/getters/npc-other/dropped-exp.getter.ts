@@ -1,4 +1,3 @@
-import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
@@ -8,7 +7,7 @@ export const getDroppedExp: Getter<'droppedExp'> = ({ $ }) => {
         base: 'XP:',
         skill: 'Skill XP',
     })
-    const droppedExp: BDO.NPCs.DroppedExp = {}
+    const droppedExp = {}
 
     $('.titles_cell').contents().toArray().forEach(elem => {
         const text = $(elem).text()

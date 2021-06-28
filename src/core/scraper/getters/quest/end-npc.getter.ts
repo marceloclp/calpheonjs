@@ -2,6 +2,7 @@ import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { createRef } from '@helpers/utils/create-ref'
 import { Getter } from './getter.type'
 
 export const getEndNPC: Getter<'endNPC'> = ({ $ }) => {
@@ -23,12 +24,17 @@ export const getEndNPC: Getter<'endNPC'> = ({ $ }) => {
         idx++
     }
 
-    const first = $(elements[idx]), second = $(elements[idx+2])
-    const url = first.attr('href') as string
-    return {
-        type: BDO.Entities.Types.NPC,
-        id: ShortURL.decompose(url).id,
-        name: cleanStr(second.text()),
-        icon: first.find('img').attr('src') as string,
-    }
+    const anchor = $(elements[idx])
+    const url = anchor.attr('href')
+    if (!url)
+        return
+    const { type, id } = ShortURL.decompose(url)
+    if (type !== BDO.Entities.Types.NPC)
+        return
+    return createRef({
+        id,
+        type,
+        name: cleanStr($(elements[idx+2]).text()),
+        icon: anchor.find('img').attr('src'),
+    })
 }

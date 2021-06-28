@@ -14,10 +14,10 @@ describe('Query > Builders > ExchangeItem', () => {
             expect(received.quantity).toBe(expected.quantity)
         })
         it('tradeForItem', () => {
-            expect(received.tradeForItem).toEqual(expected.tradeForItem)
+            expect(received.tradeForItem).toMatchObject(expected.tradeForItem)
         })
         it('tradeWith', () => {
-            expect(received.tradeWith).toEqual(expected.tradeWith)
+            expect(received.tradeWith).toMatchObject(expected.tradeWith)
         })
     })
 })

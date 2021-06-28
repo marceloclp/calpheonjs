@@ -1,4 +1,4 @@
-import { BDO } from '@typings/namespaces'
+import { Refs } from '../index'
 import { Generic } from './extendables/generic.interface'
 import { Gradeable } from './extendables/gradeable.interface'
 import { As } from './as.enum'
@@ -8,11 +8,11 @@ export interface ExchangeItem extends Generic<As.ExchangeItem>, Gradeable {
     quantity: number
 
     /** The item required to perform the exchange. */
-    tradeForItem: BDO.Refs.Item
+    tradeForItem: Refs.Item
 
     /** A list of NPCs that can perform this exchange. */
-    tradeWith: BDO.Refs.NPC[]
+    tradeWith: Refs.NPC[]
 
-    // TODO: exhange item conditions
+    // TODO
     // conditions: any
 }

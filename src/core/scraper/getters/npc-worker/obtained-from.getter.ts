@@ -1,7 +1,8 @@
+import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
+import { createRef } from '@helpers/utils/create-ref'
 import { cleanStr } from '@helpers/utils/clean-str'
-import { Entities } from '../../typings'
 import { Getter } from './getter.type'
 
 export const getObtainedFrom: Getter<'obtainedFrom'> = ({ $ }) => {
@@ -13,7 +14,6 @@ export const getObtainedFrom: Getter<'obtainedFrom'> = ({ $ }) => {
         return !!matcher.findIn(text)
     })
     if (idx === -1) return
-
     for (idx = idx + 1; idx < elements.length; idx++) {
         const elem = elements[idx]
         if (elem.type === 'tag' && elem.tagName === 'a')
@@ -21,13 +21,16 @@ export const getObtainedFrom: Getter<'obtainedFrom'> = ({ $ }) => {
     }
 
     const anchor = $(elements[idx])
-    const img = anchor.parent().find('img')
-    const { type, id } = ShortURL.decompose(anchor.attr('href') as string)
-
-    return {
+    const url = anchor.attr('href')
+    if (!url)
+        return
+    const { type, id } = ShortURL.decompose(url)
+    if (type !== BDO.Entities.Types.NPC)
+        return
+    return createRef({
         id,
         type,
         name: cleanStr(anchor.text()),
-        icon: img.attr('src') as string,
-    } as Entities.NPCWorker['obtainedFrom']
+        icon: anchor.parent().find('img').attr('src'),
+    })
 }

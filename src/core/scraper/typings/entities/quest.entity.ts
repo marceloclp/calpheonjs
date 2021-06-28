@@ -1,4 +1,5 @@
 import { BDO } from '@typings/namespaces'
+import { Refs } from '../index'
 import { Generic } from './generic.interface'
 import { Gradeable } from './gradeable.interface'
 import { As } from './as.enum'
@@ -17,17 +18,34 @@ export interface Quest extends Generic<As.Quest>, Gradeable {
     level?: number
 
     /** A quest may have be part of a chain of quests. */
-    chain: BDO.Refs.Quest[]
+    chain: Refs.Quest[]
 
     /** The entry point NPC. If undefined, then it's the Black Spirit. */
-    startNPC?: BDO.Refs.NPC
+    startNPC?: Refs.NPC
 
     /** The end NPC. If undefined, then it's the Black Spirit. */
-    endNPC?: BDO.Refs.NPC
+    endNPC?: Refs.NPC
 
     /** A quest may have a story. */
     story?: string
     
     /** A quest may reward the player upon completion. */
-    rewards: BDO.Quests.Rewards
+    rewards: {
+        /** Upon competion the player is always awarded the following rewards. */
+        standard: (
+            | BDO.EXP<{ amount: number }>
+            | Refs.Item<{ amount: number }>
+            | Refs.NPC<{ amityGained: number }>
+        )[]
+
+        /** Upon completion the player be asked to choose one of the following rewards. */
+        choseOneOf: (
+            | BDO.EXP<{ amount: number }>
+            | Refs.Item<{ amount: number }>
+            | Refs.NPC<{ amityGained: number }>
+        )[]
+
+        /** Upon completion the player may be rewarded with a knowledge. */
+        knowledge?: Refs.Knowledge
+    }
 }

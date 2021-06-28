@@ -1,4 +1,5 @@
 import { BDO } from '@typings/namespaces'
+import { Refs } from '../index'
 import { Generic } from './extendables/generic.interface'
 import { As } from './as.enum'
 
@@ -10,5 +11,19 @@ export interface Quest extends Generic<As.Quest> {
     region?: string
     
     /** A quest may reward the player upon completion. */
-    rewards: BDO.Quests.Rewards
+    rewards: {
+        /** Upon competion the player is always awarded the following rewards. */
+        standard: (
+            | BDO.EXP<{ amount: number }>
+            | Refs.Item<{ amount: number }>
+            | Refs.NPC<{ amityGained: number }>
+        )[]
+
+        /** Upon completion the player be asked to choose one of the following rewards. */
+        choseOneOf: (
+            | BDO.EXP<{ amount: number }>
+            | Refs.Item<{ amount: number }>
+            | Refs.NPC<{ amityGained: number }>
+        )[]
+    }
 }

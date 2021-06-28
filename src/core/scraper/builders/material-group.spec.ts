@@ -16,7 +16,9 @@ describe('Scraper > MaterialGroup', () => {
             expect(received.nameAlternative).toBe(expected.nameAlternative)
         })
         it('getItems()', () => {
-            expect(received.items).toEqual(expected.items)
+            expect(received.items).toEqual(
+                expected.items.map(item => expect.objectContaining(item))
+            )
         })
     })
 })

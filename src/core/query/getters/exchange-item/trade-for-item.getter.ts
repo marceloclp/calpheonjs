@@ -1,6 +1,7 @@
 import cheerio from 'cheerio'
 import { BDO } from '@typings/namespaces'
 import { ShortURL } from '@helpers/utils/short-url'
+import { createRef } from '@helpers/utils/create-ref'
 import { substrOf } from '@helpers/utils/substr-of'
 import { Getter } from './getter.type'
 
@@ -21,5 +22,5 @@ export const getTradeForItem: Getter<'tradeForItem'> = (data) => {
         'Please open an issue on the GitHub page with the query information so it can be fixed.'
     ))
 
-    return { id, type: type as BDO.Entities.Types.Item, icon }
+    return createRef({ id, type: BDO.Entities.Types.Item, icon })
 }

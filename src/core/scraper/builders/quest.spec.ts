@@ -28,23 +28,29 @@ describe('Scraper > Quest', () => {
             expect(received.level).toBe(expected.level)
         })
         it('getChain()', () => {
-            expect(received.chain).toEqual(expected.chain)
+            expect(received.chain).toEqual(
+                expected.chain.map(quest => expect.objectContaining(quest))
+            )
         })
         it('getStartNPC()', () => {
             if (!received.startNPC)
                 return expect(true).toBeTruthy()
-            expect(received.startNPC).toEqual(expected.startNPC)
+            expect(received.startNPC).toEqual(
+                expect.objectContaining(expected.startNPC)
+            )
         })
         it('getEndNPC()', () => {
             if (!received.endNPC)
                 return expect(true).toBeTruthy()
-            expect(received.endNPC).toEqual(expected.endNPC)
+            expect(received.endNPC).toEqual(
+                expect.objectContaining(expected.endNPC)
+            )
         })
         it('getStory()', () => {
             expect(received.story).toBe(expected.story)
         })
         it('getRewards()', () => {
-            expect(received.rewards).toEqual(expected.rewards)
+            expect(received.rewards).toMatchObject(expected.rewards)
         })
     })
 })

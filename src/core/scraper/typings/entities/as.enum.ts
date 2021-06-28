@@ -1,5 +1,4 @@
 export enum As {
-    // Design = 'design',
     Item = 'item',
     ItemConsumable = 'itemConsumable',
     ItemEquipment = 'itemEquipment',
@@ -11,5 +10,4 @@ export enum As {
     Processing = 'processing',
     Quest = 'quest',
     Recipe = 'recipe',
-    // WorkerSkill = 'workerSkill',
 }

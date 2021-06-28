@@ -1,11 +1,18 @@
 import { BDO } from '@typings/namespaces'
+import { Refs } from '../../index'
 
 export interface Craftable {
     /** The list of items required to craft this recipe. */
-    materials: BDO.LifeSkills.Material[]
+    materials: (
+        | Refs.Item<{ amount: number }>
+        | Refs.MaterialGroup<{ amount: number }>
+    )[]
     
     /** The list of possible products of a successful craft. */
-    products: BDO.LifeSkills.Material[]
+    products: (
+        | Refs.Item<{ amount: number }>
+        | Refs.MaterialGroup<{ amount: number }>
+    )[]
 }
 
 export interface RankedCraftable extends Craftable {

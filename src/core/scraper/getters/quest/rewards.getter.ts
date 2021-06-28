@@ -2,14 +2,16 @@ import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
 import { cleanStr } from '@helpers/utils/clean-str'
+import { createRef } from '@helpers/utils/create-ref'
 import { parseNumber } from '@helpers/utils/parse-number'
+import { Entities } from '../../typings'
 import { Getter } from './getter.type'
 
 export const getRewards: Getter<'rewards'> = ({ $ }) => {
     const matcher = Matcher.initWithMap({
         standard: 'Standard', choseOneOf: 'Choose'
     })
-    const rewards: BDO.Quests.Rewards = {
+    const rewards: Entities.Quest['rewards'] = {
         standard: [], choseOneOf: []
     }
 
@@ -26,7 +28,7 @@ export const getRewards: Getter<'rewards'> = ({ $ }) => {
         })
     if (!row) return rewards
     
-    let currKey: keyof BDO.Quests.Rewards = 'standard'
+    let currKey: keyof typeof rewards = 'standard'
     const elements = $(row).contents().toArray()
     for (let i = 0; i < elements.length; i++) {
         const elem = elements[i]
@@ -57,15 +59,19 @@ export const getRewards: Getter<'rewards'> = ({ $ }) => {
             const { type, id } = ShortURL.decompose(url)
 
             if (type === BDO.Entities.Types.Knowledge) {
-                rewards.knowledge = { type, id, name, icon }
+                rewards.knowledge = createRef({ type, id, name, icon })
             } else if (type === BDO.Entities.Types.Item) {
                 const text = node.find('.quantity_small').text()
                 const amount = parseNumber(text, 1)
-                rewards[currKey].push({ type, id, name, icon, amount })
+                rewards[currKey].push(
+                    createRef({ type, id, name, icon }, { amount })
+                )
             } else if (type === BDO.Entities.Types.NPC) {
                 const text = $(elements[i-1]).text()
                 const amityGained = parseNumber(text)
-                rewards[currKey].push({ type, id, name, icon, amityGained })
+                rewards[currKey].push(
+                    createRef({ type, id, name, icon }, { amityGained })
+                )
             }
         }
     }

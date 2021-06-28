@@ -8,10 +8,14 @@ describe('Query > Builders > Pattern', () => {
         .buildTests()
     describe.each(tests)('%s', (_, expected, received) => {
         it('materials', () => {
-            expect(received.materials).toEqual(expected.materials)
+            expect(received.materials).toEqual(
+                expected.materials.map(material => expect.objectContaining(material))
+            )
         })
         it('products', () => {
-            expect(received.products).toEqual(expected.products)
+            expect(received.products).toEqual(
+                expected.products.map(product => expect.objectContaining(product))
+            )
         })
     })
 })

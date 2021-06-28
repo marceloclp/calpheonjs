@@ -1,6 +1,7 @@
 import { BDO } from '@typings/namespaces'
 import { Matcher } from '@helpers/utils/matcher'
 import { ShortURL } from '@helpers/utils/short-url'
+import { createRef } from '@helpers/utils/create-ref'
 import { parseNumber } from '@helpers/utils/parse-number'
 import { Getter } from './getter.type'
 
@@ -12,11 +13,6 @@ export const getDroppedKnowledge: Getter<'knowledge'> = ({ $ }) => {
                 return elem.type === 'tag' && elem.tagName === 'b'
             matcher.findIn($(elem).text())
         })
-
-    const ref: Partial<BDO.Refs.Knowledge<{ dropChance?: number}>> = {
-        type: BDO.Entities.Types.Knowledge,
-        dropChance: parseNumber($(dcElement).text()) || undefined
-    }
 
     // To simplify things, we will assume the HTML structure is consistent.
     // This may not always be the case, but this can be improved later.
@@ -32,10 +28,13 @@ export const getDroppedKnowledge: Getter<'knowledge'> = ({ $ }) => {
     const anchor = $(elements[idx+4])
     const url = anchor.attr('href')
     if (!url) return
-
-    ref.icon = $(elements[idx+2]).find('img').attr('src') as string
-    ref.name = anchor.text()
-    ref.id = ShortURL.decompose(url).id
-
-    if (ref.id) return ref as BDO.Refs.Knowledge<{ dropChance?: number }>
+    const { type, id } = ShortURL.decompose(url)
+    if (type !== BDO.Entities.Types.Knowledge)
+        return
+    return createRef({
+        type,
+        id,
+        name: anchor.text(),
+        icon: $(elements[idx+2]).find('img').attr('src'),
+    }, { dropChance: parseNumber($(dcElement).text()) || undefined })
 }

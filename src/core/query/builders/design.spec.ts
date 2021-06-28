@@ -11,10 +11,14 @@ describe('Query > Builders > Design', () => {
             expect(received.grade).toBe(expected.grade)
         })
         it('materials', () => {
-            expect(received.materials).toEqual(expected.materials)
+            expect(received.materials).toEqual(
+                expected.materials.map(material => expect.objectContaining(material))
+            )
         })
         it('products', () => {
-            expect(received.products).toEqual(expected.products)
+            expect(received.products).toEqual(
+                expected.products.map(product => expect.objectContaining(product))
+            )
         })
     })
 })
