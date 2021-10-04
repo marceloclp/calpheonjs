@@ -41,7 +41,15 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "lodash": "^4.17.21",
+    "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "tsconfig-paths": "^3.9.0"
+  },
+  "_moduleAliases": {
+    "@core": "dist/src/core/",
+    "@config": "dist/src/config",
+    "@typings": "dist/src/typings",
+    "@helpers": "dist/src/helpers",
+    "@tests/": "dist/src/test"
   }
 }
